@@ -1,0 +1,5 @@
+percentile of the observed dQ (share of shuffles at or below),level,cohort,actively protected designs,Q,"baseline (all designs, two earliest cohorts)",ΔQ,band low,band high,below band
+0.9,A,2020-23,192,0.5154,0.5442,-0.0287,-0.0231,0.036,True
+0.2,A·W·T,2020-23,191,0.5128,0.5442,-0.0313,-0.022,0.0356,True
+1.2,A·U,2020-23,191,0.5128,0.5442,-0.0313,-0.0234,0.0366,True
+0.9,F,2020-23,192,0.5154,0.5442,-0.0287,-0.0231,0.036,True

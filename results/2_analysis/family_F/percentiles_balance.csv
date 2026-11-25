@@ -1,0 +1,41 @@
+level,level name,window,aircraft,top archetype,top share,top-2 share,D2,D2 low,D2 high,percentile of the observed D2 (share of shuffles at or below),D2 permutation low,D2 permutation high,below band,condition 1 (> 50 %),partial,base
+A0,C — Class,<= 2011,59,Tilt Propulsor,0.339,0.559,4.8,3.9,5.71,25.6,4.11,6.54,False,False,False,all designs
+A0,C — Class,2012-15,57,Tilt Propulsor,0.351,0.526,4.9,3.96,5.88,29.8,4.1,6.55,False,False,False,all designs
+A0,C — Class,2016-19,211,Tilt Propulsor,0.242,0.469,5.93,4.4,7.55,98.6,4.75,5.85,False,False,False,all designs
+A0,C — Class,2020-23,237,Lift + Cruise,0.316,0.54,4.55,3.39,5.97,0.2,4.75,5.8,True,False,False,all designs
+A0,C — Class,2024-26 (partial),55,Lift + Cruise,0.273,0.491,5.65,4.71,6.67,73.5,4.12,6.52,False,False,True,all designs
+A1t,C·W·T — Class + wings + tilt,<= 2011,59,Tilt Propulsor · one wing · a tilting propulsor,0.254,0.373,8.17,6.35,10.26,16.4,7.02,12.0,False,False,False,all designs
+A1t,C·W·T — Class + wings + tilt,2012-15,57,Tilt Propulsor · one wing · a tilting propulsor,0.228,0.386,7.98,6.45,9.52,12.3,7.11,11.94,False,False,False,all designs
+A1t,C·W·T — Class + wings + tilt,2016-19,211,Tilt Propulsor · one wing · a tilting propulsor,0.152,0.299,10.55,7.41,13.79,97.7,8.29,10.49,False,False,False,all designs
+A1t,C·W·T — Class + wings + tilt,2020-23,236,Lift + Cruise · one wing · no tilting propulsor,0.191,0.331,8.36,6.06,11.27,3.2,8.31,10.5,False,False,False,all designs
+A1t,C·W·T — Class + wings + tilt,2024-26 (partial),54,Lift + Cruise · one wing · no tilting propulsor,0.204,0.333,9.58,7.84,11.43,58.8,6.93,12.18,False,False,True,all designs
+A0c,C·U — Class + units,<= 2011,59,Tilt Propulsor · 1-3 propulsor units,0.22,0.305,11.17,8.16,14.82,1.1,12.01,19.17,True,False,False,all designs
+A0c,C·U — Class + units,2012-15,57,Tilt Propulsor · 1-3 propulsor units,0.246,0.316,9.91,7.21,13.33,0.0,11.91,19.22,True,False,False,all designs
+A0c,C·U — Class + units,2016-19,211,Tilt Propulsor · 1-3 propulsor units,0.1,0.175,16.26,11.94,21.05,86.8,13.91,16.88,False,False,False,all designs
+A0c,C·U — Class + units,2020-23,236,Lift + Cruise · 9 or more propulsor units,0.106,0.182,14.49,10.53,19.05,9.9,13.95,16.75,False,False,False,all designs
+A0c,C·U — Class + units,2024-26 (partial),55,Lift + Cruise · 5-6 propulsor units,0.091,0.182,15.74,13.56,18.6,55.0,11.71,19.21,False,False,True,all designs
+family_b,F — Lift + Cruise + CVT* family,<= 2011,59,Tilt Propulsor,0.339,0.644,4.07,3.42,4.76,49.0,3.06,5.47,False,False,False,all designs
+family_b,F — Lift + Cruise + CVT* family,2012-15,57,Tilt Propulsor,0.351,0.579,4.73,3.86,5.67,83.8,3.01,5.53,False,False,False,all designs
+family_b,F — Lift + Cruise + CVT* family,2016-19,211,Lift + Cruise + CVT* family,0.332,0.573,4.82,3.43,6.45,99.2,3.6,4.72,False,False,False,all designs
+family_b,F — Lift + Cruise + CVT* family,2020-23,237,Lift + Cruise + CVT* family,0.494,0.7,3.25,2.19,4.57,0.0,3.66,4.68,True,False,False,all designs
+family_b,F — Lift + Cruise + CVT* family,2024-26 (partial),55,Lift + Cruise + CVT* family,0.418,0.636,4.11,3.28,5.03,52.9,3.05,5.5,False,False,True,all designs
+A0,C — Class,<= 2011,18,Tilt Propulsor,0.5,0.722,3.0,3.0,3.0,3.0,2.95,6.75,False,False,False,actively protected
+A0,C — Class,2012-15,32,Tilt Propulsor,0.438,0.625,3.85,3.85,3.85,7.8,3.53,6.65,False,False,False,actively protected
+A0,C — Class,2016-19,138,Tilt Propulsor,0.268,0.471,6.02,4.49,7.69,100.0,4.48,5.74,False,False,False,actively protected
+A0,C — Class,2020-23,192,Lift + Cruise,0.323,0.557,4.4,3.38,5.52,0.3,4.6,5.69,True,False,False,actively protected
+A0,C — Class,2024-26 (partial),51,Lift + Cruise,0.275,0.49,5.55,4.76,6.4,76.8,3.92,6.43,False,False,True,actively protected
+A1t,C·W·T — Class + wings + tilt,<= 2011,18,Tilt Propulsor · one wing · a tilting propulsor,0.389,0.611,4.15,4.15,4.15,1.1,4.76,11.57,True,False,False,actively protected
+A1t,C·W·T — Class + wings + tilt,2012-15,32,Tilt Propulsor · one wing · a tilting propulsor,0.281,0.469,6.4,6.4,6.4,3.3,6.17,12.8,False,False,False,actively protected
+A1t,C·W·T — Class + wings + tilt,2016-19,138,Tilt Propulsor · one wing · a tilting propulsor,0.159,0.254,11.37,8.51,14.55,99.2,8.28,10.98,False,False,False,actively protected
+A1t,C·W·T — Class + wings + tilt,2020-23,191,Lift + Cruise · one wing · no tilting propulsor,0.188,0.33,8.27,6.02,10.67,0.8,8.48,10.62,True,False,False,actively protected
+A1t,C·W·T — Class + wings + tilt,2024-26 (partial),50,Lift + Cruise · one wing · no tilting propulsor,0.2,0.32,9.51,8.0,11.11,51.8,7.11,12.26,False,False,True,actively protected
+A0c,C·U — Class + units,<= 2011,18,Tilt Propulsor · 1-3 propulsor units,0.333,0.5,5.59,5.59,5.59,0.3,7.04,14.73,True,False,False,actively protected
+A0c,C·U — Class + units,2012-15,32,Tilt Propulsor · 1-3 propulsor units,0.281,0.406,7.31,7.31,7.31,0.0,9.85,18.96,True,False,False,actively protected
+A0c,C·U — Class + units,2016-19,138,Tilt Propulsor · 1-3 propulsor units,0.101,0.196,16.42,11.59,21.62,85.4,13.43,17.3,False,False,False,actively protected
+A0c,C·U — Class + units,2020-23,191,Lift + Cruise · 9 or more propulsor units,0.105,0.199,13.84,10.13,18.18,3.0,13.82,16.95,False,False,False,actively protected
+A0c,C·U — Class + units,2024-26 (partial),51,Lift + Cruise · 5-6 propulsor units,0.098,0.176,15.96,13.79,18.18,62.8,11.82,19.27,False,False,True,actively protected
+family_b,F — Lift + Cruise + CVT* family,<= 2011,18,Tilt Propulsor,0.5,0.722,2.84,2.84,2.84,15.0,2.28,6.0,False,False,False,actively protected
+family_b,F — Lift + Cruise + CVT* family,2012-15,32,Tilt Propulsor,0.438,0.656,3.76,3.76,3.76,43.7,2.68,5.63,False,False,False,actively protected
+family_b,F — Lift + Cruise + CVT* family,2016-19,138,Lift + Cruise + CVT* family,0.283,0.551,5.12,3.88,6.61,99.9,3.4,4.69,False,False,False,actively protected
+family_b,F — Lift + Cruise + CVT* family,2020-23,192,Lift + Cruise + CVT* family,0.505,0.719,3.14,2.23,4.23,0.0,3.49,4.57,True,True,False,actively protected
+family_b,F — Lift + Cruise + CVT* family,2024-26 (partial),51,Lift + Cruise + CVT* family,0.431,0.647,3.98,3.28,4.82,50.1,2.94,5.34,False,False,True,actively protected

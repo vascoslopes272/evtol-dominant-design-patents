@@ -1,0 +1,6 @@
+dimension,cohort,designs in F answering,designs outside F answering,top option inside F,its share inside F,its share outside F,difference (F minus rest),Fisher exact p,top option outside F,its share outside F (own top),same top option inside and outside
+number of wings (winged designs),2020-23,114,100,1,0.658,0.59,0.068,0.32438239373569927,1,0.59,True
+propulsor units per aircraft (band),2020-23,117,114,9+,0.299,0.202,0.097,0.09676826819705825,4,0.281,False
+wing configuration,2020-23,117,100,Standard Wings,0.923,0.87,0.053,0.25967057984888864,Standard Wings,0.87,True
+booms present,2020-23,117,120,Booms,0.598,0.383,0.215,0.0011457870457954643,No booms,0.617,False
+tractor / pusher,2020-23,96,106,Front,0.979,0.991,-0.011,0.6052608245899218,Front,0.991,True

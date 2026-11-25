@@ -1,0 +1,7 @@
+attribute,n flown,n rest,largest gap,test,p,verdict
+architecture group,42,579,LC (+22.1 pp),chi-square,0.036,differs
+applicant region,42,579,Europe (-16.9 pp),chi-square,0.001,differs
+priority-year cohort,42,579,≤2011 (-10.2 pp),chi-square,0.20,no difference detected
+assignee type,42,579,Named company (+38.7 pp),chi-square,< 0.001,differs
+priority year,42,579,median +1.5,Mann-Whitney,0.014,differs
+propulsor units,42,579,median +4.0,Mann-Whitney,< 0.001,differs

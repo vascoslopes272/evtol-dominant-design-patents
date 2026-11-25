@@ -1,0 +1,206 @@
+panel,Named company,University / institute,Individual inventor,bar,n,rank,assignee,unique aircraft,cumulative share
+(a) assignee types,658,41,177,"all, repr. patents",876,,,,
+(a) assignee types,397,43,181,"all, aircraft",621,,,,
+(a) assignee types,16,3,40,<= 2011,59,,,,
+(a) assignee types,34,1,22,2012-15,57,,,,
+(a) assignee types,152,4,57,2016-19,213,,,,
+(a) assignee types,157,24,56,2020-23,237,,,,
+(a) assignee types,38,11,6,2024-26 (partial),55,,,,
+(b) cumulative share of the largest,,,,,,1,Bell / Textron,60,0.0966
+(b) cumulative share of the largest,,,,,,2,Airbus,21,0.1304
+(b) cumulative share of the largest,,,,,,3,Kitty Hawk,11,0.1481
+(b) cumulative share of the largest,,,,,,4,Shenfeng Aviation,10,0.1643
+(b) cumulative share of the largest,,,,,,5,Honda,9,0.1787
+(b) cumulative share of the largest,,,,,,6,Leonardo,9,0.1932
+(b) cumulative share of the largest,,,,,,7,Porsche,8,0.2061
+(b) cumulative share of the largest,,,,,,8,Joby Aviation,8,0.219
+(b) cumulative share of the largest,,,,,,9,Lilium,7,0.2303
+(b) cumulative share of the largest,,,,,,10,Boeing,7,0.2415
+(b) cumulative share of the largest,,,,,,11,Aurora Flight Sciences,7,0.2528
+(b) cumulative share of the largest,,,,,,12,DeLorean Aerospace,5,0.2609
+(b) cumulative share of the largest,,,,,,13,Rolls-Royce,5,0.2689
+(b) cumulative share of the largest,,,,,,14,KARI,5,0.277
+(b) cumulative share of the largest,,,,,,15,Zuri,5,0.285
+(b) cumulative share of the largest,,,,,,16,Uber Elevate,5,0.2931
+(b) cumulative share of the largest,,,,,,17,Mitsubishi,4,0.2995
+(b) cumulative share of the largest,,,,,,18,Embraer / Eve,4,0.306
+(b) cumulative share of the largest,,,,,,19,Archer Aviation,4,0.3124
+(b) cumulative share of the largest,,,,,,20,Wisk Aero,4,0.3188
+(b) cumulative share of the largest,,,,,,21,Hyundai,4,0.3253
+(b) cumulative share of the largest,,,,,,22,Safran,4,0.3317
+(b) cumulative share of the largest,,,,,,23,Supernal,4,0.3382
+(b) cumulative share of the largest,,,,,,24,Volocopter,4,0.3446
+(b) cumulative share of the largest,,,,,,25,Zakrytoe Aktsionernoe Obshchestvo Innovatsionnyj Tsentr Biryuch,4,0.351
+(b) cumulative share of the largest,,,,,,26,Xi'an Inno Aviation,3,0.3559
+(b) cumulative share of the largest,,,,,,27,Whisper Aero,3,0.3607
+(b) cumulative share of the largest,,,,,,28,NASA,3,0.3655
+(b) cumulative share of the largest,,,,,,29,Agency Defense Development,3,0.3704
+(b) cumulative share of the largest,,,,,,30,Siniger,3,0.3752
+(b) cumulative share of the largest,,,,,,31,EMT,3,0.38
+(b) cumulative share of the largest,,,,,,32,Subaru,2,0.3833
+(b) cumulative share of the largest,,,,,,33,Sunlight Photonics,2,0.3865
+(b) cumulative share of the largest,,,,,,34,Hop Flyt,2,0.3897
+(b) cumulative share of the largest,,,,,,35,Sikorsky,2,0.3929
+(b) cumulative share of the largest,,,,,,36,Doroni Aerospace,2,0.3961
+(b) cumulative share of the largest,,,,,,37,NUAA,2,0.3994
+(b) cumulative share of the largest,,,,,,38,Aeronext,2,0.4026
+(b) cumulative share of the largest,,,,,,39,Shanghai Shangshi Energy,2,0.4058
+(b) cumulative share of the largest,,,,,,40,Karem Aircraft,2,0.409
+(b) cumulative share of the largest,,,,,,41,Northwestern Polytechnic University,2,0.4122
+(b) cumulative share of the largest,,,,,,42,Overair,2,0.4155
+(b) cumulative share of the largest,,,,,,43,Tianjin Air Technology,2,0.4187
+(b) cumulative share of the largest,,,,,,44,Zhejiang University,2,0.4219
+(b) cumulative share of the largest,,,,,,45,Tetra Aviation,2,0.4251
+(b) cumulative share of the largest,,,,,,46,Kawasaki Heavy Industries,2,0.4283
+(b) cumulative share of the largest,,,,,,47,Shinmaywa Industries,2,0.4316
+(b) cumulative share of the largest,,,,,,48,Obshchestvo S Ogranichennoj Ot,2,0.4348
+(b) cumulative share of the largest,,,,,,49,Beaupreau Aero Solutions,2,0.438
+(b) cumulative share of the largest,,,,,,50,Topaero,2,0.4412
+(b) cumulative share of the largest,,,,,,51,Mullins,2,0.4444
+(b) cumulative share of the largest,,,,,,52,Geola Technology,2,0.4477
+(b) cumulative share of the largest,,,,,,53,E Kite,2,0.4509
+(b) cumulative share of the largest,,,,,,54,Volkswagen,2,0.4541
+(b) cumulative share of the largest,,,,,,55,Wofei / Geely Aviation,2,0.4573
+(b) cumulative share of the largest,,,,,,56,Wollant Aviation,2,0.4605
+(b) cumulative share of the largest,,,,,,57,Polarity Mobility Av,2,0.4638
+(b) cumulative share of the largest,,,,,,58,Prades Imasd,2,0.467
+(b) cumulative share of the largest,,,,,,59,Beihang University,2,0.4702
+(b) cumulative share of the largest,,,,,,60,Denso,2,0.4734
+(b) cumulative share of the largest,,,,,,61,JAXA,2,0.4767
+(b) cumulative share of the largest,,,,,,62,Jiangxi Handun Duoyu,2,0.4799
+(b) cumulative share of the largest,,,,,,63,COMAC Research Institute,2,0.4831
+(b) cumulative share of the largest,,,,,,64,Hi-Lite Aircraft,2,0.4863
+(b) cumulative share of the largest,,,,,,65,GKN Aerospace,2,0.4895
+(b) cumulative share of the largest,,,,,,66,Fujing Aircraft,2,0.4928
+(b) cumulative share of the largest,,,,,,67,CASIC,2,0.496
+(b) cumulative share of the largest,,,,,,68,AutoFlight,2,0.4992
+(b) cumulative share of the largest,,,,,,69,Ascendance Flight Technologies,1,0.5008
+(b) cumulative share of the largest,,,,,,70,AMSL Innovations,1,0.5024
+(b) cumulative share of the largest,,,,,,71,Sun Yat-sen University,1,0.504
+(b) cumulative share of the largest,,,,,,72,Shanghai Shidi Technology,1,0.5056
+(b) cumulative share of the largest,,,,,,73,Phoenix Aircraft,1,0.5072
+(b) cumulative share of the largest,,,,,,74,P3X,1,0.5089
+(b) cumulative share of the largest,,,,,,75,NUDT,1,0.5105
+(b) cumulative share of the largest,,,,,,76,NTN Corporation,1,0.5121
+(b) cumulative share of the largest,,,,,,77,Nanchang Hangkong University,1,0.5137
+(b) cumulative share of the largest,,,,,,78,Neoptera,1,0.5153
+(b) cumulative share of the largest,,,,,,79,Method Aeronautics,1,0.5169
+(b) cumulative share of the largest,,,,,,80,Lockheed Martin,1,0.5185
+(b) cumulative share of the largest,,,,,,81,Kymatics,1,0.5201
+(b) cumulative share of the largest,,,,,,82,Honeywell,1,0.5217
+(b) cumulative share of the largest,,,,,,83,Hoversurf,1,0.5233
+(b) cumulative share of the largest,,,,,,84,Hubei Aerospace Institute,1,0.525
+(b) cumulative share of the largest,,,,,,85,IAI,1,0.5266
+(b) cumulative share of the largest,,,,,,86,IHI,1,0.5282
+(b) cumulative share of the largest,,,,,,87,CycloTech,1,0.5298
+(b) cumulative share of the largest,,,,,,88,GreenSky,1,0.5314
+(b) cumulative share of the largest,,,,,,89,CHRDI,1,0.533
+(b) cumulative share of the largest,,,,,,90,Daimler,1,0.5346
+(b) cumulative share of the largest,,,,,,91,BAE Systems,1,0.5362
+(b) cumulative share of the largest,,,,,,92,BAAZ,1,0.5378
+(b) cumulative share of the largest,,,,,,93,Beta Technologies,1,0.5395
+(b) cumulative share of the largest,,,,,,94,Collins Aerospace,1,0.5411
+(b) cumulative share of the largest,,,,,,95,Horizon Aircraft,1,0.5427
+(b) cumulative share of the largest,,,,,,96,Aerhart,1,0.5443
+(b) cumulative share of the largest,,,,,,97,Vertical Aerospace,1,0.5459
+(b) cumulative share of the largest,,,,,,98,Samad Aerospace,1,0.5475
+(b) cumulative share of the largest,,,,,,99,Stichting Nationaal Luchten,1,0.5491
+(b) cumulative share of the largest,,,,,,100,Raytheon,1,0.5507
+(b) cumulative share of the largest,,,,,,101,Dewalch Diversified,1,0.5523
+(b) cumulative share of the largest,,,,,,102,ZIPAIR,1,0.5539
+(b) cumulative share of the largest,,,,,,103,Katla Aero,1,0.5556
+(b) cumulative share of the largest,,,,,,104,Carter Aviation Technology,1,0.5572
+(b) cumulative share of the largest,,,,,,105,Flowcopter,1,0.5588
+(b) cumulative share of the largest,,,,,,106,Airspace Experience Technology,1,0.5604
+(b) cumulative share of the largest,,,,,,107,Alakai Technology,1,0.562
+(b) cumulative share of the largest,,,,,,108,Sora Aviation,1,0.5636
+(b) cumulative share of the largest,,,,,,109,Transcend Air,1,0.5652
+(b) cumulative share of the largest,,,,,,110,Beijing Tianyu New Super Aviation Technology,1,0.5668
+(b) cumulative share of the largest,,,,,,111,Xiangtan Xiangdan Road Traffic Facilities Construction Maintenance,1,0.5684
+(b) cumulative share of the largest,,,,,,112,Nanjing Zhifei Aviation Technology,1,0.57
+(b) cumulative share of the largest,,,,,,113,Zhongshan Fukun Aviation Technology,1,0.5717
+(b) cumulative share of the largest,,,,,,114,Luoyang Luo Depp Blue Rotor Technology,1,0.5733
+(b) cumulative share of the largest,,,,,,115,Changzhou Huachuang Aviation Technology,1,0.5749
+(b) cumulative share of the largest,,,,,,116,Sichuan Tengdun Technology,1,0.5765
+(b) cumulative share of the largest,,,,,,117,Jiangxi Hongdu Aviation Industries,1,0.5781
+(b) cumulative share of the largest,,,,,,118,Cetc Wuhu Diamond Aircraft Manufacturing,1,0.5797
+(b) cumulative share of the largest,,,,,,119,University Dalian Technology,1,0.5813
+(b) cumulative share of the largest,,,,,,120,Huzhou Tianji Zhihang Technology,1,0.5829
+(b) cumulative share of the largest,,,,,,121,Dalian Chongtian Technology,1,0.5845
+(b) cumulative share of the largest,,,,,,122,Fuzhou Tianze Yonghui Environmental Technology,1,0.5862
+(b) cumulative share of the largest,,,,,,123,Aecc Hunan Aviation Powerplant Research Institute,1,0.5878
+(b) cumulative share of the largest,,,,,,124,Beijing Xinqiao Technology,1,0.5894
+(b) cumulative share of the largest,,,,,,125,Guangzhou Yunfei Aviation Technology,1,0.591
+(b) cumulative share of the largest,,,,,,126,Приватне Акціонерне Товариство Фед,1,0.5926
+(b) cumulative share of the largest,,,,,,127,Roze Mobility,1,0.5942
+(b) cumulative share of the largest,,,,,,128,Office National Detudes Research Aerospatiales,1,0.5958
+(b) cumulative share of the largest,,,,,,129,Noraero,1,0.5974
+(b) cumulative share of the largest,,,,,,130,Agusta,1,0.599
+(b) cumulative share of the largest,,,,,,131,Cool Century Guangzhou Intelligent Equipment Center,1,0.6006
+(b) cumulative share of the largest,,,,,,132,Guangzhou Ehang Intelligent Technology,1,0.6023
+(b) cumulative share of the largest,,,,,,133,Changsha Huayu Xianxiang Aviation Technology,1,0.6039
+(b) cumulative share of the largest,,,,,,134,Defensya Ingenieria International,1,0.6055
+(b) cumulative share of the largest,,,,,,135,Zhixing Botong Beijing Technology,1,0.6071
+(b) cumulative share of the largest,,,,,,136,Shanghai Aircraft Manufacturing,1,0.6087
+(b) cumulative share of the largest,,,,,,137,Nanjing Ningxuan Aviation Technology,1,0.6103
+(b) cumulative share of the largest,,,,,,138,Tianlingke Aviation Technology Shanghai,1,0.6119
+(b) cumulative share of the largest,,,,,,139,Dezhou Luhang Aviation Technology,1,0.6135
+(b) cumulative share of the largest,,,,,,140,South China Normal University,1,0.6151
+(b) cumulative share of the largest,,,,,,141,Chery Automobile,1,0.6167
+(b) cumulative share of the largest,,,,,,142,China Academy Of Aerospace Aerodynamics,1,0.6184
+(b) cumulative share of the largest,,,,,,143,Shenzhen Shenke Chuang Industry Development,1,0.62
+(b) cumulative share of the largest,,,,,,144,Nfelec,1,0.6216
+(b) cumulative share of the largest,,,,,,145,Fleasy,1,0.6232
+(b) cumulative share of the largest,,,,,,146,Krd Luftfahrttechnik,1,0.6248
+(b) cumulative share of the largest,,,,,,147,Airbility,1,0.6264
+(b) cumulative share of the largest,,,,,,148,Vyzk A Zkusebni Letecky Ustav,1,0.628
+(b) cumulative share of the largest,,,,,,149,Volare,1,0.6296
+(b) cumulative share of the largest,,,,,,150,Xinyu Taicang Power Technology,1,0.6312
+(b) cumulative share of the largest,,,,,,151,Federalnoe Gosudarstvennoe Unitarnoe Predpriyatie Tsentralnyj Aerogidrodinamicheskij Institute Imeni Prof,1,0.6329
+(b) cumulative share of the largest,,,,,,152,Mgi Engineering,1,0.6345
+(b) cumulative share of the largest,,,,,,153,Pterodynamics,1,0.6361
+(b) cumulative share of the largest,,,,,,154,Zeeaero,1,0.6377
+(b) cumulative share of the largest,,,,,,155,Skem,1,0.6393
+(b) cumulative share of the largest,,,,,,156,Unit 1Srl,1,0.6409
+(b) cumulative share of the largest,,,,,,157,Xti Aircraft,1,0.6425
+(b) cumulative share of the largest,,,,,,158,Neva Aerospace,1,0.6441
+(b) cumulative share of the largest,,,,,,159,Malloy Aeronautics,1,0.6457
+(b) cumulative share of the largest,,,,,,160,Bio Cellular Design Aeronautics,1,0.6473
+(b) cumulative share of the largest,,,,,,161,Afs Dv Vtol Technology,1,0.649
+(b) cumulative share of the largest,,,,,,162,University Toledo,1,0.6506
+(b) cumulative share of the largest,,,,,,163,Moog,1,0.6522
+(b) cumulative share of the largest,,,,,,164,Fuvex Systems 95,1,0.6538
+(b) cumulative share of the largest,,,,,,165,Xflight,1,0.6554
+(b) cumulative share of the largest,,,,,,166,Flynow Aviation,1,0.657
+(b) cumulative share of the largest,,,,,,167,Bombardier,1,0.6586
+(b) cumulative share of the largest,,,,,,168,Samco,1,0.6602
+(b) cumulative share of the largest,,,,,,169,Lentola Logistics,1,0.6618
+(b) cumulative share of the largest,,,,,,170,Vb Hi Technology Ventures,1,0.6634
+(b) cumulative share of the largest,,,,,,171,Lift Air,1,0.6651
+(b) cumulative share of the largest,,,,,,172,Ali Technology,1,0.6667
+(b) cumulative share of the largest,,,,,,173,Autonomous Flight System,1,0.6683
+(b) cumulative share of the largest,,,,,,174,Electric Aviation Group,1,0.6699
+(b) cumulative share of the largest,,,,,,175,Quintuple Air,1,0.6715
+(b) cumulative share of the largest,,,,,,176,University Arizona,1,0.6731
+(b) cumulative share of the largest,,,,,,177,Leviation Technology,1,0.6747
+(b) cumulative share of the largest,,,,,,178,Wind Craft Aviation,1,0.6763
+(b) cumulative share of the largest,,,,,,179,Efix Aviation,1,0.6779
+(b) cumulative share of the largest,,,,,,180,Hitachi,1,0.6795
+(b) cumulative share of the largest,,,,,,181,Zhejiang Tianji Botte Intelligent Technology,1,0.6812
+(b) cumulative share of the largest,,,,,,182,Innotec Lightweight Engineering Polymer Technology,1,0.6828
+(b) cumulative share of the largest,,,,,,183,Zipline International,1,0.6844
+(b) cumulative share of the largest,,,,,,184,Spydar Sensors,1,0.686
+(b) cumulative share of the largest,,,,,,185,Dufour Aerospace,1,0.6876
+(b) cumulative share of the largest,,,,,,186,Hpg,1,0.6892
+(b) cumulative share of the largest,,,,,,187,Texas A M University,1,0.6908
+(b) cumulative share of the largest,,,,,,188,Gadfin,1,0.6924
+(b) cumulative share of the largest,,,,,,189,Oliver Vtol,1,0.694
+(b) cumulative share of the largest,,,,,,190,Texas Technology University System,1,0.6957
+(b) cumulative share of the largest,,,,,,191,Detroit Aircraft,1,0.6973
+(b) cumulative share of the largest,,,,,,192,University Tsinghua,1,0.6989
+(b) cumulative share of the largest,,,,,,193,Industries Network,1,0.7005
+(b) cumulative share of the largest,,,,,,194,Obshchestvo S Ogranichennoy Otvetstvennostyu Nauchno Proizvodstvennoe Obedinenie Imeni Petrova Va,1,0.7021
+(b) cumulative share of the largest,,,,,,195,Emagic Aircraft,1,0.7037
+(b) cumulative share of the largest,,,,,,196,Alauda Aeronautics,1,0.7053
+(b) cumulative share of the largest,,,,,,197,Bae System Australia,1,0.7069
+(b) cumulative share of the largest,,,,,,198,Avol,1,0.7085

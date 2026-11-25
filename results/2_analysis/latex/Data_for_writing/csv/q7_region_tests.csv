@@ -1,0 +1,41 @@
+measure,period,filers,aircraft,"p (chi-square, region)",p (Holm)
+class mix (five classes + other),all years,all filers,605,0.0005,0.009
+class mix (five classes + other),all years,without Bell / Textron,545,0.0989,1.0
+class mix (five classes + other),2012-15,all filers,57,0.1902,1.0
+class mix (five classes + other),2012-15,without Bell / Textron,55,0.1949,1.0
+class mix (five classes + other),2016-19,all filers,204,0.0088,0.1232
+class mix (five classes + other),2016-19,without Bell / Textron,171,0.0168,0.3192
+class mix (five classes + other),2020-23,all filers,232,0.0007,0.0112
+class mix (five classes + other),2020-23,without Bell / Textron,210,0.0133,0.266
+propulsive-unit band,all years,all filers,576,0.0331,0.4303
+propulsive-unit band,all years,without Bell / Textron,517,0.2016,1.0
+propulsive-unit band,2012-15,all filers,53,0.867,1.0
+propulsive-unit band,2012-15,without Bell / Textron,51,0.8853,1.0
+propulsive-unit band,2016-19,all filers,191,0.3511,1.0
+propulsive-unit band,2016-19,without Bell / Textron,159,0.4495,1.0
+propulsive-unit band,2020-23,all filers,226,0.0036,0.054
+propulsive-unit band,2020-23,without Bell / Textron,204,0.0394,0.591
+any tilting unit,all years,all filers,576,0.0,0.0
+any tilting unit,all years,without Bell / Textron,517,0.027,0.486
+any tilting unit,2012-15,all filers,53,0.5485,1.0
+any tilting unit,2012-15,without Bell / Textron,51,0.6309,1.0
+any tilting unit,2016-19,all filers,192,0.0472,0.5192
+any tilting unit,2016-19,without Bell / Textron,160,0.4351,1.0
+any tilting unit,2020-23,all filers,226,0.0003,0.0057
+any tilting unit,2020-23,without Bell / Textron,204,0.0296,0.5032
+Tilt Rotor,all years,all filers,605,0.0006,0.0102
+Tilt Rotor,all years,without Bell / Textron,545,0.0317,0.5072
+Tilt Rotor,2012-15,all filers,57,0.9931,1.0
+Tilt Rotor,2012-15,without Bell / Textron,55,0.9558,1.0
+Tilt Rotor,2016-19,all filers,204,0.1025,0.9225
+Tilt Rotor,2016-19,without Bell / Textron,171,0.8454,1.0
+Tilt Rotor,2020-23,all filers,232,0.0577,0.577
+Tilt Rotor,2020-23,without Bell / Textron,210,0.0424,0.5936
+family F,all years,all filers,605,0.0337,0.4303
+family F,all years,without Bell / Textron,545,0.1851,1.0
+family F,2012-15,all filers,57,0.3141,1.0
+family F,2012-15,without Bell / Textron,55,0.2677,1.0
+family F,2016-19,all filers,204,0.127,1.0
+family F,2016-19,without Bell / Textron,171,0.3889,1.0
+family F,2020-23,all filers,232,0.3532,1.0
+family F,2020-23,without Bell / Textron,210,0.3715,1.0

@@ -1,0 +1,4 @@
+cell,rarefied to n,designs,"²D (condition 2, 1000 permutations)",²D low,²D high,band low,band high,below band (condition 2 met),²D minus band low,as a share of the band width
+"A·W·T, 2020-23, all designs",30,236,7.89,5.36,11.25,7.88,9.82,False,0.01,0.005
+"A·W·T, 2020-23, all designs",40,236,8.36,6.06,11.27,8.31,10.5,False,0.05,0.023
+"A·W·T, 2020-23, all designs",50,236,8.62,6.48,11.26,8.62,10.89,False,0.0,0.0

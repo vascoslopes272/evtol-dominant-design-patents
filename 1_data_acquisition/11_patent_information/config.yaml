@@ -1,0 +1,185 @@
+project:
+  name: patseer_drawing_pipeline
+
+# ── Folder naming convention (renamed 2026-08-05) ────────────────────────────
+# Every data folder is now prefixed with the notebook stage that CREATES it, and
+# says whether it is PRE- or POST- HTML labelling. Rename log (with the old
+# names, for reversal):  data/Global Statistics/PIPELINE_FOLDER_RENAME_LOG.csv
+#
+#   PRE-label (feed the wizard)          POST-label (consume the wizard's export)
+#   ─────────────────────────────        ────────────────────────────────────────
+#   00a_raw_downloads/                   02b_POSTlabel_processed_518px/
+#   00a2_triage_json/                    data/02b_POSTlabel_manifests/
+#   00b2_figure_crops/                   data/03_HUMAN_wizard_exports/
+#   data/00b2_crops_and_01a_MACHINE_feed/  ARCHIVED_POSTlabel_approved_by_company/
+#
+# NOTE — two compat symlinks (matched -> 00b2_figure_crops, processed ->
+# 02b_POSTlabel_processed_518px) still sit at the OLD names on purpose: 5466
+# Image_Path cells inside reviewed_patents_Batch_01.xlsx and every src_path/
+# dst_all/dst_main in processing_manifest_Batch_01.csv are absolute paths
+# containing "/matched/" and "/processed/". Do not delete the symlinks until
+# those stored paths are rewritten.
+paths:
+  # ── Two roots since 2026-09-08 ──────────────────────────────────────────────
+  # `labelled` is the WORK TREE (scripts/build_labelled_folder.py): the human
+  # record, the wizard feed, the images the wizard shows, Stage 03a, the join.
+  # `base` (1639_DS) is the ARCHIVE: raw downloads, triage, the frozen pass-1/2
+  # originals, the July 02a/02b outputs. Keys below say which root they use.
+  # 2026-09-17: the tree holds all four stages; `labelled` = stage-0 INPUTS, `labelled_outputs` = what 04 writes.
+  labelled_root: "/mnt/storage_11tb/Drive_files_to_syncronize/3 - Images DataSets & Labelling Outputs/1639_LABELLED"
+  labelled:      "/mnt/storage_11tb/Drive_files_to_syncronize/3 - Images DataSets & Labelling Outputs/1639_LABELLED/0_labelling/inputs"
+  labelled_outputs: "/mnt/storage_11tb/Drive_files_to_syncronize/3 - Images DataSets & Labelling Outputs/1639_LABELLED/0_labelling/outputs"
+  base:          "/mnt/storage_11tb/Drive_files_to_syncronize/3 - Images DataSets & Labelling Outputs/1639_DS"
+  # PRE-label — PatSeer downloads, one dir per patent (src/patseer_downloader.py via 00a).
+  raw_images:    "{{ paths.base }}/00a_raw_downloads"
+  # PRE-label — cropped figures per batch (00b2). Wizard Image_Path cells point in here.
+  # WORK TREE since 2026-09-08: only the 12 282 crops an xlsx references, same
+  # relative layout as the archive's 00b2_figure_crops/ (both folder shapes).
+  matched:       "{{ paths.labelled }}/images"
+  # POST-label, ARCHIVED — approved patents copied into <company>/<prototype>/<id>/.
+  # Written by notebooks/archive/01_review.ipynb cell 20 (that notebook is archived).
+  # Verified 2026-08-05: NOTHING in live code reads this key. Presentation copy only;
+  # 02b feeds off the wizard export's Image_Path (matched/), not off this folder.
+  reviewed:      "{{ paths.base }}/ARCHIVED_POSTlabel_approved_by_company"
+  # POST-label — Stage 02 outputs: <batch>/all/ + <batch>/main/ (518px, src/processor.py via 02b),
+  # manifests under data_processed (mirrors matched <-> data_matched).
+  processed:     "{{ paths.base }}/02b_POSTlabel_processed_518px"
+  data_processed: "{{ paths.base }}/data/02b_POSTlabel_manifests"
+  # DEAD KEYS (2026-08-05) — neither directory has ever existed on disk. Kept only
+  # because 11D_grouping.ipynb cell 1 prints cfg['paths']['structured'] and would
+  # KeyError without it. Safe to delete once that print line goes.
+  structured:    "{{ paths.base }}/UNUSED_structured"
+  text:          "{{ paths.base }}/UNUSED_text"
+  # IMGPATH-resolved wizard exports (after scripts/resolve_image_paths.py) —
+  # Stage-02 input; one file per batch: reviewed_patents_<Batch_NN>.xlsx
+  wizard_resolved_dir: "/mnt/storage_11tb/Drive_files_to_syncronize"
+  patseer_excel: "/mnt/storage_11tb/Drive_files_to_syncronize/2 - Patente & Validation/3 -Raw_Patent_Exports_PatSeer_&Gold_Standard/1639__dataset_08_06_26.xlsx"
+  data:          "{{ paths.base }}/data"
+  # Moved into a subfolder 2026-07-06 (was data/batches.xlsx directly) —
+  # every notebook reads this key rather than hardcoding "data/batches.xlsx".
+  batches_xlsx:  "{{ paths.labelled }}/reference/batches.xlsx"     # WORK TREE (archive copy: data/Global Statistics/)
+  # PRE-label. Two producers share this folder, hence both names in it:
+  #   00b2 writes crops_mapping_<Batch_NN>.csv   — the crop ledger: one row per cropped
+  #        figure (page image -> crop file -> OCR'd label -> matched description line).
+  #        This is the file that matters downstream.
+  #   00b2 writes needs_human_review_<Batch_NN>.csv — a ONE-TIME frozen snapshot of the
+  #        crops whose label<->description match failed, used only as a worklist by
+  #        00b2's own review UI. Nothing else reads it; it is not a wizard input.
+  #   01a  writes ml_predict_labels_<Batch_NN>.xlsx — the MACHINE-generated wizard feed
+  #        (SBERT T1 pre-labels + SigLIP duplicate rows). THIS is what you load into
+  #        the HTML. Its human counterpart comes back out under 03_HUMAN_wizard_exports.
+  # WORK TREE since 2026-09-08: labels/Batch_NN/ holds ml_predict_labels_*,
+  # aircraft_identity_* (03a writes here) and crops_mapping_*; the archive copy
+  # is {{ paths.data }}/00b2_crops_and_01a_MACHINE_feed (also needs_human_review_*).
+  data_matched:  "{{ paths.labelled }}/labels"
+  # PRE-label — one triage JSON per patent (src/triage_filter.py via 00a2).
+  triage:        "{{ paths.base }}/00a2_triage_json"
+  # source_patents_<batch>.xlsx is written per-batch under data_matched/<batch>/
+  # by run_stage01() — no fixed root-level path needed.
+  # DEAD KEY (2026-08-05) — this file has never existed; only the archived
+  # 02_taxonomy_review.ipynb reads it. Superseded by html_review_exports.
+  reviewed_excel: "{{ paths.base }}/UNUSED_reviewed_patents.xlsx"
+  # POST-label — everything the HTML wizard hands back, plus 02a's cleaned version.
+  # Moved out of ~/Downloads 2026-07-05 (browser "(N)" suffixing made the unsuffixed
+  # name silently stale); the folder's old name had a space in it, dropped 2026-08-05.
+  # Which file is which:
+  #   reviewed_patents_<batch>.xlsx        HUMAN — the raw wizard export. 02a's input.
+  #   Review_postprocess_<batch>_<ts>.xlsx MACHINE-cleaned human labels — 02a's OUTPUT,
+  #        and 02b's input. (Yes, the "postprocess" filename comes out of a notebook
+  #        called 02a_preprocessing: "pre" there means "before the embedding stage",
+  #        not "before labelling". Filename left as-is — see FOLDER_RENAME notes.)
+  # FROZEN as of 2026-08-18 (scripts/freeze_exports.py): once a batch is finished its
+  # reviewed_patents_<batch>.xlsx is chmod 444 and hashed into PRISTINE_MANIFEST.sha256.
+  # It is the only record of what the annotator actually clicked, so nothing writes here
+  # again — not 02a, not a fix-up script, not a hand edit in Excel.
+  html_review_exports: "{{ paths.base }}/data/03_HUMAN_wizard_exports"
+  # EVERY correction made after export lands here instead, on a copy: cross-batch
+  # duplicate links, codebook conformance, physics-consistency fixes (a tilt-wing whose
+  # wings do not tilt). Same filenames as the frozen originals, so only the directory
+  # changes. THIS is what 02a reads; it falls back to the frozen export, with a printed
+  # notice, for any batch that has no copy yet. Rebuild a copy at any time with
+  #   python scripts/freeze_exports.py --copy <Batch_NN> --force
+  # WORK TREE since 2026-09-08: the reviewed_patents_<batch>.xlsx sit FLAT in
+  # labels/ (same shape as 03c), with CORRECTIONS_LOG.csv beside them. The 03c
+  # folder in the archive is the state at 2026-09-08 17:30 and is not edited again.
+  corrected_wizard_exports: "{{ paths.labelled }}/labels"
+  # 02a's OUTPUT (Review_postprocess_<batch>_<ts>.xlsx) and 02b's input. Moved out of
+  # html_review_exports 2026-08-18 so that folder holds human exports and nothing else.
+  # 02b still falls back to the old location for the runs already sitting there.
+  cleaned_label_tables: "{{ paths.base }}/data/02a_CLEANED_label_tables"
+  # The labelling wizard itself. Was pointing at ...10.0.html, which has not existed
+  # since the 13_0 rename; corrected to the current version 2026-08-05.
+  # MUST track the CURRENT wizard file — the taxonomy drift guard
+  # (tests/test_taxonomy_alignment.py) reads its option arrays from here, so a
+  # stale pointer means the guard silently validates the ML files against a
+  # frozen old wizard and passes while real drift goes unnoticed. Bumped to
+  # 15_3 on 2026-08-06 (was still on 15_2 after the 15_2 -> 15_3 rename).
+  # Update this in the same commit as any wizard version bump.
+  html_template: "/home/vasco/Vasco Workspace/Tese_Vasco_Lnx/Patent-Labelling-Tools/notebooks/UI_for_taxonomy_caracterization_15_4.html"
+  model_cache:   "/home/vasco/Vasco Workspace/Tese_Vasco_Lnx/Patent-Labelling-Tools/models/Qwen"
+  siglip_cache:  "/home/vasco/Vasco Workspace/Tese_Vasco_Lnx/Patent-Labelling-Tools/models/SigLIP"
+  sbert_cache:   "/home/vasco/Vasco Workspace/Tese_Vasco_Lnx/Patent-Labelling-Tools/models/SBERT"
+
+# ── EPO Open Patent Services API ─────────────────────────────────────────────
+# Register a free app at https://developers.epo.org/ and put credentials in .env:
+#   EPO_CLIENT_KEY=<your_key>
+#   EPO_CLIENT_SECRET=<your_secret>
+epo:
+  client_key:    ""   # leave empty — read from EPO_CLIENT_KEY in .env
+  client_secret: ""   # leave empty — read from EPO_CLIENT_SECRET in .env
+  timeout_seconds: 60
+
+extractor:
+  # "google_patents" = free, no credentials (use while EPO account is pending)
+  # "epo"           = EPO OPS API (switch once EPO_CLIENT_KEY/SECRET are in .env)
+  mode:          "google_patents"
+  scan_limit:    null    # number of patents to process in Stage 00 (notebook)
+  delay_seconds: 1.0    # pause between requests (be polite to both services)
+
+# Confidence routing — SigLIP predictions below these thresholds are flagged
+# for human review in the output Excel (needs_review = true).
+# Start conservative (low values) so you don't over-flag on the first batches.
+# Tighten after inspecting the confidence distribution in ml_predict_labels.xlsx.
+confidence_routing:
+  G1:  0.45
+  M1:  0.40
+  M2:  0.40
+  M3:  0.35
+  T2:  0.35
+
+# ── Figure segmentation (HR-Net, GoFigure-LANL) ───────────────────────────────
+# Download weights first:  python scripts/download_weights.py
+segmenter:
+  model_path:       "models/model-hrnet-new1.h5"
+  min_crop_pixels:  200    # discard sub-figure crops smaller than this in either dimension
+
+# ── OCR label extraction (GoFigure alpha-shape method) ────────────────────────
+ocr:
+  # Images are resized to max_height before OCR so these params stay scale-invariant
+  max_ocr_height:   800    # resize crops to this height before running OCR
+  # Parameters from label_recognition.py (GoFigure-LANL/figure-segmentation)
+  kernel_width:     2      # erosion kernel size (removes dashed leader lines)
+  region_size_min:  45     # minimum connected-component area to keep
+  region_size_max:  5000   # maximum connected-component area to keep
+  alpha:            36     # alpha-shape concavity parameter
+  box_padding:      5      # pixels of padding around each detected label region
+
+matching:
+  fig_regex: "FIG\\.?\\s*([0-9]+[A-Za-z]?)"
+  positional_fallback: true   # 1st image ↔ 1st FIG. when OCR finds no label
+
+processing:
+  target_size: [518, 518]     # DINOv2 ViT-L/14 native hi-res input: 518/14 = 37x37 patches
+  # Stage-02 padding (src/processor.py: adaptive_pad_resize):
+  #   auto  = bgSty label decides solid-vs-reflect when present; otherwise the
+  #           border-ring dominant-colour rule; fill colour = border median
+  #   white = legacy flat-white fill (what the old 224px pipeline did)
+  pad_color_mode: auto
+  sharpen_factor: 1.20        # pre-LANCZOS sharpen, only when downscaling; 1.0 = off
+  solid_dominant_frac: 0.70   # >= this fraction of border px near the median -> solid fill
+  border_color_tol: 24        # per-channel distance defining "near the median"
+  approved_only: true         # skip status != approved figures (they stay in the manifest)
+  overwrite: false            # true -> reprocess even if the output PNG already exists
+
+dinov2:
+  model: "facebook/dinov2-base"

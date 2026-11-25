@@ -1,0 +1,16 @@
+,level,level name,weighting,window,aircraft,Q,Q of the earliest windows,ΔQ,ΔQ permutation low,ΔQ permutation high,below band,partial
+0,A0,C — Class,w15,<= 2011,59,0.5547,0.5442,0.0105,-0.0242,0.0238,False,False
+1,A0,C — Class,w15,2012-15,57,0.5336,0.5442,-0.0105,-0.0238,0.0242,False,False
+2,A0,C — Class,w15,2016-19,211,0.5682,0.5442,0.024,-0.0225,0.0373,False,False
+3,A0,C — Class,w15,2020-23,237,0.5185,0.5442,-0.0257,-0.0223,0.0361,True,False
+4,A0,C — Class,w15,2024-26 (partial),55,0.548,0.5442,0.0038,-0.0426,0.0406,False,True
+5,A1t,C·W·T — Class + wings + tilt,w15,<= 2011,59,0.5547,0.5442,0.0105,-0.0245,0.0238,False,False
+6,A1t,C·W·T — Class + wings + tilt,w15,2012-15,57,0.5336,0.5442,-0.0105,-0.0238,0.0245,False,False
+7,A1t,C·W·T — Class + wings + tilt,w15,2016-19,211,0.5682,0.5442,0.024,-0.0211,0.0369,False,False
+8,A1t,C·W·T — Class + wings + tilt,w15,2020-23,236,0.5165,0.5442,-0.0277,-0.0209,0.0355,True,False
+9,A1t,C·W·T — Class + wings + tilt,w15,2024-26 (partial),54,0.5457,0.5442,0.0015,-0.0438,0.0413,False,True
+10,A0c,C·U — Class + units,w15,<= 2011,59,0.5547,0.5442,0.0105,-0.0246,0.0245,False,False
+11,A0c,C·U — Class + units,w15,2012-15,57,0.5336,0.5442,-0.0105,-0.0245,0.0246,False,False
+12,A0c,C·U — Class + units,w15,2016-19,211,0.5682,0.5442,0.024,-0.0218,0.0369,False,False
+13,A0c,C·U — Class + units,w15,2020-23,236,0.5165,0.5442,-0.0277,-0.0218,0.0363,True,False
+14,A0c,C·U — Class + units,w15,2024-26 (partial),55,0.548,0.5442,0.0038,-0.0418,0.0412,False,True

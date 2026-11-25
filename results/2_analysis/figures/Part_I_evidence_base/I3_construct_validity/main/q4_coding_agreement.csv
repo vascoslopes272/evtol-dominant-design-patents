@@ -1,0 +1,4 @@
+comparison,agree,of,share,95 % interval,Cohen's kappa,the disagreements
+drawing label against the public aircraft,87,97,0.9,0.83–0.94,0.87,"the patent describes another architecture than the one the firm built, or the drawing was misread"
+patent text against the public aircraft,88,97,0.91,0.84–0.95,0.89,the patent describes another architecture than the one the firm built
+drawing label against the patent text,94,97,0.97,0.92–0.99,0.96,the drawing was read as one architecture and the text states another

@@ -1,0 +1,12 @@
+{
+ "name": "q1_growth_rates_baselines",
+ "group": "I1_patenting_rate",
+ "role": "appendix",
+ "kind": "figure",
+ "title": "Growth of transport and of all patents, best model per series",
+ "source_item": "appendix to q1_growth_rates (supervisor review 2, 2026-10)",
+ "width_in": 6.3,
+ "height_in": 2.65,
+ "final_width_fraction": 1.0,
+ "text_block_cm": 16
+}

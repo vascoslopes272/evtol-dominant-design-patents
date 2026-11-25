@@ -1,0 +1,4 @@
+level,aircraft,archetypes observed,seen once (f1),seen twice (f2),Chao1,Chao1 95 % low,Chao1 95 % high,estimated unseen,jackknife 1,jackknife 2,coverage,share of richness found,archetypes by half the corpus,new in the last 100 aircraft,new in the 100 before that,"new in the last 100, random order","date order vs random, last tail",verdict code
+A,564,12,0,0,12.0,12.0,12.0,0.0,12.0,12.0,1.0,1.0,12.0,0.0,0.0,0.0,0.0,filling up
+A·U,563,43,4,2,45.0,43.3,57.8,2.0,47.0,49.0,0.9929,0.956,41.0,1.06,0.94,0.79,0.27,"slowing, not closed"
+A·W·T,563,36,7,6,39.0,36.6,51.0,3.0,43.0,44.0,0.9876,0.923,28.4,4.18,2.3,1.44,2.74,still opening

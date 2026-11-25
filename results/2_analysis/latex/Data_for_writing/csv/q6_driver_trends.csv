@@ -1,0 +1,120 @@
+trace,driver kind,architecture,code,aircraft,first cohort,first value,2020-23 value,first mean,2020-23 mean,rho,p,p_holm,movement
+tilting joint groups,A1,Lift + Cruise,SLC,145,<= 2011,0.0,0.0,0.0,0.0,,,,constant
+tilting joint groups,A1,Tilt Propulsor,TR,140,<= 2011,1.0,2.0,1.35,1.76,0.22,0.009907729977900584,0.019815459955801168,rises
+tilting joint groups,A1,Combined Vectored Thrust,CVT,96,<= 2011,1.0,1.0,1.0,1.43,0.25,0.013465539285077257,0.019815459955801168,rises
+tilting joint groups,A1,Tilt Wing,TW,50,2012-15,1.0,1.0,1.33,1.42,-0.12,0.4120577185348828,,flat
+tilting joint groups,A1,Multirotor,MR,43,<= 2011,0.0,0.0,0.22,0.4,0.1,0.5276686167906918,,flat
+tilting joint groups,A1,five drawn architectures pooled,ALL5,474,<= 2011,1.0,1.0,0.78,0.92,-0.01,0.8915067676471837,,flat
+tilting joint groups,A1,all classed aircraft,ALL,536,<= 2011,1.0,1.0,0.75,0.84,-0.01,0.7662401366154146,,flat
+fuselage kinematics not fixed,A1,Lift + Cruise,SLC,145,<= 2011,0.0,0.0,,,-0.09,0.2584953478945636,0.2584953478945636,flat
+fuselage kinematics not fixed,A1,Tilt Propulsor,TR,140,<= 2011,0.0,0.0,,,,,,constant
+fuselage kinematics not fixed,A1,Combined Vectored Thrust,CVT,96,<= 2011,0.0,0.0,,,,,,constant
+fuselage kinematics not fixed,A1,Tilt Wing,TW,50,2012-15,0.0,0.0,,,-0.22,0.11777437731932594,,flat
+fuselage kinematics not fixed,A1,Multirotor,MR,43,<= 2011,0.67,0.33,,,-0.41,0.006847222213447342,,falls
+fuselage kinematics not fixed,A1,five drawn architectures pooled,ALL5,474,<= 2011,0.14,0.02,,,-0.16,0.0005180734493161577,,falls
+fuselage kinematics not fixed,A1,all classed aircraft,ALL,542,<= 2011,0.2,0.09,,,-0.11,0.009982881213681707,,falls
+a propulsor retracts or folds its blades,A2,Lift + Cruise,SLC,145,<= 2011,0.0,0.07,,,-0.03,0.7407567414344745,0.7407567414344745,flat
+a propulsor retracts or folds its blades,A2,Tilt Propulsor,TR,140,<= 2011,0.0,0.0,,,-0.08,0.36025676506274096,0.7205135301254819,flat
+a propulsor retracts or folds its blades,A2,Combined Vectored Thrust,CVT,96,<= 2011,0.2,0.13,,,-0.15,0.1559006818811064,0.4677020456433192,flat
+a propulsor retracts or folds its blades,A2,Tilt Wing,TW,50,2012-15,0.0,0.05,,,0.2,0.15503100618956717,,flat
+a propulsor retracts or folds its blades,A2,Multirotor,MR,43,<= 2011,0.0,0.13,,,0.22,0.1642468111877009,,flat
+a propulsor retracts or folds its blades,A2,five drawn architectures pooled,ALL5,474,<= 2011,0.02,0.07,,,0.01,0.8558146547611838,,flat
+a propulsor retracts or folds its blades,A2,all classed aircraft,ALL,536,<= 2011,0.02,0.06,,,0.0,0.9331341829097121,,flat
+booms stow,B,Lift + Cruise,SLC,81,<= 2011,0.0,0.05,,,0.04,0.7458457788710471,1.0,flat
+booms stow,B,Tilt Propulsor,TR,52,2012-15,0.0,0.0,,,,,,constant
+booms stow,B,Combined Vectored Thrust,CVT,55,2016-19,0.06,0.06,,,-0.08,0.5801491517734612,1.0,flat
+booms stow,B,Tilt Wing,TW,14,2016-19,0.0,0.0,,,,,,too thin
+booms stow,B,Multirotor,MR,25,2016-19,0.0,0.11,,,0.2,0.3324091322695709,,flat
+booms stow,B,five drawn architectures pooled,ALL5,227,<= 2011,0.0,0.05,,,0.03,0.6842355590873626,,flat
+booms stow,B,all classed aircraft,ALL,257,<= 2011,0.0,0.04,,,0.04,0.5478822408791342,,flat
+propulsive units,A1,Lift + Cruise,SLC,145,<= 2011,7.0,7.0,,,0.06,0.44810385571346534,0.44810385571346534,flat
+propulsive units,A1,Tilt Propulsor,TR,140,<= 2011,2.0,4.0,,,0.41,6.063420203905661e-07,1.8190260611716985e-06,rises
+propulsive units,A1,Combined Vectored Thrust,CVT,96,<= 2011,4.0,6.0,,,0.31,0.0021103405862386115,0.004220681172477223,rises
+propulsive units,A1,Tilt Wing,TW,50,2012-15,4.0,4.0,,,0.11,0.4668309192445783,,flat
+propulsive units,A1,Multirotor,MR,43,<= 2011,4.0,6.0,,,0.26,0.0922253696510409,,flat
+propulsive units,A1,five drawn architectures pooled,ALL5,474,<= 2011,4.0,6.0,,,0.28,6.64616341409299e-10,,rises
+propulsive units,A1,all classed aircraft,ALL,536,<= 2011,4.0,6.0,,,0.28,4.992195159843773e-11,,rises
+units carried on booms,A1,Lift + Cruise,SLC,145,<= 2011,0.62,0.56,,,0.05,0.5452606658468404,0.5452606658468404,flat
+units carried on booms,A1,Tilt Propulsor,TR,140,<= 2011,0.2,0.39,,,0.11,0.20174085358017857,0.40348170716035714,flat
+units carried on booms,A1,Combined Vectored Thrust,CVT,96,<= 2011,0.2,0.62,,,0.22,0.03295594414080683,0.0988678324224205,rises
+units carried on booms,A1,Tilt Wing,TW,50,2012-15,0.0,0.26,,,0.28,0.045335757589123345,,rises
+units carried on booms,A1,Multirotor,MR,43,<= 2011,0.11,0.6,,,0.26,0.08823520458990876,,flat
+units carried on booms,A1,five drawn architectures pooled,ALL5,474,<= 2011,0.27,0.51,,,0.16,0.0005799163103059164,,rises
+units carried on booms,A1,all classed aircraft,ALL,536,<= 2011,0.27,0.49,,,0.14,0.0015900881855061928,,rises
+stations carrying units,A1,Lift + Cruise,SLC,145,<= 2011,2.0,2.0,1.85,2.01,0.04,0.633378046110595,1.0,flat
+stations carrying units,A1,Tilt Propulsor,TR,140,<= 2011,1.0,1.0,1.3,1.45,0.19,0.02586735923363197,0.07760207770089592,rises
+stations carrying units,A1,Combined Vectored Thrust,CVT,96,<= 2011,2.0,2.0,1.8,1.91,-0.03,0.7740386808888666,1.0,flat
+stations carrying units,A1,Tilt Wing,TW,50,2012-15,1.0,1.0,1.33,1.47,-0.0,0.9768363245589036,,flat
+stations carrying units,A1,Multirotor,MR,43,<= 2011,1.0,1.0,1.0,1.13,0.25,0.1132058347085798,,flat
+stations carrying units,A1,five drawn architectures pooled,ALL5,474,<= 2011,1.0,2.0,1.43,1.74,0.16,0.00033812070150151743,,rises
+stations carrying units,A1,all classed aircraft,ALL,536,<= 2011,1.0,2.0,1.4,1.72,0.15,0.0005732794318481773,,rises
+booms present,A2,Lift + Cruise,SLC,145,<= 2011,0.62,0.56,,,0.05,0.5452606658468404,0.5452606658468404,flat
+booms present,A2,Tilt Propulsor,TR,140,<= 2011,0.2,0.41,,,0.12,0.1493080076247518,0.2986160152495036,flat
+booms present,A2,Combined Vectored Thrust,CVT,96,<= 2011,0.4,0.62,,,0.18,0.08421210830741546,0.2526363249222464,flat
+booms present,A2,Tilt Wing,TW,50,2012-15,0.17,0.26,,,0.12,0.41447141263610654,,flat
+booms present,A2,Multirotor,MR,43,<= 2011,0.11,0.6,,,0.26,0.08823520458990876,,flat
+booms present,A2,five drawn architectures pooled,ALL5,474,<= 2011,0.31,0.52,,,0.14,0.002310076206773215,,rises
+booms present,A2,all classed aircraft,ALL,564,<= 2011,0.31,0.49,,,0.12,0.006153850701583142,,rises
+wing units at the leading edge,A2,Lift + Cruise,SLC,67,<= 2011,0.0,0.46,,,0.11,0.38206673404674074,0.8059243522604937,flat
+wing units at the leading edge,A2,Tilt Propulsor,TR,83,<= 2011,1.0,0.82,,,-0.12,0.26864145075349793,0.8059243522604937,flat
+wing units at the leading edge,A2,Combined Vectored Thrust,CVT,65,2012-15,0.88,0.73,,,0.03,0.7830666430432047,0.8059243522604937,flat
+wing units at the leading edge,A2,Tilt Wing,TW,44,2012-15,1.0,0.87,,,-0.29,0.06058400629062854,,flat
+wing units at the leading edge,A2,Multirotor,MR,0,,,,,,,,,too thin
+wing units at the leading edge,A2,five drawn architectures pooled,ALL5,259,<= 2011,0.73,0.69,,,-0.08,0.1922670773633866,,flat
+wing units at the leading edge,A2,all classed aircraft,ALL,288,<= 2011,0.7,0.71,,,-0.06,0.3477197678769477,,flat
+a pusher unit,A2,Lift + Cruise,SLC,145,<= 2011,0.54,0.49,,,0.04,0.6035190232817813,0.6035190232817813,flat
+a pusher unit,A2,Tilt Propulsor,TR,140,<= 2011,0.0,0.12,,,0.14,0.09543474124229899,0.28630422372689696,flat
+a pusher unit,A2,Combined Vectored Thrust,CVT,96,<= 2011,0.2,0.11,,,-0.12,0.2572988039947761,0.5145976079895522,flat
+a pusher unit,A2,Tilt Wing,TW,50,2012-15,0.0,0.05,,,-0.08,0.5890626455874006,,flat
+a pusher unit,A2,Multirotor,MR,43,<= 2011,0.0,0.07,,,0.23,0.1444606237248103,,flat
+a pusher unit,A2,five drawn architectures pooled,ALL5,474,<= 2011,0.18,0.24,,,0.1,0.03504093253024661,,rises
+a pusher unit,A2,all classed aircraft,ALL,536,<= 2011,0.16,0.23,,,0.1,0.02323834774990473,,rises
+two or more wing panels,A2,Lift + Cruise,SLC,145,<= 2011,0.46,0.37,,,0.1,0.2471329715084571,0.4942659430169142,flat
+two or more wing panels,A2,Tilt Propulsor,TR,140,<= 2011,0.2,0.35,,,0.13,0.13274316391940078,0.3982294917582023,flat
+two or more wing panels,A2,Combined Vectored Thrust,CVT,96,<= 2011,0.2,0.36,,,0.11,0.27168006694548263,0.4942659430169142,flat
+two or more wing panels,A2,Tilt Wing,TW,50,2012-15,0.33,0.37,,,-0.16,0.2753645683009132,,flat
+two or more wing panels,A2,Multirotor,MR,43,<= 2011,0.0,0.0,,,,,,constant
+two or more wing panels,A2,five drawn architectures pooled,ALL5,474,<= 2011,0.25,0.34,,,0.09,0.04211575474982273,,rises
+two or more wing panels,A2,all classed aircraft,ALL,563,<= 2011,0.24,0.34,,,0.09,0.030293413633620602,,rises
+swept or delta main wing,B,Lift + Cruise,SLC,145,<= 2011,0.77,0.43,,,-0.1,0.24558268592534502,0.736748057776035,flat
+swept or delta main wing,B,Tilt Propulsor,TR,140,<= 2011,0.15,0.31,,,0.05,0.551638557426146,1.0,flat
+swept or delta main wing,B,Combined Vectored Thrust,CVT,96,<= 2011,0.2,0.26,,,-0.03,0.7578337632658301,1.0,flat
+swept or delta main wing,B,Tilt Wing,TW,50,2012-15,0.17,0.0,,,-0.19,0.17662190749201573,,flat
+swept or delta main wing,B,Multirotor,MR,0,,,,,,,,,too thin
+swept or delta main wing,B,five drawn architectures pooled,ALL5,431,<= 2011,0.33,0.31,,,-0.01,0.9142157423188865,,flat
+swept or delta main wing,B,all classed aircraft,ALL,485,<= 2011,0.36,0.31,,,0.0,0.9823501705855864,,flat
+no tail surface,A2,Lift + Cruise,SLC,145,<= 2011,0.62,0.23,,,-0.11,0.1900335349594882,0.30325959715463946,flat
+no tail surface,A2,Tilt Propulsor,TR,140,<= 2011,0.05,0.27,,,0.12,0.15162979857731973,0.30325959715463946,flat
+no tail surface,A2,Combined Vectored Thrust,CVT,96,<= 2011,0.4,0.08,,,-0.3,0.003038348061446961,0.009115044184340882,falls
+no tail surface,A2,Tilt Wing,TW,50,2012-15,0.33,0.32,,,-0.0,0.9753514964749208,,flat
+no tail surface,A2,Multirotor,MR,43,<= 2011,0.44,0.87,,,0.31,0.0412336862702444,,rises
+no tail surface,A2,five drawn architectures pooled,ALL5,474,<= 2011,0.31,0.25,,,-0.06,0.17761496422077094,,flat
+no tail surface,A2,all classed aircraft,ALL,540,<= 2011,0.33,0.27,,,-0.04,0.3055532242434359,,flat
+a ducted unit,B,Lift + Cruise,SLC,145,<= 2011,0.38,0.48,,,0.11,0.1799956181703485,0.359991236340697,flat
+a ducted unit,B,Tilt Propulsor,TR,140,<= 2011,0.15,0.31,,,0.04,0.6267977060551896,0.6267977060551896,flat
+a ducted unit,B,Combined Vectored Thrust,CVT,96,<= 2011,0.8,0.32,,,-0.2,0.05190008196561953,0.1557002458968586,flat
+a ducted unit,B,Tilt Wing,TW,50,2012-15,0.0,0.16,,,-0.02,0.9168645287340194,,flat
+a ducted unit,B,Multirotor,MR,43,<= 2011,0.78,0.73,,,0.06,0.6986862115170713,,flat
+a ducted unit,B,five drawn architectures pooled,ALL5,474,<= 2011,0.39,0.39,,,-0.0,0.9305423667969337,,flat
+a ducted unit,B,all classed aircraft,ALL,536,<= 2011,0.36,0.37,,,-0.01,0.7924090403855804,,flat
+ground contact drawn,B,Lift + Cruise,SLC,145,<= 2011,0.0,0.27,,,0.09,0.27843340389220395,0.5568668077844079,flat
+ground contact drawn,B,Tilt Propulsor,TR,140,<= 2011,0.35,0.39,,,0.09,0.2972759901266761,0.5568668077844079,flat
+ground contact drawn,B,Combined Vectored Thrust,CVT,96,<= 2011,0.0,0.32,,,0.18,0.07429966869735236,0.22289900609205707,flat
+ground contact drawn,B,Tilt Wing,TW,50,2012-15,0.0,0.21,,,0.01,0.9352941906565512,,flat
+ground contact drawn,B,Multirotor,MR,43,<= 2011,0.11,0.6,,,0.37,0.01355512060518381,,rises
+ground contact drawn,B,five drawn architectures pooled,ALL5,474,<= 2011,0.18,0.33,,,0.1,0.025891863847342968,,rises
+ground contact drawn,B,all classed aircraft,ALL,542,<= 2011,0.22,0.35,,,0.08,0.04968427396375088,,rises
+"wheeled gear, of the ground contact drawn",B,Lift + Cruise,SLC,37,2016-19,0.53,0.55,,,0.04,0.7965292011712051,0.9741656872897506,flat
+"wheeled gear, of the ground contact drawn",B,Tilt Propulsor,TR,46,<= 2011,0.71,0.53,,,-0.17,0.24593180987790708,0.7377954296337212,flat
+"wheeled gear, of the ground contact drawn",B,Combined Vectored Thrust,CVT,21,2020-23,0.71,0.71,,,0.16,0.4870828436448753,0.9741656872897506,flat
+"wheeled gear, of the ground contact drawn",B,Tilt Wing,TW,11,2016-19,0.17,,,,,,,too thin
+"wheeled gear, of the ground contact drawn",B,Multirotor,MR,15,2020-23,0.22,0.22,,,,,,too thin
+"wheeled gear, of the ground contact drawn",B,five drawn architectures pooled,ALL5,130,<= 2011,0.78,0.52,,,-0.07,0.4467831704139452,,flat
+"wheeled gear, of the ground contact drawn",B,all classed aircraft,ALL,170,<= 2011,0.75,0.49,,,-0.08,0.2945714950256329,,flat
+propulsor types,C,Lift + Cruise,SLC,145,<= 2011,3.0,3.0,2.62,2.71,-0.05,0.5782723363085479,0.5782723363085479,flat
+propulsor types,C,Tilt Propulsor,TR,140,<= 2011,1.0,2.0,1.35,1.8,0.23,0.005792783564114658,0.017378350692343975,rises
+propulsor types,C,Combined Vectored Thrust,CVT,96,<= 2011,2.0,3.0,2.4,2.75,0.14,0.16569747366479037,0.33139494732958075,flat
+propulsor types,C,Tilt Wing,TW,50,2012-15,1.5,1.0,1.5,1.58,-0.05,0.7153213340317686,,flat
+propulsor types,C,Multirotor,MR,43,<= 2011,2.0,2.0,1.89,1.8,0.09,0.5724565860606974,,flat
+propulsor types,C,five drawn architectures pooled,ALL5,474,<= 2011,2.0,2.0,1.86,2.34,0.18,5.326323141932067e-05,,rises
+propulsor types,C,all classed aircraft,ALL,536,<= 2011,2.0,2.0,1.8,2.31,0.18,2.21183364617213e-05,,rises

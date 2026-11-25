@@ -1,0 +1,151 @@
+# MANIFEST
+
+One line per file: path · used in the dissertation · what it shows.
+- `latex/Figures/Part_I_evidence_base/I1_patenting_rate/main/q1_filings_per_year.pdf` · yes · Designs filed per priority year (dark-grey bars, 2024-26 outline only) and patent families (blue line, same y axis); dated sector events as thin lines (thesis style, 2026-10-20)
+- `latex/Figures/Part_I_evidence_base/I1_patenting_rate/main/q1_growth_rates.pdf` · no (leaves the text) · Growth of eVTOL architecture patent families and aeronautics (CPC B64), relative to 2005-09, log2 scale, each drawn with the model that wins on AIC and BIC (its own break, fitted 2005-2022); (b) eVTOL families per 1 000 B64 families per priority year (supervisor review 2, 2026-10; no level-shift arrows)
+- `latex/Figures/Part_I_evidence_base/I1_patenting_rate/appendix/q1_growth_rates_baselines.pdf` · no (leaves the text) · Appendix to q1_growth_rates: transport and operations (CPC section B) and all patents, the same reading, one panel each (supervisor review 2, 2026-10)
+- `latex/Figures/Part_I_evidence_base/I1_patenting_rate/auxiliary/q4_patent_vs_market_clock.pdf` · yes · One row per AAM Reality Index firm that files here: first to last patent, peak year, first flight, entry into service (thesis style, 6.3 in, 2026-10-20)
+- `latex/Figures/Part_I_evidence_base/I1_patenting_rate/appendix/q5_funding_vs_aircraft.pdf` · no (leaves the text) · Disclosed funding of the index firms against their designs in the patent dataset (width not given: 0.6, as in the dissertation before)
+- `latex/Figures/Part_I_evidence_base/I2_active_protection/main/q1_in_force_status.pdf` · no (leaves the text) · Share of designs not actively protected, by architecture and by filing office (US against the other offices), the nine architectures of ten designs or more, 604 designs (width not given: 1.0; appendix at most)
+- `latex/Figures/Part_I_evidence_base/I4_external_validity/main/q4_class_mix.pdf` · yes · Share of each VFS directory category per cohort, one panel per category: patent dataset (solid) against the VFS eVTOL directory (dashed) (thesis style, 2026-10-20)
+- `latex/Figures/Part_I_evidence_base/I4_external_validity/appendix/q4_dataset_vs_directory_classes.pdf` · no (leaves the text) · Designs per architecture group in the patent dataset and the pages of the VFS eVTOL directory inside the domain, all years (appendix)
+- `latex/Figures/Part_I_evidence_base/I4_external_validity/appendix/q4_dataset_vs_directory_subsets.pdf` · no (leaves the text) · Designs of each architecture group in the dataset and in four parts of the in-domain directory (appendix)
+- `latex/Figures/Part_I_evidence_base/I1_patenting_rate/main/q1_filings_per_year.png` · yes · 300 dpi preview of q1_filings_per_year
+- `latex/Figures/Part_I_evidence_base/I1_patenting_rate/main/q1_growth_rates.png` · no (leaves the text) · 300 dpi preview of q1_growth_rates
+- `latex/Figures/Part_I_evidence_base/I1_patenting_rate/appendix/q1_growth_rates_baselines.png` · no (leaves the text) · 300 dpi preview of q1_growth_rates_baselines
+- `latex/Figures/Part_I_evidence_base/I1_patenting_rate/auxiliary/q4_patent_vs_market_clock.png` · yes · 300 dpi preview of q4_patent_vs_market_clock
+- `latex/Figures/Part_I_evidence_base/I4_external_validity/main/q4_class_mix.png` · yes · 300 dpi preview of q4_class_mix
+- `latex/Data_for_writing/csv/q1_filings_per_year.csv` · yes · data behind q1_filings_per_year
+- `latex/Data_for_writing/csv/q1_growth_rates.csv` · no (leaves the text) · data behind q1_growth_rates
+- `latex/Data_for_writing/csv/q1_growth_rates_baselines.csv` · no (leaves the text) · data behind q1_growth_rates_baselines
+- `latex/Data_for_writing/csv/q4_patent_vs_market_clock.csv` · yes · data behind q4_patent_vs_market_clock
+- `latex/Data_for_writing/csv/q5_funding_vs_aircraft.csv` · no (leaves the text) · data behind q5_funding_vs_aircraft
+- `latex/Data_for_writing/csv/q1_in_force_status.csv` · no (leaves the text) · data behind q1_in_force_status
+- `latex/Data_for_writing/csv/q4_class_mix.csv` · yes · data behind q4_class_mix
+- `latex/Data_for_writing/csv/q4_dataset_vs_directory_classes.csv` · no (leaves the text) · data behind q4_dataset_vs_directory_classes
+- `latex/Data_for_writing/csv/q4_dataset_vs_directory_subsets.csv` · no (leaves the text) · data behind q4_dataset_vs_directory_subsets
+- `latex/Data_for_writing/NUMBERS_I.md` · yes · numbers of Analysis I with their sources
+- `latex/Data_for_writing/csv/numbers_I_active_protection_by_architecture.csv` · no · table behind NUMBERS_I.md (not printed)
+- `latex/Data_for_writing/csv/numbers_I_active_protection_by_cohort.csv` · no · table behind NUMBERS_I.md (not printed)
+- `latex/Data_for_writing/csv/numbers_I_changed_old_new.csv` · no · table behind NUMBERS_I.md (not printed)
+- `latex/Data_for_writing/csv/numbers_I_flown_group_difference.csv` · no · table behind NUMBERS_I.md (not printed)
+- `latex/Data_for_writing/csv/numbers_I_flown_index_firm_architecture_counts.csv` · no · table behind NUMBERS_I.md (not printed)
+- `latex/Data_for_writing/csv/numbers_I_flown_index_firms.csv` · no · table behind NUMBERS_I.md (not printed)
+- `latex/Data_for_writing/csv/numbers_I_funnel.csv` · no · table behind NUMBERS_I.md (not printed)
+- `latex/Data_for_writing/csv/numbers_I_funnel_family_holm.csv` · no · table behind NUMBERS_I.md (not printed)
+- `latex/Data_for_writing/csv/numbers_I_growth.csv` · no · table behind NUMBERS_I.md (not printed)
+- `latex/Data_for_writing/csv/numbers_I_growth_breakpoints.csv` · no · table behind NUMBERS_I.md (not printed)
+- `latex/Data_for_writing/csv/numbers_I_growth_model_comparison.csv` · no · table behind NUMBERS_I.md (not printed)
+- `latex/Data_for_writing/csv/numbers_I_growth_models.csv` · no · table behind NUMBERS_I.md (not printed)
+- `latex/Data_for_writing/csv/numbers_I_in_domain_directory.csv` · no · table behind NUMBERS_I.md (not printed)
+- `latex/Data_for_writing/csv/numbers_I_in_domain_directory_parts.csv` · no · table behind NUMBERS_I.md (not printed)
+- `latex/Data_for_writing/csv/numbers_I_lead_to_first_flight.csv` · no · table behind NUMBERS_I.md (not printed)
+- `latex/Data_for_writing/csv/numbers_I_office_by_cohort.csv` · no · table behind NUMBERS_I.md (not printed)
+- `latex/Data_for_writing/csv/numbers_I_segment_slopes.csv` · no · table behind NUMBERS_I.md (not printed)
+- `latex/Data_for_writing/csv/numbers_I_turning_points.csv` · no · table behind NUMBERS_I.md (not printed)
+- `latex/Data_for_writing/csv/numbers_I_unchanged.csv` · no · table behind NUMBERS_I.md (not printed)
+- `latex/Figures/Part_II_design_space/II3_distribution_and_new_variety/main/q6_configuration_core.pdf` · yes · configurations by share of the 2016–23 designs and assignees per design; core (coloured, named) and periphery (grey) apart at a dashed share threshold; ringed where the largest assignee holds more than 40 %
+- `latex/Data_for_writing/csv/q6_configuration_core.csv` · yes · data behind q6_configuration_core
+- `latex/Figures/Part_II_design_space/II3_distribution_and_new_variety/main/q6_discovery_curve.pdf` · yes · distinct configurations seen as the designs accumulate, at A, A·W·T and A·U, against random order; 2024–26 not yet all published
+- `latex/Data_for_writing/csv/q6_discovery_curve.csv` · yes · data behind q6_discovery_curve
+- `latex/Figures/Part_II_design_space/II3_distribution_and_new_variety/auxiliary/q6_half_of_cohort_heatmap.pdf` · no (leaves the text) · designs per A·U configuration and cohort; outlined: the configurations that hold half of each complete cohort (ranked within the cohort)
+- `latex/Data_for_writing/csv/q6_half_of_cohort_heatmap.csv` · no (leaves the text) · data behind q6_half_of_cohort_heatmap
+- `latex/Figures/Part_II_design_space/II3_distribution_and_new_variety/auxiliary/q6_half_of_cohort.pdf` · no (leaves the text) · cumulative share of each cohort's designs held by its largest A·U configurations; where each crosses 50 %
+- `latex/Data_for_writing/csv/q6_half_of_cohort.csv` · no (leaves the text) · data behind q6_half_of_cohort
+- `latex/Figures/Part_II_design_space/II1_varying_attributes/auxiliary/q6_propulsor_units_per_class.pdf` · yes · propulsor units per design, by architecture (appendix)
+- `latex/Data_for_writing/csv/q6_propulsor_units_per_class.csv` · yes · data behind q6_propulsor_units_per_class
+- `latex/Data_for_writing/csv/q6_selected_fields.csv` · yes · dimensions that vary: designs answering, options, top share, most common options
+- `latex/Data_for_writing/csv/q7_levels_of_description.csv` · yes · the three levels of description A, A·W·T, A·U: configurations, singletons, ¹D, largest configuration
+- `latex/Data_for_writing/csv/q7_hill_numbers_by_level.csv` · yes · Hill numbers of each level: ⁰D (configurations), ¹D, ²D
+- `latex/Data_for_writing/csv/q6_fixed_by_architecture.csv` · yes · per dimension of q6_selected_fields: designs answering with an architecture, bias-corrected Cramér's V against the architecture, permutation p, architectures where the leading option holds 80 % or more (of those with 10 or more designs), architectures too few to read (appendix)
+- `latex/Figures/Part_II_design_space/II1_varying_attributes/appendix/q6_fixed_by_architecture.csv` · yes · copy of q6_fixed_by_architecture
+- `latex/Data_for_writing/csv/q6_fixed_by_architecture_detail.csv` · yes · per dimension and architecture: designs answering, leading option and its share (appendix, behind q6_fixed_by_architecture)
+- `latex/Figures/Part_II_design_space/II1_varying_attributes/appendix/q6_fixed_by_architecture_detail.csv` · yes · copy of q6_fixed_by_architecture_detail
+- `latex/Data_for_writing/csv/q6_discovery_estimators.csv` · yes · Chao1, coverage and new configurations in the last 100 designs, per level (complete years)
+- `latex/Data_for_writing/csv/q6_discovery_last100_band.csv` · yes · band of the new configurations in the last 100 designs: date order (1000 tie orderings, 2.5–97.5 %) against 10 000 random orders (exact mean, 95th / 99th percentile, max), two one-sided p, per level (complete years; supervisor review 2)
+- `latex/Data_for_writing/NUMBERS_II.md` · yes · numbers of Analysis II with their sources
+- `latex/Figures/Part_III_dominant_design/III1_architecture_shares/main/q6_architecture_shares_by_cohort.pdf` · yes · share of each cohort's designs by architecture
+- `latex/Data_for_writing/csv/q6_architecture_shares_by_cohort.csv` · yes · data behind q6_architecture_shares_by_cohort
+- `latex/Figures/Part_III_dominant_design/III2_III3_dominant_design/main/q7_condition2_balance.pdf` · yes · condition 2: ²D against its permutation band, per level
+- `latex/Data_for_writing/csv/q7_condition2_balance.csv` · yes · data behind q7_condition2_balance
+- `latex/Figures/Part_III_dominant_design/III2_III3_dominant_design/main/q7_condition3_cohesion.pdf` · yes · condition 3: ΔQ against its permutation band, main weighting, level A alone (Q does not depend on the level)
+- `latex/Data_for_writing/csv/q7_condition3_cohesion.csv` · yes · data behind q7_condition3_cohesion
+- `latex/Figures/Part_III_dominant_design/III2_III3_dominant_design/main/q7_family_conditions.pdf` · yes · the three conditions on F: all designs (band) and actively protected (dashed)
+- `latex/Data_for_writing/csv/q7_family_conditions.csv` · yes · data behind q7_family_conditions
+- `latex/Figures/Part_III_dominant_design/III2_III3_dominant_design/main/q7_condition1_family.pdf` · no (leaves the text) · condition 1: F's share per priority year, two bases
+- `latex/Data_for_writing/csv/q7_condition1_family.csv` · no (leaves the text) · data behind q7_condition1_family
+- `latex/Figures/Part_III_dominant_design/III1_architecture_shares/main/q6_largest_architectures_over_time.pdf` · no (leaves the text) · five largest architectures' share per cohort
+- `latex/Data_for_writing/csv/q6_largest_architectures_over_time.csv` · no (leaves the text) · data behind q6_largest_architectures_over_time
+- `latex/Figures/Part_III_dominant_design/III4_directory_categories/main/q7_iii4_directory_categories.pdf` · no (leaves the text) · III.4: Vectored Thrust share per year (met years as bars) and ²D against the band
+- `latex/Data_for_writing/csv/q7_iii4_directory_categories.csv` · no (leaves the text) · data behind q7_iii4_directory_categories
+- `latex/Data_for_writing/csv/q7_verdict_table.csv` · yes · verdict per condition and level, all designs (main) and actively protected (sensitivity), each base read alone
+- `latex/Data_for_writing/csv/q7_verdict_detail.csv` · yes · the numbers behind the verdict on each base
+- `latex/Data_for_writing/csv/q7_condition3_weights.csv` · yes · weights of the form distance (w15): 15 dimensions, four systems each weighing 1
+- `latex/Data_for_writing/csv/q7_condition3_family.csv` · yes · condition 3 on F: actively protected, all designs, granted and live
+- `latex/Data_for_writing/csv/q6_share_trend_spearman.csv` · yes · Spearman rho of architecture share on priority year
+- `latex/Data_for_writing/csv/q7_three_year_check.csv` · yes · condition 1 with three consecutive years
+- `latex/Data_for_writing/csv/q7_granted_live_condition1.csv` · yes · F's share per year, granted and live patents
+- `latex/Data_for_writing/csv/q7_granted_live_condition2.csv` · yes · ²D of F, granted and live patents
+- `latex/Data_for_writing/csv/q7_iii4_directory_fold.csv` · yes · architectures folded to the directory categories
+- `latex/Data_for_writing/NUMBERS_III.md` · yes · numbers of Analysis III with their sources
+- `latex/Figures/Part_IV_design_space_evolution/IV1_layout_convergence/main/q6_leading_layout_by_architecture.pdf` · yes · composition of Lift + Cruise, Tilt Propulsor and CVT over their layouts per cohort, one row each
+- `latex/Data_for_writing/csv/q6_leading_layout_by_architecture.csv` · yes · data behind q6_leading_layout_by_architecture
+- `latex/Figures/Part_IV_design_space_evolution/IV3_centre_and_disparity/main/q6_centroid_dispersion.pdf` · no (leaves the text) · distance of each cohort from the first and Rao's Q per cohort, with permutation bands (future work)
+- `latex/Data_for_writing/csv/q6_centroid_dispersion.csv` · no (leaves the text) · data behind q6_centroid_dispersion
+- `latex/Data_for_writing/csv/q6_driver_trends.csv` · yes · Spearman rho and p of every trace per architecture and pooled (every year to 2023)
+- `latex/Data_for_writing/csv/q6_driver_verdicts.csv` · yes · traces that move and the drivers they go with and against (the driver table)
+- `latex/Data_for_writing/csv/q6_architecture_traces_by_cohort.csv` · yes · per architecture and cohort: aircraft, tilting sets, propulsor units, booms and ducted shares
+- `latex/Data_for_writing/csv/q6_tilt_mechanisms_per_propulsor.csv` · yes · mean tilt mechanisms per propulsor unit per architecture and cohort, with rho and p
+- `latex/Data_for_writing/csv/q6_propulsor_units_median_by_cohort.csv` · yes · median propulsor units of Tilt Propulsor, CVT and Lift + Cruise per cohort
+- `latex/Data_for_writing/NUMBERS_IV.md` · yes · numbers of Analysis IV with their sources
+- `latex/Figures/Part_IV_design_space_evolution/IV2_drivers/main/q6_iv2_representative_aircraft.pdf` · yes · one patent drawing per architecture and cohort (CVT, Tilt Propulsor, Lift + Cruise; ≤2011 and 2020-23) showing the leading layout
+- `latex/Data_for_writing/csv/q6_iv2_representative_aircraft.csv` · yes · the six designs: patent number, identifier, drawing, share of the architecture, why chosen
+- `latex/Figures/Part_IV_design_space_evolution/IV2_drivers/main/q6_iv2_representative_aircraft_alt.pdf` · no (alternative) · the same six cells with a top view for CVT 2020-23 and a Tilt Propulsor 2020-23 drawing with the cohort median of 4 propulsor units
+- `latex/Data_for_writing/csv/q6_iv2_representative_aircraft_alt.csv` · no (alternative) · the six designs: patent number, identifier, drawing, share of the architecture, why chosen
+- `latex/Figures/Part_IV_design_space_evolution/IV1_layout_convergence/main/q6_architecture_centres_tilting_units.pdf` · yes · centre of each architecture per cohort, one scatter: mean tilting sets (x) against median propulsors (y), arrows cohort to cohort; 2024-26 faded, no arrow
+- `latex/Data_for_writing/csv/q6_architecture_centres_tilting_units.csv` · yes · data behind q6_architecture_centres_tilting_units, the 2024-26 (incomplete) rows added
+- `latex/Figures/Part_IV_design_space_evolution/IV2_attributes_and_drivers/main/q6_boom_share_by_architecture.pdf` · yes · share with propulsors on booms per architecture and cohort, Spearman tests; 2024-26 drawn, not tested
+- `latex/Data_for_writing/csv/q6_boom_share_by_architecture.csv` · yes · data behind q6_boom_share_by_architecture, the 2024-26 (incomplete) rows added
+- `latex/Figures/Part_IV_design_space_evolution/IV2_attributes_and_drivers/main/q6_cvt_units_on_booms.pdf` · yes · CVT share with propulsors on booms per cohort, with rho and p; 2024-26 drawn, not tested
+- `latex/Data_for_writing/csv/q6_cvt_units_on_booms.csv` · yes · data behind q6_cvt_units_on_booms, the 2024-26 (incomplete) rows added
+- `latex/Figures/Part_IV_design_space_evolution/IV2_attributes_and_drivers/main/q6_ducted_share_by_architecture.pdf` · yes · share with a ducted propulsor per architecture and cohort; 2024-26 drawn, not tested
+- `latex/Data_for_writing/csv/q6_ducted_share_by_architecture.csv` · yes · data behind q6_ducted_share_by_architecture, the 2024-26 (incomplete) rows added
+- `latex/Figures/Part_IV_design_space_evolution/IV2_attributes_and_drivers/main/q6_cvt_ducted_by_boom_layout.pdf` · yes · CVT ducted share with and without propulsors on booms, with the tests; 2024-26 drawn, not tested
+- `latex/Data_for_writing/csv/q6_cvt_ducted_by_boom_layout.csv` · yes · data behind q6_cvt_ducted_by_boom_layout, the 2024-26 (incomplete) rows added
+- `latex/Figures/Part_IV_design_space_evolution/IV2_attributes_and_drivers/main/q6_iv1_traces_booms.pdf` · yes · Fig 4.13 (split from q6_iv1_traces, 2026-10-20): share with propulsors on booms per architecture and cohort, and the CVT share with its values; rho and p at the line ends; 2024-26 drawn, not tested
+- `latex/Figures/Part_IV_design_space_evolution/IV2_attributes_and_drivers/main/q6_iv1_traces_ducts.pdf` · yes · Fig 4.14 (split from q6_iv1_traces, 2026-10-20): share with a ducted propulsor per architecture and cohort, and the CVT ducted share inside each boom layout; rho and p at the line ends; 2024-26 drawn, not tested
+- `latex/Data_for_writing/NUMBERS_IV_incomplete_cohort.md` · yes · the values of the incomplete 2024-26 cohort drawn in the Analysis IV figures (never tested)
+- `latex/Figures/Part_III_dominant_design/III2_III3_dominant_design/main/q6_population_cloud.pdf` · yes · population of designs (four complete cohorts) on the two principal coordinates of the w15 Gower distance, cohort centroids joined in time order, three drawings
+- `latex/Data_for_writing/csv/q6_population_cloud.csv` · yes · data behind q6_population_cloud: one row per design, publication number, design, cohort, axis 1, axis 2
+- `latex/Figures/Part_IV_design_space_evolution/IV2_attributes_and_drivers/main/q6_iv1_traces_booms.png` · no (leaves the text) · PNG copy of q6_iv1_traces_booms, for a quick look
+- `latex/Figures/Part_IV_design_space_evolution/IV2_attributes_and_drivers/main/q6_iv1_traces_ducts.png` · no (leaves the text) · PNG copy of q6_iv1_traces_ducts, for a quick look
+- `latex/Data_for_writing/csv/q3_region_entry_lag_two_decimals.csv` · no (leaves the text) · entry lag of Europe and Asia-Pacific against North America with two decimals, all years and 2016 onward
+- `latex/Figures/Part_V_assignees_and_regions/V1_who_files/main/q2_filer_types.pdf` · yes · share of each assignee type, all years and per cohort
+- `latex/Figures/Part_V_assignees_and_regions/V3_regions_what_and_when/main/q3_region_design_all_years.pdf` · yes · architecture, propulsor units and tilting per region, all years
+- `latex/Figures/Part_V_assignees_and_regions/V4_regions_and_family_F/main/q7_region_family_share.pdf` · yes · share of designs in F per region and cohort, chi-square p under each cohort
+- `latex/Figures/Part_V_assignees_and_regions/V1_who_files/main/q2_largest_filers_share.pdf` · no (leaves the text) · cumulative share of the designs held by the largest assignees (width not given: 1.0)
+- `latex/Figures/Part_V_assignees_and_regions/V3_regions_what_and_when/main/q3_region_entry_lag.pdf` · no (leaves the text) · years after North America per architecture, median difference with 95 % bootstrap interval (width not given: 0.72, as before)
+- `latex/Figures/Part_V_assignees_and_regions/V4_regions_and_family_F/appendix/q7_region_firm_proximity.pdf` · no (leaves the text) · proximity of the assignees' architecture mixes within and across regions (width not given: 0.7, as the 0.5 of before overlapped its labels at 7 pt)
+- `latex/Figures/Part_V_assignees_and_regions/V3_regions_what_and_when/appendix/q3_firm_successions.pdf` · no (leaves the text) · where an assignee's next design lands, by the architecture of the one before (width not given: 1.0)
+- `latex/Figures/Part_V_assignees_and_regions/V3_regions_what_and_when/appendix/q3_region_mix_by_window_class.pdf` · yes · architecture mix of each region per cohort, the two strongest 2012-2023 trends above each panel (appendix; added 2026-10-17, width 1.0)
+- `latex/Data_for_writing/csv/q7_region_tests.csv` · no (behind NUMBERS_V) · chi-square of region against each measure, all years and per cohort, with and without the largest North American assignee; Holm within each assignee reading
+- `latex/Data_for_writing/csv/q3_region_mix_change.csv` · no (behind NUMBERS_V) · per region, variable and answer: shares per cohort and the Spearman trend 2012-2023; Holm over every trend test of the table
+- `latex/Data_for_writing/csv/q2_filer_types.csv` · yes · data behind q2_filer_types
+- `latex/Data_for_writing/csv/q3_region_design_all_years.csv` · yes · data behind q3_region_design_all_years
+- `latex/Data_for_writing/csv/q7_region_family_share.csv` · yes · data behind q7_region_family_share
+- `latex/Data_for_writing/csv/q2_largest_filers_share.csv` · no (leaves the text) · data behind q2_largest_filers_share
+- `latex/Data_for_writing/csv/q3_region_entry_lag.csv` · no (leaves the text) · data behind q3_region_entry_lag
+- `latex/Data_for_writing/csv/q7_region_firm_proximity.csv` · no (leaves the text) · data behind q7_region_firm_proximity
+- `latex/Data_for_writing/csv/q3_firm_successions.csv` · no (leaves the text) · data behind q3_firm_successions
+- `latex/Data_for_writing/csv/q3_region_mix_by_window_class.csv` · yes · data behind q3_region_mix_by_window_class
+- `latex/Data_for_writing/NUMBERS_V.md` · yes · numbers of Analysis V with their sources
+- `latex/Figures/Part_IV_design_space_evolution/IV2_attributes_and_drivers/main/q6_iv2_merge_cvt_lc.pdf` · yes · CVT and Lift + Cruise designs of 2012-15 and 2020-23 by tilting sets and propulsors per design; outlines and centre paths
+- `latex/Figures/Part_IV_design_space_evolution/IV2_attributes_and_drivers/main/q6_iv2_merge_cvt_lc.png` · yes · CVT and Lift + Cruise designs of 2012-15 and 2020-23 by tilting sets and propulsors per design; outlines and centre paths
+- `latex/Figures/Part_IV_design_space_evolution/IV2_attributes_and_drivers/main/q6_iv2_merge_cvt_lc.csv` · yes · CVT and Lift + Cruise designs of 2012-15 and 2020-23 by tilting sets and propulsors per design; outlines and centre paths
+- `latex/Figures/Part_IV_design_space_evolution/IV2_attributes_and_drivers/main/q6_iv2_split_tp.pdf` · yes · Tilt Propulsor splitting into one and two or more tilting sets, per cohort; three patent drawings
+- `latex/Figures/Part_IV_design_space_evolution/IV2_attributes_and_drivers/main/q6_iv2_split_tp.png` · yes · Tilt Propulsor splitting into one and two or more tilting sets, per cohort; three patent drawings
+- `latex/Figures/Part_IV_design_space_evolution/IV2_attributes_and_drivers/main/q6_iv2_split_tp.csv` · yes · Tilt Propulsor splitting into one and two or more tilting sets, per cohort; three patent drawings
+- `latex/Figures/Part_IV_design_space_evolution/IV2_attributes_and_drivers/main/q6_iv2_merge_cvt_lc_distance.csv` · yes · Gower distance (34 dimensions) of CVT* and of all CVT to Lift + Cruise per cohort, with the permutation band of the change 2012-15 to 2020-23
+- `latex/Figures/Part_II_design_space/II3_distribution_and_new_variety/auxiliary/q6_half_of_cohort_heatmap.png` · no (leaves the text) · the heatmap as PNG
+- `latex/Figures/Part_II_design_space/II3_distribution_and_new_variety/auxiliary/q6_half_of_cohort_heatmap.csv` · no (leaves the text) · data behind q6_half_of_cohort_heatmap (figure folder copy)
+- `latex/Data_for_writing/csv/q2_largest_filer_per_class.csv` · yes · largest assignee per architecture, all years and in one cohort

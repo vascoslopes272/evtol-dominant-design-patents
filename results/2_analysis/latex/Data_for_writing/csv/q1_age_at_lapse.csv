@@ -1,0 +1,4 @@
+group,lapsed patents,median (years),10th percentile (years),90th percentile (years)
+all lapsed patents,214,3.81,2.25,9.95
+US office,104,4.68,2.75,12.94
+other offices,110,3.5,1.6,6.52

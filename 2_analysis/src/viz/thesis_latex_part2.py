@@ -1,0 +1,227 @@
+"""Part II hand-over to the dissertation (notebook 50, last section): the figures of Analysis II redrawn at their final width in the text block
+(16 cm), height at most 55 % of the width, text 7 pt or more, thesis style (viz/thesis.mplstyle), no title; written to
+latex/Figures/Part_II_design_space/<group>/<role>/; the data behind every figure and table in latex/Data_for_writing/csv/; NUMBERS_II.md;
+MANIFEST.md (appended). No number, test or result changes: the builders are those of viz/figures_part2.py, which read viz/thesis_q6.py and
+thesis_q7.py unchanged. Levels of description are printed A, A·W·T, A·U."""
+from __future__ import annotations
+
+import re
+from pathlib import Path
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+from viz import figcheck, thesis_q6 as q6, thesis_q7 as q7, figures_part2 as v2
+from viz.thesis_latex_common import MAX_H, TEXT_CM, root, tables_md
+
+#: name -> (final width as a share of the text block, in the dissertation)
+FIGS = {"q6_configuration_core": (0.9, True), "q6_discovery_curve": (1.0, True),
+        "q6_half_of_cohort_heatmap": (1.0, False),
+        "q6_half_of_cohort": (1.0, False),                 # printed at text width (redrawn wide 2026-10-15); leaves the text
+        "q6_propulsor_units_per_class": (0.8, True)}       # appendix
+#: figures drawn at a size given in pt (width, height) instead of a share of the text block (author, rerun of 2026-10-15). q6_discovery_curve:
+#: 450 pt wide; its three panels are about twice as wide as tall, which at that width needs about 128 pt of height (150 pt asked "about")
+SIZE_PT = {"q6_discovery_curve": (450.0, 128.0)}
+#: name -> height as a share of the width, where a figure is drawn flatter than ``MAX_H`` (q6_half_of_cohort: 7 in × 2.6 in in the notebook)
+HEIGHT = {"q6_half_of_cohort": 2.6 / 7.0}
+TABLES = {"q6_selected_fields": True, "q7_levels_of_description": True, "q7_hill_numbers_by_level": True,
+          "q6_fixed_by_architecture": True, "q6_fixed_by_architecture_detail": True}
+#: tables whose csv is ALSO copied next to the figures of their group/role (Figures/Part_II_design_space/<group>/<role>/), besides Data_for_writing/csv/
+ALSO_TO = {"q6_fixed_by_architecture": ["figures"], "q6_fixed_by_architecture_detail": ["figures"]}
+SHOWS = {"q6_configuration_core": "configurations by share of the 2016–23 designs and assignees per design; core (coloured, named) and periphery (grey) apart at a dashed share threshold; ringed where the largest assignee holds more than 40 %",
+         "q6_discovery_curve": "distinct configurations seen as the designs accumulate, at A, A·W·T and A·U, against random order; 2024–26 not yet all published",
+         "q6_half_of_cohort_heatmap": "designs per A·U configuration and cohort; outlined: the configurations that hold half of each complete cohort (ranked within the cohort)",
+         "q6_half_of_cohort": "cumulative share of each cohort's designs held by its largest A·U configurations; where each crosses 50 %",
+         "q6_propulsor_units_per_class": "propulsor units per design, by architecture (appendix)",
+         "q6_selected_fields": "dimensions that vary: designs answering, options, top share, most common options",
+         "q7_levels_of_description": "the three levels of description A, A·W·T, A·U: configurations, singletons, ¹D, largest configuration",
+         "q7_hill_numbers_by_level": "Hill numbers of each level: ⁰D (configurations), ¹D, ²D",
+         "q6_fixed_by_architecture": "per dimension of q6_selected_fields: designs answering with an architecture, bias-corrected Cramér's V against the architecture, permutation p, architectures where the leading option holds 80 % or more (of those with 10 or more designs), architectures too few to read (appendix)",
+         "q6_fixed_by_architecture_detail": "per dimension and architecture: designs answering, leading option and its share (appendix, behind q6_fixed_by_architecture)"}
+
+
+def _item(name):
+    return next(i for i in v2.ITEMS if i["name"] == name)
+
+
+def tab_hill_numbers_by_level(ctx):
+    """⁰D, ¹D and ²D of the three levels of description, from the frame of thesis_q6 (frames.archetype_levels_table), all years."""
+    lv = q6._data(ctx)["levels"].set_index("level")
+    t = pd.DataFrame({"level": [v2.LEVEL[k] for k in ("A0", "A1t", "A0c")],
+                      "designs": [int(lv.loc[k, "aircraft"]) for k in ("A0", "A1t", "A0c")],
+                      "⁰D (configurations)": [int(lv.loc[k, "archetypes"]) for k in ("A0", "A1t", "A0c")],
+                      "¹D": [round(float(lv.loc[k, "effective number ¹D"]), 1) for k in ("A0", "A1t", "A0c")],
+                      "²D": [round(float(lv.loc[k, "effective number ²D"]), 1) for k in ("A0", "A1t", "A0c")]})
+    return t
+
+
+def tab_discovery_last100_band(ctx) -> pd.DataFrame:
+    """Band of the "new configurations in the last 100 designs" of q6_discovery_curve (supervisor review 2, 2026-10): the date-order count over
+    the 1000 tie orderings of the curve (same generator stream), against 10 000 full random orders (lib.diversity.discovery_tail_band). Complete
+    years only, as q6_discovery_estimators. The random mean is the exact expectation (the estimators' value); the shuffle mean must match it to 0.02."""
+    if getattr(ctx, "_q6_band", None) is not None:
+        return ctx._q6_band
+    from lib import diversity
+    from viz import frames
+    cfg = ctx.cfg
+    inputs = frames.discovery_inputs(ctx.v, q6.SETS3, cfg.analysis["last_complete_year"])
+    b = diversity.discovery_tail_band(inputs, tail=cfg.analysis["discovery_tail"], orders=cfg.analysis["discovery_orders"], seed=ctx.SEED)
+    est = q6._data(ctx)["est"]
+    for _, r in b.iterrows():
+        assert abs(r["date mean"] - est.loc[r["level"], "new in the last 100 aircraft"]) < 0.005, r["level"]
+        assert abs(r["random mean (exact)"] - est.loc[r["level"], "new in the last 100, random order"]) < 0.005, r["level"]
+        assert abs(r["random mean (shuffles)"] - r["random mean (exact)"]) <= 0.02, r["level"]
+    b = b.set_index("level").loc[["A0", "A1t", "A0c"]].reset_index()
+    S = f"{int(b['shuffles'].iloc[0]):,}".replace(",", " ")
+    t = pd.DataFrame({"level": b["level"].map(v2.LEVEL), "designs": b["designs"],
+                      "new in last 100 (date order, mean)": b["date mean"].round(2),
+                      "date order 2.5 %": b["date 2.5 %"], "date order 97.5 %": b["date 97.5 %"],
+                      "random mean (exact expectation)": b["random mean (exact)"].round(2),
+                      f"random mean ({S} shuffles, check)": b["random mean (shuffles)"].round(3),
+                      f"random 95th percentile ({S} shuffles)": b["random 95th"], f"random 99th percentile ({S} shuffles)": b["random 99th"],
+                      f"random max ({S} shuffles)": b["random max"],
+                      "one-sided p (share >= date mean)": b["p (share >= date mean)"].round(4),
+                      "one-sided p (whole counts, averaged over the date orderings)": b["p (whole counts)"].round(4),
+                      "date orderings": b["orders"], "shuffles": b["shuffles"], "seed": b["seed"]})
+    ctx._q6_band = t
+    return t
+
+
+def draw(item, ctx, frac: float):
+    """Build ``item`` AT its final size (label placement is done in that size): width frac × text block, height capped at 55 % of the width;
+    (``HEIGHT`` gives a flatter height for some); or the size in pt of ``SIZE_PT``."""
+    if item["name"] in v2.TS_FIGS:           # thesis style (2026-10-20): drawn at 6.3 in by the builder itself, checked at the 8 pt floor
+        fig, data = item["builder"](ctx)
+        fig.canvas.draw()
+        return fig, data, (len(figcheck.overlaps(fig)), len(figcheck.small_text(fig, v2.ts.MIN_PT)))
+    w_in = TEXT_CM / 2.54 * frac
+    ctx.W, ctx.fig_h = w_in, HEIGHT.get(item["name"], MAX_H) * w_in
+    if item["name"] in SIZE_PT:
+        ctx.W, ctx.fig_h = SIZE_PT[item["name"]][0] / 72, SIZE_PT[item["name"]][1] / 72
+    try:
+        with plt.style.context(str(Path(v2.__file__).with_name("thesis.mplstyle"))):
+            fig, data = item["builder"](ctx)
+            fig.canvas.draw()
+            chk = (len(figcheck.overlaps(fig)), len(figcheck.small_text(fig, 7.0)))
+    finally:
+        del ctx.fig_h
+        ctx.W = 6.3
+    return fig, data, chk
+
+
+def export(cfg, ctx):
+    R = root(cfg)
+    csvd = R / "Data_for_writing" / "csv"
+    csvd.mkdir(parents=True, exist_ok=True)
+    manifest, checks = [], []
+    for name, (frac, used) in FIGS.items():
+        it = _item(name)
+        fig, data, chk = draw(it, ctx, frac)
+        out = R / "Figures" / "Part_II_design_space" / it["group"] / it["role"]
+        out.mkdir(parents=True, exist_ok=True)
+        if name in v2.TS_FIGS:
+            with v2.ts_rc():
+                v2.ts.save(fig, name, out)          # <name>.pdf + <name>.png (300 dpi), 6.3 in, nothing under 8 pt
+        else:
+            fig.savefig(out / f"{name}.pdf")
+        wh = (round(fig.get_figwidth() * 2.54, 2), round(fig.get_figheight() * 2.54, 2))
+        plt.close(fig)
+        data.to_csv(csvd / f"{name}.csv", index=False)
+        checks.append({"figure": name, "width cm": wh[0], "height cm": wh[1], "height / width": round(wh[1] / wh[0], 3),
+                       "text over text": chk[0], "under 7 pt": chk[1]})
+        manifest.append((f"Figures/Part_II_design_space/{it['group']}/{it['role']}/{name}.pdf", used, SHOWS[name]))
+        manifest.append((f"Data_for_writing/csv/{name}.csv", used, "data behind " + name))
+    for name, used in TABLES.items():
+        t = tab_hill_numbers_by_level(ctx) if name == "q7_hill_numbers_by_level" else _item(name)["builder"](ctx)[0]
+        t.to_csv(csvd / f"{name}.csv", index=False)
+        manifest.append((f"Data_for_writing/csv/{name}.csv", used, SHOWS[name]))
+        if "figures" in ALSO_TO.get(name, []):                      # a copy beside the figures of its group / role
+            it = _item(name)
+            out = R / "Figures" / "Part_II_design_space" / it["group"] / it["role"]
+            out.mkdir(parents=True, exist_ok=True)
+            t.to_csv(out / f"{name}.csv", index=False)
+            manifest.append((f"Figures/Part_II_design_space/{it['group']}/{it['role']}/{name}.csv", used, "copy of " + name))
+    est = q6._data(ctx)["est"].reset_index()
+    est["level"] = est["level"].map(v2.LEVEL)
+    est.to_csv(csvd / "q6_discovery_estimators.csv", index=False)
+    manifest.append(("Data_for_writing/csv/q6_discovery_estimators.csv", True, "Chao1, coverage and new configurations in the last 100 designs, per level (complete years)"))
+    tab_discovery_last100_band(ctx).to_csv(csvd / "q6_discovery_last100_band.csv", index=False)
+    manifest.append(("Data_for_writing/csv/q6_discovery_last100_band.csv", True, "band of the new configurations in the last 100 designs: date order (1000 tie orderings, 2.5–97.5 %) against 10 000 random orders (exact mean, 95th / 99th percentile, max), two one-sided p, per level (complete years; supervisor review 2)"))
+    _numbers(cfg, ctx, R)
+    manifest.append(("Data_for_writing/NUMBERS_II.md", True, "numbers of Analysis II with their sources"))
+    mf = R / "Data_for_writing" / "MANIFEST.md"
+    head = "# MANIFEST\n\nOne line per file: path · used in the dissertation · what it shows.\n\n"
+    old = mf.read_text(encoding="utf-8").splitlines() if mf.exists() else head.splitlines()
+    mine = {f"`latex/{p}`" for p, _, _ in manifest}
+    kept = [ln for ln in old if not any(ln.startswith(f"- {m} ") for m in mine)]          # append, never duplicate: a rerun replaces only its own lines
+    kept += [f"- `latex/{p}` · {'yes' if used else 'no (leaves the text)'} · {what}" for p, used, what in manifest]
+    mf.write_text("\n".join(kept) + "\n", encoding="utf-8")
+    return pd.DataFrame(checks)
+
+
+def _numbers(cfg, ctx, R: Path):
+    d6 = q6._data(ctx)
+    z, n_win = d6["zones"], d6["n_win"]
+    cohort = lambda w: "2024–26 (incomplete)" if "partial" in w else w.replace("<= ", "≤").replace("-", "–")      # noqa: E731
+    rows = []
+    for w in ctx.WIN_NAMES:
+        c = np.sort(z[w].astype(float).to_numpy())[::-1]
+        cs = np.cumsum(c) / c.sum()
+        k = int(np.searchsorted(cs, 0.5)) + 1
+        k_all = int(np.searchsorted(np.cumsum(z[w].astype(float).to_numpy()) / c.sum(), 0.5)) + 1
+        rows.append({"cohort": cohort(w), "designs": int(n_win[w]), f"designs in the {len(z)} A·U configurations of five or more": int(c.sum()),
+                     "configurations that hold half (ranked by size within the cohort)": k,
+                     "same, columns in overall-size order (the old heatmap)": k_all})
+    half = pd.DataFrame(rows)
+    t6, _ = _item("q6_selected_fields")["builder"](ctx)
+    t7, _ = _item("q7_levels_of_description")["builder"](ctx)
+    tfix, _ = _item("q6_fixed_by_architecture")["builder"](ctx)
+    hill = tab_hill_numbers_by_level(ctx)
+    est = d6["est"]
+    est_t = pd.DataFrame({"level": [v2.LEVEL[k] for k in ("A0", "A1t", "A0c")],
+                          "designs (complete years)": [int(est.loc[k, "aircraft"]) for k in ("A0", "A1t", "A0c")],
+                          "configurations seen": [int(est.loc[k, "archetypes observed"]) for k in ("A0", "A1t", "A0c")],
+                          "Chao1": [round(float(est.loc[k, "Chao1"]), 1) for k in ("A0", "A1t", "A0c")],
+                          "new in the last 100 designs": [round(float(est.loc[k, "new in the last 100 aircraft"]), 1) for k in ("A0", "A1t", "A0c")],
+                          "new in the last 100, random order": [round(float(est.loc[k, "new in the last 100, random order"]), 1) for k in ("A0", "A1t", "A0c")]})
+    import viz.thesis_text_q6 as tx6
+    keys6 = sorted(set(re.findall(r"\{([a-z0-9_]+)\}", next(r["text"] for r in tx6.RESULTS if r["sub"] == "A"))))
+    n6 = q6.numbers(ctx)
+    core = d6["core"]
+    L = ["# NUMBERS_II — Analysis II (design space)\n",
+         "Written by notebook 50 (`viz/thesis_latex_part2.py`); every value is recomputed when the notebook runs. CSVs are in `Data_for_writing/csv/`. "
+         "Levels are A (architecture), A·W·T (architecture, wings, tilt), A·U (architecture, propulsor units); the propulsor bands are 1–3, 4, 5–6, 7–8 and 9+. "
+         "The one design recorded with 0 propulsors (GB202302720D0_ua1, its count never entered under an M2 override) is left out of U (rerun of 2026-10-15).\n",
+         "## Configurations that hold half of each cohort's designs, at A·U (`q6_half_of_cohort`, which leaves the text)\n",
+         "Source: `q6_half_of_cohort.csv`. The figure ranks the configurations by size within the cohort (first column); the old heatmap used the overall-size order (second), "
+         "which gives 10 for 2016–19 where the text says 10. 2024–26 is incomplete and not read.\n", tables_md(half), "",
+         "## Table: dimensions that vary\n", "Source: `q6_selected_fields.csv` (notebook 50, group II1).\n",
+         "Change of 2026-10-16: three dimensions added (Table 4.3 of the dissertation): booms present (`boomsPresent`, all 627 designs), propulsor enclosure "
+         "(any ducted: `any_ducted` of `frames.propulsion_states`, on the designs with a propulsor-unit answer, so the 0-propulsor design and HB / PFV are left out "
+         "as in the two propulsor rows: 595, not the 596 of ANSWERS_II1.md) and fuselage shape (`fusShape`, codebook base names; the table prints the four most common "
+         "options, the fifth is Other: 11). The three enter `q6_fixed_by_architecture` in the table's order, before number of wings, so the permutation p of "
+         "number of wings (0.003 → 0.001) and wing configuration (0.006 → 0.004) moved with the shuffle stream; every V and every other p is unchanged.\n", tables_md(t6), "",
+         "## Which dimensions the architecture fixes (`q6_fixed_by_architecture`)\n",
+         "Source: `q6_fixed_by_architecture.csv` and `q6_fixed_by_architecture_detail.csv` (notebook 50, group II1, appendix; `viz/thesis_q6.py` fixed_by_architecture).\n",
+         f"For each dimension of the table above, on the designs that answer it and have an architecture, the bias-corrected Cramér's V (Bergsma 2013) of dimension × architecture "
+         f"is read with a permutation p ({q6.FIXED_PERMS} shuffles of the architecture column, one generator seeded {ctx.SEED}, dimensions in the table's order; "
+         f"p = share of shuffles at or above the observed V). Per architecture the leading option of the dimension and its share of that architecture's answering designs are read "
+         f"(the detail csv); an architecture with fewer than {q6.FIXED_MIN_DESIGNS} answering designs is too few to read, and the dimension is fixed in an architecture when the "
+         f"leading option holds {100 * q6.FIXED_SHARE:.0f} % or more of them.\n", tables_md(tfix), "",
+         "## Table: levels of description\n", "Source: `q7_levels_of_description.csv` (notebook 50, group II2). The family F row is in Analysis III.\n", tables_md(t7), "",
+         "## Table: Hill numbers of each level\n", "Source: `q7_hill_numbers_by_level.csv`; all years, 627 designs less those the level cannot name.\n", tables_md(hill), "",
+         "## Discovery (`q6_discovery_curve`): complete years (to 2023)\n", "Source: `q6_discovery_estimators.csv`; the figure's last-100 window and these numbers are on the complete years.\n", tables_md(est_t), "",
+         "### Band of the last 100 designs (`q6_discovery_last100_band.csv`, supervisor review 2)\n",
+         "Date order: the count of configurations first seen in the last 100 designs over the 1 000 tie orderings inside a priority year that draw the curve "
+         f"(same generator stream, seed {ctx.SEED}); its mean is the value above. Random order: 10 000 full shuffles of the same designs (second generator, seed {ctx.SEED}); "
+         "the random mean is the exact expectation (the value above), the shuffle mean is the check (within 0.02). One-sided p: (a) share of shuffles with a count at or above "
+         "the date-order mean; (b) for each date ordering the share of shuffles at or above its whole count, averaged over the orderings. The dissertation quotes (b).\n",
+         tables_md(tab_discovery_last100_band(ctx)), "",
+         f"## Core (`q6_configuration_core`)\n\nSource: `q6_configuration_core.csv`. Core: the A·U configurations taken in order of their share of the 2016–23 designs until the cumulative share reaches 50 % "
+         f"(the one that crosses 50 % is included, and any tied with it, on the unrounded shares): {len(core)} configurations holding {100 * d6['core_share_exact']:.1f} % of the 2016–23 designs; "
+         f"periphery: {len(d6['rim'])} configurations holding {100 * d6['rim']['share 2016-23'].sum():.1f} %. 2024–26 is not drawn. "
+         "Judgement call on labels: the figure names the core and the 3 largest non-core configurations by their 2016–23 share (unrounded; ties kept); every other point is grey and unnamed.\n",
+         "## Numbers quoted by the Results text, Analysis II (sub-question A)\n", "Source: `viz/thesis_q6.py` numbers(ctx), notebook cells of groups II1–II3.\n",
+         "\n".join(f"- `{k_}` = {n6[k_]}" for k_ in keys6 if k_ in n6), ""]
+    (R / "Data_for_writing" / "NUMBERS_II.md").write_text("\n".join(L), encoding="utf-8")

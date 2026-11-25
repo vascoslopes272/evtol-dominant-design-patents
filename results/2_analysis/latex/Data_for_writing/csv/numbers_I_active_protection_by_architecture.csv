@@ -1,0 +1,10 @@
+architecture,code,designs,not actively protected,share
+Lift + Cruise,SLC,160,49,0.31
+Tilt Propulsor,TP,152,40,0.26
+Combined Vectored Thrust,CVT,106,31,0.29
+Tilt Wing,TW,54,17,0.31
+Multicopter,MR,47,16,0.34
+Pitch-to-Cruise,PTC,25,3,0.12
+Tilt Frame,TF,25,13,0.52
+Hoverbike,HB,19,8,0.42
+Personal Flying Vehicle,PFV,10,3,0.3

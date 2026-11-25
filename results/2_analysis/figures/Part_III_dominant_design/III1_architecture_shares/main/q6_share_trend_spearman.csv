@@ -1,0 +1,8 @@
+architecture code,architecture,designs,years,rho,p,p (Holm),"rho, 2016-23","p, 2016-23","p, 2016-23 (Holm)"
+SLC,Lift + Cruise,142,16,0.443,0.09,0.43,0.515,0.19,1.00
+TP,Tilt Propulsor,133,16,-0.685,0.003,0.024,-0.452,0.26,1.00
+CVT,Combined Vectored Thrust,93,16,0.256,0.34,1.00,0.548,0.16,1.00
+TW,Tilt Wing,49,16,-0.144,0.59,1.00,-0.357,0.39,1.00
+MR,Multicopter,36,16,0.155,0.57,1.00,-0.476,0.23,1.00
+TF,Tilt Frame,23,16,0.001,1.00,1.00,-0.405,0.32,1.00
+PTC,Pitch-to-Cruise,22,16,0.474,0.06,0.38,0.204,0.63,1.00

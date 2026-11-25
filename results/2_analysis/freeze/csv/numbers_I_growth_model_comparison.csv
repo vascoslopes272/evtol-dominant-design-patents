@@ -1,0 +1,13 @@
+series,years,n,model,parameters k,SSE (log scale),AIC,BIC,AICc,ΔAIC,ΔBIC,lowest AIC,lowest BIC,wins clearly
+eVTOL architecture patents,2005–2022,18,"(a) two lines, free level step",6,0.8209,-43.58,-38.24,-35.94,0.0,0.0,True,True,True
+eVTOL architecture patents,2005–2022,18,(b) two lines meeting at the break (slope change only),5,1.964,-29.88,-25.43,-24.88,13.7,12.81,False,False,False
+eVTOL architecture patents,2005–2022,18,(c) logistic S-curve,4,2.4389,-27.98,-24.42,-24.9,15.6,13.82,False,False,False
+aeronautics (CPC B64),2005–2022,18,"(a) two lines, free level step",6,0.1838,-70.52,-65.17,-62.88,0.0,0.0,True,True,True
+aeronautics (CPC B64),2005–2022,18,(b) two lines meeting at the break (slope change only),5,0.6144,-50.79,-46.34,-45.79,19.72,18.83,False,False,False
+aeronautics (CPC B64),2005–2022,18,(c) logistic S-curve,4,0.8881,-46.16,-42.6,-43.09,24.35,22.57,False,False,False
+transport and operations (CPC section B),2005–2022,18,"(a) two lines, free level step",6,0.2135,-67.82,-62.48,-60.18,0.0,0.0,True,True,True
+transport and operations (CPC section B),2005–2022,18,(b) two lines meeting at the break (slope change only),5,0.5084,-54.2,-49.75,-49.2,13.62,12.73,False,False,False
+transport and operations (CPC section B),2005–2022,18,(c) logistic S-curve,4,0.7977,-48.1,-44.53,-45.02,19.72,17.94,False,False,False
+all patents,2005–2022,18,"(a) two lines, free level step",6,0.0545,-92.39,-87.04,-84.75,0.0,0.0,True,True,False
+all patents,2005–2022,18,(b) two lines meeting at the break (slope change only),5,0.0772,-88.13,-83.67,-83.13,4.26,3.37,False,False,False
+all patents,2005–2022,18,(c) logistic S-curve,4,0.1059,-84.44,-80.88,-81.36,7.95,6.16,False,False,False

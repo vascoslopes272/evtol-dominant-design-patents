@@ -1,0 +1,7 @@
+key,group,attribute,n group,n rest,p raw,p Holm
+flown_cohort_p_holm,flown,priority window,68,553,0.03718805795913792,0.17977439994882893
+flown_class_p_holm,flown,folded class,68,553,0.15938681643506217,0.47816044930518653
+flown_region_p_holm,flown,applicant region,68,553,0.3340770576915005,0.47816044930518653
+fari_cohort_p_holm,fari,priority window,42,579,0.20212079524552498,0.47816044930518653
+fari_class_p_holm,fari,folded class,42,579,0.035954879989765785,0.17977439994882893
+fari_region_p_holm,fari,applicant region,42,579,0.00136032622758667,0.00816195736552002

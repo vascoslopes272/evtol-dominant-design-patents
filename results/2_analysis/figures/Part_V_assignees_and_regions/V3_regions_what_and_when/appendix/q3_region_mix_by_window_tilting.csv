@@ -1,0 +1,16 @@
+True,False,region,variable,cohort,n
+20,12,North America,tilting unit,<= 2011,32
+21,7,North America,tilting unit,2012-15,28
+61,38,North America,tilting unit,2016-19,99
+55,20,North America,tilting unit,2020-23,75
+0,0,North America,tilting unit,2024-26 (partial),4
+7,4,Europe,tilting unit,<= 2011,11
+14,7,Europe,tilting unit,2012-15,21
+24,34,Europe,tilting unit,2016-19,58
+26,34,Europe,tilting unit,2020-23,60
+6,5,Europe,tilting unit,2024-26 (partial),11
+3,7,Asia-Pacific,tilting unit,<= 2011,10
+0,0,Asia-Pacific,tilting unit,2012-15,4
+18,17,Asia-Pacific,tilting unit,2016-19,35
+42,49,Asia-Pacific,tilting unit,2020-23,91
+20,17,Asia-Pacific,tilting unit,2024-26 (partial),37

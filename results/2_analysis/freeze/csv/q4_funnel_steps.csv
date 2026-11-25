@@ -1,0 +1,6 @@
+population,designs,designs with an architecture,largest architecture,its share,median propulsors per design,designs with a propulsor count,share with priority year 2020-2023,designs with a priority year,share Lift + Cruise,share Tilt Propulsor,share Combined Vectored Thrust,share Tilt Wing,share Multicopter,share Tilt Frame,share Pitch-to-Cruise,share Rotorcraft,share Stopped/Slowed Rotor Wing,share Deflected Slipstream,share Hoverbike,share Personal Flying Vehicle
+all designs,621,619,Lift + Cruise,0.258,5.0,589,0.382,621,0.258,0.246,0.171,0.087,0.076,0.04,0.04,0.015,0.013,0.006,0.031,0.016
+"named designs (public counterpart, Table 2)",97,97,Lift + Cruise,0.299,8.0,95,0.454,97,0.299,0.278,0.134,0.082,0.113,0.021,0.031,0.0,0.01,0.01,0.021,0.0
+flown designs (TRL 5 or more),68,68,Tilt Propulsor,0.309,8.0,68,0.5,68,0.294,0.309,0.132,0.088,0.118,0.029,0.015,0.0,0.0,0.015,0.0,0.0
+designs of the 12 index assignees that have flown,42,42,Lift + Cruise,0.476,9.0,40,0.476,42,0.476,0.19,0.167,0.024,0.071,0.0,0.024,0.0,0.0,0.0,0.024,0.024
+designs of the 14 index assignees,47,47,Lift + Cruise,0.511,8.0,45,0.511,47,0.511,0.191,0.149,0.021,0.064,0.0,0.021,0.0,0.0,0.0,0.021,0.021

@@ -1,0 +1,25 @@
+series,years,model,bootstrap draws kept,break year,break low,break high,share of draws at the break,pre slope,pre slope low,pre slope high,pre doubling (years),post slope,post slope low,post slope high,post doubling (years),level step (factor),step low,step high,inflection year t0,t0 low,t0 high,early growth rate r,r low,r high,ceiling K (count)
+eVTOL architecture patents,2005–2022,"(a) two lines, free level step",1000,2016.0,2016.0,2017.0,0.97,0.136,0.092,0.183,5.1,0.061,-0.025,0.139,11.4,3.3,2.12,4.89,,,,,,,
+eVTOL architecture patents,2005–2022,(b) two lines meeting at the break (slope change only),1000,2010.0,2008.0,2020.0,0.19,0.085,-0.171,0.225,8.2,0.244,0.136,0.545,2.8,,,,,,,,,,
+eVTOL architecture patents,2005–2022,(c) logistic S-curve,1000,,,,,,,,,,,,,,,,2099.5,2017.0,2143.2,0.209,0.179,0.302,1346204186.0
+aeronautics (CPC B64),2005–2022,"(a) two lines, free level step",1000,2016.0,2016.0,2016.0,1.0,0.13,0.111,0.148,5.3,0.013,-0.026,0.054,54.4,2.1,1.77,2.57,,,,,,,
+aeronautics (CPC B64),2005–2022,(b) two lines meeting at the break (slope change only),1000,2019.0,2011.0,2020.0,0.345,0.174,0.155,0.221,4.0,-0.034,-0.269,0.129,no doubling,,,,,,,,,,
+aeronautics (CPC B64),2005–2022,(c) logistic S-curve,1000,,,,,,,,,,,,,,,,2024.5,2015.9,2160.0,0.18,0.143,0.251,47621.0
+transport and operations (CPC section B),2005–2022,"(a) two lines, free level step",1000,2016.0,2016.0,2016.0,1.0,0.069,0.049,0.088,10.1,0.025,-0.012,0.066,27.4,2.05,1.67,2.48,,,,,,,
+transport and operations (CPC section B),2005–2022,(b) two lines meeting at the break (slope change only),1000,2009.0,2008.0,2018.0,0.338,-0.014,-0.161,0.092,no doubling,0.136,0.118,0.203,5.1,,,,,,,,,,
+transport and operations (CPC section B),2005–2022,(c) logistic S-curve,1000,,,,,,,,,,,,,,,,2171.4,2015.3,2218.8,0.113,0.096,0.196,12235880939133.0
+all patents,2005–2022,"(a) two lines, free level step",1000,2016.0,2015.0,2019.0,0.852,0.062,0.051,0.074,11.1,0.027,0.001,0.053,25.5,1.2,1.06,1.33,,,,,,,
+all patents,2005–2022,(b) two lines meeting at the break (slope change only),1000,2018.0,2008.0,2020.0,0.26,0.074,0.066,0.109,9.3,0.026,-0.049,0.063,27.1,,,,,,,,,,
+all patents,2005–2022,(c) logistic S-curve,1000,,,,,,,,,,,,,,,,2037.3,2015.0,2332.5,0.078,0.062,0.124,10153248.0
+eVTOL architecture patents,2005–2023,"(a) two lines, free level step",1000,2016.0,2016.0,2016.0,0.979,0.136,0.097,0.182,5.1,0.03,-0.037,0.091,23.3,3.52,2.39,5.26,,,,,,,
+eVTOL architecture patents,2005–2023,(b) two lines meeting at the break (slope change only),1000,2020.0,2008.0,2021.0,0.253,0.222,0.178,0.377,3.1,-0.069,-0.5,0.201,no doubling,,,,,,,,,,
+eVTOL architecture patents,2005–2023,(c) logistic S-curve,1000,,,,,,,,,,,,,,,,2023.9,2016.2,2144.7,0.226,0.175,0.314,257.0
+aeronautics (CPC B64),2005–2023,"(a) two lines, free level step",1000,2016.0,2016.0,2016.0,1.0,0.13,0.112,0.148,5.3,0.011,-0.016,0.036,63.8,2.11,1.76,2.5,,,,,,,
+aeronautics (CPC B64),2005–2023,(b) two lines meeting at the break (slope change only),1000,2019.0,2013.0,2021.0,0.366,0.174,0.154,0.213,4.0,-0.02,-0.255,0.1,no doubling,,,,,,,,,,
+aeronautics (CPC B64),2005–2023,(c) logistic S-curve,1000,,,,,,,,,,,,,,,,2021.2,2015.2,2157.5,0.191,0.141,0.264,31432.0
+transport and operations (CPC section B),2005–2023,"(a) two lines, free level step",1000,2016.0,2016.0,2016.0,0.999,0.069,0.048,0.089,10.1,0.02,-0.013,0.051,35.0,2.07,1.73,2.49,,,,,,,
+transport and operations (CPC section B),2005–2023,(b) two lines meeting at the break (slope change only),1000,2009.0,2008.0,2020.0,0.249,-0.0,-0.156,0.101,no doubling,0.126,0.103,0.237,5.5,,,,,,,,,,
+transport and operations (CPC section B),2005–2023,(c) logistic S-curve,1000,,,,,,,,,,,,,,,,2042.1,2015.6,2220.3,0.113,0.094,0.192,5768963.0
+all patents,2005–2023,"(a) two lines, free level step",1000,2016.0,2015.0,2020.0,0.872,0.062,0.051,0.074,11.1,0.027,0.007,0.049,26.0,1.21,0.98,1.32,,,,,,,
+all patents,2005–2023,(b) two lines meeting at the break (slope change only),1000,2018.0,2011.0,2021.0,0.288,0.074,0.067,0.095,9.3,0.026,-0.06,0.057,26.4,,,,,,,,,,
+all patents,2005–2023,(c) logistic S-curve,1000,,,,,,,,,,,,,,,,2026.2,2013.4,2318.8,0.088,0.062,0.131,5598631.0

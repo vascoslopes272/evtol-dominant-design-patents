@@ -1,0 +1,10 @@
+series,key,years,n,model,parameters k,SSE (log scale),AIC,BIC,AICc,ΔAIC,ΔBIC,lowest AIC,lowest BIC,wins clearly
+aeronautics (CPC B64),aeronautics (CPC B64),2005–2022,18,"(a) two lines, free level step",6,0.1838,-70.52,-65.17,-62.88,0.0,0.0,True,True,True
+aeronautics (CPC B64),aeronautics (CPC B64),2005–2022,18,(b) two lines meeting at the break (slope change only),5,0.6144,-50.79,-46.34,-45.79,19.72,18.83,False,False,False
+aeronautics (CPC B64),aeronautics (CPC B64),2005–2022,18,(c) logistic S-curve,4,0.8881,-46.16,-42.6,-43.09,24.35,22.57,False,False,False
+B64 without B64U (drones),B64 without B64U (drones),2005–2022,18,"(a) two lines, free level step",6,0.1053,-80.55,-75.2,-72.91,0.0,0.0,True,True,True
+B64 without B64U (drones),B64 without B64U (drones),2005–2022,18,(b) two lines meeting at the break (slope change only),5,0.3254,-62.24,-57.78,-57.24,18.31,17.42,False,False,False
+B64 without B64U (drones),B64 without B64U (drones),2005–2022,18,(c) logistic S-curve,4,0.4741,-57.46,-53.9,-54.38,23.09,21.3,False,False,False
+B64 without B64C 29/00 (VTOL aircraft),B64 without B64C 29/00 (VTOL aircraft),2005–2022,18,"(a) two lines, free level step",6,0.1729,-71.62,-66.28,-63.99,0.0,0.0,True,True,True
+B64 without B64C 29/00 (VTOL aircraft),B64 without B64C 29/00 (VTOL aircraft),2005–2022,18,(b) two lines meeting at the break (slope change only),5,0.5893,-51.55,-47.09,-46.55,20.08,19.19,False,False,False
+B64 without B64C 29/00 (VTOL aircraft),B64 without B64C 29/00 (VTOL aircraft),2005–2022,18,(c) logistic S-curve,4,0.8604,-46.73,-43.17,-43.66,24.89,23.11,False,False,False

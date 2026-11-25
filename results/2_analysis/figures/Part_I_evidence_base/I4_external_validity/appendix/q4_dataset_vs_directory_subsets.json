@@ -1,0 +1,12 @@
+{
+ "name": "q4_dataset_vs_directory_subsets",
+ "group": "I4_external_validity",
+ "role": "appendix",
+ "kind": "figure",
+ "title": "Designs of each architecture group per part of the directory",
+ "source_item": "v2 of Figure 5b (ii)",
+ "width_in": 6.299,
+ "height_in": 3.401,
+ "final_width_fraction": 1.0,
+ "text_block_cm": 16
+}

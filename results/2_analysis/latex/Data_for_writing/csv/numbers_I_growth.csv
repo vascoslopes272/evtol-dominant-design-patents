@@ -1,0 +1,12 @@
+series,window,total,doubling time (years),95 % interval,growth per year,series against,times as fast,kind
+eVTOL architecture patents,2005–2023,769.0,3.5,3.0 to 4.3,22 %,,,
+eVTOL unique aircraft,2005–2023,549.0,3.5,2.8 to 4.5,22 %,,,
+aeronautics (CPC B64),2005–2023,150730.0,4.7,4.1 to 5.6,16 %,,,
+transport and operations (CPC section B),2005–2023,5265857.0,6.4,5.4 to 7.9,11 %,,,
+all patents,2005–2023,28415596.0,10.7,9.6 to 12.2,7 %,,,
+eVTOL architecture patents,,,,1.23 to 1.47,,aeronautics (CPC B64),1.34,ratio
+eVTOL architecture patents,,,,1.63 to 1.98,,transport and operations (CPC section B),1.82,ratio
+eVTOL architecture patents,,,,2.74 to 3.38,,all patents,3.05,ratio
+eVTOL unique aircraft,,,,1.13 to 1.68,,aeronautics (CPC B64),1.37,ratio
+eVTOL unique aircraft,,,,1.47 to 2.26,,transport and operations (CPC section B),1.85,ratio
+eVTOL unique aircraft,,,,2.53 to 3.84,,all patents,3.11,ratio

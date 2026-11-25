@@ -1,0 +1,40 @@
+number,old: all pages,new: in-domain pages
+"directory pages used (all years, chi-square and parts)",1 229,871
+"directory pages with a development year, entering q4_class_mix",1093,782
+directory pages in <= 2011,70,45
+directory pages in 2012-15,126,90
+directory pages in 2016-19,393,307
+directory pages in 2020-23,387,271
+directory pages in 2024-26 (partial),117,69
+"chi-square of the two mixes, all years (4 df)",203.0,208.3
+`mix_p`,< 0.001,< 0.001
+"adjusted residual, Vectored Thrust",+10.0,+10.1
+"adjusted residual, Lift + Cruise",+4.4,+4.4
+"adjusted residual, Wingless",−10.8,−10.7
+"adjusted residual, Electric Rotorcraft",−5.1,−4.7
+"adjusted residual, Hoverbike / Personal Flying Device",−4.1,−5.2
+`resid_low` (category carrying it),−10.8 (Wingless),−10.7 (Wingless)
+`resid_high` (category carrying it),+10.0 (Vectored Thrust),+10.1 (Vectored Thrust)
+`closest_subset`,(d) linked to a patent of this dataset,(d) linked to a patent of this dataset
+`closest_chi2`,6.1,3.2
+`closest_p`,0.194,0.527
+`closest_n`,97,83
+`wm_dir` (Wingless share of the directory),30 %,30 %
+`wm_domain` (Wingless share of the in-domain pages),30 %,30 %
+`wm_flying`,36 %,41 %
+`wm_linked`,10 %,11 %
+"Lift + Cruise share of the directory, <= 2011",8.6%,4.4%
+"Lift + Cruise share of the directory, 2012-15",10.3%,10.0%
+"Lift + Cruise share of the directory, 2016-19",17.0%,16.0%
+"Lift + Cruise share of the directory, 2020-23",19.9%,19.6%
+"Lift + Cruise share of the directory, 2024-26 (partial)",32.5%,33.3%
+"Vectored Thrust share of the directory, <= 2011",30.0%,26.7%
+"Vectored Thrust share of the directory, 2012-15",42.1%,35.6%
+"Vectored Thrust share of the directory, 2016-19",31.0%,31.6%
+"Vectored Thrust share of the directory, 2020-23",37.7%,35.4%
+"Vectored Thrust share of the directory, 2024-26 (partial)",27.4%,23.2%
+"largest directory category, <= 2011",Vectored Thrust,Wingless
+"largest directory category, 2012-15",Vectored Thrust,Vectored Thrust
+"largest directory category, 2016-19",Vectored Thrust,Vectored Thrust
+"largest directory category, 2020-23",Vectored Thrust,Vectored Thrust
+"largest directory category, 2024-26 (partial)",Lift + Cruise,Lift + Cruise (tie)

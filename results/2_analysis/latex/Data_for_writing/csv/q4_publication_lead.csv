@@ -1,0 +1,15 @@
+company,first priority,first publication,first flight (ARI),flown by the release,lead from first priority (years),lead from first publication (years)
+Joby Aviation,2013,2015,2018.0,True,5.0,3.0
+Guangzhou Ehang Intelligent Technology,2015,2017,2018.0,True,3.0,1.0
+Embraer / Eve,2018,2019,2025.0,True,7.0,6.0
+Honda,2018,2021,2024.0,True,6.0,3.0
+AutoFlight,2019,2020,2022.0,True,3.0,2.0
+Volocopter,2019,2020,2021.0,True,2.0,1.0
+Wisk Aero,2020,2021,2025.0,True,5.0,4.0
+Archer Aviation,2020,2021,2023.0,True,3.0,2.0
+Beta Technologies,2021,2022,2020.0,True,-1.0,-2.0
+Wollant Aviation,2022,2022,2023.0,True,1.0,1.0
+Supernal,2022,2023,,False,,
+Ascendance Flight Technologies,2022,2024,2027.0,False,5.0,3.0
+Vertical Aerospace,2024,2024,2023.0,True,-1.0,-1.0
+Wofei / Geely Aviation,2024,2024,2023.0,True,-1.0,-1.0

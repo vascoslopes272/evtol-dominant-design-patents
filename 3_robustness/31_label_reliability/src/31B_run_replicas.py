@@ -201,7 +201,7 @@ def main():
     base_res = next(r["results"] for r in done if r["log"]["replica"] == -1)
     # the original table evaluated in this run must equal baseline.csv
     diff = []
-    if PERMS == 1000:
+    if PERMS == 1000 and (core.OUT / "baseline.csv").exists():
         bl = pd.read_csv(core.OUT / "baseline.csv")
         diff = [k for k, v in zip(bl["key"], bl["value"]) if str(base_res.get(k)) != str(v)]
         meta["original table in this run equals baseline.csv"] = not diff

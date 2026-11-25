@@ -6,3 +6,4 @@ results/*/_logs/
 models/
 *.bak
 results/31_label_reliability/_probe/
+results/31_label_reliability/_probe*/

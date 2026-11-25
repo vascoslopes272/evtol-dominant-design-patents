@@ -18,6 +18,17 @@ The number reported for each statement is the share of the 1,000 repetitions in 
 | 30 to 70 % | sensitive | State it as an observation of this table, and give the share. |
 | under 30 % | not robust | Do not rest an argument on it. Report it as exploratory. |
 
+**Direction and significance are two different statements.** A result can stay in the same direction in almost every repetition and still fall inside the chance band in many of them. The table therefore reports both, and the paper should too.
+
+| Result | Direction stays the same | Significance stays | Reading |
+|---|---|---|---|
+| Disparity, ΔQ in 2020-23 below 0 (A, all designs) | 99.0 % of weight draws, 87.8 % of coding replicas (85 to 88 % at A·W·T and A·U; 91 to 93 % on the protected base) | 69 % of weight draws, 14 % of coding replicas | The 2020-23 designs are closer together than the earliest cohorts in nearly every repetition. Whether the size of the change exceeds chance depends on weights and coding. |
+| Propulsors rise in Tilt Propulsor (ρ > 0) | 100 % of replicas | 99 % | Robust. |
+| Propulsors rise in CVT (ρ > 0) | 100 % of replicas | 41 % | The rise is always there. Its Holm-significance is not. |
+| Propulsors on booms in CVT (ρ > 0) | 100 % of replicas | not significant on the original table either (Holm p 0.099) | Descriptive. |
+
+Noise adds the same random variation to every cohort, so it pulls ΔQ toward 0 (from −0.026 to a median of −0.009) and moves it into the band. A shrunken ΔQ that keeps its sign is what dilution does to a real difference, and it is not what chance does. The band still has to be read as the test of size: inside the band, the data do not exclude that a change of this size arises from shuffling. The honest sentence is: "ΔQ is negative in 88 % of coding replicas and 99 % of weight draws, and below the chance band in 14 % and 69 %".
+
 The cut points are a convention for reading the table and not a statistical threshold. The test is a stress test: the noise is larger than the audited disagreement for most values, so a statement that fails it is not shown to be wrong, only to need a coding better than the test assumes.
 
 ## 1. What the robustness work says, in one paragraph

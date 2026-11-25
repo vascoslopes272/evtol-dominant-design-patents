@@ -7,8 +7,8 @@ panel letter or in-image legend, white background, left and bottom spines only. 
 | file | content |
 |---|---|
 | fig4_architecture_shares.pdf | share of designs per architecture and cohort; first two cohorts and 2024-26* hollow (not tested); direct labels are architecture codes |
-| fig5a/5b/5c_balance_L1/L2/L3.pdf | 2D of A, A-W-T, A-U: all designs (solid, grey band) and protected designs (dashed, hollow, own band as a thin outline) |
-| fig5d_disparity.pdf | ΔQ: same two series, each with its own baseline and band |
+| fig5a/5b/5c_balance_L1/L2/L3.pdf | 2D of A, A-W-T, A-U: all designs (solid, grey band) and protected designs (dashed, hollow, own band as a thin outline (balance only; the disparity of the protected designs uses the all-designs band)) |
+| fig5d_disparity.pdf | ΔQ in the reading of the thesis (Table 4): all designs against their baseline and band (solid, grey band); the protected designs of 2020-23 (one hollow point) against the baseline and the band of all designs |
 | fig6a/6b/6c_modal_SLC/TP/CVT.pdf | layouts inside the three largest architectures (5 cohorts, 2024-26* faded) |
 | fig6_legend_SLC/TP/CVT.pdf | one legend strip per panel (85 x 10.8 mm): the categories differ between the three architectures |
 | fig7a_F_share.pdf, fig7b_F_balance.pdf | family F share per priority year, and 2D of F; same convention as Fig 5; panel c (disparity) removed |

@@ -283,7 +283,7 @@ def thesis_reading_dis(dis, level_name="A"):
     return a, p
 
 
-def disparity_thesis_reading(dis, name="fig5d_disparity_thesis_reading.pdf"):
+def disparity_thesis_reading(dis, name="fig5d_disparity.pdf"):
     a, p = thesis_reading_dis(dis)
     fig, ax = frame(name)
     two_series(ax, a, p, "ΔQ", "ΔQ permutation low", "ΔQ permutation high", None, None, a["met"].tolist(), p["met"].tolist(), C_ALL, C_PROT)
@@ -302,9 +302,8 @@ def fig5(bal, dis):
     ylab = "²D: large designs in play"
     for key, (level, name) in LEVELS.items():
         balance_panel(bal, level, name, ylab, C_ALL)
-    disparity_panel(dis, "A0", "fig5d_disparity.pdf", C_ALL)
     balance_three(bal)
-    disparity_thesis_reading(dis)
+    disparity_thesis_reading(dis, "fig5d_disparity.pdf")      # the reading of the thesis (Table 4): protected designs against the all-designs baseline and band
 
 
 def fig7(ctx, bal, dis):

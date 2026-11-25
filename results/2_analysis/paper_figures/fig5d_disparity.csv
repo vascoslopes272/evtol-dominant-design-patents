@@ -4,8 +4,8 @@ window,level,level name,weighting,percentile of the observed dQ (share of shuffl
 2016-19,A0,C — Class,w15,86.0,211,0.5682,0.5442,0.024,-0.0225,0.0373,False,False,all designs,False
 2020-23,A0,C — Class,w15,1.2,237,0.5185,0.5442,-0.0257,-0.0223,0.0361,True,False,all designs,True
 2024-26 (partial),A0,C — Class,w15,59.3,55,0.548,0.5442,0.0038,-0.0426,0.0406,False,True,all designs,False
-<= 2011,A0,C — Class,w15,73.8,18,0.5107,0.5043,0.0064,-0.0478,0.0336,False,False,actively protected,False
-2012-15,A0,C — Class,w15,26.2,32,0.4978,0.5043,-0.0064,-0.0336,0.0478,False,False,actively protected,False
-2016-19,A0,C — Class,w15,98.3,138,0.5731,0.5043,0.0688,-0.0238,0.0661,False,False,actively protected,False
-2020-23,A0,C — Class,w15,32.9,192,0.5154,0.5043,0.0112,-0.0225,0.0695,False,False,actively protected,False
-2024-26 (partial),A0,C — Class,w15,76.2,51,0.5399,0.5043,0.0357,-0.0401,0.0688,False,True,actively protected,False
+<= 2011,A0,C — Class,w15,79.6,59,0.5547,0.5442,,-0.0242,0.0238,False,False,"actively protected, against the all-designs baseline and band",False
+2012-15,A0,C — Class,w15,20.4,57,0.5336,0.5442,,-0.0238,0.0242,False,False,"actively protected, against the all-designs baseline and band",False
+2016-19,A0,C — Class,w15,86.0,211,0.5682,0.5442,,-0.0225,0.0373,False,False,"actively protected, against the all-designs baseline and band",False
+2020-23,A0,C — Class,w15,1.2,237,0.5185,0.5442,-0.0287,-0.0223,0.0361,True,False,"actively protected, against the all-designs baseline and band",True
+2024-26 (partial),A0,C — Class,w15,59.3,55,0.548,0.5442,,-0.0426,0.0406,False,True,"actively protected, against the all-designs baseline and band",False

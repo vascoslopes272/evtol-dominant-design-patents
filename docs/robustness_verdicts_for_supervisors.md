@@ -2,6 +2,24 @@
 
 Draft for the supervisors, 25 November 2026. Numbers come from the public dataset (621 designs, 619 with an architecture) and from the runs in `results/` and `eVTOL_dataset/07_results`. Two runs are still going (see section 5). Nothing below depends on them, except where it says so.
 
+## 0. How to read the robustness work (plain version)
+
+Each result of the paper is a statement that is either true or false on the original table (for example "no architecture holds a majority"). A robustness test asks: if the input were slightly different, would the statement still be true? There are two kinds of "slightly different".
+
+- **Different weights** (S1). The designs stay as coded, and the distance between designs is computed with 1,000 other sets of weights. If the statement stays true in most sets, it does not depend on the weights that were chosen.
+- **Different coding** (S2). The weights stay as chosen, and 15 % of the coded values are replaced by random ones, 1,000 times. If the statement stays true in most replicas, it does not depend on a few coding mistakes.
+
+The number reported for each statement is the share of the 1,000 repetitions in which it stays true. The rule for reading it is:
+
+| Share that stays true | Reading | What the paper may say |
+|---|---|---|
+| 95 % or more | robust | State it plainly. |
+| 70 to 95 % | mostly robust | State it, and give the share. |
+| 30 to 70 % | sensitive | State it as an observation of this table, and give the share. |
+| under 30 % | not robust | Do not rest an argument on it. Report it as exploratory. |
+
+The cut points are a convention for reading the table and not a statistical threshold. The test is a stress test: the noise is larger than the audited disagreement for most values, so a statement that fails it is not shown to be wrong, only to need a coding better than the test assumes.
+
 ## 1. What the robustness work says, in one paragraph
 
 The negative finding of the paper, that no architecture, wing or propulsor option holds a dominant share, survives every check: it survives 1,000 random weightings of the distance and 1,000 coding-noise replicas. The positive findings are weaker. The convergence of designs in 2020-23 (condition 3, disparity) holds in about 70 to 85 % of the weight draws, but only in 13 to 18 % of the coding-noise replicas. The family F verdict on the protected base, which meets all three conditions on the original table, meets them in 0.9 % of the replicas. These three results should be written as conditional on the coding being as accurate as the audit indicates, and should not be written as established.

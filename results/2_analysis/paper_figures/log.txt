@@ -1,0 +1,4 @@
+permutations behind the bands: 1000
+figures: ['fig5']
+
+values/bands that differ from the notebooks' tables: 0 of 60

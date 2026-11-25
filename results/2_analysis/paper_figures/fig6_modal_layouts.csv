@@ -1,0 +1,61 @@
+architecture,layout,cohort,share,designs of the architecture
+SLC,lift propulsors on booms,<= 2011,0.6153846153846154,13
+SLC,lift propulsors on booms,2012-15,0.5555555555555556,9
+SLC,lift propulsors on booms,2016-19,0.4375,48
+SLC,lift propulsors on booms,2020-23,0.48,75
+SLC,lift propulsors on booms,2024-26 (partial),0.6666666666666666,15
+SLC,lift propulsors on the wing,<= 2011,0.15384615384615385,13
+SLC,lift propulsors on the wing,2012-15,0.2222222222222222,9
+SLC,lift propulsors on the wing,2016-19,0.22916666666666666,48
+SLC,lift propulsors on the wing,2020-23,0.25333333333333335,75
+SLC,lift propulsors on the wing,2024-26 (partial),0.2,15
+SLC,lift propulsors on the body,<= 2011,0.23076923076923078,13
+SLC,lift propulsors on the body,2012-15,0.1111111111111111,9
+SLC,lift propulsors on the body,2016-19,0.20833333333333334,48
+SLC,lift propulsors on the body,2020-23,0.2,75
+SLC,lift propulsors on the body,2024-26 (partial),0.0,15
+SLC,other (stowed in cruise),<= 2011,0.0,13
+SLC,other (stowed in cruise),2012-15,0.1111111111111111,9
+SLC,other (stowed in cruise),2016-19,0.125,48
+SLC,other (stowed in cruise),2020-23,0.06666666666666667,75
+SLC,other (stowed in cruise),2024-26 (partial),0.13333333333333333,15
+TR,"2+ tilting sets, 2+ places",<= 2011,0.2,20
+TR,"2+ tilting sets, 2+ places",2012-15,0.3,20
+TR,"2+ tilting sets, 2+ places",2016-19,0.3137254901960784,51
+TR,"2+ tilting sets, 2+ places",2020-23,0.3877551020408163,49
+TR,"2+ tilting sets, 2+ places",2024-26 (partial),0.8333333333333334,12
+TR,one tilting set,<= 2011,0.75,20
+TR,one tilting set,2012-15,0.5,20
+TR,one tilting set,2016-19,0.3333333333333333,51
+TR,one tilting set,2020-23,0.30612244897959184,49
+TR,one tilting set,2024-26 (partial),0.0,12
+TR,"2+ tilting sets, one place",<= 2011,0.05,20
+TR,"2+ tilting sets, one place",2012-15,0.2,20
+TR,"2+ tilting sets, one place",2016-19,0.35294117647058826,51
+TR,"2+ tilting sets, one place",2020-23,0.2857142857142857,49
+TR,"2+ tilting sets, one place",2024-26 (partial),0.16666666666666666,12
+TR,no tilting set recorded,<= 2011,0.0,20
+TR,no tilting set recorded,2012-15,0.0,20
+TR,no tilting set recorded,2016-19,0.0,51
+TR,no tilting set recorded,2020-23,0.02040816326530612,49
+TR,no tilting set recorded,2024-26 (partial),0.0,12
+CVT,"tilt, fixed on booms",<= 2011,0.2,5
+CVT,"tilt, fixed on booms",2012-15,0.0,10
+CVT,"tilt, fixed on booms",2016-19,0.39285714285714285,28
+CVT,"tilt, fixed on booms",2020-23,0.5283018867924528,53
+CVT,"tilt, fixed on booms",2024-26 (partial),0.3,10
+CVT,"tilt, fixed elsewhere",<= 2011,0.8,5
+CVT,"tilt, fixed elsewhere",2012-15,0.5,10
+CVT,"tilt, fixed elsewhere",2016-19,0.4642857142857143,28
+CVT,"tilt, fixed elsewhere",2020-23,0.2830188679245283,53
+CVT,"tilt, fixed elsewhere",2024-26 (partial),0.4,10
+CVT,"wing tilts, fixed elsewhere",<= 2011,0.0,5
+CVT,"wing tilts, fixed elsewhere",2012-15,0.3,10
+CVT,"wing tilts, fixed elsewhere",2016-19,0.03571428571428571,28
+CVT,"wing tilts, fixed elsewhere",2020-23,0.07547169811320754,53
+CVT,"wing tilts, fixed elsewhere",2024-26 (partial),0.1,10
+CVT,other,<= 2011,0.0,5
+CVT,other,2012-15,0.2,10
+CVT,other,2016-19,0.10714285714285714,28
+CVT,other,2020-23,0.11320754716981132,53
+CVT,other,2024-26 (partial),0.2,10

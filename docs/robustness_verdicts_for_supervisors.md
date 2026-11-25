@@ -49,3 +49,24 @@ Leading shares fall under noise (for example standard wings 0.87 to 0.74, hover-
 - Family F, top-option shares inside and outside F in 2020-23: done (`results/2_analysis/family_F/F_vs_rest_2020_23.csv`). Booms differ (60 % against 38 % with booms, Fisher p 0.001). Number of wings, wing configuration and tractor/pusher do not differ (p 0.26 to 0.61). Propulsor band: different leading option (9+ against 4), p 0.10.
 - Item 4 numbers: collected in `results/2_analysis/paper_numbers/paper_numbers.md`.
 - Entrants under both definitions: `results/2_analysis/entrants/entrants_two_definitions.csv`.
+
+## 6. What the two tests claim, and the rules for changing the weights
+
+**The weights of the paper are a decision, and the test does not question it.** The weights of Table A.11 follow a stated principle (each of the four systems of the aircraft carries the same total weight, and the dimensions of a system share it), and the paper reports them as the author's choice. The weight test asks a different question: how far from these weights can the distance be moved before the disparity verdict changes. It reports a margin and not a verdict on the weights. Reading it as "the weights are wrong in 20 % of cases" misreads it.
+
+**What the current draws do.** Each of the 15 weights is multiplied by exp(N(0, 0.35²)), independently. Five times in six a factor lies between 0.56 and 1.78, so two weights can end up with a ratio of three or more, and the system totals are not kept. The draws therefore include weightings that break the principle behind Table A.11. This is a strong perturbation, and the shares that hold (69 to 84 %) are a lower bound on what a rule-bound perturbation would give.
+
+**A rule for changing the weights, if the supervisors want one.** Two variants follow the principle of the paper and can be run with the same code and the same 10,000 permutations:
+
+1. *Within systems.* Keep the total of each system fixed and redraw only the split among its dimensions (same σ). This tests the part of the weighting that the paper does not argue for, and leaves the part that it does.
+2. *Dose and response.* Repeat the current draws at σ = 0.10, 0.20 and 0.35. The share that holds as a function of σ shows where the verdict breaks, and the reader can judge which σ is plausible. At σ = 0.10 a factor lies between 0.85 and 1.18.
+
+I would run these only if a reviewer asks. The paper can say now that the draws are a deliberately wide stress test, that equal weights do not meet the condition (a margin of −0.008 at A), and that the margin of the chosen weights (+0.004) is small. Both variants would take hours, not minutes (not measured).
+
+**The 0.9 % of the family F verdict comes from the coding test, and not from the weights.** Conditions 1 and 2 do not use the weights. Condition 3 on F is the disparity of the whole cohort, and under the weight draws it holds in 73.9 % (A, protected base). The F verdict under the weights is therefore the 74 % figure, provided that conditions 1 and 2 hold on the original table, which they do.
+
+**Why the coding test lowers F so much.** On the protected base, F reaches a majority in 2020 with 51.8 % of the designs, 1.8 points above the threshold, and in 2021 with 59.3 %. Under noise the median share falls to 46.3 % and 52.5 %. F is defined by a conjunction of codes (Lift + Cruise, or a CVT with a tilting propulsor set and no tilting wing panel), and a random error leaves the class more often than it joins it, so the noise lowers F systematically and not only at random. The 0.9 % is a stress result for a class with a knife-edge majority, and is not an estimate of how often the verdict is wrong. Report it as: "F passes condition 1 by 1.8 points in 2020, a margin that coding errors of the size tested remove."
+
+**Coding test: kept as it is.** It is a stress test with a stated rate, 15 % per value, and its architecture-label change (about 7.5 %) lies inside the audited disagreement. State that the noise is uniform, that it dilutes structure and that classes defined by a conjunction lose members faster than they gain them. With these three sentences the test does not need to be rerun.
+
+**What would justify rerunning.** Only a request for rule-bound weights (section 6, variants 1 and 2). The coding runs in progress (15 % and 20 %, 10,000 permutations) stay as planned.

@@ -1,0 +1,11 @@
+window,level,level name,aircraft,top archetype,top share,top-2 share,D2,D2 low,D2 high,percentile of the observed D2 (share of shuffles at or below),D2 permutation low,D2 permutation high,below band,condition 1 (> 50 %),partial,base,met
+<= 2011,family_b,F — Lift + Cruise + CVT* family,59,Tilt Propulsor,0.339,0.644,4.07,3.42,4.76,49.0,3.06,5.47,False,False,False,all designs,False
+2012-15,family_b,F — Lift + Cruise + CVT* family,57,Tilt Propulsor,0.351,0.579,4.73,3.86,5.67,83.8,3.01,5.53,False,False,False,all designs,False
+2016-19,family_b,F — Lift + Cruise + CVT* family,211,Lift + Cruise + CVT* family,0.332,0.573,4.82,3.43,6.45,99.2,3.6,4.72,False,False,False,all designs,False
+2020-23,family_b,F — Lift + Cruise + CVT* family,237,Lift + Cruise + CVT* family,0.494,0.7,3.25,2.19,4.57,0.0,3.66,4.68,True,False,False,all designs,True
+2024-26 (partial),family_b,F — Lift + Cruise + CVT* family,55,Lift + Cruise + CVT* family,0.418,0.636,4.11,3.28,5.03,52.9,3.05,5.5,False,False,True,all designs,False
+<= 2011,family_b,F — Lift + Cruise + CVT* family,18,Tilt Propulsor,0.5,0.722,2.84,2.84,2.84,15.0,2.28,6.0,False,False,False,actively protected,False
+2012-15,family_b,F — Lift + Cruise + CVT* family,32,Tilt Propulsor,0.438,0.656,3.76,3.76,3.76,43.7,2.68,5.63,False,False,False,actively protected,False
+2016-19,family_b,F — Lift + Cruise + CVT* family,138,Lift + Cruise + CVT* family,0.283,0.551,5.12,3.88,6.61,99.9,3.4,4.69,False,False,False,actively protected,False
+2020-23,family_b,F — Lift + Cruise + CVT* family,192,Lift + Cruise + CVT* family,0.505,0.719,3.14,2.23,4.23,0.0,3.49,4.57,True,True,False,actively protected,True
+2024-26 (partial),family_b,F — Lift + Cruise + CVT* family,51,Lift + Cruise + CVT* family,0.431,0.647,3.98,3.28,4.82,50.1,2.94,5.34,False,False,True,actively protected,False

@@ -1,0 +1,11 @@
+window,level,level name,aircraft,top archetype,top share,top-2 share,D2,D2 low,D2 high,percentile of the observed D2 (share of shuffles at or below),D2 permutation low,D2 permutation high,below band,condition 1 (> 50 %),partial,base,met
+<= 2011,A0c,C·U — Class + units,59,Tilt Propulsor · 1-3 propulsor units,0.22,0.305,11.17,8.16,14.82,1.1,12.01,19.17,True,False,False,all designs,True
+2012-15,A0c,C·U — Class + units,57,Tilt Propulsor · 1-3 propulsor units,0.246,0.316,9.91,7.21,13.33,0.0,11.91,19.22,True,False,False,all designs,True
+2016-19,A0c,C·U — Class + units,211,Tilt Propulsor · 1-3 propulsor units,0.1,0.175,16.26,11.94,21.05,86.8,13.91,16.88,False,False,False,all designs,False
+2020-23,A0c,C·U — Class + units,236,Lift + Cruise · 9 or more propulsor units,0.106,0.182,14.49,10.53,19.05,9.9,13.95,16.75,False,False,False,all designs,False
+2024-26 (partial),A0c,C·U — Class + units,55,Lift + Cruise · 5-6 propulsor units,0.091,0.182,15.74,13.56,18.6,55.0,11.71,19.21,False,False,True,all designs,False
+<= 2011,A0c,C·U — Class + units,18,Tilt Propulsor · 1-3 propulsor units,0.333,0.5,5.59,5.59,5.59,0.3,7.04,14.73,True,False,False,actively protected,True
+2012-15,A0c,C·U — Class + units,32,Tilt Propulsor · 1-3 propulsor units,0.281,0.406,7.31,7.31,7.31,0.0,9.85,18.96,True,False,False,actively protected,True
+2016-19,A0c,C·U — Class + units,138,Tilt Propulsor · 1-3 propulsor units,0.101,0.196,16.42,11.59,21.62,85.4,13.43,17.3,False,False,False,actively protected,False
+2020-23,A0c,C·U — Class + units,191,Lift + Cruise · 9 or more propulsor units,0.105,0.199,13.84,10.13,18.18,3.0,13.82,16.95,False,False,False,actively protected,False
+2024-26 (partial),A0c,C·U — Class + units,51,Lift + Cruise · 5-6 propulsor units,0.098,0.176,15.96,13.79,18.18,62.8,11.82,19.27,False,False,True,actively protected,False

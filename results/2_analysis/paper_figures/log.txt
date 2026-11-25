@@ -1,4 +1,4 @@
-permutations behind the bands: 1000
-figures: ['fig5']
-
-values/bands that differ from the notebooks' tables: 0 of 60
+permutations behind the bands: 10000
+figures: ['fig4', 'fig5', 'fig6', 'fig7']
+fig7c: own axes rectangle (names of the 15 dimensions on the left); dots = ΔQ (open 2016-19, filled 2020-23), bars = lower permutation band edge; no point is below its band
+values/bands that differ from the notebooks' tables: 37 of 60

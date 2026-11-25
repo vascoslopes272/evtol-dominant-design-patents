@@ -1,11 +1,11 @@
 window,level,level name,weighting,percentile of the observed dQ (share of shuffles at or below),aircraft,Q,Q of the earliest windows,ΔQ,ΔQ permutation low,ΔQ permutation high,below band,partial,base,met
-<= 2011,A0,C — Class,w15,79.6,59,0.5547,0.5442,0.0105,-0.0242,0.0238,False,False,all designs,False
-2012-15,A0,C — Class,w15,20.4,57,0.5336,0.5442,-0.0105,-0.0238,0.0242,False,False,all designs,False
-2016-19,A0,C — Class,w15,86.0,211,0.5682,0.5442,0.024,-0.0225,0.0373,False,False,all designs,False
-2020-23,A0,C — Class,w15,1.2,237,0.5185,0.5442,-0.0257,-0.0223,0.0361,True,False,all designs,True
-2024-26 (partial),A0,C — Class,w15,59.3,55,0.548,0.5442,0.0038,-0.0426,0.0406,False,True,all designs,False
-<= 2011,A0,C — Class,w15,79.6,59,0.5547,0.5442,,-0.0242,0.0238,False,False,"actively protected, against the all-designs baseline and band",False
-2012-15,A0,C — Class,w15,20.4,57,0.5336,0.5442,,-0.0238,0.0242,False,False,"actively protected, against the all-designs baseline and band",False
-2016-19,A0,C — Class,w15,86.0,211,0.5682,0.5442,,-0.0225,0.0373,False,False,"actively protected, against the all-designs baseline and band",False
-2020-23,A0,C — Class,w15,1.2,237,0.5185,0.5442,-0.0287,-0.0223,0.0361,True,False,"actively protected, against the all-designs baseline and band",True
-2024-26 (partial),A0,C — Class,w15,59.3,55,0.548,0.5442,,-0.0426,0.0406,False,True,"actively protected, against the all-designs baseline and band",False
+<= 2011,A0,C — Class,w15,80.1,59,0.5547,0.5442,0.0105,-0.0234,0.0236,False,False,all designs,False
+2012-15,A0,C — Class,w15,19.9,57,0.5336,0.5442,-0.0105,-0.0236,0.0234,False,False,all designs,False
+2016-19,A0,C — Class,w15,87.5,211,0.5682,0.5442,0.024,-0.0222,0.0362,False,False,all designs,False
+2020-23,A0,C — Class,w15,1.2,237,0.5185,0.5442,-0.0257,-0.0218,0.0366,True,False,all designs,True
+2024-26 (partial),A0,C — Class,w15,57.7,55,0.548,0.5442,0.0038,-0.0429,0.0416,False,True,all designs,False
+<= 2011,A0,C — Class,w15,80.1,59,0.5547,0.5442,,-0.0234,0.0236,False,False,"actively protected, against the all-designs baseline and band",False
+2012-15,A0,C — Class,w15,19.9,57,0.5336,0.5442,,-0.0236,0.0234,False,False,"actively protected, against the all-designs baseline and band",False
+2016-19,A0,C — Class,w15,87.5,211,0.5682,0.5442,,-0.0222,0.0362,False,False,"actively protected, against the all-designs baseline and band",False
+2020-23,A0,C — Class,w15,1.2,237,0.5185,0.5442,-0.0287,-0.0218,0.0366,True,False,"actively protected, against the all-designs baseline and band",True
+2024-26 (partial),A0,C — Class,w15,57.7,55,0.548,0.5442,,-0.0429,0.0416,False,True,"actively protected, against the all-designs baseline and band",False

@@ -1,3 +1,3 @@
-permutations per band: 1000
+permutations per band: 10000
 seed: 42
 designs in the table: 621

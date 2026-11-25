@@ -1,11 +1,11 @@
 window,level,level name,aircraft,top archetype,top share,top-2 share,D2,D2 low,D2 high,percentile of the observed D2 (share of shuffles at or below),D2 permutation low,D2 permutation high,below band,condition 1 (> 50 %),partial,base,met
-<= 2011,A0,C — Class,59,Tilt Propulsor,0.339,0.559,4.8,3.9,5.71,25.6,4.11,6.54,False,False,False,all designs,False
-2012-15,A0,C — Class,57,Tilt Propulsor,0.351,0.526,4.9,3.96,5.88,29.8,4.1,6.55,False,False,False,all designs,False
-2016-19,A0,C — Class,211,Tilt Propulsor,0.242,0.469,5.93,4.4,7.55,98.6,4.75,5.85,False,False,False,all designs,False
-2020-23,A0,C — Class,237,Lift + Cruise,0.316,0.54,4.55,3.39,5.97,0.2,4.75,5.8,True,False,False,all designs,True
-2024-26 (partial),A0,C — Class,55,Lift + Cruise,0.273,0.491,5.65,4.71,6.67,73.5,4.12,6.52,False,False,True,all designs,False
-<= 2011,A0,C — Class,18,Tilt Propulsor,0.5,0.722,3.0,3.0,3.0,3.0,2.95,6.75,False,False,False,actively protected,False
-2012-15,A0,C — Class,32,Tilt Propulsor,0.438,0.625,3.85,3.85,3.85,7.8,3.53,6.65,False,False,False,actively protected,False
-2016-19,A0,C — Class,138,Tilt Propulsor,0.268,0.471,6.02,4.49,7.69,100.0,4.48,5.74,False,False,False,actively protected,False
-2020-23,A0,C — Class,192,Lift + Cruise,0.323,0.557,4.4,3.38,5.52,0.3,4.6,5.69,True,False,False,actively protected,True
-2024-26 (partial),A0,C — Class,51,Lift + Cruise,0.275,0.49,5.55,4.76,6.4,76.8,3.92,6.43,False,False,True,actively protected,False
+<= 2011,A0,C — Class,59,Tilt Propulsor,0.339,0.559,4.8,3.9,5.71,24.0,4.1,6.53,False,False,False,all designs,False
+2012-15,A0,C — Class,57,Tilt Propulsor,0.351,0.526,4.9,3.96,5.88,29.7,4.09,6.57,False,False,False,all designs,False
+2016-19,A0,C — Class,211,Tilt Propulsor,0.242,0.469,5.93,4.4,7.55,98.9,4.71,5.84,False,False,False,all designs,False
+2020-23,A0,C — Class,237,Lift + Cruise,0.316,0.54,4.55,3.39,5.97,0.2,4.75,5.81,True,False,False,all designs,True
+2024-26 (partial),A0,C — Class,55,Lift + Cruise,0.273,0.491,5.65,4.71,6.67,73.2,4.1,6.6,False,False,True,all designs,False
+<= 2011,A0,C — Class,18,Tilt Propulsor,0.5,0.722,3.0,3.0,3.0,2.8,2.95,6.75,False,False,False,actively protected,False
+2012-15,A0,C — Class,32,Tilt Propulsor,0.438,0.625,3.85,3.85,3.85,6.7,3.58,6.74,False,False,False,actively protected,False
+2016-19,A0,C — Class,138,Tilt Propulsor,0.268,0.471,6.02,4.49,7.69,99.7,4.46,5.78,False,False,False,actively protected,False
+2020-23,A0,C — Class,192,Lift + Cruise,0.323,0.557,4.4,3.38,5.52,0.2,4.61,5.65,True,False,False,actively protected,True
+2024-26 (partial),A0,C — Class,51,Lift + Cruise,0.275,0.49,5.55,4.76,6.4,76.8,3.97,6.42,False,False,True,actively protected,False

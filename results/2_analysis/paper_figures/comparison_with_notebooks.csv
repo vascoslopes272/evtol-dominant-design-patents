@@ -1,61 +1,61 @@
 figure,cohort,quantity,new,notebooks,difference,permutations in the new bands
-fig5 balance A,<= 2011,D2,4.8,4.8,0.0,1000
-fig5 balance A,<= 2011,D2 permutation low,4.11,4.11,0.0,1000
-fig5 balance A,<= 2011,D2 permutation high,6.54,6.54,0.0,1000
-fig5 balance A,2012-15,D2,4.9,4.9,0.0,1000
-fig5 balance A,2012-15,D2 permutation low,4.1,4.1,0.0,1000
-fig5 balance A,2012-15,D2 permutation high,6.55,6.55,0.0,1000
-fig5 balance A,2016-19,D2,5.93,5.93,0.0,1000
-fig5 balance A,2016-19,D2 permutation low,4.75,4.75,0.0,1000
-fig5 balance A,2016-19,D2 permutation high,5.85,5.85,0.0,1000
-fig5 balance A,2020-23,D2,4.55,4.55,0.0,1000
-fig5 balance A,2020-23,D2 permutation low,4.75,4.75,0.0,1000
-fig5 balance A,2020-23,D2 permutation high,5.8,5.8,0.0,1000
-fig5 balance A,2024-26 (partial),D2,5.65,5.65,0.0,1000
-fig5 balance A,2024-26 (partial),D2 permutation low,4.12,4.12,0.0,1000
-fig5 balance A,2024-26 (partial),D2 permutation high,6.52,6.52,0.0,1000
-fig5 balance A·W·T,<= 2011,D2,8.17,8.17,0.0,1000
-fig5 balance A·W·T,<= 2011,D2 permutation low,7.02,7.02,0.0,1000
-fig5 balance A·W·T,<= 2011,D2 permutation high,12.0,12.0,0.0,1000
-fig5 balance A·W·T,2012-15,D2,7.98,7.98,0.0,1000
-fig5 balance A·W·T,2012-15,D2 permutation low,7.11,7.11,0.0,1000
-fig5 balance A·W·T,2012-15,D2 permutation high,11.94,11.94,0.0,1000
-fig5 balance A·W·T,2016-19,D2,10.55,10.55,0.0,1000
-fig5 balance A·W·T,2016-19,D2 permutation low,8.29,8.29,0.0,1000
-fig5 balance A·W·T,2016-19,D2 permutation high,10.49,10.49,0.0,1000
-fig5 balance A·W·T,2020-23,D2,8.36,8.36,0.0,1000
-fig5 balance A·W·T,2020-23,D2 permutation low,8.31,8.31,0.0,1000
-fig5 balance A·W·T,2020-23,D2 permutation high,10.5,10.5,0.0,1000
-fig5 balance A·W·T,2024-26 (partial),D2,9.58,9.58,0.0,1000
-fig5 balance A·W·T,2024-26 (partial),D2 permutation low,6.93,6.93,0.0,1000
-fig5 balance A·W·T,2024-26 (partial),D2 permutation high,12.18,12.18,0.0,1000
-fig5 balance A·U,<= 2011,D2,11.17,11.17,0.0,1000
-fig5 balance A·U,<= 2011,D2 permutation low,12.01,12.01,0.0,1000
-fig5 balance A·U,<= 2011,D2 permutation high,19.17,19.17,0.0,1000
-fig5 balance A·U,2012-15,D2,9.91,9.91,0.0,1000
-fig5 balance A·U,2012-15,D2 permutation low,11.91,11.91,0.0,1000
-fig5 balance A·U,2012-15,D2 permutation high,19.22,19.22,0.0,1000
-fig5 balance A·U,2016-19,D2,16.26,16.26,0.0,1000
-fig5 balance A·U,2016-19,D2 permutation low,13.91,13.91,0.0,1000
-fig5 balance A·U,2016-19,D2 permutation high,16.88,16.88,0.0,1000
-fig5 balance A·U,2020-23,D2,14.49,14.49,0.0,1000
-fig5 balance A·U,2020-23,D2 permutation low,13.95,13.95,0.0,1000
-fig5 balance A·U,2020-23,D2 permutation high,16.75,16.75,0.0,1000
-fig5 balance A·U,2024-26 (partial),D2,15.74,15.74,0.0,1000
-fig5 balance A·U,2024-26 (partial),D2 permutation low,11.71,11.71,0.0,1000
-fig5 balance A·U,2024-26 (partial),D2 permutation high,19.21,19.21,0.0,1000
-fig5d disparity,<= 2011,ΔQ,0.0105,0.0105,0.0,1000
-fig5d disparity,<= 2011,ΔQ permutation low,-0.0242,-0.0242,0.0,1000
-fig5d disparity,<= 2011,ΔQ permutation high,0.0238,0.0238,0.0,1000
-fig5d disparity,2012-15,ΔQ,-0.0105,-0.0105,0.0,1000
-fig5d disparity,2012-15,ΔQ permutation low,-0.0238,-0.0238,0.0,1000
-fig5d disparity,2012-15,ΔQ permutation high,0.0242,0.0242,0.0,1000
-fig5d disparity,2016-19,ΔQ,0.024,0.024,0.0,1000
-fig5d disparity,2016-19,ΔQ permutation low,-0.0225,-0.0225,0.0,1000
-fig5d disparity,2016-19,ΔQ permutation high,0.0373,0.0373,0.0,1000
-fig5d disparity,2020-23,ΔQ,-0.0257,-0.0257,0.0,1000
-fig5d disparity,2020-23,ΔQ permutation low,-0.0223,-0.0223,0.0,1000
-fig5d disparity,2020-23,ΔQ permutation high,0.0361,0.0361,0.0,1000
-fig5d disparity,2024-26 (partial),ΔQ,0.0038,0.0038,0.0,1000
-fig5d disparity,2024-26 (partial),ΔQ permutation low,-0.0426,-0.0426,0.0,1000
-fig5d disparity,2024-26 (partial),ΔQ permutation high,0.0406,0.0406,0.0,1000
+fig5 balance A,<= 2011,D2,4.8,4.8,0.0,10000
+fig5 balance A,<= 2011,D2 permutation low,4.1,4.11,-0.010000000000000675,10000
+fig5 balance A,<= 2011,D2 permutation high,6.53,6.54,-0.009999999999999787,10000
+fig5 balance A,2012-15,D2,4.9,4.9,0.0,10000
+fig5 balance A,2012-15,D2 permutation low,4.09,4.1,-0.009999999999999787,10000
+fig5 balance A,2012-15,D2 permutation high,6.57,6.55,0.020000000000000462,10000
+fig5 balance A,2016-19,D2,5.93,5.93,0.0,10000
+fig5 balance A,2016-19,D2 permutation low,4.71,4.75,-0.040000000000000036,10000
+fig5 balance A,2016-19,D2 permutation high,5.84,5.85,-0.009999999999999787,10000
+fig5 balance A,2020-23,D2,4.55,4.55,0.0,10000
+fig5 balance A,2020-23,D2 permutation low,4.75,4.75,0.0,10000
+fig5 balance A,2020-23,D2 permutation high,5.81,5.8,0.009999999999999787,10000
+fig5 balance A,2024-26 (partial),D2,5.65,5.65,0.0,10000
+fig5 balance A,2024-26 (partial),D2 permutation low,4.1,4.12,-0.020000000000000462,10000
+fig5 balance A,2024-26 (partial),D2 permutation high,6.6,6.52,0.08000000000000007,10000
+fig5 balance A·W·T,<= 2011,D2,8.17,8.17,0.0,10000
+fig5 balance A·W·T,<= 2011,D2 permutation low,7.06,7.02,0.040000000000000036,10000
+fig5 balance A·W·T,<= 2011,D2 permutation high,12.0,12.0,0.0,10000
+fig5 balance A·W·T,2012-15,D2,7.98,7.98,0.0,10000
+fig5 balance A·W·T,2012-15,D2 permutation low,7.05,7.11,-0.0600000000000005,10000
+fig5 balance A·W·T,2012-15,D2 permutation high,11.95,11.94,0.009999999999999787,10000
+fig5 balance A·W·T,2016-19,D2,10.55,10.55,0.0,10000
+fig5 balance A·W·T,2016-19,D2 permutation low,8.27,8.29,-0.019999999999999574,10000
+fig5 balance A·W·T,2016-19,D2 permutation high,10.57,10.49,0.08000000000000007,10000
+fig5 balance A·W·T,2020-23,D2,8.36,8.36,0.0,10000
+fig5 balance A·W·T,2020-23,D2 permutation low,8.34,8.31,0.02999999999999936,10000
+fig5 balance A·W·T,2020-23,D2 permutation high,10.5,10.5,0.0,10000
+fig5 balance A·W·T,2024-26 (partial),D2,9.58,9.58,0.0,10000
+fig5 balance A·W·T,2024-26 (partial),D2 permutation low,6.94,6.93,0.010000000000000675,10000
+fig5 balance A·W·T,2024-26 (partial),D2 permutation high,12.12,12.18,-0.0600000000000005,10000
+fig5 balance A·U,<= 2011,D2,11.17,11.17,0.0,10000
+fig5 balance A·U,<= 2011,D2 permutation low,11.94,12.01,-0.07000000000000028,10000
+fig5 balance A·U,<= 2011,D2 permutation high,19.07,19.17,-0.10000000000000142,10000
+fig5 balance A·U,2012-15,D2,9.91,9.91,0.0,10000
+fig5 balance A·U,2012-15,D2 permutation low,11.86,11.91,-0.05000000000000071,10000
+fig5 balance A·U,2012-15,D2 permutation high,19.04,19.22,-0.17999999999999972,10000
+fig5 balance A·U,2016-19,D2,16.26,16.26,0.0,10000
+fig5 balance A·U,2016-19,D2 permutation low,13.88,13.91,-0.02999999999999936,10000
+fig5 balance A·U,2016-19,D2 permutation high,17.02,16.88,0.14000000000000057,10000
+fig5 balance A·U,2020-23,D2,14.49,14.49,0.0,10000
+fig5 balance A·U,2020-23,D2 permutation low,13.99,13.95,0.040000000000000924,10000
+fig5 balance A·U,2020-23,D2 permutation high,16.91,16.75,0.16000000000000014,10000
+fig5 balance A·U,2024-26 (partial),D2,15.74,15.74,0.0,10000
+fig5 balance A·U,2024-26 (partial),D2 permutation low,11.69,11.71,-0.02000000000000135,10000
+fig5 balance A·U,2024-26 (partial),D2 permutation high,19.19,19.21,-0.019999999999999574,10000
+fig5d disparity,<= 2011,ΔQ,0.0105,0.0105,0.0,10000
+fig5d disparity,<= 2011,ΔQ permutation low,-0.0234,-0.0242,0.0007999999999999986,10000
+fig5d disparity,<= 2011,ΔQ permutation high,0.0236,0.0238,-0.00020000000000000226,10000
+fig5d disparity,2012-15,ΔQ,-0.0105,-0.0105,0.0,10000
+fig5d disparity,2012-15,ΔQ permutation low,-0.0236,-0.0238,0.00020000000000000226,10000
+fig5d disparity,2012-15,ΔQ permutation high,0.0234,0.0242,-0.0007999999999999986,10000
+fig5d disparity,2016-19,ΔQ,0.024,0.024,0.0,10000
+fig5d disparity,2016-19,ΔQ permutation low,-0.0222,-0.0225,0.0002999999999999982,10000
+fig5d disparity,2016-19,ΔQ permutation high,0.0362,0.0373,-0.0010999999999999968,10000
+fig5d disparity,2020-23,ΔQ,-0.0257,-0.0257,0.0,10000
+fig5d disparity,2020-23,ΔQ permutation low,-0.0218,-0.0223,0.0005000000000000004,10000
+fig5d disparity,2020-23,ΔQ permutation high,0.0366,0.0361,0.0005000000000000004,10000
+fig5d disparity,2024-26 (partial),ΔQ,0.0038,0.0038,0.0,10000
+fig5d disparity,2024-26 (partial),ΔQ permutation low,-0.0429,-0.0426,-0.00030000000000000165,10000
+fig5d disparity,2024-26 (partial),ΔQ permutation high,0.0416,0.0406,0.0010000000000000009,10000

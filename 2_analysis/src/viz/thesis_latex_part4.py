@@ -1,4 +1,4 @@
-"""Part IV hand-over to the dissertation (notebook 51, last section): q6_leading_layout_by_architecture (final width 1.0, three rows) and
+"""Part IV hand-over to the dissertation (notebook 24_evolution_of_the_design_space, last section): q6_leading_layout_by_architecture (final width 1.0, three rows) and
 q6_centroid_dispersion (leaves the dissertation) remade at their final width in the 16 cm text block, height at most 55 % of the width,
 text 7 pt or more, no title inside; written to latex/Figures/Part_IV_design_space_evolution/<group>/<role>/ with the data behind each,
 NUMBERS_IV.md and MANIFEST.md (appended). No number, test or result changes: the data are those of viz/thesis_q6.py and
@@ -152,7 +152,7 @@ def _numbers(ctx, R: Path):
     med = _medians(ctx)
     lk = d["links"]
     L = ["# NUMBERS_IV — Analysis IV (evolution of the design space)\n",
-         "Written by notebook 51 (`viz/thesis_latex_part4.py`); every value is recomputed when the notebook runs. CSVs are in `Data_for_writing/csv/`.\n",
+         "Written by notebook 24_evolution_of_the_design_space (`viz/thesis_latex_part4.py`); every value is recomputed when the notebook runs. Dataset: the public eVTOL_dataset, 621 designs (619 with an architecture). CSVs are in `Data_for_writing/csv/`.\n",
          "## IV.1 Layout shares per cohort (share of the architecture's designs; count/architecture total)\n",
          "Source: `q6_leading_layout_by_architecture.csv`. The first two cohorts hold few designs.\n", tables_md(lay), "",
          "## IV.1 and IV.2 Traces per architecture and cohort\n", "Source: `q6_architecture_traces_by_cohort.csv` (frame `dw` of `viz/thesis_q6.py`).\n", tables_md(traces), "",
@@ -1349,7 +1349,7 @@ def export_refresh(cfg, ctx):
         _manifest(R, lines)
     nums = incomplete_cohort_numbers(ctx)
     md = ["# NUMBERS_IV, the incomplete 2024-26 cohort (drawn, never tested)\n",
-          "Written by notebook 51 (`viz/thesis_latex_part4.py`, refresh of 2026-10-16). The 2024-26 cohort is the fifth column or point of the Analysis IV figures; "
+          "Written by notebook 24_evolution_of_the_design_space (`viz/thesis_latex_part4.py`, refresh of 2026-10-16). The 2024-26 cohort is the fifth column or point of the Analysis IV figures; "
           "it enters no test, no disparity and no number of `NUMBERS_IV.md`, which stays on the four complete cohorts. Designs with a priority year of 2024 or later.\n",
           "## Layout shares, 2024-26 (share of the architecture's designs)\n", "Source: `q6_leading_layout_by_architecture.csv`, rows `2024-26 (incomplete)`.\n",
           tables_md(nums["layouts"]), "",

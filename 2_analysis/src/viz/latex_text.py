@@ -1,5 +1,5 @@
 """Export of the Part I (Analysis I) figures to the dissertation folder latex/, with the data behind them and the numbers the
-Results text quotes. Called by notebook 48 (section "Export to latex"); nothing here changes a number, a test or a result.
+Results text quotes. Called by notebook 21_evidence_base (section "Export to latex"); nothing here changes a number, a test or a result.
 
     latex/
       Figures/Part_I_evidence_base/<group>/<role>/<name>.pdf     vector PDF at the final width of the dissertation (text block 16 cm)
@@ -124,8 +124,8 @@ def write_numbers_I(cfg, ctx) -> Path:
     c = q1._calc(ctx)
     n1, n4, n5 = q1.numbers(ctx), q4.numbers(ctx), q5.numbers(ctx)
     out = [f"# NUMBERS_I — Analysis I (evidence base)",
-           "", f"Generated {datetime.date.today().isoformat()} by notebook 48 (`viz/latex_text.py:write_numbers_I`) from the current inputs "
-           f"(external inputs: `{cfg.analysis.get('external_inputs', 'script')}`), 627 designs, snapshot {frames.snapshot_date(ds)}. "
+           "", f"Generated {datetime.date.today().isoformat()} by notebook 21_evidence_base (`viz/latex_text.py:write_numbers_I`) from the current inputs "
+           f"(external inputs: `{cfg.analysis.get('external_inputs', 'script')}`), {len(v)} designs, snapshot {frames.snapshot_date(ds)}. "
            "Every value is computed when this file is written; the source column names the CSV or the code that holds it. "
            "A value marked **new** is a number the earlier text did not quote.", ""]
 
@@ -175,7 +175,7 @@ def write_numbers_I(cfg, ctx) -> Path:
     by_off = big.groupby("office")["out"].agg(["size", "mean", "sum"])
     by_off625 = wo.groupby("office")["out"].agg(["size", "mean", "sum"])
     notplot = wo[~wo["topType"].isin(codes)].groupby("topType")["out"].agg(["size", "mean"])
-    # all 627: the two designs without an architecture are read for their legal status too
+    # all designs: the two designs without an architecture are read for their legal status too
     links = frames.aircraft_patents(ds, v)
     links["_live"] = links["status_known"] & ~links["inactive"]
     per = links.groupby("aircraft_id").agg(known=("status_known", "sum"), live=("_live", "any"))
@@ -207,9 +207,9 @@ def write_numbers_I(cfg, ctx) -> Path:
     out.append("")
     table("Designs not plotted in `q1_in_force_status`", [
         (f"{k} ({_arch_name(k)})", f"{int(r_['size'])} designs, {100 * r_['mean']:.0f} % not actively protected", "csv/numbers_I_active_protection_by_architecture.csv") for k, r_ in notplot.iterrows()]
-          + [("no architecture read", f"{int(v['topType'].isna().sum())} designs (read for legal status, see the 627 line)", "viz/frames.py:force_frame drops a design without an architecture"),
+          + [("no architecture read", f"{int(v['topType'].isna().sum())} designs (read for legal status, see the all-designs table below)", "viz/frames.py:force_frame drops a design without an architecture"),
              ("designs not plotted, total", f"{len(v) - len(big)} of {len(v)} (604 plotted)", "")])
-    table("The share if every one of the 627 designs is read", [
+    table("The share if every design is read", [
         ("designs with a legal status read", len(a627), "frames.aircraft_patents, every design has at least one patent with a status"),
         ("not actively protected", f"{int(a627['out'].sum())} of {len(a627)} = {100 * a627['out'].mean():.1f} %", "**new**"),
         ("(for comparison) the 625 designs with an architecture", f"{int(wo['out'].sum())} of {len(wo)} = {100 * wo['out'].mean():.1f} %", "q1.numbers()['fa_share'], ['fa_n']")])
@@ -236,7 +236,7 @@ def write_numbers_I(cfg, ctx) -> Path:
         ("approved patents whose every aircraft is 'but similar' (UAV or not electric), set aside", cnt["patents_gated_out"], "ds.counts['patents_gated_out']"),
         ("representative patents (patent families)", cnt["patents_approved"], "ds.counts['patents_approved']"),
         ("aircraft observations (a patent can show several aircraft)", cnt["approved_variants"], "ds.counts['approved_variants']"),
-        ("the 627 designs (unique aircraft), on primary patents", len(v), f"len(ctx.v); primary patents {cnt['patents_analysis']}"),
+        ("all designs (unique aircraft), on primary patents", len(v), f"len(ctx.v); primary patents {cnt['patents_analysis']}"),
         ("after the image triage T2: whole-aircraft figures approved", cnt["approved_figures"], f"ds.counts['approved_figures']; on {ds.approved_figures['patent_id'].nunique()} patents"),
     ], columns=["step", "count", "source"])
     funnel.to_csv(CSV / "numbers_I_funnel.csv", index=False)

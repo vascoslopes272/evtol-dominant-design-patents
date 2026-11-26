@@ -32,12 +32,16 @@ import numpy as np
 import pandas as pd
 
 HERE = Path(__file__).resolve().parent
-REPO = HERE.parents[1]
-RESULTS = HERE / "supplement" / "results"       # the tests of 2026-11-13/16, moved to supplement/ on 2026-11-18
-THESIS_CODE = Path(os.environ.get("WS_THESIS_CODE", "/home/vasco/Vasco Workspace/Tese_Vasco_Lnx/eVTOL-Visual-Evaluation/labeling_evaluation"))
+REPO = HERE.parents[2]                                              # the root of this repository
+ANALYSIS = REPO / "2_analysis"
+DATASET_ROOT = Path(os.environ.get("EVTOL_DATASET", REPO.parent / "eVTOL_dataset"))   # the public dataset (or set EVTOL_DATASET)
+RESULTS = Path(os.environ.get("WS_RESULTS", DATASET_ROOT / "07_results" / "72_weight_sensitivity"))   # where the tests write and read
+THESIS_CODE = Path(os.environ.get("WS_THESIS_CODE", ANALYSIS / "src"))   # the packages viz and lib of the analysis
 DATASETS = {
-    "thesis": {"yaml": THESIS_CODE / "labelling_analysis.yaml", "words": "thesis as delivered (627 designs)"},
-    "v1": {"yaml": REPO / "_config" / "labelling_analysis.eVTOL_dataset_v1.yaml", "words": "eVTOL_dataset_v1 as it is now"},
+    # the public dataset: 2_analysis/20_config.yaml reads it from EVTOL_DATASET
+    "v1": {"yaml": ANALYSIS / "20_config.yaml", "words": "the public dataset (621 designs)"},
+    # the frozen thesis table is not part of the public dataset: point WS_THESIS_YAML at its config to run the baseline check
+    "thesis": {"yaml": Path(os.environ.get("WS_THESIS_YAML", ANALYSIS / "20_config.yaml")), "words": "the frozen thesis table (baseline check)"},
 }
 
 # ------------------------------------------------------------------------------------------------ settings
@@ -221,7 +225,7 @@ def build_inputs(dataset: str, verbose: bool = True, level: str = "A0", only: st
     (``results/<dataset>_<n>designs_<hash>``); the same data give the same folder, changed data a new one. A folder whose
     inputs are unchanged is not written again.
 
-    Options (added 2026-11-18 for the P1 tests; the defaults give exactly the folders of the supplement):
+    Options (added 2026-11-18 for the P1 tests; the default folder is RESULTS):
     level  = the level of description whose designs enter ("A0" = A, "A1t" = A·W·T, "A0c" = A·U); Q does not depend on the
              level, the level only decides which designs have a key (frames.archetype_key);
     only   = "F" keeps the designs of family F only (frames.dd_level_keys, family_b == FAMILY_LABEL);

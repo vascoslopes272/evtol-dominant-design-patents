@@ -1,7 +1,7 @@
 """Part III (Dominant design) figures and tables, v2: the Q6 (shares) and Q7 (conditions) thesis figures redrawn under the Part I/II
 style and terms, plus the Analysis III additions (Spearman table, weights of condition 3, three-year check, granted-and-live base of F,
 III.4 on the five directory categories). Every number is read from viz/thesis_q6.py, thesis_q7.py and viz/analysis_iii.py; this module only
-draws, relabels and groups them for figures/Part_III_dominant_design/ (notebook 52).
+draws, relabels and groups them for figures/Part_III_dominant_design/ (notebook 23_dominant_design).
 
 Terms (author's ruling 2026-10-13): architecture (never class), design or aircraft, cohort (never window), assignee; the levels of
 description are A (architecture alone), A·W·T, A·U; the family stays F.

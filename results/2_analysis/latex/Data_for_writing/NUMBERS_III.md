@@ -1,6 +1,6 @@
 # NUMBERS_III — Analysis III (dominant design)
 
-Written by notebook 52 (`viz/thesis_latex_part3.py`); every value is recomputed when the notebook runs. CSVs are in `Data_for_writing/csv/`.
+Written by notebook 23_dominant_design (`viz/thesis_latex_part3.py`); every value is recomputed when the notebook runs. Dataset: the public eVTOL_dataset, 621 designs (619 with an architecture). CSVs are in `Data_for_writing/csv/`.
 
 ## (a) III.1, cohort shares of Tilt Propulsor and Lift + Cruise
 
@@ -30,7 +30,7 @@ Source: `q6_share_trend_spearman.csv`.
 
 ## (b) III.4, VT on the five directory categories, actively protected designs
 
-Source: `q7_iii4_directory_categories.csv` (balance), notebook 52 §III4. VT is the largest category in every year and cohort. Fold: `q7_iii4_directory_fold.csv`.
+Source: `q7_iii4_directory_categories.csv` (balance), notebook 23_dominant_design §III4. VT is the largest category in every year and cohort. Fold: `q7_iii4_directory_fold.csv`.
 
 VT share per cohort:
 
@@ -301,7 +301,7 @@ Source: `viz/thesis_q7.py` numbers(ctx), notebook cells of the III2_III3 group.
 
 ## Follow-up 2026-10-23, III.1 without Bell / Textron
 
-Written by notebook 57 (`viz/followup_iii1.py`), supervisor comment 67. The III.1 frames and rules unchanged (`viz/analysis_iii.rho_table`, `frames.class_counts_by_window`): cohort shares over every design of the cohort; Spearman rho of each architecture's yearly share on the priority year over 2008-2023 (16 years) and 2016-2023 (8 years); the same 7 architectures (20 designs or more, all assignees) and the same Holm family per span as III.1. Every design whose assignee is Bell / Textron leaves numerator and denominator. Spearman draws nothing at random, so the seed plays no part. No figure is changed. Table: `csv/q7_iii1_without_bell.csv`.
+Written by notebook 29_dominant_design_without_one_assignee (`viz/followup_iii1.py`), supervisor comment 67. The III.1 frames and rules unchanged (`viz/analysis_iii.rho_table`, `frames.class_counts_by_window`): cohort shares over every design of the cohort; Spearman rho of each architecture's yearly share on the priority year over 2008-2023 (16 years) and 2016-2023 (8 years); the same 7 architectures (20 designs or more, all assignees) and the same Holm family per span as III.1. Every design whose assignee is Bell / Textron leaves numerator and denominator. Spearman draws nothing at random, so the seed plays no part. No figure is changed. Table: `csv/q7_iii1_without_bell.csv`.
 
 ### 1. Bell / Textron's designs per cohort and architecture
 

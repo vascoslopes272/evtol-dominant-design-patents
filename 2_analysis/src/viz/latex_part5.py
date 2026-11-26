@@ -139,7 +139,7 @@ def numbers_md(cfg, ctx) -> str:
     lag = lag.drop(columns=["touches or includes 0"])
     L = ["# NUMBERS_V: Analysis V (assignees and regions)\n",
          "Source tags: `CSV` = Data_for_writing/csv/<name>.csv; `nb53` = notebooks/25_assignees_and_regions.ipynb (`viz/analysis_v.py:numbers_for_text`); "
-         "`q2.numbers`, `q3.numbers`, `q7.numbers` = `viz/thesis_q2.py`, `thesis_q3.py`, `thesis_q7.py` numbers(ctx). Every value was recomputed from the frames when this file was written.\n",
+         "`q2.numbers`, `q3.numbers`, `q7.numbers` = `viz/thesis_q2.py`, `thesis_q3.py`, `thesis_q7.py` numbers(ctx). Every value was recomputed from the frames when this file was written. Dataset: the public eVTOL_dataset, 621 designs (619 with an architecture).\n",
          "## (a) The largest assignees\n",
          "Source: `viz.thesis_q2._frames(ctx)['sizes']` and `['cov']` (the data of `q2_largest_filers_share`, CSV `q2_largest_filers_share.csv`).\n",
          f"- The 4 largest assignees ({', '.join(f'{a} {int(b)}' for a, b in top4.items())} designs) hold {int(top4.sum())} designs: "

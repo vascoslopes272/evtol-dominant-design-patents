@@ -1,4 +1,4 @@
-"""Part III hand-over to the dissertation (notebook 52, last section): the six figures redrawn at their final width in the
+"""Part III hand-over to the dissertation (notebook 23_dominant_design, last section): the six figures redrawn at their final width in the
 text block (16 cm), height at most 55 % of the width, written to latex/Figures/Part_III_dominant_design/<group>/<role>/;
 the data behind every figure and table in latex/Data_for_writing/csv/; NUMBERS_III.md; MANIFEST.md (appended).
 No number, test or result is recomputed differently: the builders are those of viz/figures_part3.py."""
@@ -158,11 +158,11 @@ def _numbers(cfg, ctx, R: Path):
     keys6 = sorted(set(re.findall(r"\{([a-z0-9_]+)\}", next(r["text"] for r in tx6.RESULTS if r["sub"] == "B"))))
     n6 = q6.numbers(ctx)
     L = ["# NUMBERS_III — Analysis III (dominant design)\n",
-         "Written by notebook 52 (`viz/thesis_latex_part3.py`); every value is recomputed when the notebook runs. CSVs are in `Data_for_writing/csv/`.\n",
+         "Written by notebook 23_dominant_design (`viz/thesis_latex_part3.py`); every value is recomputed when the notebook runs. Dataset: the public eVTOL_dataset, 621 designs (619 with an architecture). CSVs are in `Data_for_writing/csv/`.\n",
          "## (a) III.1, cohort shares of Tilt Propulsor and Lift + Cruise\n", "Source: `q6_architecture_shares_by_cohort.csv` (share of the cohort's designs).\n", tables_md(tpl), "",
          "## III.1, Spearman rho of share on priority year (2008–2023)\n", "Source: `q6_share_trend_spearman.csv`.\n", tables_md(rho), "",
          "## (b) III.4, VT on the five directory categories, actively protected designs\n",
-         "Source: `q7_iii4_directory_categories.csv` (balance), notebook 52 §III4. VT is the largest category in every year and cohort. Fold: `q7_iii4_directory_fold.csv`.\n",
+         "Source: `q7_iii4_directory_categories.csv` (balance), notebook 23_dominant_design §III4. VT is the largest category in every year and cohort. Fold: `q7_iii4_directory_fold.csv`.\n",
          "VT share per cohort:\n", tables_md(vt), "", "VT share per priority year (read years, 20 designs or more, 2016–2023); condition 1 met in "
          + ", ".join(map(str, di["met"])) + " (all designs: " + ", ".join(map(str, di["met_all"])) + "):\n", tables_md(vy), "",
          "Balance (²D rarefied to 40, all designs, 1000 permutations) with the band, per cohort; 2024–26* is incomplete and not read:\n", tables_md(bal), "",

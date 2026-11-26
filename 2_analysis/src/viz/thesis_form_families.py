@@ -3,7 +3,7 @@
 
 Nothing here changes F or any number of the dissertation: F stays as decided on 2026-10-14. Every reading reuses the code paths of
 Task 1 (``lib.dominant_design``, ``viz.frames``, ``viz.thesis_q7``, ``viz.analysis_iii``); this module only declares the families, builds
-the form variables, regroups the same designs and writes the tables. Driven by notebook 55 (``notebooks/27_form_families.ipynb``).
+the form variables, regroups the same designs and writes the tables. Driven by notebook 27_form_families (``notebooks/27_form_families.ipynb``).
 
 Steps (the brief's numbering):
 
@@ -527,7 +527,7 @@ def numbers_md(ctx) -> str:
     qd = q_decomposition(ctx)
     ms = membership_tables(ctx)["summary"]
     L = ["# NUMBERS_VI — form-defined families (Task 6, exploratory)\n",
-         "Written by notebook 55 (`viz/thesis_form_families.py`); every value is recomputed when the notebook runs. CSVs are in `Data_for_writing/csv/` "
+         "Written by notebook 27_form_families (`viz/thesis_form_families.py`); every value is recomputed when the notebook runs. Dataset: the public eVTOL_dataset, 621 designs (619 with an architecture). CSVs are in `Data_for_writing/csv/` "
          "(`q8_form_variables.csv`, `q8_families_membership.csv`, `q8_families_premise.csv`, `q8_families_q_decomposition.csv`, `q8_families_condition1.csv`, "
          "`q8_families_condition2.csv`, `q8_families_condition3.csv`, `q8_families_verdict.csv`).\n",
          "Exploratory, after Task 1, on the w15 weighting only. Nothing here changes F or any number of the dissertation (F stays as decided on 2026-10-14). "
@@ -580,7 +580,7 @@ def tables(ctx) -> Dict[str, pd.DataFrame]:
 
 def write_outputs(ctx, task: str = "task6") -> List[pathlib.Path]:
     """Write every csv and the md to the results folder, copy the csvs to latex/Data_for_writing/csv/ and the md to latex/Data_for_writing/,
-    and copy everything plus this module and notebook 55 to handoff_2026-10-16/task6/."""
+    and copy everything plus this module and notebook 27_form_families to handoff_2026-10-16/task6/."""
     from viz import handoff as ho
     cfg = ctx.cfg
     od = out_dir(cfg)

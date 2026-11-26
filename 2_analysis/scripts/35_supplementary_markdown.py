@@ -144,7 +144,7 @@ def main():
                     ("fig6a_modal_SLC.pdf, fig6b_modal_TP.pdf, fig6c_modal_CVT.pdf", "layouts inside the three largest architectures, five cohorts", "main (Fig 6)"),
                     ("fig6_legend_SLC.pdf, fig6_legend_TP.pdf, fig6_legend_CVT.pdf", "legend strips of Fig 6", "support files"),
                     ("fig7a_F_share.pdf, fig7b_F_balance.pdf", "F share per priority year; 2D of F", "main (Fig 7)"),
-                    ("fig7c_F_disparity_within.pdf", "dQ inside F with architecture weight 0, per dimension (optional in the README)", "extra, sensitivity, could go in S4")]:
+                    ("fig7c_exploratory_check_dQ_inside_F.pdf", "exploratory check of dQ inside F with architecture weight 0 (no convergence inside F)", "extra, sensitivity, could go in S4")]:
         w(f"| {f} | {t} | {k} |")
     w("")
     w("**Per-region and sensitivity figures are not in `paper_figures_for_other_pc`.** Candidates that exist elsewhere, as produced by the notebooks (names only, not checked for style): "

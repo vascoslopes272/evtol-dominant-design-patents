@@ -1,6 +1,6 @@
 # NUMBERS_IV — Analysis IV (evolution of the design space)
 
-Written by notebook 51 (`viz/thesis_latex_part4.py`); every value is recomputed when the notebook runs. CSVs are in `Data_for_writing/csv/`.
+Written by notebook 24_evolution_of_the_design_space (`viz/thesis_latex_part4.py`); every value is recomputed when the notebook runs. Dataset: the public eVTOL_dataset, 621 designs (619 with an architecture). CSVs are in `Data_for_writing/csv/`.
 
 ## IV.1 Layout shares per cohort (share of the architecture's designs; count/architecture total)
 

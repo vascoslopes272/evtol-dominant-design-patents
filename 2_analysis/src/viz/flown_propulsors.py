@@ -3,7 +3,7 @@ the definition of ``viz.thesis_q4.representativeness``) against the other design
 funnel family (the six tests of ``viz.thesis_q4.funnel_family`` plus this one, one Holm correction over the seven raw p). Reads ctx only;
 changes no figure, table or other number. Writes latex/Data_for_writing/csv/numbers_I_flown_propulsors_mw.csv and inserts the section
 "I.3, propulsors of the flown designs (Mann-Whitney)" into NUMBERS_I.md after the funnel family (a rerun replaces it). Run by
-``latex_text.write_numbers_I`` (notebook 48).
+``latex_text.write_numbers_I`` (notebook 21_evidence_base).
 
     python -m viz.flown_propulsors      (from labeling_evaluation/)
 """

@@ -1,6 +1,6 @@
 # NUMBERS_VI — form-defined families (Task 6, exploratory)
 
-Written by notebook 55 (`viz/thesis_form_families.py`); every value is recomputed when the notebook runs. CSVs are in `Data_for_writing/csv/` (`q8_form_variables.csv`, `q8_families_membership.csv`, `q8_families_premise.csv`, `q8_families_q_decomposition.csv`, `q8_families_condition1.csv`, `q8_families_condition2.csv`, `q8_families_condition3.csv`, `q8_families_verdict.csv`).
+Written by notebook 27_form_families (`viz/thesis_form_families.py`); every value is recomputed when the notebook runs. Dataset: the public eVTOL_dataset, 621 designs (619 with an architecture). CSVs are in `Data_for_writing/csv/` (`q8_form_variables.csv`, `q8_families_membership.csv`, `q8_families_premise.csv`, `q8_families_q_decomposition.csv`, `q8_families_condition1.csv`, `q8_families_condition2.csv`, `q8_families_condition3.csv`, `q8_families_verdict.csv`).
 
 Exploratory, after Task 1, on the w15 weighting only. Nothing here changes F or any number of the dissertation (F stays as decided on 2026-10-14). The question: is there a family defined by form (wing, tilt, booms, propulsor count, enclosure), not by architecture, that is coherent in form AND meets share dominance (condition 1) and balance reduction (condition 2)? Condition 3 (Rao's Q) is cohort-wide and blind to the family, so it is never recomputed per family: the Task 1 cohort verdict is quoted per base. "Met" only when all three hold in the same period on the same base.
 

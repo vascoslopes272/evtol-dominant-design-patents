@@ -1,7 +1,7 @@
 """Follow-up 2026-10-24 to NUMBERS_I (Analysis I.1, professor comments 35 and 71): the yearly total of designs corrected for publication lag,
 with the same correction V.3 applies per region (``frames.region_years``, the frame behind na_share_2023_corr). Reads ctx only; draws no
 figure. Writes latex/Data_for_writing/csv/q1_filings_per_year_lag_corrected.csv and appends the section "Follow-up 2026-10-24,
-lag-corrected total" to NUMBERS_I.md (a rerun replaces it). Also run by ``latex_text.write_numbers_I`` (notebook 48).
+lag-corrected total" to NUMBERS_I.md (a rerun replaces it). Also run by ``latex_text.write_numbers_I`` (notebook 21_evidence_base).
 
     python -m viz.followup_part1      (from labeling_evaluation/)
 """

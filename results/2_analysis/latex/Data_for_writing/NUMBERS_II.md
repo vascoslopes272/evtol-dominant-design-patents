@@ -1,6 +1,6 @@
 # NUMBERS_II — Analysis II (design space)
 
-Written by notebook 50 (`viz/thesis_latex_part2.py`); every value is recomputed when the notebook runs. CSVs are in `Data_for_writing/csv/`. Levels are A (architecture), A·W·T (architecture, wings, tilt), A·U (architecture, propulsor units); the propulsor bands are 1–3, 4, 5–6, 7–8 and 9+. The one design recorded with 0 propulsors (GB202302720D0_ad1, its count never entered under an M2 override) is left out of U (rerun of 2026-10-15).
+Written by notebook 22_design_space (`viz/thesis_latex_part2.py`); every value is recomputed when the notebook runs. Dataset: the public eVTOL_dataset, 621 designs (619 with an architecture). CSVs are in `Data_for_writing/csv/`. Levels are A (architecture), A·W·T (architecture, wings, tilt), A·U (architecture, propulsor units); the propulsor bands are 1–3, 4, 5–6, 7–8 and 9+. The one design recorded with 0 propulsors (GB202302720D0_ad1, its count never entered under an M2 override) is left out of U (rerun of 2026-10-15).
 
 ## Configurations that hold half of each cohort's designs, at A·U (`q6_half_of_cohort`, which leaves the text)
 
@@ -16,7 +16,7 @@ Source: `q6_half_of_cohort.csv`. The figure ranks the configurations by size wit
 
 ## Table: dimensions that vary
 
-Source: `q6_selected_fields.csv` (notebook 50, group II1).
+Source: `q6_selected_fields.csv` (notebook 22_design_space, group II1).
 
 Change of 2026-10-16: three dimensions added (Table 4.3 of the dissertation): booms present (`boomsPresent`, all 627 designs), propulsor enclosure (any ducted: `any_ducted` of `frames.propulsion_states`, on the designs with a propulsor-unit answer, so the 0-propulsor design and HB / PFV are left out as in the two propulsor rows: 595, not the 596 of ANSWERS_II1.md) and fuselage shape (`fusShape`, codebook base names; the table prints the four most common options, the fifth is Other: 11). The three enter `q6_fixed_by_architecture` in the table's order, before number of wings, so the permutation p of number of wings (0.003 → 0.001) and wing configuration (0.006 → 0.004) moved with the shuffle stream; every V and every other p is unchanged.
 
@@ -35,7 +35,7 @@ Change of 2026-10-16: three dimensions added (Table 4.3 of the dissertation): bo
 
 ## Which dimensions the architecture fixes (`q6_fixed_by_architecture`)
 
-Source: `q6_fixed_by_architecture.csv` and `q6_fixed_by_architecture_detail.csv` (notebook 50, group II1, appendix; `viz/thesis_q6.py` fixed_by_architecture).
+Source: `q6_fixed_by_architecture.csv` and `q6_fixed_by_architecture_detail.csv` (notebook 22_design_space, group II1, appendix; `viz/thesis_q6.py` fixed_by_architecture).
 
 For each dimension of the table above, on the designs that answer it and have an architecture, the bias-corrected Cramér's V (Bergsma 2013) of dimension × architecture is read with a permutation p (1000 shuffles of the architecture column, one generator seeded 42, dimensions in the table's order; p = share of shuffles at or above the observed V). Per architecture the leading option of the dimension and its share of that architecture's answering designs are read (the detail csv); an architecture with fewer than 10 answering designs is too few to read, and the dimension is fixed in an architecture when the leading option holds 80 % or more of them.
 
@@ -54,7 +54,7 @@ For each dimension of the table above, on the designs that answer it and have an
 
 ## Table: levels of description
 
-Source: `q7_levels_of_description.csv` (notebook 50, group II2). The family F row is in Analysis III.
+Source: `q7_levels_of_description.csv` (notebook 22_design_space, group II2). The family F row is in Analysis III.
 
 | level   |   configurations |   singletons |   ¹D | largest configuration                 | its share   |
 |:--------|-----------------:|-------------:|-----:|:--------------------------------------|:------------|

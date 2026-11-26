@@ -1,6 +1,6 @@
 # NUMBERS_V: Analysis V (assignees and regions)
 
-Source tags: `CSV` = Data_for_writing/csv/<name>.csv; `nb53` = notebooks/25_assignees_and_regions.ipynb (`viz/analysis_v.py:numbers_for_text`); `q2.numbers`, `q3.numbers`, `q7.numbers` = `viz/thesis_q2.py`, `thesis_q3.py`, `thesis_q7.py` numbers(ctx). Every value was recomputed from the frames when this file was written.
+Source tags: `CSV` = Data_for_writing/csv/<name>.csv; `nb53` = notebooks/25_assignees_and_regions.ipynb (`viz/analysis_v.py:numbers_for_text`); `q2.numbers`, `q3.numbers`, `q7.numbers` = `viz/thesis_q2.py`, `thesis_q3.py`, `thesis_q7.py` numbers(ctx). Every value was recomputed from the frames when this file was written. Dataset: the public eVTOL_dataset, 621 designs (619 with an architecture).
 
 ## (a) The largest assignees
 

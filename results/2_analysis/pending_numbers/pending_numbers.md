@@ -81,7 +81,7 @@ Paper P1, dataset eVTOL_dataset (621 designs, 619 with an architecture), seed 42
 | allowed-values rule, 15 %, 10 000 perms                 |                 120 | results/31_label_reliability/allowed_r15_p10000/replicas.jsonl      |                   10000 |       20261118 |                                           0.149383  |            71 |           121 |
 | allowed-values rule, 20 %, 10 000 perms                 |                 120 | results/31_label_reliability/allowed_r20_p10000/replicas.jsonl      |                   10000 |       20261118 |                                           0.199665  |           103 |           156 |
 | first version (redraw whole design), 15 %, 10 000 perms |                 120 | results/31_label_reliability/r15_p10000/replicas.jsonl              |                   10000 |       20261118 |                                           0.0738728 |            31 |            61 |
-| allowed-values rule, 15 %, 1 000 perms (reference)      |                1000 | results/31_label_reliability/allowed_r15_p1000_n1000/replicas.jsonl |                    1000 |       20261118 |                                         nan         |           nan |           nan |
+| allowed-values rule, 15 %, 1 000 perms (reference)      |                1000 | results/31_label_reliability/allowed_r15_p1000_n1000/replicas.jsonl |                    1000 |       20261118 |                                           0.150317  |            63 |           121 |
 
 ## A2. Table S7: every tested result, original value, share kept under weight draws and under coding replicas
 

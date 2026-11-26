@@ -1,6 +1,6 @@
 # NUMBERS_I — Analysis I (evidence base)
 
-Generated 2026-11-25 by notebook 48 (`viz/latex_text.py:write_numbers_I`) from the current inputs (external inputs: `script`), 627 designs, snapshot 2026-06-08. Every value is computed when this file is written; the source column names the CSV or the code that holds it. A value marked **new** is a number the earlier text did not quote.
+Generated 2026-11-25 by notebook 21_evidence_base (`viz/latex_text.py:write_numbers_I`) from the current inputs (external inputs: `script`), 621 designs, snapshot 2026-06-08. Every value is computed when this file is written; the source column names the CSV or the code that holds it. A value marked **new** is a number the earlier text did not quote.
 
 ## 1. Growth
 
@@ -67,10 +67,10 @@ Share not actively protected per architecture (the nine plotted):
 | DS (Deflected Slipstream) | 4 designs, 25 % not actively protected | csv/numbers_I_active_protection_by_architecture.csv |
 | RC (Rotorcraft) | 9 designs, 44 % not actively protected | csv/numbers_I_active_protection_by_architecture.csv |
 | SRW (Stopped/Slowed Rotor Wing) | 8 designs, 38 % not actively protected | csv/numbers_I_active_protection_by_architecture.csv |
-| no architecture read | 2 designs (read for legal status, see the 627 line) | viz/frames.py:force_frame drops a design without an architecture |
+| no architecture read | 2 designs (read for legal status, see the all-designs table below) | viz/frames.py:force_frame drops a design without an architecture |
 | designs not plotted, total | 23 of 621 (604 plotted) |  |
 
-### The share if every one of the 627 designs is read
+### The share if every design is read
 
 | number | value | source |
 |---|---|---|
@@ -148,7 +148,7 @@ Designs not actively protected, per priority year (no linked patent in force):
 | approved patents whose every aircraft is 'but similar' (UAV or not electric), set aside | 232 | ds.counts['patents_gated_out'] |
 | representative patents (patent families) | 876 | ds.counts['patents_approved'] |
 | aircraft observations (a patent can show several aircraft) | 957 | ds.counts['approved_variants'] |
-| the 627 designs (unique aircraft), on primary patents | 621 | len(ctx.v); primary patents 540 |
+| all designs (unique aircraft), on primary patents | 621 | len(ctx.v); primary patents 540 |
 | after the image triage T2: whole-aircraft figures approved | 1530 | ds.counts['approved_figures']; on 575 patents |
 
 *Mapping of T1 and T2:* the repository names the stages above; **T1 = the patent triage at labelling (1 109 approved, then the domain gate to 879)** and **T2 = the figure approval (1 538 whole-aircraft figures on 578 patents)** is my reading of your two names. The 627 designs sit between them (a design needs approved figures). Tell me if your T1 or T2 is another step.

@@ -1,4 +1,4 @@
-"""Part II hand-over to the dissertation (notebook 50, last section): the figures of Analysis II redrawn at their final width in the text block
+"""Part II hand-over to the dissertation (notebook 22_design_space, last section): the figures of Analysis II redrawn at their final width in the text block
 (16 cm), height at most 55 % of the width, text 7 pt or more, thesis style (viz/thesis.mplstyle), no title; written to
 latex/Figures/Part_II_design_space/<group>/<role>/; the data behind every figure and table in latex/Data_for_writing/csv/; NUMBERS_II.md;
 MANIFEST.md (appended). No number, test or result changes: the builders are those of viz/figures_part2.py, which read viz/thesis_q6.py and
@@ -190,26 +190,26 @@ def _numbers(cfg, ctx, R: Path):
     n6 = q6.numbers(ctx)
     core = d6["core"]
     L = ["# NUMBERS_II — Analysis II (design space)\n",
-         "Written by notebook 50 (`viz/thesis_latex_part2.py`); every value is recomputed when the notebook runs. CSVs are in `Data_for_writing/csv/`. "
+         "Written by notebook 22_design_space (`viz/thesis_latex_part2.py`); every value is recomputed when the notebook runs. Dataset: the public eVTOL_dataset, 621 designs (619 with an architecture). CSVs are in `Data_for_writing/csv/`. "
          "Levels are A (architecture), A·W·T (architecture, wings, tilt), A·U (architecture, propulsor units); the propulsor bands are 1–3, 4, 5–6, 7–8 and 9+. "
          "The one design recorded with 0 propulsors (GB202302720D0_ua1, its count never entered under an M2 override) is left out of U (rerun of 2026-10-15).\n",
          "## Configurations that hold half of each cohort's designs, at A·U (`q6_half_of_cohort`, which leaves the text)\n",
          "Source: `q6_half_of_cohort.csv`. The figure ranks the configurations by size within the cohort (first column); the old heatmap used the overall-size order (second), "
          "which gives 10 for 2016–19 where the text says 10. 2024–26 is incomplete and not read.\n", tables_md(half), "",
-         "## Table: dimensions that vary\n", "Source: `q6_selected_fields.csv` (notebook 50, group II1).\n",
+         "## Table: dimensions that vary\n", "Source: `q6_selected_fields.csv` (notebook 22_design_space, group II1).\n",
          "Change of 2026-10-16: three dimensions added (Table 4.3 of the dissertation): booms present (`boomsPresent`, all 627 designs), propulsor enclosure "
          "(any ducted: `any_ducted` of `frames.propulsion_states`, on the designs with a propulsor-unit answer, so the 0-propulsor design and HB / PFV are left out "
          "as in the two propulsor rows: 595, not the 596 of ANSWERS_II1.md) and fuselage shape (`fusShape`, codebook base names; the table prints the four most common "
          "options, the fifth is Other: 11). The three enter `q6_fixed_by_architecture` in the table's order, before number of wings, so the permutation p of "
          "number of wings (0.003 → 0.001) and wing configuration (0.006 → 0.004) moved with the shuffle stream; every V and every other p is unchanged.\n", tables_md(t6), "",
          "## Which dimensions the architecture fixes (`q6_fixed_by_architecture`)\n",
-         "Source: `q6_fixed_by_architecture.csv` and `q6_fixed_by_architecture_detail.csv` (notebook 50, group II1, appendix; `viz/thesis_q6.py` fixed_by_architecture).\n",
+         "Source: `q6_fixed_by_architecture.csv` and `q6_fixed_by_architecture_detail.csv` (notebook 22_design_space, group II1, appendix; `viz/thesis_q6.py` fixed_by_architecture).\n",
          f"For each dimension of the table above, on the designs that answer it and have an architecture, the bias-corrected Cramér's V (Bergsma 2013) of dimension × architecture "
          f"is read with a permutation p ({q6.FIXED_PERMS} shuffles of the architecture column, one generator seeded {ctx.SEED}, dimensions in the table's order; "
          f"p = share of shuffles at or above the observed V). Per architecture the leading option of the dimension and its share of that architecture's answering designs are read "
          f"(the detail csv); an architecture with fewer than {q6.FIXED_MIN_DESIGNS} answering designs is too few to read, and the dimension is fixed in an architecture when the "
          f"leading option holds {100 * q6.FIXED_SHARE:.0f} % or more of them.\n", tables_md(tfix), "",
-         "## Table: levels of description\n", "Source: `q7_levels_of_description.csv` (notebook 50, group II2). The family F row is in Analysis III.\n", tables_md(t7), "",
+         "## Table: levels of description\n", "Source: `q7_levels_of_description.csv` (notebook 22_design_space, group II2). The family F row is in Analysis III.\n", tables_md(t7), "",
          "## Table: Hill numbers of each level\n", "Source: `q7_hill_numbers_by_level.csv`; all years, 627 designs less those the level cannot name.\n", tables_md(hill), "",
          "## Discovery (`q6_discovery_curve`): complete years (to 2023)\n", "Source: `q6_discovery_estimators.csv`; the figure's last-100 window and these numbers are on the complete years.\n", tables_md(est_t), "",
          "### Band of the last 100 designs (`q6_discovery_last100_band.csv`, supervisor review 2)\n",

@@ -6,7 +6,7 @@ over every design of the cohort; Spearman rho of each architecture's yearly shar
 same architectures and the same Holm family (one per span) as III.1. The assignee's designs leave numerator and denominator.
 Spearman uses no random draw, so the seed (ctx.SEED) plays no part. No figure is touched.
 
-Called by notebook 57 and, at the end of NUMBERS_III.md, by notebook 52 (``thesis_latex_part3.export``), so the order of the two no longer
+Called by notebook 29_dominant_design_without_one_assignee and, at the end of NUMBERS_III.md, by notebook 23_dominant_design (``thesis_latex_part3.export``), so the order of the two no longer
 matters; writes Data_for_writing/csv/q7_iii1_without_bell.csv and the section SECTION of Data_for_writing/NUMBERS_III.md (a rerun replaces it).
 """
 from __future__ import annotations
@@ -132,7 +132,7 @@ def run(cfg, ctx) -> dict:
                  "after the removal the other trends detected are: " + "; ".join(f"{k}: {', '.join(v) or 'none'}" for k, v in other.items()) + ".")
 
     L = [SECTION + "\n",
-         f"Written by notebook 57 (`viz/followup_iii1.py`), supervisor comment 67. The III.1 frames and rules unchanged (`viz/analysis_iii.rho_table`, "
+         f"Written by notebook 29_dominant_design_without_one_assignee (`viz/followup_iii1.py`), supervisor comment 67. The III.1 frames and rules unchanged (`viz/analysis_iii.rho_table`, "
          f"`frames.class_counts_by_window`): cohort shares over every design of the cohort; Spearman rho of each architecture's yearly share on the "
          f"priority year over 2008-2023 (16 years) and 2016-2023 (8 years); the same {len(held)} architectures (20 designs or more, all assignees) and "
          f"the same Holm family per span as III.1. Every design whose assignee is {ASSIGNEE} leaves numerator and denominator. Spearman draws "

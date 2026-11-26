@@ -1,6 +1,6 @@
 """Follow-up 2026-10-24 to NUMBERS_I section 2: age at lapse of the lapsed patents of the 604 designs of ``q1_in_force_status`` and the
 share of designs not actively protected per priority year. Inserts "Age at lapse ..." at the end of section 2 of NUMBERS_I.md (a rerun
-replaces it), CSVs next to it. Also run by ``latex_text.write_numbers_I`` (notebook 48).
+replaces it), CSVs next to it. Also run by ``latex_text.write_numbers_I`` (notebook 21_evidence_base).
 
 Lapse date = PatSeer 'Estimated Expiry Date' of a patent whose 'Legal Status Current' is INACTIVE (the raw export has no separate lapse-date
 column; for an inactive record PatSeer sets this field to the date of the last status event: equals 'Register Legal Status Date' for 79 % of the

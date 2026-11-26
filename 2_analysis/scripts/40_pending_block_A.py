@@ -106,7 +106,11 @@ def main():
         reflab, reffile = "allowed-values rule, 15 %, 1 000 perms (reference)", str(REFJ.relative_to(REPO))
     else:
         ref, reflab, reffile = pd.read_csv(REF), "first version, 15 %, 1 000 perms (reference)", str(REF)
-    rows.append({"run": reflab, "replicas finished": len(ref), "file": reffile, "permutations per band": 1000, "replica seed": 20261118})
+    refrow = {"run": reflab, "replicas finished": len(ref), "file": reffile, "permutations per band": 1000, "replica seed": 20261118}
+    if "architecture labels changed" in ref and "designs" in ref:
+        refrow.update({"designs changed in architecture label, mean share": float((ref["architecture labels changed"] / ref["designs"]).mean()),
+                       "min changed": int(ref["architecture labels changed"].min()), "max changed": int(ref["architecture labels changed"].max())})
+    rows.append(refrow)
     a1 = pd.DataFrame(rows)
     a1.to_csv(CSV / "A1_replica_counts.csv", index=False)
     md += ["## A1. Replica counts", "", "1 000 replicas at 10 000 permutations do not exist: a replica takes about 38 minutes on one core; 1 000 of them need about 42 hours on 15 workers. "

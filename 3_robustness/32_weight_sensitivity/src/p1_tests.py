@@ -2,9 +2,9 @@
 
 Design of 2026-11-18: the 15 dimension weights of Table A.11 are ONE flat list (architecture is one of the 15; no system
 structure). A random draw multiplies each of the 15 weights by its own factor exp(N(0, 0.35^2)). The 1 000 draws are made once,
-seed logged, and saved to ``results_p1/weight_draws_1000.csv`` (15 factors per row); both tests read that file.
+seed logged, and saved to ``weight_draws_1000.csv`` (in the results folder) (15 factors per row); both tests read that file.
 
-Everything that computes is imported from ``ws_core`` (the code of the supplement): the per-dimension matrices read with the
+Everything that computes is imported from ``ws_core`` (the shared code): the per-dimension matrices read with the
 thesis code, the weighted Gower distance, Rao's Q, dQ, the permutation band (10 000 shuffles, seed 42, the same in every run),
 the parallel / GPU runner, saving every 50 draws and resuming. This file only says which designs, which weights, and how the
 results are summarised.
@@ -22,7 +22,7 @@ import pandas as pd
 import ws_core as ws
 
 HERE = Path(__file__).resolve().parent
-RESULTS_P1 = HERE / "results_p1"
+RESULTS_P1 = ws.RESULTS                         # eVTOL_dataset/07_results/72_weight_sensitivity (or WS_RESULTS)
 INPUTS = RESULTS_P1 / "_inputs"                 # one version folder per dataset x level (or F x cohort), written by ws.build_inputs
 DRAWS_FILE = RESULTS_P1 / "weight_draws_1000.csv"
 DRAW_SEED = 42                                  # logged in weight_draws_1000.json

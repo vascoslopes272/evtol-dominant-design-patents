@@ -1,7 +1,7 @@
 """Analysis III, one pass: the Spearman table of the architecture shares (III.1), the weights of condition 3, the three-year
 check of condition 1, the granted-and-live base of F, and III.4 (condition 1 and 2 on the five directory categories).
 
-Drawn and written by notebook 52 through viz/figures_part3.py.
+Drawn and written by notebook 23_dominant_design through viz/figures_part3.py.
 Reuses viz.thesis_q7 / viz.thesis_q6 builders, lib.dominant_design and viz.frames; no method of them is changed.
 """
 from __future__ import annotations

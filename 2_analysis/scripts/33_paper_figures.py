@@ -40,7 +40,9 @@ FONT = ["TeX Gyre Heros", "Arial", "Liberation Sans", "DejaVu Sans"]
 COHORTS = ["≤ 2011", "2012–15", "2016–19", "2020–23", "2024–26*"]
 WIN = ["<= 2011", "2012-15", "2016-19", "2020-23", "2024-26 (partial)"]
 C_ALL = "#000000"        # all designs
-C_PROT = "#000000"       # actively protected designs (same colour, dashed line and hollow markers)
+C_PROT = "#0072B2"       # actively protected designs (own colour, solid line, filled markers)
+C_PBAND = "#003F66"      # protected band: darker, thicker dotted line
+C_UNT = "#8C8C8C"        # untested cohort 2024-26*: grey, dashed, hollow markers
 F_COLOR = "#000000"      # family F panels use the same pair of colours as Fig 5 (set to "#005A8C" for the thesis' F blue)
 RED = "#D62728"
 BAND = "#E3E3E3"
@@ -93,6 +95,7 @@ def finish(fig, name: str, extra_ok_texts=()):
                 LOG.append(f"{name}: x tick labels touch ({a.x1:.0f} > {b.x0:.0f} px at 72 dpi)")
                 break
     fig.savefig(OUT / name, format="pdf")
+    fig.savefig(OUT / (Path(name).stem + ".png"), format="png", dpi=300)
     plt.close(fig)
 
 
@@ -108,38 +111,72 @@ def cohort_axis(ax, ns=None):
     ax.set_axisbelow(True)
 
 
-def hollow(ax, x, y, color, alpha=0.6, ms=3.6):
-    ax.plot([x], [y], marker="o", markersize=ms, markerfacecolor="white", markeredgecolor=color, markeredgewidth=0.9,
-            linestyle="none", alpha=alpha, zorder=5)
+def untested(ax, x4, y3, y4, ms=3.6):
+    """The untested cohort 2024-26*: a dashed grey segment from the last tested cohort, hollow grey marker."""
+    ax.plot([3, x4], [y3, y4], color=C_UNT, linewidth=1.0, linestyle=(0, (3, 1.6)), zorder=3)
+    ax.plot([x4], [y4], marker="o", markersize=ms, markerfacecolor="white", markeredgecolor=C_UNT, markeredgewidth=0.9, linestyle="none", zorder=5)
 
 
-def two_series(ax, all_df, prot_df, val, lo, hi, wlo=None, whi=None, met_all=None, met_prot=None, color_all=C_ALL, color_prot=C_PROT):
-    """Same graph in every panel: all designs (solid line, filled markers, grey filled band, whiskers when given), actively protected
-    designs (dashed, hollow markers, own band as a thin outline only). The 2024-26* cohort is a hollow point, never joined.
-    A point below its own band is red (filled for all designs, hollow for protected)."""
+def ring(ax, x, y, ms):
+    """A point below its own permutation band: a red ring around the point (the point keeps the colour of its series)."""
+    ax.plot([x], [y], marker="o", markersize=ms, markerfacecolor="none", markeredgecolor=RED, markeredgewidth=1.1, linestyle="none", zorder=6)
+
+
+def two_series(ax, all_df, prot_df, val, lo, hi, wlo=None, whi=None, met_all=None, met_prot=None, prot_band=True, clip=None):
+    """Same graph in every panel: all designs (black, solid line, filled markers, grey shaded band, whiskers when given) and actively
+    protected designs (own colour, solid line, filled markers, same cohort position; own band as a dotted outline, balance only).
+    The untested 2024-26* cohort is grey, dashed, hollow. A point below its own band has a red ring."""
     x = np.arange(5)
     a, p = all_df.reset_index(drop=True), prot_df.reset_index(drop=True)
     ax.fill_between(x, a[lo], a[hi], color=BAND, linewidth=0, zorder=1)
-    ax.plot(x, p[lo], color=EDGE_GREY, linewidth=0.5, zorder=2)
-    ax.plot(x, p[hi], color=EDGE_GREY, linewidth=0.5, zorder=2)
+    if prot_band:
+        for col in (lo, hi):
+            ax.plot(x, p[col], color=C_PBAND, linewidth=1.4, linestyle=(0, (1, 1.4)), dash_capstyle="round", zorder=2)
     c = slice(0, 4)
     if wlo is not None:
-        ax.errorbar(x[c], a[val][c], yerr=[a[val][c] - a[wlo][c], a[whi][c] - a[val][c]], fmt="none", ecolor=color_all, elinewidth=0.6,
-                    capsize=1.4, capthick=0.6, zorder=3)
-        ax.errorbar(x[4:], a[val][4:], yerr=[a[val][4:] - a[wlo][4:], a[whi][4:] - a[val][4:]], fmt="none", ecolor=color_all,
-                    elinewidth=0.6, capsize=1.4, capthick=0.6, alpha=0.6, zorder=3)
-    ax.plot(x[c], a[val][c], marker="o", color=color_all, markeredgecolor=color_all, zorder=4)
-    hollow(ax, 4, a[val][4], color_all)
-    dx = 0.13
-    ax.plot(x[c] + dx, p[val][c], marker="o", color=color_prot, linestyle=(0, (3, 1.6)), markerfacecolor="white", markeredgecolor=color_prot,
-            markeredgewidth=0.9, zorder=4)
-    hollow(ax, 4 + dx, p[val][4], color_prot)
+        conts = [ax.errorbar(x[c], a[val][c], yerr=[a[val][c] - a[wlo][c], a[whi][c] - a[val][c]], fmt="none", ecolor=C_ALL, elinewidth=0.6,
+                             capsize=1.4, capthick=0.6, zorder=3),
+                 ax.errorbar(x[4:], a[val][4:], yerr=[a[val][4:] - a[wlo][4:], a[whi][4:] - a[val][4:]], fmt="none", ecolor=C_UNT,
+                             elinewidth=0.6, capsize=1.4, capthick=0.6, zorder=3)]
+        if clip is not None:          # whiskers are cut at the limits of the zoomed axis (they never run into the legend)
+            box = mpl.patches.Rectangle((-0.5, clip[0]), 5.0, clip[1] - clip[0], transform=ax.transData)
+            for ct in conts:
+                for art in [ct.lines[0]] + list(ct.lines[1]) + list(ct.lines[2]):
+                    if art is not None:
+                        art.set_clip_path(box)
+    for df, col, z in ((p, C_PROT, 4), (a, C_ALL, 4.1)):
+        ax.plot(x[c], df[val][c], marker="o", color=col, markerfacecolor=col, markeredgecolor=col, zorder=z)
+        untested(ax, 4, df[val][3], df[val][4])
     for i, m in enumerate(met_all if met_all is not None else []):
         if m:
-            ax.plot([i], [a[val][i]], "o", markersize=5.0, color=RED, markeredgecolor=RED, zorder=6)
+            ring(ax, i, a[val][i], 6.0)
     for i, m in enumerate(met_prot if met_prot is not None else []):
         if m:
-            ax.plot([i + dx], [p[val][i]], "o", markersize=5.0, markerfacecolor="white", markeredgecolor=RED, markeredgewidth=1.2, zorder=6)
+            ring(ax, i, p[val][i], 8.0)
+
+
+def legend_handles():
+    return [Line2D([], [], color=C_ALL, marker="o", markerfacecolor=C_ALL, label="All designs"),
+          Line2D([], [], color=C_PROT, marker="o", markerfacecolor=C_PROT, label="Protected designs"),
+          Line2D([], [], color=C_UNT, marker="o", markerfacecolor="white", markeredgecolor=C_UNT, markeredgewidth=0.9, linestyle=(0, (3, 1.6)),
+                 label="Untested 2024–26*"),
+          mpl.patches.Patch(facecolor=BAND, edgecolor="none", label="Band, all designs"),
+          Line2D([], [], color=C_PBAND, linewidth=1.4, linestyle=(0, (1, 1.4)), dash_capstyle="round", label="Band, protected"),
+          Line2D([], [], marker="o", markerfacecolor="none", markeredgecolor=RED, markeredgewidth=1.1, linestyle="none", label="Below band")]
+
+
+def legend_5a(ax, loc="upper center"):
+    ax.legend(handles=legend_handles(), loc=loc, ncol=2, frameon=False, handlelength=2.0, columnspacing=1.0, labelspacing=0.3, borderaxespad=0.0,
+              handletextpad=0.5, fontsize=FS)
+
+
+def tight_ylim(ax, lo, hi, legend=False):
+    """y limits that just hold the plotted values; with a legend the top is raised so that the legend sits above the data."""
+    span = hi - lo
+    b, t = lo - 0.04 * span, hi + 0.04 * span
+    if legend:
+        t = b + (t - b) / 0.74
+    ax.set_ylim(b, t)
 
 
 # ---------------------------------------------------------------------------------------------------------------- tables
@@ -224,22 +261,44 @@ def spread(ys, gap, lo, hi):
 
 
 # ---------------------------------------------------------------------------------------------------------------- Fig 5 and 7b
-def balance_panel(bal, level, name, ylabel, color):
+def balance_axes(ax, bal, level, ylabel, zoom=False, legend=False, legend_loc="upper center"):
+    """zoom: False = from 0; True = the whole plotted range (whiskers included); "tight" = the whole plotted range with 3 % padding (every whisker complete); with a legend at the top the limits leave 26 % of the axis free for it."""
     a, p = pick_bal(bal, level, "all designs"), pick_bal(bal, level, "actively protected")
-    fig, ax = frame(name)
-    two_series(ax, a, p, "D2", "D2 permutation low", "D2 permutation high", "D2 low", "D2 high", a["met"].tolist(), p["met"].tolist(), color, color)
-    top = float(np.nanmax(pd.concat([a[["D2 high", "D2 permutation high"]], p[["D2", "D2 permutation high"]]]).to_numpy()))
-    ax.set_ylim(0, top * 1.1)
+    hi = float(np.nanmax(pd.concat([a[["D2 high", "D2 permutation high"]], p[["D2", "D2 permutation high"]]]).to_numpy()))
+    clip = None
+    if zoom == "tight":
+        lo = float(np.nanmin(pd.concat([a[["D2 low", "D2 permutation low"]], p[["D2", "D2 permutation low"]]]).to_numpy()))
+        span = hi - lo
+        yb, yt = lo - 0.03 * span, hi + 0.03 * span
+    elif zoom:
+        lo = float(np.nanmin(pd.concat([a[["D2 low", "D2 permutation low"]], p[["D2", "D2 permutation low"]]]).to_numpy()))
+        span = hi - lo
+        yb, yt = lo - 0.04 * span, hi + 0.04 * span
+    two_series(ax, a, p, "D2", "D2 permutation low", "D2 permutation high", "D2 low", "D2 high", a["met"].tolist(), p["met"].tolist(), clip=clip)
+    if zoom:
+        if legend and legend_loc.startswith("upper"):
+            yt = yb + (yt - yb) / 0.74
+        ax.set_ylim(yb, yt)
+    else:
+        ax.set_ylim(0, hi * 1.1)
     ax.set_ylabel(ylabel)
     cohort_axis(ax)
+    if legend:
+        legend_5a(ax, legend_loc)
+    return a, p
+
+
+def balance_panel(bal, level, name, ylabel, zoom=False, legend=False, legend_loc="upper center"):
+    fig, ax = frame(name)
+    a, p = balance_axes(ax, bal, level, ylabel, zoom, legend, legend_loc)
     finish(fig, name)
     pd.concat([a.assign(base="all designs"), p.assign(base="actively protected")]).to_csv(OUT / name.replace(".pdf", ".csv"), index=False)
 
 
-def disparity_panel(dis, level, name, color):
+def disparity_panel(dis, level, name):
     a, p = pick_dis(dis, level, "all designs"), pick_dis(dis, level, "actively protected")
     fig, ax = frame(name)
-    two_series(ax, a, p, "ΔQ", "ΔQ permutation low", "ΔQ permutation high", None, None, a["met"].tolist(), p["met"].tolist(), color, color)
+    two_series(ax, a, p, "ΔQ", "ΔQ permutation low", "ΔQ permutation high", None, None, a["met"].tolist(), p["met"].tolist())
     ax.axhline(0, color=REF, linewidth=0.5, zorder=2)
     top = float(np.nanmax(pd.concat([a[["ΔQ permutation high", "ΔQ"]], p[["ΔQ permutation high", "ΔQ"]]]).to_numpy()))
     bot = float(np.nanmin(pd.concat([a[["ΔQ permutation low", "ΔQ"]], p[["ΔQ permutation low", "ΔQ"]]]).to_numpy()))
@@ -258,25 +317,24 @@ def balance_three(bal, name="fig5abc_balance_three_levels.pdf", width_mm=183.0):
     cell = 1 / 3
     names = {"A0": "A", "A1t": "A·W·T", "A0c": "A·U"}
     for k, level in enumerate(("A0", "A1t", "A0c")):
-        a, p = pick_bal(bal, level, "all designs"), pick_bal(bal, level, "actively protected")
-        ax = fig.add_axes([k * cell + 0.052, 0.215, cell - 0.075, 0.765])
-        two_series(ax, a, p, "D2", "D2 permutation low", "D2 permutation high", "D2 low", "D2 high", a["met"].tolist(), p["met"].tolist(), C_ALL, C_PROT)
-        top = float(np.nanmax(pd.concat([a[["D2 high", "D2 permutation high"]], p[["D2", "D2 permutation high"]]]).to_numpy()))
-        ax.set_ylim(0, top * 1.1)
-        ax.set_ylabel(f"²D at {names[level]}")
-        cohort_axis(ax)
+        ax = fig.add_axes([k * cell + 0.052, 0.215, cell - 0.075, 0.665])
+        balance_axes(ax, bal, level, f"²D at {names[level]}", zoom="tight" if level in ("A0", "A1t") else True, legend=False)
         ax.set_xticklabels(["≤11", "12–15", "16–19", "20–23", "24–26*"])      # shorter labels: the panels are narrower than a single column
+    fig.legend(handles=legend_handles(), loc="upper center", bbox_to_anchor=(0.5, 0.995), ncol=6, frameon=False, handlelength=2.0,
+               columnspacing=1.2, handletextpad=0.5, fontsize=FS)
     finish(fig, name)
 
 
 def thesis_reading_dis(dis, level_name="A"):
-    """Disparity of 2020-23 in the reading of the thesis (Table 4): the protected designs of the cohort against the baseline and the band of
-    ALL designs. The protected series is one point (2020-23); the band is that of all designs. Read from percentiles_disparity_protected_vs_all.csv."""
+    """Disparity in the reading of the thesis (Table 4): the protected designs against the baseline and the band of ALL designs.
+    2020-23 is the value of percentiles_disparity_protected_vs_all.csv (Table 4). The other cohorts of the line are the Q of the protected
+    designs of the cohort (percentiles_disparity.csv, base 'actively protected') minus the same all-designs baseline."""
     a = pick_dis(dis, "A0", "all designs")
     t = pd.read_csv(FF / "percentiles_disparity_protected_vs_all.csv").set_index("level").loc[level_name]
+    q = pick_dis(dis, "A0", "actively protected")
     p = a.copy()
-    for c in ("ΔQ",):
-        p[c] = np.nan
+    p["Q"] = q["Q"].to_numpy()
+    p["ΔQ"] = p["Q"] - a["Q of the earliest windows"]
     p.loc[3, "ΔQ"] = float(t["ΔQ"])
     p["met"] = False
     p.loc[3, "met"] = bool(t["below band"])
@@ -286,22 +344,27 @@ def thesis_reading_dis(dis, level_name="A"):
 def disparity_thesis_reading(dis, name="fig5d_disparity.pdf"):
     a, p = thesis_reading_dis(dis)
     fig, ax = frame(name)
-    two_series(ax, a, p, "ΔQ", "ΔQ permutation low", "ΔQ permutation high", None, None, a["met"].tolist(), p["met"].tolist(), C_ALL, C_PROT)
+    two_series(ax, a, p, "ΔQ", "ΔQ permutation low", "ΔQ permutation high", None, None, a["met"].tolist(), p["met"].tolist(), prot_band=False)
     ax.axhline(0, color=REF, linewidth=0.5, zorder=2)
-    top = float(np.nanmax(a[["ΔQ permutation high", "ΔQ"]].to_numpy()))
+    top = float(np.nanmax(pd.concat([a[["ΔQ permutation high", "ΔQ"]], p[["ΔQ"]]]).to_numpy()))
     bot = float(np.nanmin(pd.concat([a[["ΔQ permutation low", "ΔQ"]], p[["ΔQ"]]]).to_numpy()))
     pad = 0.06 * (top - bot)
     ax.set_ylim(bot - pad, top + pad)
-    ax.set_ylabel("ΔQ against the two earliest cohorts")
+    ax.set_ylabel("ΔQ against the two earliest\ncohorts (all designs)", linespacing=1.15)
     cohort_axis(ax)
+    LOG.append("fig5d: every protected point (all five cohorts) is read against the ALL-DESIGNS baseline (mean Q of the two earliest cohorts of all designs, "
+               f"{float(a['Q of the earliest windows'].iloc[0]):.4f}) and the all-designs permutation band, as in Table 4. 2020-23 is the Table 4 value "
+               f"({float(p.loc[3, 'ΔQ']):.4f}); the other four are Q of the protected designs of the cohort minus that baseline (no protected-own baseline is used). "
+               "The two earliest cohorts (<= 2011, 2012-15) form the baseline of ΔQ and are not tested; 2024-26* is incomplete and untested.")
     finish(fig, name)
-    pd.concat([a.assign(base="all designs"), p.assign(base="actively protected, against the all-designs baseline and band")]).to_csv(OUT / name.replace(".pdf", ".csv"), index=False)
+    pd.concat([a.assign(base="all designs", **{"baseline used": "all designs"}),
+               p.assign(base="actively protected, against the all-designs baseline and band", **{"baseline used": "all designs"})]).to_csv(OUT / name.replace(".pdf", ".csv"), index=False)
 
 
 def fig5(bal, dis):
     ylab = "²D: large designs in play"
     for key, (level, name) in LEVELS.items():
-        balance_panel(bal, level, name, ylab, C_ALL)
+        balance_panel(bal, level, name, ylab, zoom="tight" if level in ("A0", "A1t") else True, legend=level == "A0")     # 5a, 5b: tight y axis (bands stay whole); 5c: whole range; legend in 5a only
     balance_three(bal)
     disparity_thesis_reading(dis, "fig5d_disparity.pdf")      # the reading of the thesis (Table 4): protected designs against the all-designs baseline and band
 
@@ -313,17 +376,13 @@ def fig7(ctx, bal, dis):
     fig, ax = frame("fig7a")
     yrs = f["priority year"].astype(int).to_numpy()
     sa, sp = f["F share"].to_numpy(float) * 100, f["F share in force"].to_numpy(float) * 100
-    ax.plot(yrs, sa, marker="o", color=F_COLOR, zorder=4)
-    ax.plot(yrs + 0.0, sp, marker="o", color=F_COLOR, linestyle=(0, (3, 1.6)), markerfacecolor="white", markeredgecolor=F_COLOR, markeredgewidth=0.9, zorder=3)
-    for share, hollow_, nm in ((sa, False, "all"), (sp, True, "prot")):
+    ax.plot(yrs, sp, marker="o", color=C_PROT, markerfacecolor=C_PROT, markeredgecolor=C_PROT, zorder=4)
+    ax.plot(yrs, sa, marker="o", color=F_COLOR, zorder=4.1)
+    for share, ms in ((sa, 6.0), (sp, 8.0)):
         met = sorted(dd.condition1_years(pd.DataFrame({"priority year": yrs, "read": True, "above 50 %": share > 50})))
         for yr in met:
-            yy = share[list(yrs).index(yr)]
-            if hollow_:
-                ax.plot([yr], [yy], "o", markersize=5.0, markerfacecolor="white", markeredgecolor=RED, markeredgewidth=1.2, zorder=6)
-            else:
-                ax.plot([yr], [yy], "o", markersize=5.0, color=RED, zorder=6)
-    ax.axhline(50, color=REF, linewidth=0.7, linestyle=(0, (4, 2)), zorder=2)
+            ring(ax, yr, share[list(yrs).index(yr)], ms)
+    ax.axhline(50, color=REF, linewidth=0.7, zorder=2)          # solid: dashed grey means "untested" in Fig 5
     ax.text(yrs[0] - 0.4, 51, "50 % threshold", ha="left", va="bottom", fontsize=FS, color=REF)
     top = float(sa.max())
     iy = int(np.argmax(sa))
@@ -338,36 +397,77 @@ def fig7(ctx, bal, dis):
     ax.set_xlabel("priority year")
     ax.grid(axis="y", color=GRID, linewidth=0.5)
     ax.set_axisbelow(True)
+    ax.legend(handles=[Line2D([], [], color=C_ALL, marker="o", markerfacecolor=C_ALL, label="All designs"),
+                       Line2D([], [], color=C_PROT, marker="o", markerfacecolor=C_PROT, label="Protected designs"),
+                       Line2D([], [], marker="o", markerfacecolor="none", markeredgecolor=RED, markeredgewidth=1.1, linestyle="none", label="Protected designs, two years above 50 %")],
+              loc="lower center", ncol=1, frameon=False, handlelength=2.0, columnspacing=1.0, labelspacing=0.3, borderaxespad=0.0, handletextpad=0.5, fontsize=FS)
+    met_a = sorted(dd.condition1_years(pd.DataFrame({"priority year": yrs, "read": True, "above 50 %": sa > 50})))
+    met_p = sorted(dd.condition1_years(pd.DataFrame({"priority year": yrs, "read": True, "above 50 %": sp > 50})))
+    LOG.append("fig7a: red ring = protected designs in a pair of consecutive priority years above 50 % (years " + ", ".join(map(str, met_p)) + "). "
+               + ("The all-designs series does not meet the condition (no two consecutive years above 50 %), so it has no ring." if not met_a else
+                  "CHECK: the all-designs series also meets the condition in " + ", ".join(map(str, met_a)) + "."))
     finish(fig, "fig7a_F_share.pdf")
     f[["priority year", "F share", "F share in force"]].to_csv(OUT / "fig7a_F_share.csv", index=False)
-    balance_panel(bal, "family_b", "fig7b_F_balance.pdf", "²D of F", F_COLOR)
+    balance_panel(bal, "family_b", "fig7b_F_balance.pdf", "²D of F", legend=True, legend_loc="lower center")
 
 
 def fig7c(dataset_root: Path):
-    p = dataset_root / "07_results" / "72_weight_sensitivity" / "test2_explore_per_dimension.csv"
-    if not p.exists():
-        LOG.append("fig7c: test2_explore_per_dimension.csv not found: not made")
+    """Disparity inside F, 120 x 170 mm: legend on top; a simple panel of ΔQ of F against its band per cohort (test2_summary.csv, architecture
+    weight 0); below it ΔQ per dimension (test2_explore_per_dimension.csv). The two panels share the ΔQ axis."""
+    d = dataset_root / "07_results" / "72_weight_sensitivity"
+    if not (d / "test2_explore_per_dimension.csv").exists() or not (d / "test2_summary.csv").exists():
+        LOG.append("fig7c: test2_explore_per_dimension.csv or test2_summary.csv not found: not made")
         return False
-    t = pd.read_csv(p)
-    fig, ax = frame("fig7c")
+    t = pd.read_csv(d / "test2_explore_per_dimension.csv")
+    sm = pd.read_csv(d / "test2_summary.csv").set_index("cohort")
+    cohorts = (("2016-19", "o", "2016–19"), ("2020-23", "s", "2020–23"))
+    Wmm, Hmm = 120.0, 170.0
+    fig = plt.figure(figsize=(Wmm / 25.4, Hmm / 25.4))
+    ax_d = fig.add_axes([0.34, 0.062, 0.63, 0.665])
+    ax_c = fig.add_axes([0.34, 0.805, 0.63, 0.135], sharex=ax_d)
+    ax_d.set_label("fig7c")
+    mk = dict(linestyle="none", markersize=4.4, color=C_ALL, markerfacecolor=C_ALL, markeredgewidth=0.8, zorder=4)
+    ek = dict(linestyle="none", marker="|", markersize=6.5, color=C_UNT, markeredgewidth=1.3, zorder=3)
+    # panel on top: F as a whole, one row per cohort
+    for k, (coh, m, _) in enumerate(cohorts):
+        yy = 1 - k
+        ax_c.plot([sm.loc[coh, "baseline (architecture 0): dQ"]], [yy], marker=m, **mk)
+        ax_c.plot([sm.loc[coh, "baseline: band edge"]], [yy], **ek)
+    ax_c.set_yticks([1, 0])
+    ax_c.set_yticklabels([c[2] for c in cohorts])
+    ax_c.set_ylim(-0.6, 1.6)
+    ax_c.tick_params(axis="y", length=0)
+    ax_c.tick_params(axis="x", labelbottom=False)
+    ax_c.set_xlabel("")
+    # panel below: per dimension
     n = len(t)
     y = np.arange(n)[::-1]
-    for k, (coh, off, mk) in enumerate((("2016-19", 0.17, "o"), ("2020-23", -0.17, "s"))):
-        ax.plot(t[f"{coh}: dQ"], y + off, linestyle="none", marker=mk, markersize=3.0, color="black", markerfacecolor="black" if k else "white",
-                markeredgewidth=0.8, zorder=4)
-        ax.plot(t[f"{coh}: band edge"], y + off, linestyle="none", marker="|", markersize=4.6, color=EDGE_GREY, markeredgewidth=1.0, zorder=3)
-    ax.axvline(0, color=REF, linewidth=0.5, zorder=1)
-    ax.set_yticks(y)
-    ax.set_yticklabels(t["dimension"])
-    ax.set_ylim(-0.7, n - 0.3)
-    ax.set_xlabel("ΔQ inside F, architecture weight 0")
-    ax.grid(axis="x", color=GRID, linewidth=0.5)
-    ax.set_axisbelow(True)
-    ax.tick_params(axis="y", length=0)
-    fig.axes[0].set_position([0.395, 0.215, 0.575, 0.765])        # the dimension names need the room; this panel has no cohort axis
-    LOG.append("fig7c: own axes rectangle (names of the 15 dimensions on the left); dots = ΔQ (open 2016-19, filled 2020-23), bars = lower permutation band edge; no point is below its band")
-    finish(fig, "fig7c_F_disparity_within.pdf")
-    t.to_csv(OUT / "fig7c_F_disparity_within.csv", index=False)
+    for coh, m, _ in cohorts:
+        off = 0.19 if coh == "2016-19" else -0.19
+        ax_d.plot(t[f"{coh}: dQ"], y + off, marker=m, **mk)
+        ax_d.plot(t[f"{coh}: band edge"], y + off, **ek)
+    ax_d.set_yticks(y)
+    ax_d.set_yticklabels(t["dimension"])
+    ax_d.set_ylim(-0.7, n - 0.3)
+    ax_d.set_xlabel("ΔQ inside F, architecture weight 0")
+    for a_ in (ax_c, ax_d):
+        a_.axvline(0, color=REF, linewidth=0.5, zorder=1)
+        a_.grid(axis="x", color=GRID, linewidth=0.5)
+        a_.set_axisbelow(True)
+    ax_d.tick_params(axis="y", length=0)
+    hs = [Line2D([], [], color=C_ALL, marker="o", markerfacecolor=C_ALL, linestyle="none", label="2016–19"),
+          Line2D([], [], color=C_ALL, marker="s", markerfacecolor=C_ALL, linestyle="none", label="2020–23"),
+          Line2D([], [], color=C_UNT, marker="|", markersize=6.5, markeredgewidth=1.3, linestyle="none", label="Lower edge of band")]
+    fig.legend(handles=hs, loc="upper center", bbox_to_anchor=(0.5, 0.995), ncol=3, frameon=False, handletextpad=0.4, columnspacing=1.6, fontsize=FS)
+    edge, dq = sm["baseline: band edge"], sm["baseline (architecture 0): dQ"]
+    above = bool((dq > edge).all()) and bool((t["2016-19: dQ"] > t["2016-19: band edge"]).all()) and bool((t["2020-23: dQ"] > t["2020-23: band edge"]).all())
+    LOG.append("fig7c: EXPLORATORY check of ΔQ inside F (architecture weight 0), 120 x 170 mm; top panel = ΔQ of F per cohort against the lower edge of its permutation band "
+               "(test2_summary.csv), bottom panel = per dimension (test2_explore_per_dimension.csv); circle 2016-19, square 2020-23, grey tick = lower band edge. "
+               + ("It shows no convergence inside F: both cohorts (and every dimension) sit above the lower band edge." if above else
+                  "CHECK: some point is not above the lower band edge."))
+    finish(fig, "fig7c_exploratory_check_dQ_inside_F.pdf")
+    t.to_csv(OUT / "fig7c_exploratory_check_dQ_inside_F.csv", index=False)
+    sm[["baseline (architecture 0): dQ", "baseline: band edge"]].to_csv(OUT / "fig7c_exploratory_check_dQ_inside_F_by_cohort.csv")
     return True
 
 

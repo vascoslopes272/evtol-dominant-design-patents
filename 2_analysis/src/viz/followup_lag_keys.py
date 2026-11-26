@@ -2,7 +2,7 @@
 region, all priority years against 2016-21 only, and the share of the aircraft of 2022 and 2023 already published at the snapshot. This block
 was first patched into NUMBERS_I.md by hand on 2026-10-24 (backup PRE_LAGKEYS_20261024_203710_NUMBERS_I.md); it is now computed here and
 inserted at the end of section 4, just before section 5 (a rerun replaces it). Reads ctx only; draws no figure, writes no CSV. Run by
-``latex_text.write_numbers_I`` (notebook 48).
+``latex_text.write_numbers_I`` (notebook 21_evidence_base).
 
     python -m viz.followup_lag_keys      (from labeling_evaluation/)
 """

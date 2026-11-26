@@ -1,0 +1,78 @@
+{
+ "task": "coding-error check for P1 (Stage 3)",
+ "seed": 20261118,
+ "replica random numbers": "numpy default_rng([seed, i])",
+ "replicas asked": 120,
+ "error rate per coded value": 0.2,
+ "max redraws per design": 20,
+ "lock rule": "allowed",
+ "rules": {
+  "counts perturbed (observed frequencies)": true,
+  "only values the wizard asks for": true
+ },
+ "share rule of result 1": 0.8,
+ "permutations per band": "10000 (seed 42)",
+ "error rate": 0.2,
+ "yaml": "/home/vasco/Vasco Workspace/Tese_Vasco_Lnx/evtol-design-space-analysis-tools/2_analysis/20_config.yaml",
+ "workers": 15,
+ "versions": {
+  "python": "3.13.9",
+  "numpy": "2.4.4",
+  "pandas": "2.3.3",
+  "scipy": "1.16.3",
+  "matplotlib": "3.10.6",
+  "machine": "SS 16 cores",
+  "thesis code commit": "b021702 (with uncommitted changes)",
+  "dataset repo commit": "b021702 (with uncommitted changes)"
+ },
+ "runtime of this call (min)": 306.0,
+ "replicas done": 120,
+ "codes changed: total, median, min, max": [
+  545775.0,
+  4546.0,
+  4375.0,
+  4686.0
+ ],
+ "designs changed: total, median, min, max": [
+  73062.0,
+  609.0,
+  602.0,
+  616.0
+ ],
+ "redraws: total, median, min, max": [
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "designs redrawn: total, median, min, max": [
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "designs kept after 20 redraws: total, median, min, max": [
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "architecture labels changed: total, median, min, max": [
+  14879.0,
+  124.0,
+  103.0,
+  156.0
+ ],
+ "values with no allowed alternative: total, median, min, max": [
+  28901.0,
+  240.0,
+  209.0,
+  290.0
+ ],
+ "seconds: total, median, min, max": [
+  261704.8,
+  2210.8,
+  1396.6,
+  2321.2
+ ]
+}

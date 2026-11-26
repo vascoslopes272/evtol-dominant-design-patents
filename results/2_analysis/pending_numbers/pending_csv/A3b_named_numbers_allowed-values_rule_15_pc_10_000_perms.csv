@@ -1,0 +1,16 @@
+quantity,value,replica-file key,replicas
+"F meets all three conditions, protected designs: share of replicas",0.008333333333333333,4 | actively protected | all three | F,120
+"F fails the share condition, all designs: share of replicas",1.0,4 | all designs | 1 share | F,120
+"F share in 2020, protected designs: median over replicas",0.426,4 | actively protected | F share 2020,120
+"F share above 50 % in 2020, protected designs: share of replicas",0.025,4 | actively protected | F above 50 % in 2020,120
+Tilt Propulsor share falls with Holm p < 0.05: share of replicas,0.55,"5 | falls (rho < 0, Holm p < 0.05) | TP",120
+Tilt Propulsor share falls: original value,True,"5 | falls (rho < 0, Holm p < 0.05) | TP",120
+"standard wings (wing configuration), leading share: original",0.87,1 | top share | wing configuration,120
+"standard wings (wing configuration), leading share: median under noise",0.75,1 | top share | wing configuration,120
+"standard wings (wing configuration), leading share: 5th to 95th percentile under noise",0.72 to 0.77,1 | top share | wing configuration,120
+"hover-to-cruise motion, leading share: original",0.85,1 | top share | fuselage motion hover to cruise,120
+"hover-to-cruise motion, leading share: median under noise",0.72,1 | top share | fuselage motion hover to cruise,120
+"hover-to-cruise motion, leading share: 5th to 95th percentile under noise",0.70 to 0.74,1 | top share | fuselage motion hover to cruise,120
+"ducted, leading share: original",0.63,1 | top share | propulsor enclosure (any ducted),120
+"ducted, leading share: median under noise",0.53,1 | top share | propulsor enclosure (any ducted),120
+"ducted, leading share: 5th to 95th percentile under noise",0.50 to 0.56,1 | top share | propulsor enclosure (any ducted),120

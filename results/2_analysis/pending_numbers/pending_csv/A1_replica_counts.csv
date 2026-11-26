@@ -1,3 +1,5 @@
 run,replicas finished,file,permutations per band,replica seed,"designs changed in architecture label, mean share",min changed,max changed
+"allowed-values rule, 15 %, 10 000 perms",120,results/31_label_reliability/allowed_r15_p10000/replicas.jsonl,10000,20261118,0.14938271604938272,71.0,121.0
+"allowed-values rule, 20 %, 10 000 perms",120,results/31_label_reliability/allowed_r20_p10000/replicas.jsonl,10000,20261118,0.19966451959205583,103.0,156.0
 "first version (redraw whole design), 15 %, 10 000 perms",120,results/31_label_reliability/r15_p10000/replicas.jsonl,10000,20261118,0.07387278582930756,31.0,61.0
-"first version, 15 %, 1 000 perms (reference)",1000,/mnt/storage_11tb/Drive_files_to_syncronize/eVTOL_dataset/07_results/71_label_reliability/reliability_replicas.csv,1000,20261118,,,
+"allowed-values rule, 15 %, 1 000 perms (reference)",1000,results/31_label_reliability/allowed_r15_p1000_n1000/replicas.jsonl,1000,20261118,,,

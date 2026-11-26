@@ -1,0 +1,32 @@
+Results that change in more than 10% of the 1000 replicas (error rate 15% per coded value, seed 20261118). Yes/no and category results only: numbers move in almost every replica and are read in summary.csv (median, 5th-95th percentile). A replica where a result cannot be computed (e.g. an architecture under 20 designs has no trend test) counts as a change.
+
+100.0% changed | original False | computed in 1000 of 1000 | 1 | varies (under 80 %) | fuselage motion hover to cruise
+100.0% changed | original False | computed in 1000 of 1000 | 1 | varies (under 80 %) | wing configuration
+100.0% changed | original SLC,TP,CVT,TW,MR,TF,PTC | computed in 1000 of 1000 | 5 | architectures tested
+ 99.8% changed | original True | computed in 1000 of 1000 | 4 | actively protected | all three | F
+ 99.7% changed | original True | computed in 1000 of 1000 | 4 | actively protected | 1 share | F
+ 98.5% changed | original True | computed in 1000 of 1000 | 4 | actively protected | F above 50 % in 2020
+ 92.9% changed | original True | computed in 1000 of 1000 | 4 | all designs | F above 50 % in 2021
+ 85.4% changed | original True | computed in 1000 of 1000 | 3 | all designs | 3 disparity | A·U
+ 85.3% changed | original True | computed in 1000 of 1000 | 3 | all designs | 3 disparity | A·W·T
+ 83.4% changed | original True | computed in 1000 of 1000 | 3 | all designs | 3 disparity | A
+ 83.4% changed | original True | computed in 1000 of 1000 | 4 | all designs | 3 disparity | F
+ 82.0% changed | original True | computed in 1000 of 1000 | 3 | actively protected | 2 balance | A·W·T
+ 81.5% changed | original True | computed in 1000 of 1000 | 3 | actively protected | 3 disparity | A·U
+ 81.1% changed | original True | computed in 1000 of 1000 | 3 | actively protected | 3 disparity | A·W·T
+ 79.7% changed | original True | computed in 1000 of 1000 | 3 | actively protected | 3 disparity | A
+ 79.7% changed | original True | computed in 1000 of 1000 | 4 | actively protected | 3 disparity | F
+ 71.2% changed | original True | computed in 1000 of 1000 | 4 | actively protected | F above 50 % in 2021
+ 66.0% changed | original True | computed in 1000 of 1000 | 6 | significant (Holm p < 0.05) | propulsors in CVT
+ 50.6% changed | original False | computed in 498 of 1000 | 5 | rises (rho > 0, Holm p < 0.05) | PTC
+ 50.2% changed | original False | computed in 498 of 1000 | 5 | falls (rho < 0, Holm p < 0.05) | PTC
+ 45.6% changed | original False | computed in 544 of 1000 | 5 | rises (rho > 0, Holm p < 0.05) | TF
+ 45.6% changed | original False | computed in 544 of 1000 | 5 | falls (rho < 0, Holm p < 0.05) | TF
+ 42.3% changed | original True | computed in 1000 of 1000 | 5 | falls (rho < 0, Holm p < 0.05) | TP
+ 38.8% changed | original True | computed in 1000 of 1000 | 3 | all designs | 2 balance | A
+ 38.1% changed | original True | computed in 1000 of 1000 | 3 | actively protected | 2 balance | A
+ 30.6% changed | original True | computed in 1000 of 1000 | 7 | differ (p < 0.05) | 2020-23
+ 28.8% changed | original True | computed in 1000 of 1000 | 7 | differ (p < 0.05) | 2016-19
+ 19.1% changed | original False | computed in 1000 of 1000 | 6 | significant (Holm p < 0.05) | propulsors on booms in CVT
+ 11.3% changed | original True | computed in 1000 of 1000 | 4 | actively protected | 2 balance | F
+ 11.0% changed | original False | computed in 1000 of 1000 | 3 | all designs | 2 balance | A·W·T

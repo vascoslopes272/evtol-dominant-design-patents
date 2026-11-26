@@ -1,0 +1,10 @@
+input,method,agree,of_n,share_pct,interval_95_pct,what_it_measures
+Domain flag: pages kept in the domain,script rules,77.0,88,87.5,79.0-92.9,the published flag against the author's answer on the reviewed pages
+Domain flag: pages excluded from the domain,script rules,59.0,68,86.8,76.7-92.9,the published flag against the author's answer on the reviewed pages
+Domain flag: excluded pages linked to a patent,script rules,5.0,10,50.0,23.7-76.3,the published flag against the author's answer on the reviewed pages
+Domain flag: both groups,"script rules, weighted by group size (871 kept, 358 excluded)",,166,85.9,,share of the 1 229 pages on which the published flag agrees with the author
+Development year,"script, exact year",49.0,81,60.5,49.6-70.4,script year = the author's year
+Development year,"script, within 1 year",61.0,81,75.3,64.9-83.4,script year within one year of the author's
+TRL,"script, exact level",23.0,46,50.0,36.1-63.9,script TRL = the author's TRL on the reviewed designs
+TRL,"script, within 1 level",35.0,46,76.1,62.1-86.1,script TRL within one level of the author's
+AAM index company map,"script, name match",20.0,24,83.3,64.1-93.3,"script name = the author's name, on the 24 companies of the current index"

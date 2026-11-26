@@ -1,0 +1,4 @@
+level id,key function,designs keyed,configurations,singletons,order 2 (1 / sum p^2),share of the largest configuration
+A0,"frames.archetype_key (dd_level_keys, B6c)",619,12,0,5.724203355393878,0.25848142164781907
+A1t,"frames.archetype_key (dd_level_keys, B6c)",617,39,10,11.323626520717456,0.1620745542949757
+A0c,"frames.archetype_key (dd_level_keys, B6c)",618,44,4,22.779673148037702,0.09870550161812297

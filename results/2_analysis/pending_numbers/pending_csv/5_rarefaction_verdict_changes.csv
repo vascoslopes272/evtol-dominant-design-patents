@@ -1,0 +1,3 @@
+level,base,cohort,D2_30,band_low_30,band_high_30,percentile_30,below_band_30,aircraft_40,D2_40,band_low_40,band_high_40,percentile_40,below_band_40,aircraft_50,D2_50,band_low_50,band_high_50,percentile_50,below_band_50,verdict_changes
+A.W.T,all designs,2020-23,7.89,7.88,9.84,2.7,False,236,8.36,8.34,10.5,2.8,False,236,8.62,8.63,10.92,2.5,True,True
+A.U,actively protected,2020-23,12.58,12.54,15.04,3.0,False,191,13.84,13.88,16.86,2.3,True,191,14.84,14.82,18.23,2.6,False,True

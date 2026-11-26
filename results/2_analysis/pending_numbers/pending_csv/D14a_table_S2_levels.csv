@@ -1,0 +1,11 @@
+level id,level,thesis code,fields in the key,designs keyed,designs left out (no key),configurations,singletons,singleton share,"effective number, order 1 (exp Shannon)","effective number, order 2 (1 / sum p^2)",largest configuration,share of the largest configuration,screens passed (config.yaml archetype_screens),"effective number, order 2 (unrounded)",share of the largest configuration (unrounded)
+A0,L1 (A),C,topType,619,0,12,0,0.0,7.3,5.7,SLC,0.258,3 of 4,5.724203355393878,0.25848142164781907
+A0c,L3 (A.U),C·U,topType + rotorBin,618,1,44,4,0.006,29.6,22.8,TR · 1-3,0.099,4 of 4,22.779673148037702,0.09870550161812297
+A1,A.W.B,C·W·B,topType + wCount + boomsPresent,618,1,57,17,0.028,28.1,20.5,TR · 1 · False,0.092,4 of 4,20.49168365704475,0.09223300970873786
+A1c,A.W.B.U,C·W·B·U,topType + wCount + boomsPresent + rotorBin,618,1,151,62,0.1,90.7,58.5,TR · 1 · False · 1-3,0.068,1 of 4,58.523444682807224,0.06796116504854369
+A1b,A.W.B# (booms binned),C·W·B#,topType + wCount + boomBin,618,1,76,23,0.037,39.1,26.7,TR · 1 · none,0.094,3 of 4,26.666945957268542,0.09385113268608414
+A1t,L2 (A.W.T),C·W·T,topType + wCount + anyTilt,617,2,39,10,0.016,16.5,11.3,SLC · 1 · False,0.162,4 of 4,11.323626520717456,0.1620745542949757
+A1tc,A.W.T.U,C·W·T·U,topType + wCount + anyTilt + rotorBin,617,2,108,38,0.062,60.5,40.7,TR · 1 · True · 1-3,0.081,1 of 4,40.68494175483596,0.08103727714748785
+A2,A.W.B.E,C·W·B·E,topType + wCount + boomsPresent + empType,618,1,191,83,0.134,122.8,85.8,MR · 0 · True · Tailless,0.034,1 of 4,85.82561797752807,0.03398058252427184
+A2c,A.W.B.E.U,C·W·B·E·U,topType + wCount + boomsPresent + empType + rotorBin,618,1,347,226,0.366,264.4,181.9,HB · 1 · False · blank · n/a (no M3 card),0.026,1 of 4,181.86857142857147,0.025889967637540454
+family_b,F (family as one archetype),F,topType with the Lift + Cruise + CVT* family as one option,619,2,12,0,0.0,6.254642802186653,4.314536016305021,Lift + Cruise + CVT* family,0.3893376413570275,not computed (not in ARCHETYPE_SETS),4.314536016305021,0.3893376413570275

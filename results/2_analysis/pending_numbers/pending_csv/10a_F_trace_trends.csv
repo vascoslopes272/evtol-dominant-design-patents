@@ -1,0 +1,18 @@
+trace,driver kind,class,code,aircraft,first window,first value,2020-23 value,first mean,2020-23 mean,rho,p,movement,p_holm
+tilting joint groups,A1,F,F,218,<= 2011,0.0,0.0,0.28,0.51,0.09,0.1695259327387661,flat,1.0
+fuselage kinematics not fixed,A1,F,F,218,<= 2011,0.0,0.0,,,-0.09,0.21055285406232932,flat,1.0
+a propulsor retracts or folds its blades,A2,F,F,218,<= 2011,0.06,0.09,,,-0.08,0.2211016193924705,flat,1.0
+booms stow,B,F,F,126,<= 2011,0.0,0.04,,,0.02,0.8363961351677813,flat,1.0
+propulsive units,A1,F,F,218,<= 2011,5.5,7.0,,,0.13,0.058100597696900375,flat,0.929609563150406
+units carried on booms,A1,F,F,218,<= 2011,0.5,0.6,,,0.11,0.11663181236181579,flat,1.0
+stations carrying units,A1,F,F,218,<= 2011,2.0,2.0,1.83,1.97,0.03,0.6373709183550378,flat,1.0
+booms present,A2,F,F,218,<= 2011,0.56,0.6,,,0.09,0.17694878369010011,flat,1.0
+wing units at the leading edge,A2,F,F,113,<= 2011,0.22,0.56,,,0.12,0.21373591510867224,flat,1.0
+a pusher unit,A2,F,F,218,<= 2011,0.44,0.36,,,0.0,1.0,flat,1.0
+two or more wing panels,A2,F,F,218,<= 2011,0.39,0.33,,,0.06,0.34269911039408607,flat,1.0
+swept or delta main wing,B,F,F,218,<= 2011,0.61,0.38,,,-0.11,0.10817140026832194,flat,1.0
+no tail surface,A2,F,F,218,<= 2011,0.56,0.17,,,-0.17,0.00962777596305253,falls,0.163672191371893
+a ducted unit,B,F,F,218,<= 2011,0.5,0.42,,,-0.03,0.6371893982535135,flat,1.0
+ground contact drawn,B,F,F,218,<= 2011,0.0,0.28,,,0.12,0.08795156304383812,flat,1.0
+"wheeled gear, of the ground contact drawn",B,F,F,52,2016-19,0.53,0.61,,,0.1,0.4941069463363771,flat,1.0
+propulsor types,C,F,F,218,<= 2011,2.0,3.0,2.56,2.75,0.04,0.5944521122713384,flat,1.0

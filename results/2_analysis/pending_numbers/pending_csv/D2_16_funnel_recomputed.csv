@@ -1,0 +1,10 @@
+step,value,source
+families in the PatSeer export / file 33,1639,03_patents/33_patents.csv rows
+disapproved at T1,531,33_patents.is_approved == False
+approved at T1,1108,33_patents.is_approved == True
+aircraft rows on approved patents,1219,04_aircraft/42_aircraft.csv rows
+non-primary rows (duplicates),422,42_aircraft.is_primary == False
+primary rows,797,42_aircraft.is_primary == True
+designs (is_design),621,42_aircraft.is_design == True
+designs in file 45,621,04_aircraft/45_designs.csv rows
+designs with an architecture (analysis frame),619,ctx.v.topType notna

@@ -1,0 +1,7 @@
+code,dataset_designs,dataset_share_pct,directory_aircraft_in_domain,directory_share_pct,adjusted_residual
+VT,366,59.13,286,32.84,10.08
+LC,168,27.14,153,17.57,4.43
+WM,47,7.59,265,30.42,-10.67
+ER,9,1.45,57,6.54,-4.71
+HB,29,4.68,110,12.63,-5.2
+total,619,100.0,871,100.0,

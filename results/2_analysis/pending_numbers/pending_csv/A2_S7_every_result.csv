@@ -1,0 +1,72 @@
+key,original,"share kept, weight draws",weights: how read,"share kept, coding first version (redraw whole design), 15 %, 10 000 perms (n=120)","Wilson low first version (redraw whole design), 15 %, 10 000 perms","Wilson high first version (redraw whole design), 15 %, 10 000 perms","share kept, coding first version, 15 %, 1 000 perms (reference), n=1000"
+1 | varies (under 80 %) | number of wings (winged designs),True,1.0,not affected: the result does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+1 | varies (under 80 %) | tail type,True,1.0,not affected: the result does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+1 | varies (under 80 %) | fuselage motion hover to cruise,False,1.0,not affected: the result does not use the distance,0.0,0.0,0.03101916689287469,0.0
+1 | varies (under 80 %) | wing configuration,False,1.0,not affected: the result does not use the distance,0.0,0.0,0.03101916689287469,0.0
+1 | varies (under 80 %) | landing-gear type,True,1.0,not affected: the result does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+1 | varies (under 80 %) | left-right symmetry,False,1.0,not affected: the result does not use the distance,0.9083333333333333,0.8432915296559418,0.9480428173815438,0.936
+1 | varies (under 80 %) | fuselage shape,True,1.0,not affected: the result does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+1 | varies (under 80 %) | booms present,True,1.0,not affected: the result does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+1 | varies (under 80 %) | propulsor units per aircraft (band),True,1.0,not affected: the result does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+1 | varies (under 80 %) | places carrying propulsor units per aircraft,True,1.0,not affected: the result does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+1 | varies (under 80 %) | propulsor enclosure (any ducted),True,1.0,not affected: the result does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+3 | all designs | 1 share | A,False,1.0,not affected: the condition does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+3 | all designs | 1 share | A·W·T,False,1.0,not affected: the condition does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+3 | all designs | 1 share | A·U,False,1.0,not affected: the condition does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+4 | all designs | 1 share | F,False,1.0,not affected: the condition does not use the distance,0.9916666666666667,0.9543037082724115,0.9985274442829282,0.997
+3 | all designs | 2 balance | A,True,1.0,not affected: the condition does not use the distance,0.7916666666666666,0.7105232149721635,0.854715604340326,0.797
+3 | all designs | 2 balance | A·W·T,False,1.0,not affected: the condition does not use the distance,0.8916666666666667,0.8234463972126839,0.9355885887212311,0.854
+3 | all designs | 2 balance | A·U,False,1.0,not affected: the condition does not use the distance,0.975,0.9290699661552766,0.9914618252964924,0.98
+4 | all designs | 2 balance | F,True,1.0,not affected: the condition does not use the distance,0.9666666666666667,0.9174196619077891,0.9869624489921943,0.979
+3 | all designs | 3 disparity | A,True,0.693,disparity: draws with dQ below band (test1_summary.csv),0.15,0.09703812258991285,0.2246752942350994,0.143
+3 | all designs | 3 disparity | A·W·T,True,0.78,disparity: draws with dQ below band (test1_summary.csv),0.10833333333333334,0.06441141127876894,0.1765536027873162,0.136
+3 | all designs | 3 disparity | A·U,True,0.79,disparity: draws with dQ below band (test1_summary.csv),0.10833333333333334,0.06441141127876894,0.1765536027873162,0.129
+4 | all designs | 3 disparity | F,True,0.693,"disparity: draws with dQ below band (test1_summary.csv, F read on level L1)",0.15,0.09703812258991285,0.2246752942350994,0.143
+3 | all designs | all three | A,False,,not computed (weights change dQ only; combination of conditions not recomputed under draws),1.0,0.9689808331071251,0.9999999999999999,1.0
+3 | all designs | all three | A·W·T,False,,not computed (weights change dQ only; combination of conditions not recomputed under draws),1.0,0.9689808331071251,0.9999999999999999,1.0
+3 | all designs | all three | A·U,False,,not computed (weights change dQ only; combination of conditions not recomputed under draws),1.0,0.9689808331071251,0.9999999999999999,1.0
+4 | all designs | all three | F,False,,not computed (weights change dQ only; combination of conditions not recomputed under draws),1.0,0.9689808331071251,0.9999999999999999,0.999
+3 | actively protected | 1 share | A,False,1.0,not affected: the condition does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+3 | actively protected | 1 share | A·W·T,False,1.0,not affected: the condition does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+3 | actively protected | 1 share | A·U,False,1.0,not affected: the condition does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+4 | actively protected | 1 share | F,True,1.0,not affected: the condition does not use the distance,0.03333333333333333,0.01303755100780557,0.0825803380922108,0.035
+3 | actively protected | 2 balance | A,True,1.0,not affected: the condition does not use the distance,0.7666666666666667,0.6834455285355779,0.8333442491215556,0.778
+3 | actively protected | 2 balance | A·W·T,True,1.0,not affected: the condition does not use the distance,0.2,0.13824476437820654,0.28036673575751825,0.193
+3 | actively protected | 2 balance | A·U,True,1.0,not affected: the condition does not use the distance,0.125,0.07723497244037196,0.19602940272928399,0.174
+4 | actively protected | 2 balance | F,True,1.0,not affected: the condition does not use the distance,0.9833333333333333,0.9412640365282555,0.9954174354752988,0.964
+3 | actively protected | 3 disparity | A,True,0.739,disparity: draws with dQ below band (test1_summary.csv),0.225,0.159491546240828,0.307568995550253,0.18
+3 | actively protected | 3 disparity | A·W·T,True,0.829,disparity: draws with dQ below band (test1_summary.csv),0.175,0.11740535907103217,0.2527570994093363,0.184
+3 | actively protected | 3 disparity | A·U,True,0.841,disparity: draws with dQ below band (test1_summary.csv),0.16666666666666666,0.11055996331774244,0.24345281461084062,0.177
+4 | actively protected | 3 disparity | F,True,0.739,"disparity: draws with dQ below band (test1_summary.csv, F read on level L1)",0.225,0.159491546240828,0.307568995550253,0.18
+3 | actively protected | all three | A,False,,not computed (weights change dQ only; combination of conditions not recomputed under draws),1.0,0.9689808331071251,0.9999999999999999,1.0
+3 | actively protected | all three | A·W·T,False,,not computed (weights change dQ only; combination of conditions not recomputed under draws),1.0,0.9689808331071251,0.9999999999999999,1.0
+3 | actively protected | all three | A·U,False,,not computed (weights change dQ only; combination of conditions not recomputed under draws),1.0,0.9689808331071251,0.9999999999999999,1.0
+4 | actively protected | all three | F,True,,not computed (weights change dQ only; combination of conditions not recomputed under draws),0.0,0.0,0.03101916689287469,0.009
+4 | all designs | F above 50 % in 2020,False,1.0,not affected: the result does not use the distance,0.9916666666666667,0.9543037082724115,0.9985274442829282,0.996
+4 | all designs | F above 50 % in 2021,True,1.0,not affected: the result does not use the distance,0.38333333333333336,0.3012452769476458,0.47265919532735823,0.375
+4 | actively protected | F above 50 % in 2020,True,1.0,not affected: the result does not use the distance,0.05,0.023114364279201043,0.10480288592438619,0.046
+4 | actively protected | F above 50 % in 2021,True,1.0,not affected: the result does not use the distance,0.6666666666666666,0.5783110154890602,0.7446825955466482,0.693
+8 | regions differ 2020-23 (p < 0.05) | all assignees,False,1.0,not affected: the result does not use the distance,0.9916666666666667,0.9543037082724115,0.9985274442829282,0.984
+8 | regions differ 2020-23 (p < 0.05) | without the largest assignee,False,1.0,not affected: the result does not use the distance,1.0,0.9689808331071251,0.9999999999999999,0.994
+"5 | rises (rho > 0, Holm p < 0.05) | SLC",False,1.0,not affected: the result does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+"5 | falls (rho < 0, Holm p < 0.05) | SLC",False,1.0,not affected: the result does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+"5 | rises (rho > 0, Holm p < 0.05) | TP",False,1.0,not affected: the result does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+"5 | falls (rho < 0, Holm p < 0.05) | TP",True,1.0,not affected: the result does not use the distance,0.7416666666666667,0.656714698705421,0.8116260372963563,0.732
+"5 | rises (rho > 0, Holm p < 0.05) | CVT",False,1.0,not affected: the result does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+"5 | falls (rho < 0, Holm p < 0.05) | CVT",False,1.0,not affected: the result does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+"5 | rises (rho > 0, Holm p < 0.05) | TW",False,1.0,not affected: the result does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+"5 | falls (rho < 0, Holm p < 0.05) | TW",False,1.0,not affected: the result does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+"5 | rises (rho > 0, Holm p < 0.05) | MR",False,1.0,not affected: the result does not use the distance,0.9916666666666667,0.9543037082724115,0.9985274442829282,0.991
+"5 | falls (rho < 0, Holm p < 0.05) | MR",False,1.0,not affected: the result does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+"5 | rises (rho > 0, Holm p < 0.05) | TF",False,1.0,not affected: the result does not use the distance,0.9166666666666666,0.8533776777514769,0.9541063498377941,1.0
+"5 | falls (rho < 0, Holm p < 0.05) | TF",False,1.0,not affected: the result does not use the distance,0.9166666666666666,0.8533776777514769,0.9541063498377941,1.0
+"5 | rises (rho > 0, Holm p < 0.05) | PTC",False,1.0,not affected: the result does not use the distance,0.75,0.6655886326483037,0.8189017839052589,0.9949044585987261
+"5 | falls (rho < 0, Holm p < 0.05) | PTC",False,1.0,not affected: the result does not use the distance,0.7583333333333333,0.6744985088172029,0.8261415882881451,1.0
+6 | significant (Holm p < 0.05) | propulsors on booms in CVT,False,1.0,not affected: the result does not use the distance,0.8083333333333333,0.7287884392669061,0.8687497411491546,0.798
+6 | significant (Holm p < 0.05) | ducted in CVT,False,1.0,not affected: the result does not use the distance,0.9583333333333334,0.9061591471148217,0.9820732832333764,0.958
+6 | significant (Holm p < 0.05) | propulsors in TP,True,1.0,not affected: the result does not use the distance,0.9833333333333333,0.9412640365282555,0.9954174354752988,0.99
+6 | significant (Holm p < 0.05) | propulsors in CVT,True,1.0,not affected: the result does not use the distance,0.4666666666666667,0.37982916980208364,0.5555721079907746,0.406
+7 | differ (p < 0.05) | 2016-19,True,1.0,not affected: the result does not use the distance,0.925,0.8635908233423942,0.9600428847986623,0.908
+7 | differ without the largest (p < 0.05) | 2016-19,False,1.0,not affected: the result does not use the distance,1.0,0.9689808331071251,0.9999999999999999,1.0
+7 | differ (p < 0.05) | 2020-23,True,1.0,not affected: the result does not use the distance,0.9,0.8333182582648719,0.9418664082208283,0.899
+7 | differ without the largest (p < 0.05) | 2020-23,False,1.0,not affected: the result does not use the distance,0.9583333333333334,0.9061591471148217,0.9820732832333764,0.967

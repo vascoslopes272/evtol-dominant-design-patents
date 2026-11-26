@@ -1,0 +1,4 @@
+level,designs,date mean,date 2.5 %,date 97.5 %,random mean (exact),random mean (shuffles),random 95th,random 99th,random max,p (share >= date mean),p (whole counts),orders,shuffles,seed
+A,619,0.0,0.0,0.0,0.0006477010804495364,0.0008,0.0,0.0,1,1.0,1.0,1000,10000,42
+A.U,618,1.0,1.0,1.0,0.7353946518807177,0.7381,2.0,3.0,5,0.548,0.548,1000,10000,42
+A.W.T,617,4.962,4.0,5.0,1.786795499516515,1.7894,4.0,5.0,7,0.022,0.024523200000000016,1000,10000,42

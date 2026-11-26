@@ -1,0 +1,10 @@
+level,resolution,resolution value,resolution line,resolution ok,fragmentation,fragmentation value,fragmentation line,fragmentation ok,population,population value,population line,population ok,readable shares,readable shares value,readable shares line,readable shares ok,screens passed
+A0,12 (line 24): fail,12,24,False,0.0 (line 0.05): pass,0.0,0.05,True,0.994 (line 0.9): pass,0.994,0.9,True,5 (line 3): pass,5,3,True,3 of 4
+A0c,44 (line 24): pass,44,24,True,0.006 (line 0.05): pass,0.006,0.05,True,0.955 (line 0.9): pass,0.955,0.9,True,5 (line 3): pass,5,3,True,4 of 4
+A1,57 (line 24): pass,57,24,True,0.028 (line 0.05): pass,0.028,0.05,True,0.906 (line 0.9): pass,0.906,0.9,True,8 (line 3): pass,8,3,True,4 of 4
+A1c,151 (line 24): pass,151,24,True,0.1 (line 0.05): fail,0.1,0.05,False,0.727 (line 0.9): fail,0.727,0.9,False,1 (line 3): fail,1,3,False,1 of 4
+A1b,76 (line 24): pass,76,24,True,0.037 (line 0.05): pass,0.037,0.05,True,0.869 (line 0.9): fail,0.869,0.9,False,5 (line 3): pass,5,3,True,3 of 4
+A1t,39 (line 24): pass,39,24,True,0.016 (line 0.05): pass,0.016,0.05,True,0.942 (line 0.9): pass,0.942,0.9,True,6 (line 3): pass,6,3,True,4 of 4
+A1tc,108 (line 24): pass,108,24,True,0.062 (line 0.05): fail,0.062,0.05,False,0.831 (line 0.9): fail,0.831,0.9,False,1 (line 3): fail,1,3,False,1 of 4
+A2,191 (line 24): pass,191,24,True,0.134 (line 0.05): fail,0.134,0.05,False,0.592 (line 0.9): fail,0.592,0.9,False,0 (line 3): fail,0,3,False,1 of 4
+A2c,347 (line 24): pass,347,24,True,0.366 (line 0.05): fail,0.366,0.05,False,0.184 (line 0.9): fail,0.184,0.9,False,0 (line 3): fail,0,3,False,1 of 4

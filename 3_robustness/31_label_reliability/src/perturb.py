@@ -24,10 +24,13 @@ ERROR MODEL (rules marked PROVISIONAL wait for the author's ruling; each is one 
 - Not perturbed: priority year, legal status, region, assignee (none is a wizard code), the T1/T2 fields (approval,
   duplicate, figure), the gate tags, the overrides and uncertainty flags, the number of propulsor types per station
   (structure of the record), free-text notes.
-- Locks: a design whose perturbed codes break a lock of thesis Table A.5 that its original codes do not break (as the dataset
-  applies them: articulation Other suspends L4, L5 and L8, DECISIONS 16; L8 exempts control-only propulsors; the boom tick
-  'on the fixed part of the wing' is read, DECISIONS 17) is redrawn, up to MAX_REDRAWS times; then it keeps its original codes
-  and is counted.
+- Locks (LOCK_MODE 'allowed', the rule of the paper): when a value is selected for replacement, the values of its field that break no lock of
+  thesis Table A.5 that the original codes do not break, given the rest of the aircraft's codes at that moment (the fields are visited in the
+  order of ``slots``; articulation Other suspends L4, L5 and L8, DECISIONS 16; L8 exempts control-only propulsors; the boom tick 'on the fixed
+  part of the wing' is read, DECISIONS 17), are listed, and one of them is drawn at random (options and ticks uniformly; counts with the weights of
+  the observed counts). The current value is left out. When the list is empty the original value stays; this is the only case, there is no cap
+  on redraws and no failure case. LOCK_MODE 'redraw' (EVTOL_LOCKMODE=redraw) is the first version: draw freely, redraw the whole design up to
+  MAX_REDRAWS times when a lock breaks, then keep the original design.
 - The four propulsion columns notebook 04 derives from the codes (propulsor count, boom thrust state, wing thrust carrier,
   wing-borne count, with their notes) are recomputed from the perturbed codes with notebook 04's own rules
   (_build/nb04_v16/11I_master_labels.ipynb, cell 25, copied in :func:`derive`). The thesis code reads these columns.
@@ -36,6 +39,7 @@ RANDOM NUMBERS: replica i uses numpy default_rng([seed, i]); a replica does not 
 """
 from __future__ import annotations
 
+import os
 import re
 from collections import Counter
 
@@ -44,6 +48,10 @@ import pandas as pd
 
 R = 0.15
 MAX_REDRAWS = 20
+#: how a replaced value is chosen. 'allowed' (the rule of the paper): list the values that break no lock given the rest of the aircraft's codes, draw one of
+#: them at random; when the list is empty the original value stays; no redraw cap, no failure case. 'redraw' (the first version of the check, kept
+#: so that its runs can be reproduced): draw freely, redraw the whole design up to MAX_REDRAWS times when a lock breaks, then keep the original design.
+LOCK_MODE = os.environ.get("EVTOL_LOCKMODE", "allowed")
 COUNTS = True             # PROVISIONAL: perturb positive counts (False = counts are never perturbed)
 APPLICABLE_ONLY = True    # PROVISIONAL: perturb only values the wizard asks for (see the module text)
 CODE_IN = {"TP": "TR", "TF": "TB"}         # dataset code -> the thesis code's (the master is read through the compat mirror)
@@ -438,6 +446,52 @@ class Perturber:
                             r[key] = None
                     r[f"wing{k}_count"] = 0
 
+    def _candidates(self, c, kind, v):
+        """The values the field could be replaced with (the current value left out) and their draw weights (None = uniform)."""
+        if kind == "bool":
+            return [not _t(v)], None
+        if kind == "count":
+            pool = {x: w for x, w in self.count_pool.get(self._count_dim(c), {}).items() if x != _n(v)}
+            return [int(x) for x in pool], (np.array(list(pool.values()), dtype=float) if pool else None)
+        opts = [o for o in self.opts.get(re.sub(r"^(boom)\d_", r"boom1_", re.sub(r"^wing\d_", "wing1_", re.sub(r"_t\d_", "_t1_", c))),
+                                         self.opts.get(c, [])) if o != _s(v)]
+        if not opts:
+            opts = [o for o in self.opts.get(c, []) if o != _s(v)]
+        return list(opts), None
+
+    def design_allowed(self, rng, i):
+        """One perturbed design under LOCK_MODE 'allowed': (record, values changed, values with an empty list of allowed values)."""
+        o = self.orig[i]
+        r = dict(o)
+        changed = empty = 0
+        for c, kind in self.slots(o):
+            if rng.random() >= self.r:
+                continue
+            cand, w = self._candidates(c, kind, r.get(c))
+            ok = []
+            for k, nv in enumerate(cand):
+                t = dict(r)
+                t[c] = nv
+                if kind == "count":
+                    self._apply_structure(t, c)
+                if locks(t) <= self.orig_locks[i]:
+                    ok.append(k)
+            if not ok:
+                empty += 1
+                continue
+            if w is None:
+                k = ok[int(rng.integers(len(ok)))]
+            else:
+                ww = w[ok]
+                k = ok[int(rng.choice(len(ok), p=ww / ww.sum()))]
+            nv = cand[k]
+            if _s(nv) != _s(r.get(c)):
+                r[c] = nv
+                changed += 1
+                if kind == "count":
+                    self._apply_structure(r, c)
+        return r, changed, empty
+
     def design(self, rng, i):
         """One perturbed design: (record, values changed, redraws used, kept original)."""
         o = self.orig[i]
@@ -461,11 +515,16 @@ class Perturber:
         through the same path, changed or not."""
         rng = np.random.default_rng([seed, index])
         m = self.master.copy()
-        n_changed = redraws = kept = 0
+        n_changed = redraws = kept = empty_lists = 0
         redrawn = Counter()
         recs = {}
         for i in self.rows:
-            r, ch, att, keep = self.design(rng, i)
+            if LOCK_MODE == "allowed":
+                r, ch, emp = self.design_allowed(rng, i)
+                att, keep = 0, False
+                empty_lists += emp
+            else:
+                r, ch, att, keep = self.design(rng, i)
             n_changed += ch
             redraws += att
             kept += int(keep)
@@ -491,5 +550,6 @@ class Perturber:
                     col = col.astype(bool)
                 m[c] = col
         log = {"replica": index, "codes changed": n_changed, "designs changed": len(recs), "redraws": redraws,
-               "designs redrawn": redrawn["designs redrawn at least once"], "designs kept after 20 redraws": kept}
+               "designs redrawn": redrawn["designs redrawn at least once"], "designs kept after 20 redraws": kept,
+               "values with no allowed alternative": empty_lists}
         return m, log

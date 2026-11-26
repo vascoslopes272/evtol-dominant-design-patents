@@ -1,0 +1,205 @@
+{
+ "ap_1619": {
+  "num": 38,
+  "den": 213,
+  "share": 0.1784037558685446
+ },
+ "ap_1619_three_regions_den": {
+  "den": 206,
+  "share": 0.18446601941747573
+ },
+ "ap_1619_with_architecture": {
+  "num": 36,
+  "den": 211
+ },
+ "p90_lag_unrounded": 3.0,
+ "p90_lag_yaml": 3,
+ "lag_patents_n": 540,
+ "lag_by_region": [
+  {
+   "region": "North America",
+   "patents": 212,
+   "median lag": 2.0,
+   "90th percentile": 3.0
+  },
+  {
+   "region": "Asia-Pacific",
+   "patents": 164,
+   "median lag": 1.0,
+   "90th percentile": 3.0
+  },
+  {
+   "region": "Europe",
+   "patents": 151,
+   "median lag": 2.0,
+   "90th percentile": 3.0
+  },
+  {
+   "region": "South America",
+   "patents": 6,
+   "median lag": 2.0,
+   "90th percentile": 3.0
+  },
+  {
+   "region": "Middle East",
+   "patents": 4,
+   "median lag": 2.0,
+   "90th percentile": 4.0
+  },
+  {
+   "region": "Africa",
+   "patents": 1,
+   "median lag": 1.0,
+   "90th percentile": 1.0
+  },
+  {
+   "region": "International (PCT)",
+   "patents": 1,
+   "median lag": 1.0,
+   "90th percentile": 1.0
+  },
+  {
+   "region": "Unknown",
+   "patents": 1,
+   "median lag": 1.0,
+   "90th percentile": 1.0
+  }
+ ],
+ "snapshot": "2026-06-08",
+ "snapshot_year": 2026,
+ "snapshot_fraction": 0.43561643835616437,
+ "lag_distribution_2016_21": {
+  "0": 42,
+  "1": 140,
+  "2": 107,
+  "3": 47,
+  "4": 9
+ },
+ "ref_n": 345,
+ "freeze_lag_corrected_2023": [
+  {
+   "priority year": 2023,
+   "designs counted (raw)": 48,
+   "visible at the snapshot (%)": 88.9,
+   "estimated not yet published": 6.0,
+   "designs expected after correction": 54.0,
+   "check: sum of per-region corrections": 55.6
+  }
+ ],
+ "level_step": [
+  {
+   "series": "eVTOL architecture patents",
+   "years": "2005\u20132022",
+   "fit_last": 2022,
+   "break year": 2016.0,
+   "break low": 2016.0,
+   "break high": 2017.0,
+   "level step (factor)": 3.3,
+   "step low": 2.12,
+   "step high": 4.89
+  },
+  {
+   "series": "aeronautics (CPC B64)",
+   "years": "2005\u20132022",
+   "fit_last": 2022,
+   "break year": 2016.0,
+   "break low": 2016.0,
+   "break high": 2016.0,
+   "level step (factor)": 2.1,
+   "step low": 1.77,
+   "step high": 2.57
+  },
+  {
+   "series": "transport and operations (CPC section B)",
+   "years": "2005\u20132022",
+   "fit_last": 2022,
+   "break year": 2016.0,
+   "break low": 2016.0,
+   "break high": 2016.0,
+   "level step (factor)": 2.05,
+   "step low": 1.67,
+   "step high": 2.48
+  },
+  {
+   "series": "all patents",
+   "years": "2005\u20132022",
+   "fit_last": 2022,
+   "break year": 2016.0,
+   "break low": 2015.0,
+   "break high": 2019.0,
+   "level step (factor)": 1.2,
+   "step low": 1.06,
+   "step high": 1.33
+  },
+  {
+   "series": "eVTOL architecture patents",
+   "years": "2005\u20132023",
+   "fit_last": 2023,
+   "break year": 2016.0,
+   "break low": 2016.0,
+   "break high": 2016.0,
+   "level step (factor)": 3.52,
+   "step low": 2.39,
+   "step high": 5.26
+  },
+  {
+   "series": "aeronautics (CPC B64)",
+   "years": "2005\u20132023",
+   "fit_last": 2023,
+   "break year": 2016.0,
+   "break low": 2016.0,
+   "break high": 2016.0,
+   "level step (factor)": 2.11,
+   "step low": 1.76,
+   "step high": 2.5
+  },
+  {
+   "series": "transport and operations (CPC section B)",
+   "years": "2005\u20132023",
+   "fit_last": 2023,
+   "break year": 2016.0,
+   "break low": 2016.0,
+   "break high": 2016.0,
+   "level step (factor)": 2.07,
+   "step low": 1.73,
+   "step high": 2.49
+  },
+  {
+   "series": "all patents",
+   "years": "2005\u20132023",
+   "fit_last": 2023,
+   "break year": 2016.0,
+   "break low": 2015.0,
+   "break high": 2020.0,
+   "level step (factor)": 1.21,
+   "step low": 0.98,
+   "step high": 1.32
+  }
+ ],
+ "turning_point": [
+  {
+   "series": "representative patents",
+   "break": 2016,
+   "jump factor (unrounded)": 3.4462627925077807,
+   "share of resampled fits": 0.914,
+   "low": 2015,
+   "high": 2018
+  },
+  {
+   "series": "unique aircraft",
+   "break": 2017,
+   "jump factor (unrounded)": 1.8344615973286387,
+   "share of resampled fits": 0.226,
+   "low": 2010,
+   "high": 2020
+  },
+  {
+   "series": "aircraft per 1 000 B64",
+   "break": 2013,
+   "jump factor (unrounded)": 0.4877706190851463,
+   "share of resampled fits": 0.184,
+   "low": 2009,
+   "high": 2020
+  }
+ ]
+}

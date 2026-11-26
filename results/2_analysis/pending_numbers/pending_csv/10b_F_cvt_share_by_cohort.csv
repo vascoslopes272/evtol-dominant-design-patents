@@ -1,0 +1,7 @@
+cohort,F designs,CVT* designs,Lift + Cruise designs,CVT* share inside F,rho,p,movement
+2012-15,13,4.0,9.0,0.3077,,,
+2016-19,70,22.0,48.0,0.3143,,,
+2020-23,117,42.0,75.0,0.359,,,
+2024-26 (partial),23,8.0,15.0,0.3478,,,
+<= 2011,18,5.0,13.0,0.2778,,,
+"Spearman, priority year vs CVT* indicator inside F (complete years)",218,,,,0.06,0.39614172424338545,flat

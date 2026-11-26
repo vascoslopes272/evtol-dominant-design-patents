@@ -1,0 +1,17 @@
+dimension,value_i,value_j,weight,both_present,delta,w_times_delta,w_times_present
+Architecture,CVT,CVT,1.0,1,0.0,0.0,1.0
+Fuselage Shape,Oval,Oval,0.5,1,0.0,0.0,0.5
+Boom count,0.0,0.0,0.3,1,0.0,0.0,0.3
+Fuselage Kinematics,Fixed,Fixed,0.2,1,0.0,0.0,0.2
+Wing count,2.0,1.0,0.3,1,0.3333333333333333,0.09999999999999999,0.3
+Wing Architecture,W,W,0.3,1,0.0,0.0,0.3
+Vertical Position,High,High,0.022222222222222223,1,0.0,0.0,0.022222222222222223
+Longitudinal Position,Cent,Cent,0.022222222222222223,1,0.0,0.0,0.022222222222222223
+Planform,Str,Str,0.022222222222222223,1,0.0,0.0,0.022222222222222223
+Empennage Type,Conventional,Conventional,0.3333333333333333,1,0.0,0.0,0.3333333333333333
+Propulsor band,2.0,0.0,0.35,1,0.5,0.175,0.35
+Tilt share,0.6666666666666666,0.6666666666666666,0.3,1,0.0,0.0,0.3
+Propulsor Enclosure,Open,Open,0.15,1,0.0,0.0,0.15
+Tractor/Pusher Arrangement,Front,Front,0.1,1,0.0,0.0,0.1
+Mount locations,"{empennage, wing}","{empennage, wing}",0.1,1,0.0,0.0,0.1
+sum,,,4.0,,,0.27499999999999997,4.0

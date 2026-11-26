@@ -1,0 +1,7 @@
+quantity,k,n,share_pct,wilson95_low_pct,wilson95_high_pct,source,definition
+relevance: families approved at T1 of all families judged,1108,1639,67.6,65.3,69.82,03_patents/33_patents.csv,is_approved == True over all 1 639 families (every family judged by the author; no sample)
+"families that carry an approved aircraft, share of designs-bearing patents",540,1639,32.95,30.71,35.26,ctx.v,unique primary patents behind the 621 designs over 1 639 families
+"completeness, aircraft with a patent found: captured of (captured + outside)",33,46,71.74,57.45,82.68,02_gold_standard/29_gold_standard.csv,"aircraft_outcome == captured over captured + 'outside, patent found'"
+"completeness, programmes with a patent found: captured of (captured + outside)",31,43,72.09,57.31,83.25,02_gold_standard/29_gold_standard.csv,"programme_outcome, one row per programme"
+"completeness, all census aircraft: captured of all",33,69,47.83,36.47,59.41,02_gold_standard/29_gold_standard.csv,aircraft_outcome == captured over all rows (includes no patent found and search pending)
+"completeness, all programmes: captured of all",31,63,49.21,37.27,61.24,02_gold_standard/29_gold_standard.csv,programme_outcome == captured over all programmes

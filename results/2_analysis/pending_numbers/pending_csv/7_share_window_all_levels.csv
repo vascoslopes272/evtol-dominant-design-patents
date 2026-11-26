@@ -1,0 +1,25 @@
+level,base,consecutive years required,years read,years above 50 %,years in which condition 1 is met,condition 1 met
+A,all designs,2,9,,,False
+A,all designs,3,9,,,False
+A,all designs,4,9,,,False
+A,actively protected,2,8,,,False
+A,actively protected,3,8,,,False
+A,actively protected,4,8,,,False
+A.U,all designs,2,9,,,False
+A.U,all designs,3,9,,,False
+A.U,all designs,4,9,,,False
+A.U,actively protected,2,8,,,False
+A.U,actively protected,3,8,,,False
+A.U,actively protected,4,8,,,False
+A.W.T,all designs,2,9,,,False
+A.W.T,all designs,3,9,,,False
+A.W.T,all designs,4,9,,,False
+A.W.T,actively protected,2,8,,,False
+A.W.T,actively protected,3,8,,,False
+A.W.T,actively protected,4,8,,,False
+F,all designs,2,9,2021,,False
+F,all designs,3,9,2021,,False
+F,all designs,4,9,2021,,False
+F,actively protected,2,8,"2020, 2021","2020, 2021",True
+F,actively protected,3,8,"2020, 2021",,False
+F,actively protected,4,8,"2020, 2021",,False

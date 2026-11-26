@@ -1,0 +1,13 @@
+lock,rule,applies_at,codebook_line_34_codebook.md,perturb_py_line_where_broken_lock_is_flagged,wizard_line_11H_master_wizard.html
+L1,SLC: no propulsor tilts (articulation is Fixed or Other only),M3,219,263,wizard 11H_master_wizard.html:2263 (propKinLock) forces Fixed for SLC
+L2,"TW, SLC, SRW, TF, PTC, RC: articulation Fixed on every propulsor set (TP, CVT, MR free; DS has L7)",M3,220,265,"wizard:2263-2268 propKinLock list ['TW','DS','SLC','SRW','TF','PTC','RC']"
+L3,"MR and RC: zero wings, no wing configuration recorded",M2,221,271,wizard:4730-4735 sets wCount=0 for RC/MR
+L4,"CVT: at least two of tilting rotor, fixed rotor, tilting wing; suspended by articulation Other or a quick override",M3 (after all wings declared),222,287,"wizard:2156 (v16.0 change 14), blocker at wizard:2105-2110"
+L5,TW: every wing that carries propulsors is Tiltable; a thrust source that does not tilt with a wing makes it CVT; control-only propulsors are not thrust; suspended by Other,M2 and M3 (after all wings declared),223,292,wizard:2188 and 2491-2511 (sole-thrust rule)
+L6,"TF: fuselage kinematics is Tail-sitter or Variable Incidence (perturb.py tests TiltBody, Variable Incidence, LevelCabin)",M1,224,294,wizard:2289-2305 (applyFusKinLock)
+L7,DS: all propulsors Fixed,M3,225,267,wizard:2263-2268
+L8,TP: only tilting rotors; every wing Fixed and every rotor tilts on its own mount or a tilting boom; control-only exempt; suspended by Other or an override,M2 and M3,226,297,wizard:2188
+L10,RC and PTC: fuselage kinematics Whole-Body Pitch (BodyPitch),M1,227,299,wizard:979 and 2289-2306
+L12,"A propulsor on a tilting wing, boom on a tilting wing, tilting boom set or tilting empennage has articulation Fixed (tested group by group when boom groups and boom propulsor types are equal in number); a boom tick 'on the fixed part of the wing' does not tilt",M3,228,301,wizard:2173
+L14,"SLC and SRW: thrust kinematics Horizontal or Vertical, never Mixed",M3,229,303,"wizard:2455-2465, 5006, 5017"
+L15,"Code not TW, TP, DS, CVT or SRW and record moves nothing: every approved figure's aircraft state is Invariant",T2,230,not tested in perturb.py (T1/T2 fields are not perturbed; perturb.py:24-26),"wizard:1794-1800 (acStateLockedFor), 3901-3916"

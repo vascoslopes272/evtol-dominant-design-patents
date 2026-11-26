@@ -1,0 +1,7 @@
+level,base,designs,configurations,singletons,1D,2D
+A,complete years (priority year <= 2023),564,12,0,7.27,5.71
+A.U,complete years (priority year <= 2023),563,43,4,29.01,21.98
+A.W.T,complete years (priority year <= 2023),563,36,7,16.32,11.28
+A,all designs with a year,619,12,0,7.3,5.72
+A.U,all designs with a year,618,44,4,29.59,22.78
+A.W.T,all designs with a year,617,39,10,16.47,11.32

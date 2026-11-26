@@ -147,7 +147,8 @@ def write_outputs(rows: list, base_res: dict, meta: dict) -> None:
     meta = dict(meta)
     meta["replicas done"] = int(len(logs))
     if len(logs):
-        for c in ("codes changed", "designs changed", "redraws", "designs redrawn", "designs kept after 20 redraws", "architecture labels changed", "seconds"):
+        for c in ("codes changed", "designs changed", "redraws", "designs redrawn", "designs kept after 20 redraws", "architecture labels changed", "values with no allowed alternative", "seconds"):
+            if c not in logs: continue
             meta[f"{c}: total, median, min, max"] = [float(logs[c].sum()), float(logs[c].median()), float(logs[c].min()), float(logs[c].max())]
     (OUT / "run_log.txt").write_text(json.dumps(meta, indent=1, ensure_ascii=False, default=str) + "\n", encoding="utf-8")
 
@@ -179,7 +180,7 @@ def main():
         done = [json.loads(l) for l in JSONL.read_text(encoding="utf-8").splitlines() if l.strip()]
     have = {r["log"]["replica"] for r in done}
     meta = {"task": "coding-error check for P1 (Stage 3)", "seed": SEED, "replica random numbers": "numpy default_rng([seed, i])",
-            "replicas asked": a.n, "error rate per coded value": perturb.R, "max redraws per design": perturb.MAX_REDRAWS,
+            "replicas asked": a.n, "error rate per coded value": perturb.R, "max redraws per design": perturb.MAX_REDRAWS, "lock rule": perturb.LOCK_MODE,
             "rules": {"counts perturbed (observed frequencies)": perturb.COUNTS, "only values the wizard asks for": perturb.APPLICABLE_ONLY},
             "share rule of result 1": core.SHARE_RULE, "permutations per band": f"{PERMS} (seed 42)", "error rate": RATE,
             "yaml": str(core.YAML), "workers": a.workers, "versions": _versions()}

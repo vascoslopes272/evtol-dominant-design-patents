@@ -1,0 +1,8 @@
+tier,aircraft_outcome,aircraft
+TRL 6,captured,6
+TRL 6,no patent found,12
+TRL 6,"outside, patent found",6
+TRL 7 or higher,captured,27
+TRL 7 or higher,no patent found,9
+TRL 7 or higher,"outside, patent found",7
+TRL 7 or higher,search pending,2

@@ -693,7 +693,7 @@ What a script read in the text of each patent (name, powertrain, take-off, UAV, 
 | `maturity_tier` | Established | 100 % |
 | `powertrain_review` | engine_generator | 6 % |
 
-#### `32_master_labels.xlsx` (5.2 MB)
+#### `32_master_labels.xlsx` (5.1 MB)
 
 Every label of the dataset in the long format the wizard reads and saves: patent, section, sub-dimension, field, value, source and image path. The `Source` column says whether a value was typed by the author (`human`) or taken from the PatSeer record (`patseer`). It is the source of files 33, 41, 42 and 43.
 
@@ -701,17 +701,17 @@ Every label of the dataset in the long format the wizard reads and saves: patent
 
 **Depends on:** file 30, file 31, `05_images`
 
-Sheet “Review”, 131 045 rows · 7 columns
+Sheet “Review”, 129 521 rows · 7 columns
 
 | column | example | filled |
 |---|---|---|
 | `Patent_ID` | US2021331794A1 | 100 % |
-| `Section` | META | 100 % |
-| `Sub_Dimension` | Review Metadata | 100 % |
-| `Field` | codebook_version | 100 % |
-| `Value` | 1.5 | 98 % |
-| `Source` | patseer | 37 % |
-| `Image_Path` | 05_images/crops/Batch_01/US2021331794A1_78221758/US20210331794A1_D000… | 26 % |
+| `Section` | T1 | 100 % |
+| `Sub_Dimension` | T1 — Approval Status | 100 % |
+| `Field` | isApproved | 100 % |
+| `Value` | True | 98 % |
+| `Source` | patseer | 38 % |
+| `Image_Path` | 05_images/crops/Batch_01/US2021331794A1_78221758/US20210331794A1_D000… | 27 % |
 
 #### `33_patents.csv` (237.2 KB)
 
@@ -2524,7 +2524,7 @@ The same table for 120 replicas with 10 000 permutations per band, at an error r
 
 #### `07_results/72_weight_sensitivity/`
 
-Sensitivity of the dominant-design test to the weights of its third condition: the 1 000 weight draws (`weight_draws_1000.csv`), test 1 (`test1_*`, with its figure) and test 2 (`test2_*`). Each summary table states the number of designs used. The analyses use 619 of the 621 designs of file 45. The two left out, `CN109263914A_ad1` and `CN109263949A_ad1` (Shenfeng Aviation), have no architecture code in file 42.
+Sensitivity of the dominant-design test to the weights of its third condition: the 1 000 weight draws (`weight_draws_1000.csv`), test 1 (`test1_*`, with its figure) and test 2 (`test2_*`). `test2_architecture_kept.csv` gives family F against its two earliest cohorts with the architecture weight kept and with it set to 0 (the setting of test 2). Each summary table states the number of designs used. The analyses use 619 of the 621 designs of file 45. The two left out, `CN109263914A_ad1` and `CN109263949A_ad1` (Shenfeng Aviation), have no architecture code in file 42.
 
 ##### `test1_draws.csv` (1.7 MB)
 
@@ -2592,6 +2592,21 @@ Sensitivity of the dominant-design test to the weights of its third condition: t
 | `baseline: band edge` | -0.0217901491462183 | 100 % |
 | `baseline: margin` | 0.0038991349751248 | 100 % |
 | `baseline: holds` | True | 100 % |
+
+##### `test2_architecture_kept.csv` (497 B)
+
+
+
+4 rows · 6 columns
+
+| column | example | filled |
+|---|---|---|
+| `cohort` | 2016-19 | 100 % |
+| `weights` | Table A.11, architecture 0 (test 2) | 100 % |
+| `dQ` | 0.045262041418524024 | 100 % |
+| `band edge` | -0.03450136202025374 | 100 % |
+| `margin` | -0.07976340343877776 | 100 % |
+| `dQ below band` | False | 100 % |
 
 ##### `test2_draws.csv` (545.3 KB)
 

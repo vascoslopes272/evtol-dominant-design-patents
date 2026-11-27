@@ -365,3 +365,18 @@ def f_slc_cvt(p: dict) -> pd.DataFrame:
     t = pd.DataFrame(rows)
     t.to_csv(p["out"] / "test2_explore_slc_cvt.csv", index=False)
     return t
+
+
+def f_architecture_kept(p: dict) -> pd.DataFrame:
+    """Family F against its two earliest cohorts with the architecture weight kept (Table A.11 as it stands), next to the same with
+    architecture 0 (test 2). One row per cohort and weights; band = 10 000 shuffles, seed 42, edge = 2.5th percentile.
+    Writes test2_architecture_kept.csv."""
+    rows = []
+    for c in F_COHORTS:
+        eng = ws.engine(p["folders"][f"F {c}"])
+        for words, w in (("Table A.11, architecture 0 (test 2)", W0_NO_ARCH), ("Table A.11, architecture kept", W0)):
+            dq, edge, margin, holds = eng.one(w)["all designs"]
+            rows.append({"cohort": c, "weights": words, "dQ": dq, "band edge": edge, "margin": margin, "dQ below band": bool(holds)})
+    t = pd.DataFrame(rows)
+    t.to_csv(p["out"] / "test2_architecture_kept.csv", index=False)
+    return t

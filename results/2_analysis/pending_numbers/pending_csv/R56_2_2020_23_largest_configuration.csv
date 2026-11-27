@@ -1,0 +1,7 @@
+level,base,designs in cohort,largest configuration (cohort),its designs,its share in cohort,best single-year share,year,configuration,designs,tied at top that year
+A,all designs,237,Lift + Cruise,75,0.3165,0.3623,2020,Lift + Cruise,25 of 69,1
+A,protected,192,Lift + Cruise,62,0.3229,0.3898,2021,Combined Vectored Thrust,23 of 59,1
+A·W·T,all designs,236,Lift + Cruise · one wing · no tilting propulsor,45,0.1907,0.2464,2020,Lift + Cruise · one wing · no tilting propulsor,17 of 69,1
+A·W·T,protected,191,Lift + Cruise · one wing · no tilting propulsor,36,0.1885,0.2712,2021,Combined Vectored Thrust · one wing · a tilting propulsor,16 of 59,1
+A·U,all designs,236,Lift + Cruise · 9 or more propulsor units,25,0.1059,0.1944,2021,Combined Vectored Thrust · 5-6 propulsor units,14 of 72,1
+A·U,protected,191,Lift + Cruise · 9 or more propulsor units,20,0.1047,0.2373,2021,Combined Vectored Thrust · 5-6 propulsor units,14 of 59,1

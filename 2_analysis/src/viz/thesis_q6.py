@@ -789,7 +789,7 @@ def fig_method_flow(ctx):
 
 # ------------------------------------------------------------------------------------------------- the items
 _DECIDE_T6 = "Table 6 and Figure 6 (i) say the same thing from two sides; the author decides which of the two stays in the main text"
-_SRC_LAB = "human labelling (627 unique aircraft)"
+_SRC_LAB = "human labelling (unique aircraft)"
 
 ITEMS = [
     dict(name="q6_method_flow", slot="method", kind="figure", sub="", title="How Q6 is answered",

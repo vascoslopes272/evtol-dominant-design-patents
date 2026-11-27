@@ -1,10 +1,10 @@
-"""Follow-up 2026-10-24 to NUMBERS_I section 2: age at lapse of the lapsed patents of the 604 designs of ``q1_in_force_status`` and the
+"""NUMBERS_I section 2, age at lapse of the lapsed patents of the designs of ``q1_in_force_status`` and the
 share of designs not actively protected per priority year. Inserts "Age at lapse ..." at the end of section 2 of NUMBERS_I.md (a rerun
 replaces it), CSVs next to it. Also run by ``latex_text.write_numbers_I`` (notebook 21_evidence_base).
 
 Lapse date = PatSeer 'Estimated Expiry Date' of a patent whose 'Legal Status Current' is INACTIVE (the raw export has no separate lapse-date
-column; for an inactive record PatSeer sets this field to the date of the last status event: equals 'Register Legal Status Date' for 79 % of the
-230 records that have one, and falls on or before the 2026-06-08 snapshot for all but 4). Age at lapse = lapse date - 'Priority Date (Record)'.
+column; for an inactive record PatSeer sets this field to the date of the last status event: equals 'Register Legal Status Date' for most of the
+records that have one, and falls on or before the snapshot for nearly all). Age at lapse = lapse date - 'Priority Date (Record)'.
 
     python -m viz.followup_lapse_age      (from labeling_evaluation/)
 """
@@ -19,7 +19,7 @@ import pandas as pd
 from viz import frames, thesis_q1
 from viz.thesis_latex_common import drop_section, root as latex_root, tables_md
 
-HEADING = "Age at lapse and share not actively protected per priority year (follow-up 2026-10-24)"
+HEADING = "Age at lapse and share not actively protected per priority year"
 RAW = "/mnt/storage_11tb/Drive_files_to_syncronize/2 - Patente & Validation/3 -Raw_Patent_Exports_PatSeer_&Gold_Standard/1639__dataset_08_06_26.xlsx"
 
 
@@ -36,11 +36,14 @@ def compute(ctx):
     big = wo[wo["topType"].isin(codes)]
     links = wo.attrs["links"] if "links" in wo.attrs else c["w"].attrs["links"]
     links = links[links["aircraft_id"].isin(big["aircraft_id"])]
-    raw = pd.read_excel(RAW, usecols=["Record Number", "Legal Status Current", "Estimated Expiry Date", "Priority Date (Record)", "Publication Country"])
+    raw = pd.read_excel(RAW, usecols=["Record Number", "Legal Status Current", "Estimated Expiry Date", "Priority Date (Record)", "Publication Country", "Register Legal Status Date"])
     raw = raw.rename(columns={"Record Number": "patent_id"}).drop_duplicates("patent_id")
     p = links[links["inactive"]].drop_duplicates("patent_id").merge(raw, on="patent_id", how="left")
     p["priority"] = pd.to_datetime(p["Priority Date (Record)"], errors="coerce")
     p["lapse"] = pd.to_datetime(p["Estimated Expiry Date"], errors="coerce")
+    reg = pd.to_datetime(p["Register Legal Status Date"], errors="coerce")
+    has_reg = reg.notna()
+    reg_n, reg_share = int(has_reg.sum()), (float((p.loc[has_reg, "lapse"].dt.normalize() == reg[has_reg].dt.normalize()).mean()) if has_reg.any() else float("nan"))
     snap = pd.Timestamp(ds.identity["snapshot_date"].dropna().iloc[0])
     p["after_snapshot"] = p["lapse"] > snap
     p["age"] = (p["lapse"] - p["priority"]).dt.days / 365.25
@@ -56,7 +59,7 @@ def compute(ctx):
     yr = pd.DataFrame({"priority year": yr.index.astype(int), "designs": yr["size"].to_numpy(), "not actively protected": yr["sum"].astype(int).to_numpy(),
                        "share": (100 * yr["mean"]).round(1).astype(str).to_numpy() + " %"})
     meta = dict(designs=len(big), inactive_patents=len(p), dropped_after_snapshot=int(p["after_snapshot"].sum()), dropped_no_date=int((~p["after_snapshot"] & p["age"].isna()).sum()),
-                negative=int((ok["age"] < 0).sum()), snapshot=snap.date().isoformat())
+                reg_n=reg_n, reg_share=reg_share, negative=int((ok["age"] < 0).sum()), snapshot=snap.date().isoformat())
     return ages, by_status, yr, ok, meta
 
 
@@ -68,13 +71,12 @@ def run(cfg, ctx):
     yr.to_csv(dfw / "csv" / "q1_not_protected_by_priority_year.csv", index=False)
     nf = dfw / "NUMBERS_I.md"
     txt = drop_section(nf.read_text(encoding="utf-8"), f"### {HEADING}")
-    shutil.copy2(nf, nf.with_name(f"PRE_FOLLOWUP_{datetime.now():%Y%m%d_%H%M%S}_NUMBERS_I.md"))
     L = [f"\n### {HEADING}\n",
          "Source: `viz/followup_lapse_age.py`; CSV `q1_age_at_lapse.csv`, `q1_age_at_lapse_patents.csv`, `q1_not_protected_by_priority_year.csv`. "
          f"Designs: the {meta['designs']} of `q1_in_force_status`. Patents: every patent linked to those designs (own primary patent plus D1/D2 duplicates, "
          "`frames.aircraft_patents`) whose PatSeer legal status is INACTIVE. Age at lapse = lapse date minus priority date (`Priority Date (Record)`), in years of 365.25 days. "
          "**Lapse date = PatSeer `Estimated Expiry Date`** of an INACTIVE record: the export has no separate lapse-date column; for these records the field holds the date of the "
-         "last status event (it equals `Register Legal Status Date` for 79 % of the 230 records that have one). Office = the patent's own publication office (US against all others, WO included), "
+         f"last status event (it equals `Register Legal Status Date` for {100 * meta['reg_share']:.0f} % of the {meta['reg_n']} records that have one). Office = the patent's own publication office (US against all others, WO included), "
          f"not the design's. Snapshot {meta['snapshot']}. 'Lapsed' here is every INACTIVE status: nonpayment, expired, withdrawn / abandoned, rejected. "
          f"{meta['inactive_patents']} inactive patents; left out: {meta['dropped_after_snapshot']} with a date after the snapshot, {meta['dropped_no_date']} without a usable date.\n",
          tables_md(ages), "", "By legal status (median age at lapse):\n", tables_md(by_status), "",

@@ -46,7 +46,7 @@ FIGS = {
     "q3_firm_successions": (q3.fig_firm_successions, 1.0, "V3_regions_what_and_when", "appendix", False,
                             "where an assignee's next design lands, by the architecture of the one before (width not given: 1.0)"),
     "q3_region_mix_by_window_class": (sp.fig_region_mix_by_window_class, 1.0, "V3_regions_what_and_when", "appendix", True,
-                                      "architecture mix of each region per cohort, the two strongest 2012-2023 trends above each panel (appendix; added 2026-10-17, width 1.0)"),
+                                      "architecture mix of each region per cohort, the two strongest 2012-2023 trends above each panel (appendix, width 1.0)"),
 }
 
 
@@ -242,7 +242,7 @@ def append_two_decimals(cfg, ctx) -> str:
     t["lower bound above zero"] = ["yes" if x > 0 else "no" for x in t["low"]]
     show = t.assign(offset=t["offset"].map("{:+.2f}".format), low=t["low"].map("{:+.2f}".format), high=t["high"].map("{:+.2f}".format))
     cols = ["architecture", "region", "designs", "offset", "low", "high", "lower bound above zero", "marker"]
-    parts = ["\n## Entry lag with two decimals (follow-up)\n",
+    parts = ["\n## Entry lag with two decimals\n",
              "Source: `viz/latex_part5.py:lag_two_decimals`, the bootstrap of `lib/regional.lag_offsets` without the rounding (same frames, same seed 42, same draw order; "
              "2000 draws). Asserted equal, after rounding to 1 decimal, to `viz.thesis_q3._frames(ctx)['off']` and `['off16']`, so no result moves. "
              "Offset = median priority year of the region minus that of North America; lower and upper bound = 2.5 and 97.5 percentiles of the bootstrap offsets; "
@@ -255,7 +255,7 @@ def append_two_decimals(cfg, ctx) -> str:
     text = "\n".join(parts)
     f = latex_root(cfg) / "Data_for_writing" / "NUMBERS_V.md"
     old = f.read_text(encoding="utf-8")
-    if "## Entry lag with two decimals (follow-up)" not in old:
+    if "## Entry lag with two decimals" not in old:
         f.write_text(old.rstrip("\n") + "\n" + text + "\n", encoding="utf-8")
     csv = latex_root(cfg) / "Data_for_writing" / "csv" / "q3_region_entry_lag_two_decimals.csv"
     t.to_csv(csv, index=False)

@@ -3,7 +3,7 @@
     from viz import save
     save.figure(fig, cfg, "q1", "fig_01_filings_per_year", data=frame,
                 caption="Unique aircraft per priority year.",
-                source="labelled dataset (627 aircraft)", unit="unique aircraft",
+                source="labelled dataset", unit="unique aircraft",
                 read="each bar is one priority year; hatched years are not complete yet")
 
 Writes, inside <output>/<q>/figures/:  <name>.pdf  <name>.png  <name>.csv  <name>.json

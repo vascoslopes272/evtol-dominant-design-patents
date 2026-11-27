@@ -1,6 +1,6 @@
 # NUMBERS_III — Analysis III (dominant design)
 
-Written by notebook 52 (`viz/thesis_latex_part3.py`); every value is recomputed when the notebook runs. CSVs are in `Data_for_writing/csv/`.
+Written by notebook 23_dominant_design (`viz/thesis_latex_part3.py`); every value is recomputed when the notebook runs. Dataset: the public eVTOL_dataset, 621 designs (619 with an architecture). CSVs are in `Data_for_writing/csv/`.
 
 ## (a) III.1, cohort shares of Tilt Propulsor and Lift + Cruise
 
@@ -30,7 +30,7 @@ Source: `q6_share_trend_spearman.csv`.
 
 ## (b) III.4, VT on the five directory categories, actively protected designs
 
-Source: `q7_iii4_directory_categories.csv` (balance), notebook 52 §III4. VT is the largest category in every year and cohort. Fold: `q7_iii4_directory_fold.csv`.
+Source: `q7_iii4_directory_categories.csv` (balance), notebook 23_dominant_design §III4. VT is the largest category in every year and cohort. Fold: `q7_iii4_directory_fold.csv`.
 
 VT share per cohort:
 
@@ -97,7 +97,7 @@ Source: `q7_verdict_detail.csv`. Condition 1: the largest share of a read year (
 
 ## Weights table (condition 3, the reported weighting w15: 15 dimensions of the codebook, each of the four systems weighing 1, 4 in all)
 
-Source: `q7_condition3_weights.csv`; 15 dimensions, 625 designs (two designs have no architecture recorded). Eleven dimensions are compared as options (0 same, 1 different); three are ordered and compared by rank difference over a fixed range: boom count (0 when no boom, 1, 2, 3 to 4, 5 or more; / 4), wing count (0 when no wing, 1, 2, 3; / 3) and the band of propulsors (1 to 3, 4, 5 to 6, 7 to 8, 9 or more; / 4, the bands of A·U); the tilt share is the share 0 to 1 of the design's propulsors whose thrust turns between hover and cruise (a propulsor that pivots on its mount, sits on a tilting wing, a tilting empennage or a tilting boom, or a Tilt Body design, which turns whole), compared by absolute difference; the mount locations are the set of stations carrying propulsors among fuselage, wing, boom and empennage, compared by Jaccard distance (the share of the stations used by either design that only one of them uses). The three wing dimensions read wing 1 (the primary wing of codebook R5-03, which is wing 1 in every design: the author checked the 4 designs whose role reading pointed to wing 2 on 2026-10-16); enclosure and tractor/pusher arrangement read the set with the most propulsors (first listed on a tie); a dimension that does not apply or that an override hides is blank and left out of the pair's average, and the propulsion dimensions are blank for designs with no propulsor card (Hoverbike, Personal Flying Vehicle). The 34-dimension weighting of 2026-10-14 (w34) stays in the code for the record and is no longer reported.
+Source: `q7_condition3_weights.csv`; 15 dimensions, 619 designs (2 without an architecture recorded are left out). Eleven dimensions are compared as options (0 same, 1 different); three are ordered and compared by rank difference over a fixed range: boom count (0 when no boom, 1, 2, 3 to 4, 5 or more; / 4), wing count (0 when no wing, 1, 2, 3; / 3) and the band of propulsors (1 to 3, 4, 5 to 6, 7 to 8, 9 or more; / 4, the bands of A·U); the tilt share is the share 0 to 1 of the design's propulsors whose thrust turns between hover and cruise (a propulsor that pivots on its mount, sits on a tilting wing, a tilting empennage or a tilting boom, or a Tilt Body design, which turns whole), compared by absolute difference; the mount locations are the set of stations carrying propulsors among fuselage, wing, boom and empennage, compared by Jaccard distance (the share of the stations used by either design that only one of them uses). The three wing dimensions read wing 1 (the primary wing of codebook R5-03, which is wing 1 in every design: the author checked the designs whose role reading pointed to wing 2); enclosure and tractor/pusher arrangement read the set with the most propulsors (first listed on a tie); a dimension that does not apply or that an override hides is blank and left out of the pair's average, and the propulsion dimensions are blank for designs with no propulsor card (Hoverbike, Personal Flying Vehicle).
 
 | system          | dimension                  | codebook field                                                           | compared as                                                                                     |   weight |
 |:----------------|:---------------------------|:-------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------|---------:|
@@ -299,9 +299,9 @@ Source: `viz/thesis_q7.py` numbers(ctx), notebook cells of the III2_III3 group.
 - `dq_f_all` = −0.026
 - `dq_f_all_edge` = −0.022
 
-## Follow-up 2026-10-23, III.1 without Bell / Textron
+## III.1 without Bell / Textron
 
-Written by notebook 57 (`viz/followup_iii1.py`), supervisor comment 67. The III.1 frames and rules unchanged (`viz/analysis_iii.rho_table`, `frames.class_counts_by_window`): cohort shares over every design of the cohort; Spearman rho of each architecture's yearly share on the priority year over 2008-2023 (16 years) and 2016-2023 (8 years); the same 7 architectures (20 designs or more, all assignees) and the same Holm family per span as III.1. Every design whose assignee is Bell / Textron leaves numerator and denominator. Spearman draws nothing at random, so the seed plays no part. No figure is changed. Table: `csv/q7_iii1_without_bell.csv`.
+Written by notebook 29_dominant_design_without_one_assignee (`viz/followup_iii1.py`). The III.1 frames and rules unchanged (`viz/analysis_iii.rho_table`, `frames.class_counts_by_window`): cohort shares over every design of the cohort; Spearman rho of each architecture's yearly share on the priority year over 2008-2023 (16 years) and 2016-2023 (8 years); the same 7 architectures (20 designs or more, all assignees) and the same Holm family per span as III.1. Every design whose assignee is Bell / Textron leaves numerator and denominator. Spearman draws nothing at random, so the seed plays no part. No figure is changed. Table: `csv/q7_iii1_without_bell.csv`.
 
 ### 1. Bell / Textron's designs per cohort and architecture
 
@@ -330,7 +330,7 @@ Written by notebook 57 (`viz/followup_iii1.py`), supervisor comment 67. The III.
 
 ### 3. Tilt Propulsor, Spearman rho of share on priority year
 
-Check: the all-assignees row reproduces III.1 (2016-2023: rho -0.357, p 0.39).
+All-assignees row, as in III.1 (2016-2023: rho -0.452, p 0.26).
 
 | assignees              | designs 2008-2023   | rho 2008-2023   | p 2008-2023   | p 2008-2023 (Holm)   | rho 2016-2023   | p 2016-2023   | p 2016-2023 (Holm)   |
 |:-----------------------|:--------------------|:----------------|:--------------|:---------------------|:----------------|:--------------|:---------------------|

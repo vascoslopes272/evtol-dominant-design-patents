@@ -53,6 +53,14 @@ MAIN_W = "w15"
 LEVELS = {"5a": ("A0", "fig5a_balance_L1.pdf"), "5b": ("A1t", "fig5b_balance_L2.pdf"), "5c": ("A0c", "fig5c_balance_L3.pdf")}
 
 LOG = []          # what did not fit, for the README
+LABEL4 = {"HB": "Hoverbike"}          # Fig 4: HB (hoverbike / personal flying device) is not defined in the paper, so the label spells it out
+# Fig 8 (file fig7c_...): the 15 dimensions of the disparity distance, in the order of test2_explore_per_dimension.csv, as the paper names them
+DIM_LABELS = {"Architecture": "Architecture", "Fuselage Shape": "Fuselage shape", "Boom count": "Boom count",
+              "Fuselage Kinematics": "Fuselage kinematics", "Wing count": "Number of wings", "Wing Architecture": "Wing configuration",
+              "Vertical Position": "Primary wing vertical position", "Longitudinal Position": "Primary wing longitudinal position",
+              "Planform": "Primary wing planform", "Empennage Type": "Tail type", "Propulsor band": "Propulsor number interval",
+              "Tilt share": "Tilt share", "Propulsor Enclosure": "Propulsor enclosure",
+              "Tractor/Pusher Arrangement": "Tractor/pusher arrangement", "Mount locations": "Mount locations"}
 
 
 def rc():
@@ -239,7 +247,7 @@ def fig4(ctx):
         k = short.get(c, c)
         col = ts.ARCH[k]
         ax.plot([4.1, 4.45], [yv, yp], color=col, linewidth=0.4, zorder=2)
-        ax.text(4.5, yp, k if k != "Other" else "Other", color=col, ha="left", va="center", fontsize=FS, fontweight="bold" if c in big else "normal")
+        ax.text(4.5, yp, LABEL4.get(k, k), color=col, ha="left", va="center", fontsize=FS, fontweight="bold" if c in big else "normal")
     finish(fig, "fig4_architecture_shares.pdf")
     share.assign(designs=list(n_win)).round(4).to_csv(OUT / "fig4_architecture_shares.csv")
 
@@ -350,7 +358,7 @@ def disparity_thesis_reading(dis, name="fig5d_disparity.pdf"):
     bot = float(np.nanmin(pd.concat([a[["ΔQ permutation low", "ΔQ"]], p[["ΔQ"]]]).to_numpy()))
     pad = 0.06 * (top - bot)
     ax.set_ylim(bot - pad, top + pad)
-    ax.set_ylabel("ΔQ against the two earliest\ncohorts (all designs)", linespacing=1.15)
+    ax.set_ylabel("ΔQ against the two earliest cohorts")
     cohort_axis(ax)
     LOG.append("fig5d: every protected point (all five cohorts) is read against the ALL-DESIGNS baseline (mean Q of the two earliest cohorts of all designs, "
                f"{float(a['Q of the earliest windows'].iloc[0]):.4f}) and the all-designs permutation band, as in Table 4. 2020-23 is the Table 4 value "
@@ -362,7 +370,7 @@ def disparity_thesis_reading(dis, name="fig5d_disparity.pdf"):
 
 
 def fig5(bal, dis):
-    ylab = "²D: large designs in play"
+    ylab = "Effective number of configurations, ²D"
     for key, (level, name) in LEVELS.items():
         balance_panel(bal, level, name, ylab, zoom="tight" if level in ("A0", "A1t") else True, legend=level == "A0")     # 5a, 5b: tight y axis (bands stay whole); 5c: whole range; legend in 5a only
     balance_three(bal)
@@ -408,7 +416,7 @@ def fig7(ctx, bal, dis):
                   "CHECK: the all-designs series also meets the condition in " + ", ".join(map(str, met_a)) + "."))
     finish(fig, "fig7a_F_share.pdf")
     f[["priority year", "F share", "F share in force"]].to_csv(OUT / "fig7a_F_share.csv", index=False)
-    balance_panel(bal, "family_b", "fig7b_F_balance.pdf", "²D of F", legend=True, legend_loc="lower center")
+    balance_panel(bal, "family_b", "fig7b_F_balance.pdf", "Effective number of configurations, ²D", legend=True, legend_loc="lower center")
 
 
 def fig7c(dataset_root: Path):
@@ -423,8 +431,8 @@ def fig7c(dataset_root: Path):
     cohorts = (("2016-19", "o", "2016–19"), ("2020-23", "s", "2020–23"))
     Wmm, Hmm = 120.0, 170.0
     fig = plt.figure(figsize=(Wmm / 25.4, Hmm / 25.4))
-    ax_d = fig.add_axes([0.34, 0.062, 0.63, 0.665])
-    ax_c = fig.add_axes([0.34, 0.805, 0.63, 0.135], sharex=ax_d)
+    ax_d = fig.add_axes([0.45, 0.062, 0.52, 0.665])        # wider left margin: the longest label is "Primary wing longitudinal position"
+    ax_c = fig.add_axes([0.45, 0.805, 0.52, 0.135], sharex=ax_d)
     ax_d.set_label("fig7c")
     mk = dict(linestyle="none", markersize=4.4, color=C_ALL, markerfacecolor=C_ALL, markeredgewidth=0.8, zorder=4)
     ek = dict(linestyle="none", marker="|", markersize=6.5, color=C_UNT, markeredgewidth=1.3, zorder=3)
@@ -447,7 +455,9 @@ def fig7c(dataset_root: Path):
         ax_d.plot(t[f"{coh}: dQ"], y + off, marker=m, **mk)
         ax_d.plot(t[f"{coh}: band edge"], y + off, **ek)
     ax_d.set_yticks(y)
-    ax_d.set_yticklabels(t["dimension"])
+    missing = [d for d in t["dimension"] if d not in DIM_LABELS]
+    assert not missing, f"fig7c: no paper label for {missing}"
+    ax_d.set_yticklabels([DIM_LABELS[d] for d in t["dimension"]])
     ax_d.set_ylim(-0.7, n - 0.3)
     ax_d.set_xlabel("ΔQ inside F, architecture weight 0")
     for a_ in (ax_c, ax_d):
@@ -466,7 +476,7 @@ def fig7c(dataset_root: Path):
                + ("It shows no convergence inside F: both cohorts (and every dimension) sit above the lower band edge." if above else
                   "CHECK: some point is not above the lower band edge."))
     finish(fig, "fig7c_exploratory_check_dQ_inside_F.pdf")
-    t.to_csv(OUT / "fig7c_exploratory_check_dQ_inside_F.csv", index=False)
+    t.assign(**{"figure label": t["dimension"].map(DIM_LABELS)}).to_csv(OUT / "fig7c_exploratory_check_dQ_inside_F.csv", index=False)
     sm[["baseline (architecture 0): dQ", "baseline: band edge"]].to_csv(OUT / "fig7c_exploratory_check_dQ_inside_F_by_cohort.csv")
     return True
 

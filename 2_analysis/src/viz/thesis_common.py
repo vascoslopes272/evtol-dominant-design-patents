@@ -229,7 +229,7 @@ METHOD_ITEMS = [
     dict(name="common_chapter_flow", slot="method", kind="figure", sub="", title="How the chapter is organised",
          caption="From the ground files to the Answer box of each question, through the labelled aircraft and the three parts.",
          source_item="new", flag=None, flag_note="", builder=fig_chapter_flow,
-         source="labelled dataset, 627 unique aircraft", unit="unique aircraft", read=""),
+         source="labelled dataset, unique aircraft", unit="unique aircraft", read=""),
     dict(name="common_data_flow", slot="method", kind="figure", sub="", title="How the dataset is built",
          caption="The four ground files notebook 04 joins into aircraft_table.csv, the one table every question reads.",
          source_item="new", flag=None, flag_note="", builder=fig_data_flow,

@@ -80,16 +80,16 @@ Source: `viz/thesis_q4.py:215` `directory_mix(ctx)` (the call behind notebook `2
 
 | design | aircraft name | label from the drawing | label from the text | public aircraft (directory `public_arch`) | match type |
 |---|---|---|---|---|---|
-| US2018290736A1_ua1 | S4 v1 | SLC | SLC | Vectored thrust (S4, tilt rotor) | no |
-| US9975631B1_ua1 | Cora v1 | TW | TW | Lift + cruise (Cora) | no |
-| US2018086448A1_ua1 | Wisk Aero | TW | TW | Conventional take-off (Z-P1) | no |
-| DE102023108565B3_ua1 | Porsche-Boeing concept | SLC | SLC | Vectored thrust (concept) | no |
-| US2021371117A1_ua1 | Porsche-Boeing concept v1 | SLC | SLC | Vectored thrust (concept) | no |
-| DE102023133781B3_ua1 | Porsche-Boeing concept v2 | SLC | SLC | Vectored thrust (concept) | no |
-| US2024253779A1_ua1 | S-A1 | SLC | SLC | Vectored thrust (S-A1 mock-up) | no |
-| WO2024151705A1_ua1 | S-A1 v1 | SLC | SLC | Vectored thrust (S-A1 mock-up) | no |
-| CN119262274A_ua1 | AE200 | SLC | SLC | Vectored thrust (AE200, tilt rotor) | no |
-| GB201801766D0_ua1 | e-Starling | SLC | CVT | Vectored thrust (e-Starling) | image |
+| US2018290736A1_ad1 | S4 v1 | SLC | SLC | Vectored thrust (S4, tilt rotor) | no |
+| US9975631B1_ad1 | Cora v1 | TW | TW | Lift + cruise (Cora) | no |
+| US2018086448A1_ad1 | Wisk Aero | TW | TW | Conventional take-off (Z-P1) | no |
+| DE102023108565B3_ad1 | Porsche-Boeing concept | SLC | SLC | Vectored thrust (concept) | no |
+| US2021371117A1_ad1 | Porsche-Boeing concept v1 | SLC | SLC | Vectored thrust (concept) | no |
+| DE102023133781B3_ad1 | Porsche-Boeing concept v2 | SLC | SLC | Vectored thrust (concept) | no |
+| US2024253779A1_ad1 | S-A1 | SLC | SLC | Vectored thrust (S-A1 mock-up) | no |
+| WO2024151705A1_ad1 | S-A1 v1 | SLC | SLC | Vectored thrust (S-A1 mock-up) | no |
+| CN119262274A_ad1 | AE200 | SLC | SLC | Vectored thrust (AE200, tilt rotor) | no |
+| GB201801766D0_ad1 | e-Starling | SLC | CVT | Vectored thrust (e-Starling) | image |
 
 CSV: `D2_18_ten_mismatches.csv`. Agreement values (B5): drawing against public 87/97, kappa 0.8727, Wilson-FPC 0.83-0.94; text against public 88/97, kappa 0.8866; drawing against text 94/97, kappa 0.9613.
 
@@ -97,7 +97,7 @@ CSV: `D2_18_ten_mismatches.csv`. Agreement values (B5): drawing against public 8
 
 Frame: `viz/frames.py:2242` `form_frame15(ds)` (via `gower_inputs(ds, "w15")`, 619 rows, 15 dimensions); weights `form_weights(None, "w15")` (`frames.py:2074`, from `FORM15`, `frames.py:2046`); distance `lib/distance.py` `gower_distance` with the fixed ranges of `FORM15_RANGES`: d_ij = sum_k w_k delta_ijk / sum_k w_k present_ijk, with delta = 0 if the categories match, 1 if not; for an ordered dimension |rank difference| / range (Boom count 4, Wing count 3, Propulsor band 4); Tilt share |difference|; Mount locations the Jaccard distance. Search: all pairs of the 619 whose other 13 dimensions are identical (blank counted as equal) and whose wing count and propulsor band both differ: 3 pairs (`D2_19_candidate_pairs.csv`). The pair with no blank cell and the smallest rank differences is shown (the first of the 3).
 
-Design i = **EP4748710A1_ua1** (Leonardo, priority year 2024, cohort 2024-26 partial); design j = **DE102019001834A1_ua1** (no assignee in the table, priority year 2019, cohort 2016-19). Both architecture CVT. Propulsor band ranks: 0 = "1-3" units, 1 = "4", 2 = "5-6", 3 = "7-8", 4 = "9+" (`frames.py:34`).
+Design i = **EP4748710A1_ad1** (Leonardo, priority year 2024, cohort 2024-26 partial); design j = **DE102019001834A1_ad1** (no assignee in the table, priority year 2019, cohort 2016-19). Both architecture CVT. Propulsor band ranks: 0 = "1-3" units, 1 = "4", 2 = "5-6", 3 = "7-8", 4 = "9+" (`frames.py:34`).
 
 | dimension | design i | design j | weight | both present | delta | w x delta |
 |---|---|---|---|---|---|---|
@@ -118,7 +118,7 @@ Design i = **EP4748710A1_ua1** (Leonardo, priority year 2024, cohort 2024-26 par
 | Mount locations | {empennage, wing} | {empennage, wing} | 0.1 | 1 | 0 (Jaccard) | 0 |
 | **sum** | | | 4.0 (all 15 present) | | | **0.275** |
 
-d_ij = 0.275 / 4.0 = **0.06875**. Check: `lib.distance.gower_distance` on the two-row frame = 0.06875; on the full 619 x 619 frame, entry (i, j) = 0.06875; absolute difference to the hand value 1.4e-17 (`D2_19_check.csv`). Per-dimension table with the sum row: `D2_19_worked_gower_example.csv`. Note the number of wings is the wing count column (2 against 1) and the band ranks differ by 2 (5-6 against 1-3 units); the other two candidate pairs differ by 1 wing and 2 ranks (US2022388647A1_ua1 against WO2012047337A1_ua1) and 1 wing and 4 ranks (EP3998191A1_ua1 against UA124132C2_ua1).
+d_ij = 0.275 / 4.0 = **0.06875**. Check: `lib.distance.gower_distance` on the two-row frame = 0.06875; on the full 619 x 619 frame, entry (i, j) = 0.06875; absolute difference to the hand value 1.4e-17 (`D2_19_check.csv`). Per-dimension table with the sum row: `D2_19_worked_gower_example.csv`. Note the number of wings is the wing count column (2 against 1) and the band ranks differ by 2 (5-6 against 1-3 units); the other two candidate pairs differ by 1 wing and 2 ranks (US2022388647A1_ad1 against WO2012047337A1_ad1) and 1 wing and 4 ranks (EP3998191A1_ad1 against UA124132C2_ad1).
 
 ## Not possible or not found
 

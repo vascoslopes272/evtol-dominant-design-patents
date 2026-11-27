@@ -388,7 +388,7 @@ Source: `viz.frames.tw_entry_tests` on `viz.thesis_q2._frames(ctx)['twe']` (`lib
 | `px_na` | 0.54 |
 | `px_ap` | 0.52 |
 
-## Entry lag with two decimals (follow-up)
+## Entry lag with two decimals
 
 Source: `viz/latex_part5.py:lag_two_decimals`, the bootstrap of `lib/regional.lag_offsets` without the rounding (same frames, same seed 42, same draw order; 2000 draws). Asserted equal, after rounding to 1 decimal, to `viz.thesis_q3._frames(ctx)['off']` and `['off16']`, so no result moves. Offset = median priority year of the region minus that of North America; lower and upper bound = 2.5 and 97.5 percentiles of the bootstrap offsets; 'lower bound above zero' tests the two-decimal value; the marker flags every lower bound whose 1-decimal value is 0.0. CSV: `q3_region_entry_lag_two_decimals.csv`.
 

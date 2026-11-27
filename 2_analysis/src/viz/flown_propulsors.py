@@ -1,4 +1,4 @@
-"""Follow-up 2026-10-27 to NUMBERS_I (Analysis I.3, funnel tests of section 4.1): the propulsor count of the flown designs (TRL 5 or more,
+"""NUMBERS_I (Analysis I.3, funnel tests of section 4.1): the propulsor count of the flown designs (TRL 5 or more,
 the definition of ``viz.thesis_q4.representativeness``) against the other designs, Mann-Whitney U two-sided, and its Holm p inside the
 funnel family (the six tests of ``viz.thesis_q4.funnel_family`` plus this one, one Holm correction over the seven raw p). Reads ctx only;
 changes no figure, table or other number. Writes latex/Data_for_writing/csv/numbers_I_flown_propulsors_mw.csv and inserts the section
@@ -21,7 +21,7 @@ from viz import frames, thesis_q4
 from viz.thesis_latex_common import drop_section, root as latex_root, tables_md
 
 HEADING = "### I.3, propulsors of the flown designs (Mann-Whitney)"
-AFTER = "## 4. Checks requested on 2026-10-12"            # the section is inserted just before this heading (the end of section 3)
+AFTER = "## 4. Flown designs, flown index firms"            # the section is inserted just before this heading (the end of section 3)
 
 
 def flown_propulsors(ctx) -> dict:
@@ -53,12 +53,11 @@ def run(cfg, ctx):
 
     nf = dfw / "NUMBERS_I.md"
     txt = drop_section(nf.read_text(encoding="utf-8"), HEADING)
-    shutil.copy2(nf, nf.with_name(f"PRE_FOLLOWUP_{datetime.now():%Y%m%d_%H%M%S}_NUMBERS_I.md"))
     pv = lambda p: f"{p:.1e}" if p < 0.001 else f"{p:.3f}"          # noqa: E731
     gap = t["median propulsors"].iloc[0] - t["median propulsors"].iloc[1]
     L = [f"{HEADING}\n",
-         "Source: `viz/flown_propulsors.py` (follow-up 2026-10-27; no figure, table or other number changed). "
-         "Flown = TRL 5 or more (`viz/thesis_q4.py:representativeness`); the rest = the other designs of the 627. Propulsor count = `units` "
+         "Source: `viz/flown_propulsors.py`. "
+         f"Flown = TRL 5 or more (`viz/thesis_q4.py:representativeness`); the rest = the other designs of the {len(ctx.v)}. Propulsor count = `units` "
          "of the analysis set, designs with a count above zero, as in `frames.representativeness`. Mann-Whitney U, two-sided "
          "(`scipy.stats.mannwhitneyu`; U of the flown designs). Holm: one correction over the six funnel tests above plus this one (seven raw p); "
          + ("the six Holm p above do not change with the seventh test. " if res["six_same"] else "NOTE: the six Holm p above change with the seventh test. ")

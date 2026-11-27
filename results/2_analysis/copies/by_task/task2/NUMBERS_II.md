@@ -1,24 +1,24 @@
 # NUMBERS_II — Analysis II (design space)
 
-Written by notebook 50 (`viz/thesis_latex_part2.py`); every value is recomputed when the notebook runs. CSVs are in `Data_for_writing/csv/`. Levels are A (architecture), A·W·T (architecture, wings, tilt), A·U (architecture, propulsor units); the propulsor bands are 1–3, 4, 5–6, 7–8 and 9+. The one design recorded with 0 propulsors (GB202302720D0_ad1, its count never entered under an M2 override) is left out of U (rerun of 2026-10-15).
+Written by notebook 22_design_space (`viz/thesis_latex_part2.py`); every value is recomputed when the notebook runs. Dataset: the public eVTOL_dataset, 621 designs (619 with an architecture). CSVs are in `Data_for_writing/csv/`. Levels are A (architecture), A·W·T (architecture, wings, tilt), A·U (architecture, propulsor units); the propulsor bands are 1–3, 4, 5–6, 7–8 and 9+. The one design recorded with 0 propulsors (GB202302720D0_ad1, its count never entered under an M2 override) is left out of U.
 
 ## Configurations that hold half of each cohort's designs, at A·U (`q6_half_of_cohort`, which leaves the text)
 
-Source: `q6_half_of_cohort.csv`. The figure ranks the configurations by size within the cohort (first column); the old heatmap used the overall-size order (second), which gives 10 for 2016–19 where the text says 10. 2024–26 is incomplete and not read.
+Source: `q6_half_of_cohort.csv`. The figure ranks the configurations by size within the cohort (first column of counts); the second column of counts uses the overall-size order. 2024–26 is incomplete and not read.
 
-| cohort               |   designs |   designs in the 32 A·U configurations of five or more |   configurations that hold half (ranked by size within the cohort) |   same, columns in overall-size order (the old heatmap) |
-|:---------------------|----------:|-------------------------------------------------------:|-------------------------------------------------------------------:|--------------------------------------------------------:|
-| ≤2011                |        59 |                                                     57 |                                                                  5 |                                                       8 |
-| 2012–15              |        57 |                                                     56 |                                                                  5 |                                                       7 |
-| 2016–19              |       213 |                                                    200 |                                                                  9 |                                                       9 |
-| 2020–23              |       237 |                                                    224 |                                                                  7 |                                                       7 |
-| 2024–26 (incomplete) |        55 |                                                     53 |                                                                  6 |                                                      10 |
+| cohort               |   designs |   designs in the 32 A·U configurations of five or more |   configurations that hold half (ranked by size within the cohort) |   same, columns in overall-size order |
+|:---------------------|----------:|-------------------------------------------------------:|-------------------------------------------------------------------:|--------------------------------------:|
+| ≤2011                |        59 |                                                     57 |                                                                  5 |                                     8 |
+| 2012–15              |        57 |                                                     56 |                                                                  5 |                                     7 |
+| 2016–19              |       213 |                                                    200 |                                                                  9 |                                     9 |
+| 2020–23              |       237 |                                                    224 |                                                                  7 |                                     7 |
+| 2024–26 (incomplete) |        55 |                                                     53 |                                                                  6 |                                    10 |
 
 ## Table: dimensions that vary
 
-Source: `q6_selected_fields.csv` (notebook 50, group II1).
+Source: `q6_selected_fields.csv` (notebook 22_design_space, group II1).
 
-Change of 2026-10-16: three dimensions added (Table 4.3 of the dissertation): booms present (`boomsPresent`, all 627 designs), propulsor enclosure (any ducted: `any_ducted` of `frames.propulsion_states`, on the designs with a propulsor-unit answer, so the 0-propulsor design and HB / PFV are left out as in the two propulsor rows: 595, not the 596 of ANSWERS_II1.md) and fuselage shape (`fusShape`, codebook base names; the table prints the four most common options, the fifth is Other: 11). The three enter `q6_fixed_by_architecture` in the table's order, before number of wings, so the permutation p of number of wings (0.003 → 0.001) and wing configuration (0.006 → 0.004) moved with the shuffle stream; every V and every other p is unchanged.
+Three dimensions are read from the frames: booms present (`boomsPresent`, all 621 designs), propulsor enclosure (any ducted: `any_ducted` of `frames.propulsion_states`, on the 589 designs with a propulsor-unit answer, so the 0-propulsor design and HB / PFV are left out as in the two propulsor rows) and fuselage shape (`fusShape`, codebook base names; the table prints the four most common options and groups the rest as Other). They enter `q6_fixed_by_architecture` in the table's order, before number of wings.
 
 | dimension                                  |   designs answering |   options | top share   | most common options                                                          |
 |:-------------------------------------------|--------------------:|----------:|:------------|:-----------------------------------------------------------------------------|
@@ -35,7 +35,7 @@ Change of 2026-10-16: three dimensions added (Table 4.3 of the dissertation): bo
 
 ## Which dimensions the architecture fixes (`q6_fixed_by_architecture`)
 
-Source: `q6_fixed_by_architecture.csv` and `q6_fixed_by_architecture_detail.csv` (notebook 50, group II1, appendix; `viz/thesis_q6.py` fixed_by_architecture).
+Source: `q6_fixed_by_architecture.csv` and `q6_fixed_by_architecture_detail.csv` (notebook 22_design_space, group II1, appendix; `viz/thesis_q6.py` fixed_by_architecture).
 
 For each dimension of the table above, on the designs that answer it and have an architecture, the bias-corrected Cramér's V (Bergsma 2013) of dimension × architecture is read with a permutation p (1000 shuffles of the architecture column, one generator seeded 42, dimensions in the table's order; p = share of shuffles at or above the observed V). Per architecture the leading option of the dimension and its share of that architecture's answering designs are read (the detail csv); an architecture with fewer than 10 answering designs is too few to read, and the dimension is fixed in an architecture when the leading option holds 80 % or more of them.
 
@@ -54,7 +54,7 @@ For each dimension of the table above, on the designs that answer it and have an
 
 ## Table: levels of description
 
-Source: `q7_levels_of_description.csv` (notebook 50, group II2). The family F row is in Analysis III.
+Source: `q7_levels_of_description.csv` (notebook 22_design_space, group II2). The family F row is in Analysis III.
 
 | level   |   configurations |   singletons |   ¹D | largest configuration                 | its share   |
 |:--------|-----------------:|-------------:|-----:|:--------------------------------------|:------------|
@@ -64,7 +64,7 @@ Source: `q7_levels_of_description.csv` (notebook 50, group II2). The family F ro
 
 ## Table: Hill numbers of each level
 
-Source: `q7_hill_numbers_by_level.csv`; all years, 627 designs less those the level cannot name.
+Source: `q7_hill_numbers_by_level.csv`; all years, 621 designs less those the level cannot name.
 
 | level   |   designs |   ⁰D (configurations) |   ¹D |   ²D |
 |:--------|----------:|----------------------:|-----:|-----:|
@@ -82,7 +82,7 @@ Source: `q6_discovery_estimators.csv`; the figure's last-100 window and these nu
 | A·W·T   |                        563 |                    36 |      39 |                           4.2 |                                 1.4 |
 | A·U     |                        563 |                    43 |      45 |                           1.1 |                                 0.8 |
 
-### Band of the last 100 designs (`q6_discovery_last100_band.csv`, supervisor review 2)
+### Band of the last 100 designs (`q6_discovery_last100_band.csv`)
 
 Date order: the count of configurations first seen in the last 100 designs over the 1 000 tie orderings inside a priority year that draw the curve (same generator stream, seed 42); its mean is the value above. Random order: 10 000 full shuffles of the same designs (second generator, seed 42); the random mean is the exact expectation (the value above), the shuffle mean is the check (within 0.02). One-sided p: (a) share of shuffles with a count at or above the date-order mean; (b) for each date ordering the share of shuffles at or above its whole count, averaged over the orderings. The dissertation quotes (b).
 

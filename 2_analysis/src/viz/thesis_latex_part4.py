@@ -1349,7 +1349,7 @@ def export_refresh(cfg, ctx):
         _manifest(R, lines)
     nums = incomplete_cohort_numbers(ctx)
     md = ["# NUMBERS_IV, the incomplete 2024-26 cohort (drawn, never tested)\n",
-          "Written by notebook 24_evolution_of_the_design_space (`viz/thesis_latex_part4.py`, refresh of 2026-10-16). The 2024-26 cohort is the fifth column or point of the Analysis IV figures; "
+          "Written by notebook 24_evolution_of_the_design_space (`viz/thesis_latex_part4.py`). The 2024-26 cohort is the fifth column or point of the Analysis IV figures; "
           "it enters no test, no disparity and no number of `NUMBERS_IV.md`, which stays on the four complete cohorts. Designs with a priority year of 2024 or later.\n",
           "## Layout shares, 2024-26 (share of the architecture's designs)\n", "Source: `q6_leading_layout_by_architecture.csv`, rows `2024-26 (incomplete)`.\n",
           tables_md(nums["layouts"]), "",

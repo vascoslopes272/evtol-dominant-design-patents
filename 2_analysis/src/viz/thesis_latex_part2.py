@@ -172,7 +172,7 @@ def _numbers(cfg, ctx, R: Path):
         k_all = int(np.searchsorted(np.cumsum(z[w].astype(float).to_numpy()) / c.sum(), 0.5)) + 1
         rows.append({"cohort": cohort(w), "designs": int(n_win[w]), f"designs in the {len(z)} A·U configurations of five or more": int(c.sum()),
                      "configurations that hold half (ranked by size within the cohort)": k,
-                     "same, columns in overall-size order (the old heatmap)": k_all})
+                     "same, columns in overall-size order": k_all})
     half = pd.DataFrame(rows)
     t6, _ = _item("q6_selected_fields")["builder"](ctx)
     t7, _ = _item("q7_levels_of_description")["builder"](ctx)
@@ -192,16 +192,15 @@ def _numbers(cfg, ctx, R: Path):
     L = ["# NUMBERS_II — Analysis II (design space)\n",
          "Written by notebook 22_design_space (`viz/thesis_latex_part2.py`); every value is recomputed when the notebook runs. Dataset: the public eVTOL_dataset, 621 designs (619 with an architecture). CSVs are in `Data_for_writing/csv/`. "
          "Levels are A (architecture), A·W·T (architecture, wings, tilt), A·U (architecture, propulsor units); the propulsor bands are 1–3, 4, 5–6, 7–8 and 9+. "
-         "The one design recorded with 0 propulsors (GB202302720D0_ua1, its count never entered under an M2 override) is left out of U (rerun of 2026-10-15).\n",
+         "The one design recorded with 0 propulsors (GB202302720D0_ua1, its count never entered under an M2 override) is left out of U.\n",
          "## Configurations that hold half of each cohort's designs, at A·U (`q6_half_of_cohort`, which leaves the text)\n",
-         "Source: `q6_half_of_cohort.csv`. The figure ranks the configurations by size within the cohort (first column); the old heatmap used the overall-size order (second), "
-         "which gives 10 for 2016–19 where the text says 10. 2024–26 is incomplete and not read.\n", tables_md(half), "",
+         "Source: `q6_half_of_cohort.csv`. The figure ranks the configurations by size within the cohort (first column of counts); the second column of counts uses the overall-size order. "
+         "2024–26 is incomplete and not read.\n", tables_md(half), "",
          "## Table: dimensions that vary\n", "Source: `q6_selected_fields.csv` (notebook 22_design_space, group II1).\n",
-         "Change of 2026-10-16: three dimensions added (Table 4.3 of the dissertation): booms present (`boomsPresent`, all 627 designs), propulsor enclosure "
-         "(any ducted: `any_ducted` of `frames.propulsion_states`, on the designs with a propulsor-unit answer, so the 0-propulsor design and HB / PFV are left out "
-         "as in the two propulsor rows: 595, not the 596 of ANSWERS_II1.md) and fuselage shape (`fusShape`, codebook base names; the table prints the four most common "
-         "options, the fifth is Other: 11). The three enter `q6_fixed_by_architecture` in the table's order, before number of wings, so the permutation p of "
-         "number of wings (0.003 → 0.001) and wing configuration (0.006 → 0.004) moved with the shuffle stream; every V and every other p is unchanged.\n", tables_md(t6), "",
+         f"Three dimensions are read from the frames: booms present (`boomsPresent`, all {len(ctx.v)} designs), propulsor enclosure "
+         f"(any ducted: `any_ducted` of `frames.propulsion_states`, on the {int(t6.loc[t6['dimension'].str.startswith('propulsor enclosure'), 'designs answering'].iloc[0])} designs with a propulsor-unit answer, so the 0-propulsor design and HB / PFV are left out "
+         "as in the two propulsor rows) and fuselage shape (`fusShape`, codebook base names; the table prints the four most common "
+         "options and groups the rest as Other). They enter `q6_fixed_by_architecture` in the table's order, before number of wings.\n", tables_md(t6), "",
          "## Which dimensions the architecture fixes (`q6_fixed_by_architecture`)\n",
          "Source: `q6_fixed_by_architecture.csv` and `q6_fixed_by_architecture_detail.csv` (notebook 22_design_space, group II1, appendix; `viz/thesis_q6.py` fixed_by_architecture).\n",
          f"For each dimension of the table above, on the designs that answer it and have an architecture, the bias-corrected Cramér's V (Bergsma 2013) of dimension × architecture "
@@ -210,9 +209,9 @@ def _numbers(cfg, ctx, R: Path):
          f"(the detail csv); an architecture with fewer than {q6.FIXED_MIN_DESIGNS} answering designs is too few to read, and the dimension is fixed in an architecture when the "
          f"leading option holds {100 * q6.FIXED_SHARE:.0f} % or more of them.\n", tables_md(tfix), "",
          "## Table: levels of description\n", "Source: `q7_levels_of_description.csv` (notebook 22_design_space, group II2). The family F row is in Analysis III.\n", tables_md(t7), "",
-         "## Table: Hill numbers of each level\n", "Source: `q7_hill_numbers_by_level.csv`; all years, 627 designs less those the level cannot name.\n", tables_md(hill), "",
+         "## Table: Hill numbers of each level\n", f"Source: `q7_hill_numbers_by_level.csv`; all years, {len(ctx.v)} designs less those the level cannot name.\n", tables_md(hill), "",
          "## Discovery (`q6_discovery_curve`): complete years (to 2023)\n", "Source: `q6_discovery_estimators.csv`; the figure's last-100 window and these numbers are on the complete years.\n", tables_md(est_t), "",
-         "### Band of the last 100 designs (`q6_discovery_last100_band.csv`, supervisor review 2)\n",
+         "### Band of the last 100 designs (`q6_discovery_last100_band.csv`)\n",
          "Date order: the count of configurations first seen in the last 100 designs over the 1 000 tie orderings inside a priority year that draw the curve "
          f"(same generator stream, seed {ctx.SEED}); its mean is the value above. Random order: 10 000 full shuffles of the same designs (second generator, seed {ctx.SEED}); "
          "the random mean is the exact expectation (the value above), the shuffle mean is the check (within 0.02). One-sided p: (a) share of shuffles with a count at or above "

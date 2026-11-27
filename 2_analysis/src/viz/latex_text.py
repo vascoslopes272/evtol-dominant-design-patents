@@ -30,15 +30,15 @@ from viz.thesis_latex_common import root
 USED = {"q1_filings_per_year": True, "q4_patent_vs_market_clock": True, "q4_class_mix": True,
         "q1_growth_rates": False, "q1_growth_rates_baselines": False, "q4_dataset_vs_directory_classes": False, "q4_dataset_vs_directory_subsets": False, "q1_in_force_status": False, "q5_funding_vs_aircraft": False, "q5_patenting_vs_investment": False}
 SHOWS = {
-    "q1_filings_per_year": "Designs filed per priority year (dark-grey bars, 2024-26 outline only) and patent families (blue line, same y axis); dated sector events as thin lines (thesis style, 2026-10-20)",
+    "q1_filings_per_year": "Designs filed per priority year (dark-grey bars, 2024-26 outline only) and patent families (blue line, same y axis); dated sector events as thin lines",
     "q4_dataset_vs_directory_classes": "Designs per architecture group in the patent dataset and the pages of the VFS eVTOL directory inside the domain, all years (appendix)",
     "q4_dataset_vs_directory_subsets": "Designs of each architecture group in the dataset and in four parts of the in-domain directory (appendix)",
-    "q1_growth_rates": "Growth of eVTOL architecture patent families and aeronautics (CPC B64), relative to 2005-09, log2 scale, each drawn with the model that wins on AIC and BIC (its own break, fitted 2005-2022); (b) eVTOL families per 1 000 B64 families per priority year (supervisor review 2, 2026-10; no level-shift arrows)",
-    "q1_growth_rates_baselines": "Appendix to q1_growth_rates: transport and operations (CPC section B) and all patents, the same reading, one panel each (supervisor review 2, 2026-10)",
-    "q4_patent_vs_market_clock": "One row per AAM Reality Index firm that files here: first to last patent, peak year, first flight, entry into service (thesis style, 6.3 in, 2026-10-20)",
-    "q1_in_force_status": "Share of designs not actively protected, by architecture and by filing office (US against the other offices), the nine architectures of ten designs or more, 604 designs (width not given: 1.0; appendix at most)",
-    "q4_class_mix": "Share of each VFS directory category per cohort, one panel per category: patent dataset (solid) against the VFS eVTOL directory (dashed) (thesis style, 2026-10-20)",
-    "q5_funding_vs_aircraft": "Disclosed funding of the index firms against their designs in the patent dataset (width not given: 0.6, as in the dissertation before)",
+    "q1_growth_rates": "Growth of eVTOL architecture patent families and aeronautics (CPC B64), relative to 2005-09, log2 scale, each drawn with the model that wins on AIC and BIC (its own break, fitted 2005-2022); (b) eVTOL families per 1 000 B64 families per priority year (no level-shift arrows)",
+    "q1_growth_rates_baselines": "Appendix to q1_growth_rates: transport and operations (CPC section B) and all patents, the same reading, one panel each",
+    "q4_patent_vs_market_clock": "One row per AAM Reality Index firm that files here: first to last patent, peak year, first flight, entry into service (6.3 in wide)",
+    "q1_in_force_status": "Share of designs not actively protected, by architecture and by filing office (US against the other offices), the nine architectures of ten designs or more (width not given: 1.0; appendix at most)",
+    "q4_class_mix": "Share of each VFS directory category per cohort, one panel per category: patent dataset (solid) against the VFS eVTOL directory (dashed)",
+    "q5_funding_vs_aircraft": "Disclosed funding of the index firms against their designs in the patent dataset (width not given: 0.6)",
 }
 
 
@@ -126,8 +126,7 @@ def write_numbers_I(cfg, ctx) -> Path:
     out = [f"# NUMBERS_I — Analysis I (evidence base)",
            "", f"Generated {datetime.date.today().isoformat()} by notebook 21_evidence_base (`viz/latex_text.py:write_numbers_I`) from the current inputs "
            f"(external inputs: `{cfg.analysis.get('external_inputs', 'script')}`), {len(v)} designs, snapshot {frames.snapshot_date(ds)}. "
-           "Every value is computed when this file is written; the source column names the CSV or the code that holds it. "
-           "A value marked **new** is a number the earlier text did not quote.", ""]
+           "Every value is computed when this file is written; the source column names the CSV or the code that holds it.", ""]
 
     def table(title, rows, cols=("number", "value", "source")):
         out.append(f"### {title}\n")
@@ -171,17 +170,17 @@ def write_numbers_I(cfg, ctx) -> Path:
     big = wo[wo["topType"].isin(codes)]                                       # the 604 designs of the nine architectures
     arch_t = association.chi2_test(pd.crosstab(big["topType"], big["out"]).values)
     off604 = association.chi2_test(pd.crosstab(big["office"], big["out"]).values)
-    off625 = association.chi2_test(pd.crosstab(wo["office"], wo["out"]).values)
+    off_arch = association.chi2_test(pd.crosstab(wo["office"], wo["out"]).values)
     by_off = big.groupby("office")["out"].agg(["size", "mean", "sum"])
-    by_off625 = wo.groupby("office")["out"].agg(["size", "mean", "sum"])
+    by_off_arch = wo.groupby("office")["out"].agg(["size", "mean", "sum"])
     notplot = wo[~wo["topType"].isin(codes)].groupby("topType")["out"].agg(["size", "mean"])
     # all designs: the two designs without an architecture are read for their legal status too
     links = frames.aircraft_patents(ds, v)
     links["_live"] = links["status_known"] & ~links["inactive"]
     per = links.groupby("aircraft_id").agg(known=("status_known", "sum"), live=("_live", "any"))
-    a627 = v[["aircraft_id", "topType"]].join(per, on="aircraft_id")
-    a627["out"] = ~a627["live"].astype(bool)
-    a627 = a627[a627["known"].fillna(0) > 0]
+    a_all = v[["aircraft_id", "topType"]].join(per, on="aircraft_id")
+    a_all["out"] = ~a_all["live"].astype(bool)
+    a_all = a_all[a_all["known"].fillna(0) > 0]
     cohort = wo.groupby("window")["out"].agg(["size", "mean"]).reindex(list(ctx.WIN_NAMES))
     cohort604 = big.groupby("window")["out"].agg(["size", "mean"]).reindex(list(ctx.WIN_NAMES))
     arch_rows = (force.set_index("code").loc[codes, ["unique aircraft", "out of force", "out of force share"]]
@@ -189,30 +188,30 @@ def write_numbers_I(cfg, ctx) -> Path:
     arch_rows.insert(0, "architecture", [_arch_name(k) for k in arch_rows["code"]])
     arch_rows["code"] = [_arch_short(k) for k in arch_rows["code"]]
     arch_rows.to_csv(CSV / "numbers_I_active_protection_by_architecture.csv", index=False)
-    pd.DataFrame({"cohort": [str(i) for i in cohort.index], "designs (625 read)": cohort["size"].astype(int).to_numpy(), "share not actively protected (625)": cohort["mean"].round(3).to_numpy(),
-                  "designs (604 plotted)": cohort604["size"].astype(int).to_numpy(), "share not actively protected (604)": cohort604["mean"].round(3).to_numpy()}
+    pd.DataFrame({"cohort": [str(i) for i in cohort.index], f"designs ({len(wo)} read)": cohort["size"].astype(int).to_numpy(), f"share not actively protected ({len(wo)})": cohort["mean"].round(3).to_numpy(),
+                  f"designs ({len(big)} plotted)": cohort604["size"].astype(int).to_numpy(), f"share not actively protected ({len(big)})": cohort604["mean"].round(3).to_numpy()}
                  ).to_csv(CSV / "numbers_I_active_protection_by_cohort.csv", index=False)
     S2 = "csv/q1_in_force_status.csv; csv/numbers_I_active_protection_by_architecture.csv"
     out.append("## 2. Active protection (every priority year; actively protected = any patent that shows the design is in force at the snapshot)\n")
-    table("The 604 designs of the nine architectures of ten designs or more (the designs plotted in `q1_in_force_status`)", [
+    table(f"The {len(big)} designs of the nine architectures of ten designs or more (the designs plotted in `q1_in_force_status`)", [
         ("designs plotted", len(big), "csv/q1_in_force_status.csv (sum of n)"),
-        ("not actively protected, all 604", f"{int(big['out'].sum())} of {len(big)} = {100 * big['out'].mean():.1f} %", S2),
+        (f"not actively protected, all {len(big)}", f"{int(big['out'].sum())} of {len(big)} = {100 * big['out'].mean():.1f} %", S2),
         ("US office: designs, share not actively protected", f"{int(by_off.loc['US office', 'size'])} designs, {int(by_off.loc['US office', 'sum'])} = {100 * by_off.loc['US office', 'mean']:.1f} %", "csv/q1_in_force_status.csv"),
         ("other offices: designs, share not actively protected", f"{int(by_off.loc['other offices', 'size'])} designs, {int(by_off.loc['other offices', 'sum'])} = {100 * by_off.loc['other offices', 'mean']:.1f} %", "csv/q1_in_force_status.csv"),
-        ("test of the architecture (nine architectures x not actively protected)", f"chi-square {arch_t['chi2']:.2f}, df {arch_t['dof']}, p {arch_t['p']:.3f}", "lib/association.chi2_test on the 604 designs; q1.numbers()['fa_p']"),
-        ("test of the office (US against other offices x not actively protected), on the 604", f"chi-square {off604['chi2']:.2f}, df {off604['dof']} (Yates correction, 2 x 2), p {off604['p']:.1e}", "lib/association.chi2_test on the 604 designs; **new**"),
-        ("the same office test on all 625 designs with an architecture (the earlier text)", f"chi-square {off625['chi2']:.2f}, df {off625['dof']}, p {off625['p']:.1e}; US {100 * by_off625.loc['US office', 'mean']:.1f} % of {int(by_off625.loc['US office', 'size'])}, other offices {100 * by_off625.loc['other offices', 'mean']:.1f} % of {int(by_off625.loc['other offices', 'size'])}", "q1.numbers()['fo_us'], ['fo_else'], ['fo_n_us'], ['fo_n_else'], ['fo_p']")])
+        ("test of the architecture (nine architectures x not actively protected)", f"chi-square {arch_t['chi2']:.2f}, df {arch_t['dof']}, p {arch_t['p']:.3f}", f"lib/association.chi2_test on the {len(big)} designs; q1.numbers()['fa_p']"),
+        (f"test of the office (US against other offices x not actively protected), on the {len(big)}", f"chi-square {off604['chi2']:.2f}, df {off604['dof']} (Yates correction, 2 x 2), p {off604['p']:.1e}", f"lib/association.chi2_test on the {len(big)} designs"),
+        (f"the same office test on all {len(wo)} designs with an architecture", f"chi-square {off_arch['chi2']:.2f}, df {off_arch['dof']}, p {off_arch['p']:.1e}; US {100 * by_off_arch.loc['US office', 'mean']:.1f} % of {int(by_off_arch.loc['US office', 'size'])}, other offices {100 * by_off_arch.loc['other offices', 'mean']:.1f} % of {int(by_off_arch.loc['other offices', 'size'])}", "q1.numbers()['fo_us'], ['fo_else'], ['fo_n_us'], ['fo_n_else'], ['fo_p']")])
     out.append("Share not actively protected per architecture (the nine plotted):\n")
     out.append(_md_table(arch_rows.assign(share=(100 * arch_rows["share"]).round(0).astype(int).astype(str) + " %")))
     out.append("")
     table("Designs not plotted in `q1_in_force_status`", [
         (f"{k} ({_arch_name(k)})", f"{int(r_['size'])} designs, {100 * r_['mean']:.0f} % not actively protected", "csv/numbers_I_active_protection_by_architecture.csv") for k, r_ in notplot.iterrows()]
           + [("no architecture read", f"{int(v['topType'].isna().sum())} designs (read for legal status, see the all-designs table below)", "viz/frames.py:force_frame drops a design without an architecture"),
-             ("designs not plotted, total", f"{len(v) - len(big)} of {len(v)} (604 plotted)", "")])
+             ("designs not plotted, total", f"{len(v) - len(big)} of {len(v)} ({len(big)} plotted)", "")])
     table("The share if every design is read", [
-        ("designs with a legal status read", len(a627), "frames.aircraft_patents, every design has at least one patent with a status"),
-        ("not actively protected", f"{int(a627['out'].sum())} of {len(a627)} = {100 * a627['out'].mean():.1f} %", "**new**"),
-        ("(for comparison) the 625 designs with an architecture", f"{int(wo['out'].sum())} of {len(wo)} = {100 * wo['out'].mean():.1f} %", "q1.numbers()['fa_share'], ['fa_n']")])
+        ("designs with a legal status read", len(a_all), "frames.aircraft_patents"),
+        ("not actively protected", f"{int(a_all['out'].sum())} of {len(a_all)} = {100 * a_all['out'].mean():.1f} %", "frames.aircraft_patents"),
+        (f"(for comparison) the {len(wo)} designs with an architecture", f"{int(wo['out'].sum())} of {len(wo)} = {100 * wo['out'].mean():.1f} %", "q1.numbers()['fa_share'], ['fa_n']")])
     out.append("Share not actively protected per priority-year cohort (the age effect):\n")
     _c = pd.read_csv(CSV / "numbers_I_active_protection_by_cohort.csv")
     for col in [x for x in _c.columns if x.startswith("share")]:
@@ -241,7 +240,8 @@ def write_numbers_I(cfg, ctx) -> Path:
     ], columns=["step", "count", "source"])
     funnel.to_csv(CSV / "numbers_I_funnel.csv", index=False)
     out.append(_md_table(funnel))
-    out.append("\n*Mapping of T1 and T2:* the repository names the stages above; **T1 = the patent triage at labelling (1 109 approved, then the domain gate to 879)** and **T2 = the figure approval (1 538 whole-aircraft figures on 578 patents)** is my reading of your two names. The 627 designs sit between them (a design needs approved figures). Tell me if your T1 or T2 is another step.\n")
+    _sp = lambda n: f"{n:,}".replace(",", " ")      # noqa: E731
+    out.append(f"\n*T1 and T2:* T1 is the patent triage at labelling ({_sp(cnt['patents_wizard_approved'])} approved, then the domain gate to {_sp(cnt['patents_approved'])} representative patents) and T2 is the figure approval ({_sp(cnt['approved_figures'])} whole-aircraft figures on {_sp(ds.approved_figures['patent_id'].nunique())} patents). The {len(v)} designs sit between them (a design needs approved figures).\n")
     script_map = _script_company_matches(cfg, ctx)
     table("The VFS eVTOL directory and the company map", [
         ("directory aircraft pages", len(dirf), "frames.directory_frame; csv/numbers_I_funnel.csv"),
@@ -254,12 +254,12 @@ def write_numbers_I(cfg, ctx) -> Path:
         ("index companies that file in the dataset", len(firms22), "frames.ari_firms; csv/numbers_I_funnel.csv"),
         ("of them, in the current index release with a first flight and entry date (the clock figure)", len(tl), "frames.ari_timeline; csv/q4_patent_vs_market_clock.csv")],
         cols=("number", "value", "source"))
-    out.append("*If any count differs from the ones you listed:* one reading differs. The directory's 1 229 pages, the 871 kept, the 97 matched pages, the 43 companies read and the 22 that file all match. The **35** is the number of the 43 companies on which the script's answer equals the author's, counting the companies both leave blank; the script returns a non-blank match for **18** of them. Say which of the two the text should print.\n")
+    out.append(f"*Company map:* of the {len(cmap)} companies read, the script's answer equals the author's name on {script_map['agree']} (counting the companies both leave blank) and returns a non-blank match for {script_map['script_nonblank']}.\n")
 
     out += _funnel_family(ctx, q4, CSV)
 
     # ----------------------------------------------------------------------------------- 4 the checks of 2026-10-12
-    out.append("## 4. Checks requested on 2026-10-12 (no figure or text changed by them)\n")
+    out.append("## 4. Flown designs, flown index firms, turning points and the lead to the first flight\n")
     out += _checks_section(cfg, ctx, c, q4, CSV)
 
     # ----------------------------------------------------------------------------------- 5 figure facts
@@ -267,7 +267,7 @@ def write_numbers_I(cfg, ctx) -> Path:
     out.append("## 5. What each figure plots\n")
     fpy = c["fpy"]
     rows = [
-        ("q1_filings_per_year", f"627 designs over the priority years 2005 (pooled with the earlier ones) to {fpy.index.max()}; 625 have an architecture, 2 do not (grey segment); {n1['representative_s'] if 'representative_s' in n1 else int(cnt['patents_approved'])} patent families; cohort 2024-26 faded"),
+        ("q1_filings_per_year", f"{len(v)} designs over the priority years 2005 (pooled with the earlier ones) to {fpy.index.max()}; {len(wo)} have an architecture, {len(v) - len(wo)} do not (grey segment); {n1['representative_s'] if 'representative_s' in n1 else int(cnt['patents_approved'])} patent families; cohort 2024-26 faded"),
         ("q1_growth_rates", "eVTOL architecture patent families, aeronautics, transport and operations, all patents; 2005-2023 fitted, 2024-26 shown and never fitted"),
         ("q4_patent_vs_market_clock", f"{len(tl)} index firms with a first patent here; first flight {int(tl['first flight (ARI)'].notna().sum())} firms, entry into service {int(tl['entry into service (ARI)'].notna().sum())} firms"),
         ("q1_in_force_status", f"{len(big)} designs of the nine architectures, by office; {len(v) - len(big)} not plotted (see section 2)"),
@@ -280,9 +280,7 @@ def write_numbers_I(cfg, ctx) -> Path:
 
     # ----------------------------------------------------------------------------------- 6 every other number the Results text quotes
     out.append("## 6. Every number the Results text of Analysis I quotes\n")
-    out.append("Placeholders of `viz/thesis_text_q1.py`, `thesis_text_q4.py` and `thesis_text_q5.py` (results, answer and appendix lines) with the value they take now. "
-               "A value that differs from the old Results text is marked (was X); section 7 lists them one line each.\n")
-    OLD = _old_numbers()
+    out.append("Placeholders of `viz/thesis_text_q1.py`, `thesis_text_q4.py` and `thesis_text_q5.py` (results, answer and appendix lines) with the value they take.\n")
     for qname, qid, text, nums in (("Q1 growth and active protection", "Q1", t1, n1), ("Q4 representativeness and the market clock", "Q4", t4, n4),
                                    ("Q5 funding and investment", "Q5", t5, n5)):
         used = {}
@@ -295,14 +293,10 @@ def write_numbers_I(cfg, ctx) -> Path:
         rows = []
         for k, (label, sent) in sorted(used.items()):
             val = nums.get(k, "(computed in the text builder)")
-            flag = f" (was {OLD[qid][k]})" if k in OLD[qid] and OLD[qid][k] != val else ""
-            rows.append((f"`{k}`", f"{val}{flag}", label, sent[:150] + ("…" if len(sent) > 150 else ""), f"viz/thesis_{qid.lower()}.py:numbers()"))
+            rows.append((f"`{k}`", f"{val}", label, sent[:150] + ("…" if len(sent) > 150 else ""), f"viz/thesis_{qid.lower()}.py:numbers()"))
         out.append(f"### {qname}\n")
-        out.append(_md_table(pd.DataFrame(rows, columns=["key", "value now", "where used", "sentence", "source"])))
+        out.append(_md_table(pd.DataFrame(rows, columns=["key", "value", "where used", "sentence", "source"])))
         out.append("")
-    out.append("`thesis_figures/Q1_growth/numbers.json`, `Q4_representativeness/numbers.json` and `Q5_money/numbers.json` were rewritten on 2026-10-13 from the current inputs (the corrected company map with EHang, the script TRL, the script years); "
-               "the previous Q4 and Q5 files are kept beside them as `numbers.PRE_20261013.json`, and the values of the old Results text are in `review/numbers_old/`.\n")
-    out += _changes_section(cfg, ctx, c, n1, n4, n5, OLD, CSV)
     out += _growth_models(ctx, CSV)
     out += _segment_slopes(c, CSV)
     out += _in_domain_directory(ctx, CSV)
@@ -327,14 +321,14 @@ def _funnel_family(ctx, q4, CSV) -> list:
     names = {"flown": "flown designs (TRL 5 or more)", "fari": "designs of the flown index assignees"}
     rows = [(f"`{r['key']}`", f"{names[r['group']]} ({r['n group']}) vs the rest ({r['n rest']})", r["attribute"].replace("folded class", "architecture (five directory categories)")
              .replace("priority window", "priority-year cohort"), f"{r['p raw']:.4f}", ctx.pval(r["p Holm"])) for _, r in fam.iterrows()]
-    return ["### The funnel family: six tests, Holm-corrected (supervisor review 2)\n",
-            "Pearson chi-square of each group against the rest of the 627 designs (`frames.representativeness`); the Holm correction runs once over the six raw p "
+    return ["### The funnel family: six tests, Holm-corrected\n",
+            f"Pearson chi-square of each group against the rest of the {len(ctx.v)} designs (`frames.representativeness`); the Holm correction runs once over the six raw p "
             "(`lib.multiple.holm`). Source: `viz/thesis_q4.py:funnel_family`; CSV: `numbers_I_funnel_family_holm.csv`.\n",
             _md_table(pd.DataFrame(rows, columns=["key", "groups", "attribute", "p raw", "p Holm"])), ""]
 
 
 def _growth_models(ctx, CSV) -> list:
-    """Section "I.1 growth models (supervisor review 2, 2026-10)" of NUMBERS_I.md: the three models of lib/growth_models on the four series
+    """Section "I.1 growth models" of NUMBERS_I.md: the three models of lib/growth_models on the four series
     of Figure 4.2, fitted 2005-2022 (main) and 2005-2023 (check), with AIC / BIC and the bootstrap intervals of the break and the slopes."""
     from viz import thesis_q1 as q1
     from lib import growth_models as gm
@@ -349,7 +343,7 @@ def _growth_models(ctx, CSV) -> list:
     cols_a = ["series", "years", "model", "break year", "break low", "break high", "share of draws at the break", "pre slope", "pre slope low",
               "pre slope high", "pre doubling (years)", "post slope", "post slope low", "post slope high", "level step (factor)", "step low", "step high"]
     short = mods[["series", "years", "model", "parameters k", "SSE (log scale)", "AIC", "BIC", "AICc", "ΔAIC", "ΔBIC", "wins clearly"]]
-    return ["## I.1 growth models (supervisor review 2, 2026-10)\n",
+    return ["## I.1 growth models\n",
             "Figure `q1_growth_rates` (and `q1_growth_rates_baselines`). ln count on priority year, least squares, each series alone: (a) two lines with a free "
             "level step at the break, (b) two lines meeting at the break, (c) logistic S-curve. The break is each series' own, searched over every year "
             f"leaving {gm.MIN_SEGMENT} years or more on each side; the break and the error variance count as parameters (k = 6, 5, 4). "
@@ -384,7 +378,7 @@ def _segment_slopes(c, CSV) -> list:
     tbl = pd.DataFrame(rows, columns=cols)
     tbl.to_csv(CSV / "numbers_I_segment_slopes.csv", index=False)
     tpt = pd.DataFrame(tp_rows, columns=["series", "turning point (year)", "share of resampled fits choosing it", "95 % range of resampled turning points"])
-    return ["## I.1 segment slopes (added 2026-10-14; kept for the record: Figure 4.2 no longer draws the 2016 split, see the growth models above)\n",
+    return ["## I.1 segment slopes (the 2016 split is not drawn in Figure 4.2; the growth models above are the reported fits)\n",
             "Figure `q1_growth_rates`. Turning point = break year of the two-segment fit of ln count on year over 2006–2023 (`lib/growth.py:turning_point`, "
             f"breaks {growth.TURNING_BREAKS[0]}–{growth.TURNING_BREAKS[-1]}, {growth.TURNING_DRAWS} residual-bootstrap draws, generator seeded as for the eVTOL turning point of section 1); "
             "the B64 series is run alone with the same settings. The break year opens the second segment. Slope b of ln c_t = a + b t, "
@@ -431,21 +425,21 @@ def _in_domain_directory(ctx, CSV) -> list:
     for w in ctx.WIN_NAMES:
         big = lambda t: names[t.loc[w].astype(float).idxmax()] + (" (tie)" if (t.loc[w].astype(float) == t.loc[w].astype(float).max()).sum() > 1 else "")
         rows.append((f"largest directory category, {w}", big(so), big(sn)))
-    ch = pd.DataFrame(rows, columns=["number", "old: all pages", "new: in-domain pages"])
+    ch = pd.DataFrame(rows, columns=["number", "all pages", "in-domain pages"])
     ch.to_csv(CSV / "numbers_I_in_domain_directory.csv", index=False)
     do, dn = q4.directory_mix(ctx, False)["why"], q4.directory_mix(ctx, True)["why"]
-    cols = ["source", "n", "chi-square vs dataset", "p vs dataset", "p vs dataset (Holm)"]        # Holm: supervisor review 2, 2026-10
-    parts = dn[cols].merge(do[cols], on="source", how="left", suffixes=(" new", " old"))
-    parts = parts.dropna(subset=["chi-square vs dataset new"])
-    parts = parts[["source", "n old", "chi-square vs dataset old", "p vs dataset old", "p vs dataset (Holm) old",
-                   "n new", "chi-square vs dataset new", "p vs dataset new", "p vs dataset (Holm) new"]]
+    cols = ["source", "n", "chi-square vs dataset", "p vs dataset", "p vs dataset (Holm)"]        # Holm
+    parts = dn[cols].merge(do[cols], on="source", how="left", suffixes=(" in-domain", " all pages"))
+    parts = parts.dropna(subset=["chi-square vs dataset in-domain"])
+    parts = parts[["source", "n all pages", "chi-square vs dataset all pages", "p vs dataset all pages", "p vs dataset (Holm) all pages",
+                   "n in-domain", "chi-square vs dataset in-domain", "p vs dataset in-domain", "p vs dataset (Holm) in-domain"]]
     parts.to_csv(CSV / "numbers_I_in_domain_directory_parts.csv", index=False)
     vt_big = lambda t: all(t.loc[w].astype(float).idxmax() == "VT" for w in ctx.COMPLETE)
     vt_all = lambda t: all(t.loc[w].astype(float).idxmax() == "VT" for w in ctx.WIN_NAMES)
-    return ["## I.2 on the in-domain directory (2026-10-15)\n",
+    return ["## I.2 on the in-domain directory\n",
             f"The directory side of `q4_class_mix`, `q4_dataset_vs_directory_classes` and `q4_dataset_vs_directory_subsets` is now the {new['dir_pages']} pages of "
-            "`frames.directory_frame()['in_domain']` (electric and crewed, rules of Section 3.1.1 and the author's single-page rulings); before, all "
-            f"{old['dir_pages']} pages. The patent dataset is unchanged. Source: `viz/latex_text.py:_in_domain_directory`, `viz/thesis_q4.py` "
+            "`frames.directory_frame()['in_domain']` (electric and crewed, rules of Section 3.1.1 and the author's single-page rulings); the table below sets them against all "
+            f"{old['dir_pages']} pages. Source: `viz/latex_text.py:_in_domain_directory`, `viz/thesis_q4.py` "
             "(`class_mix`, `directory_mix`, `directory_keys`); tables in `csv/numbers_I_in_domain_directory.csv` and `csv/numbers_I_in_domain_directory_parts.csv`.\n",
             f"**Which pages enter `q4_class_mix`.** Of the {len(dom)} in-domain pages, {int(dom['window'].notna().sum())} have a development year and are placed in a cohort "
             f"(the figure prints each cohort's page count under its bar); {len(nod)} are left out of the figure because they have no year: "
@@ -454,13 +448,12 @@ def _in_domain_directory(ctx, CSV) -> list:
             f"The {len(nod)} stay in the all-years comparison (chi-square, `q4_dataset_vs_directory_classes`, the parts), which does not need a year. "
             "The year file is `review/script_outputs/YEAR.csv`.\n",
             _md_table(ch), "",
-            "**Parts of the directory against the dataset** (chi-square of the dataset's mix against the part's mix, 4 df; the in-domain part of the old figure is now the directory itself, "
-            "and the parts are subsets of the in-domain pages):\n",
+            "**Parts of the directory against the dataset** (chi-square of the dataset's mix against the part's mix, 4 df; the parts are subsets of the in-domain pages):\n",
             _md_table(parts.fillna("-")), "",
-            f"Vectored Thrust is the largest directory category in every complete cohort (≤2011 to 2020–23): old {'yes' if vt_big(so) else 'no'}, new {'yes' if vt_big(sn) else 'no'}; "
-            f"in every cohort including 2024–26: old {'yes' if vt_all(so) else 'no'}, new {'yes' if vt_all(sn) else 'no'}.\n",
+            f"Vectored Thrust is the largest directory category in every complete cohort (≤2011 to 2020–23): all pages {'yes' if vt_big(so) else 'no'}, in-domain pages {'yes' if vt_big(sn) else 'no'}; "
+            f"in every cohort including 2024–26: all pages {'yes' if vt_all(so) else 'no'}, in-domain pages {'yes' if vt_all(sn) else 'no'}.\n",
             "**Analysis III.4** (`q7_iii4_directory_categories`, `q7_iii4_directory_fold`) does not use directory pages: it folds the patent dataset's own architectures "
-            "to the five directory categories (`analysis_iii.directory`, `analysis.class_fold`), so its share and ²D values do not change and it was not rerun.\n"]
+            "to the five directory categories (`analysis_iii.directory`, `analysis.class_fold`), so its share and ²D values do not depend on which directory pages are used.\n"]
 
 
 def _office_by_cohort(ctx, c, CSV) -> list:
@@ -509,7 +502,7 @@ def _office_by_cohort(ctx, c, CSV) -> list:
     def _or(m):                                        # 16 other-office designs of <= 2011, none protected: the odds ratio has a zero cell
         return "undefined (a zero cell)" if m.min() == 0 else f"{(m[0, 0] * m[1, 1]) / (m[0, 1] * m[1, 0]):.2f}"
     ors = ", ".join(f"{w} {_or(tab(d[d['window'] == w]))}" for w in main)
-    out = ["## 7b. Not actively protected by filing office and priority-year cohort (added 2026-10-14)\n",
+    out = ["## 7b. Not actively protected by filing office and priority-year cohort\n",
            f"The {len(d)} designs of `q1_in_force_status` (the nine architectures of ten designs or more). Not actively protected = no patent that shows the design "
            "is in force at the snapshot. The four cohorts are the complete ones; the fifth, 2024-26, is partial and has only 2 US-office designs, so it is "
            f"shown to reconcile the {len(d)} but left out of the test (sensitivity with it below). Source: `viz/latex_text.py:_office_by_cohort`, table in `csv/numbers_I_office_by_cohort.csv`.\n",
@@ -550,37 +543,20 @@ def _script_company_matches(cfg, ctx) -> dict:
 
 
 def _checks_section(cfg, ctx, c, q4, CSV: Path) -> list:
-    """Items 3, 4 and 5 of the 2026-10-12 report request: the flown groups, the flown index-firm group, the turning points and the lead to flight."""
+    """The flown groups, the flown index-firm group, the turning points and the lead to flight."""
     from viz import data as vdata
     v = ctx.v
     out = []
-    # ---- the flown group: definition and the difference with the earlier group
-    from viz import config as vconfig
-    cfg_old = vconfig.load()
-    cfg_old.analysis["external_inputs"] = "reading"
-    ds_old = vdata.load_dataset(cfg_old)
-    t_old = frames.trl_frame(ds_old)[["aircraft_id", "trl"]].rename(columns={"trl": "TRL, earlier inputs"})
-    t_new = frames.trl_frame(ctx.ds)[["aircraft_id", "trl"]].rename(columns={"trl": "TRL, script inputs"})
-    m = v[["aircraft_id", "company_canonical", "topType", "year"]].merge(t_old, on="aircraft_id", how="left").merge(t_new, on="aircraft_id", how="left")
-    m["in the old group (TRL above 2, earlier inputs)"] = m["TRL, earlier inputs"] > 2
-    m["in the new group (TRL 5 or more, script inputs)"] = m["TRL, script inputs"] >= 5
-    diff = m[m["in the old group (TRL above 2, earlier inputs)"] != m["in the new group (TRL 5 or more, script inputs)"]].copy()
-    diff.to_csv(CSV / "numbers_I_flown_group_difference.csv", index=False)
+    # ---- the flown group: definition
+    t_now = frames.trl_frame(ctx.ds)[["aircraft_id", "trl"]]
+    n_mid = int(t_now["trl"].isin([3, 4]).sum())
+    n_flown = int((t_now["trl"] >= 5).sum())
     out.append("### Flown designs (TRL 5 or more)\n")
     out.append("- **Definition in the code** (`viz/thesis_q4.py:representativeness`): flown = `trl >= 5`, where `trl` is `frames.trl_frame(ds)`: the NASA TRL of each design from "
                "`0_labelling/inputs/trl/aircraft_trl.csv`, overridden, design by design, by the TRL of the rule-based scripts (the author's own reading where he reviewed the design) "
                "when `analysis.external_inputs` is `script` (`viz/script_inputs.py`, `review/script_outputs/TRL.csv`). A design without a TRL is TRL 2. "
-               "TRL 3-4 (ground and wind-tunnel tests) is not flown; no design of the 627 sits at TRL 3 or 4 under the script inputs.\n"
-               f"- **Sizes:** the earlier group (TRL above 2 on the earlier inputs) has {int(m['in the old group (TRL above 2, earlier inputs)'].sum())} designs, of which "
-               f"{int(((m['TRL, earlier inputs'] > 2) & (m['TRL, earlier inputs'] < 5)).sum())} sit at TRL 3 or 4 and {int((m['TRL, earlier inputs'] >= 5).sum())} at TRL 5 or more. "
-               f"The new group (TRL 5 or more on the script inputs) has {int(m['in the new group (TRL 5 or more, script inputs)'].sum())} designs, none at TRL 3 or 4.\n"
-               f"- **Why 68 against 63:** the TRL values differ between the two input sets, and the definition moves the TRL 3-4 design out. "
-               f"{int((diff['in the new group (TRL 5 or more, script inputs)'] & ~diff['in the old group (TRL above 2, earlier inputs)']).sum())} designs are in the new group and were not in the old one, "
-               f"{int((~diff['in the new group (TRL 5 or more, script inputs)'] & diff['in the old group (TRL above 2, earlier inputs)']).sum())} were in the old one and are not in the new "
-               f"(63 + {int((diff['in the new group (TRL 5 or more, script inputs)'] & ~diff['in the old group (TRL above 2, earlier inputs)']).sum())} - {int((~diff['in the new group (TRL 5 or more, script inputs)'] & diff['in the old group (TRL above 2, earlier inputs)']).sum())} = {int(m['in the new group (TRL 5 or more, script inputs)'].sum())}). "
-               "A design moves from the old group to the rest when the script finds no flight sentence on its linked directory pages where the earlier reading had found one (and the reverse). They are listed below and in `csv/numbers_I_flown_group_difference.csv`.\n")
-    out.append(_md_table(diff.drop(columns=["year"]).rename(columns={"company_canonical": "company", "topType": "architecture"})))
-    out.append("")
+               f"TRL 3-4 (ground and wind-tunnel tests) is not flown; {n_mid} of the {len(v)} designs sit at TRL 3 or 4 under the script inputs.\n"
+               f"- **Size:** the flown group has {n_flown} designs.\n")
     # ---- the flown index-firm group
     rep = q4.representativeness(ctx)
     fari = rep["fari"]
@@ -594,14 +570,14 @@ def _checks_section(cfg, ctx, c, q4, CSV: Path) -> list:
         ff = r["first flight (ARI)"]
         firm_rows.append({"company": r["company"], "designs": int(r["unique aircraft"]), "first flight in the index (earliest year)": "" if pd.isna(ff) else int(ff),
                           "counts as flown before the snapshot": bool(pd.notna(ff) and ff <= frames.ARI_RELEASE_YEAR - 1),
-                          "reason if not": "" if (pd.notna(ff) and ff <= frames.ARI_RELEASE_YEAR - 1) else ("a planned first flight (after the index release of 2026)" if pd.notna(ff) else "no first flight in the index")})
+                          "reason if not": "" if (pd.notna(ff) and ff <= frames.ARI_RELEASE_YEAR - 1) else (f"a planned first flight (after the index release of {frames.ARI_RELEASE_YEAR})" if pd.notna(ff) else "no first flight in the index")})
     firms = pd.DataFrame(firm_rows)
     firms.to_csv(CSV / "numbers_I_flown_index_firms.csv", index=False)
     out.append("### Flown index-firm group\n")
-    out.append(f"- **Definition:** the designs of the index firms of the current AAM Reality Index release whose first flight, as the index prints it, is a year before 2026 "
-               f"(the index prints years only; a 2026 year is read as a plan, as in the clock figure). The other index firms, and the 22 - 14 firms with no row in the current release, go to the rest. "
+    out.append(f"- **Definition:** the designs of the index firms of the current AAM Reality Index release whose first flight, as the index prints it, is a year before {frames.ARI_RELEASE_YEAR} "
+               f"(the index prints years only; a year of {frames.ARI_RELEASE_YEAR} is read as a plan, as in the clock figure). The other index firms, and the {len(frames.ari_firms(v, cfg))} - {len(tl)} firms with no row in the current release, go to the rest. "
                f"The group has {rep['n_fari']} designs of {rep['n_fari_firms']} firms.\n")
-    out.append("Architecture groups behind \"LC +21.5 pp, p 0.047\" (flown index-firm designs against the rest, the five directory categories):\n")
+    out.append("Architecture groups of the flown index-firm test (flown index-firm designs against the rest, the five directory categories):\n")
     out.append(_md_table(cls))
     out.append(f"\nchi-square on this 2 x 5 table: p {rep['fari'][rep['fari']['attribute'] == 'folded class']['p'].dropna().iloc[0]:.3f}. "
                f"The two designs without an architecture group are in the rest of the other attributes but not in this table (the five rows add to {int(cls['flown index-firm designs'].sum())} and {int(cls['the rest'].sum())}, not {rep['n_fari']} and {len(v) - rep['n_fari']}).\n")
@@ -623,110 +599,20 @@ def _checks_section(cfg, ctx, c, q4, CSV: Path) -> list:
     lead.to_csv(CSV / "numbers_I_lead_to_first_flight.csv", index=False)
     out.append(_md_table(lead))
     pos = gap[gap > 0]
-    out.append(f"\n- firms with a first flight on record (year 2026 or before): n = {len(gap)}; with the first patent before the flight: n = {len(pos)}; "
+    out.append(f"\n- firms with a first flight on record (a year up to the index release): n = {len(gap)}; with the first patent before the flight: n = {len(pos)}; "
                f"median lead among those {pos.median():.0f} years (range {pos.min():.0f} to {pos.max():.0f}); median over all {len(gap)}: {gap.median():.1f} years.\n"
                f"- 90th-percentile publication lag: {lag_p90} years (the largest of the three regions, `frames.publication_lag`). Median lead minus that lag: {pos.median() - lag_p90:.0f} years "
-               f"(`q5.numbers()['ff_visible']`), the \"about 1 year\" figure, on the same n = {len(pos)} firms. The lag is subtracted as one number, from the median, not firm by firm.\n")
+               f"(`q5.numbers()['ff_visible']`), on the same n = {len(pos)} firms. The lag is subtracted as one number, from the median, not firm by firm.\n")
     return out
 
 
 
-# ======================================================================================== old -> new, unchanged, funnel table
-def _old_numbers() -> dict:
-    import json
-    d = Path(__file__).resolve().parents[2] / "review" / "numbers_old"
-    return {"Q1": json.loads((d / "Q1_numbers_OLD_before_all_years.json").read_text(encoding="utf-8")),
-            "Q4": json.loads((d / "Q4_numbers_OLD_before_script_inputs.json").read_text(encoding="utf-8")),
-            "Q5": json.loads((d / "Q5_numbers_OLD_before_script_inputs.json").read_text(encoding="utf-8"))}
-
-
-def _load_text_module(path: Path):
-    """The module at ``path``; when the file is gone from the work tree (the PRE_* backups were deleted in commit a8e4fc0), its last
-    committed version is read from git instead, so the old -> new section still has the old wording."""
-    import importlib.util
-    import types
-    if path.exists():
-        spec = importlib.util.spec_from_file_location(path.stem.replace(".", "_"), path)
-        m = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(m)
-        return m
-    top = Path(subprocess.run(["git", "rev-parse", "--show-toplevel"], cwd=path.parent, capture_output=True, text=True, check=True).stdout.strip())
-    rel = path.relative_to(top).as_posix()
-    last = subprocess.run(["git", "log", "-1", "--format=%H", "--", rel], cwd=top, capture_output=True, text=True, check=True).stdout.strip()
-    src = None
-    for rev in (f"{last}^", last):                       # the deleting commit's parent holds the file; a non-deleting last commit holds it itself
-        r = subprocess.run(["git", "show", f"{rev}:{rel}"], cwd=top, capture_output=True, text=True)
-        if r.returncode == 0:
-            src = r.stdout
-            break
-    if src is None:
-        raise FileNotFoundError(path)
-    m = types.ModuleType(path.stem.replace(".", "_"))
-    m.__file__ = str(path)
-    exec(compile(src, str(path), "exec"), m.__dict__)
-    return m
-
-
-def _changes_section(cfg, ctx, c, n1, n4, n5, OLD, CSV: Path) -> list:
-    """Section 7: every number the OLD Results text quoted that changed (old -> new), then the ones that did not change."""
-    here = Path(__file__).resolve().parent
-    old_text = {"Q1": _load_text_module(here / "thesis_text_q1_reference.py"), "Q4": _load_text_module(here / "thesis_text_q4_reference.py"),
-                "Q5": _load_text_module(here / "thesis_text_q5.py")}
-    new = {"Q1": n1, "Q4": n4, "Q5": n5}
-    out = ["## 7. What changed since the old Results text (old -> new)\n",
-           "Old = the values the old Results text printed (the `numbers.json` files before the changes of 2026-10-12: the all-years protection method, the flown definition, the "
-           "script inputs and the corrected company map with EHang). New = the values now. A key that the new text no longer quotes reads \"(no longer quoted)\".\n"]
-    tp = c["tp"]
-    ap, ds_ = tp["representative patents"], tp["unique aircraft"]
-    o4, o5, o1 = OLD["Q4"], OLD["Q5"], OLD["Q1"]
-    out.append("### The statistics you listed, one line each\n")
-    lines = [
-        f"- **Index firms that file here** (rows of the clock figure, the firms of the current index release with a first patent in the dataset): {o5['ari_timeline_n']} -> {n5['ari_timeline_n']} (Q5 `ari_timeline_n`)",
-        f"- **Index companies that file in the dataset** (whole company map): {o4['ari_firms_n']} -> {n4['ari_firms_n']} (Q4 `ari_firms_n`); their designs {o4['ari_n']} -> {n4['ari_n']} (Q4 `ari_n`)",
-        f"- **Firms with a first flight on record** (year 2026 or before): {o5['ff_record_n']} -> {n5['ff_record_n']} (Q5 `ff_record_n`; Q4 `ff_flown` {o4['ff_flown']} -> {n4['ff_flown']})",
-        f"- **Firms that filed their first patent before flying**: {o5['ff_before_n']} -> {n5['ff_before_n']} (Q5 `ff_before_n`; Q4 `ff_before` {o4['ff_before']} -> {n4['ff_before']}); firms with a first flight at or before the first patent: {o5['ff_after_n']} -> {n5['ff_after_n']} (`ff_after_n`)",
-        f"- **Median lead from the first patent to the first flight**, years: {o5['ff_lead']} -> {n5['ff_lead']} (Q5 `ff_lead`; Q4 {o4['ff_lead']} -> {n4['ff_lead']}), on the {n5['ff_before_n']} firms with the patent before the flight (was {o5['ff_before_n']}); range {o5['ff_lead_min']} to {o5['ff_lead_max']} -> {n5['ff_lead_min']} to {n5['ff_lead_max']}",
-        f"- **The lead left after the 90th-percentile publication lag** ({n5['lag_p90']} years, unchanged): {o5['ff_visible']} -> {n5['ff_visible']} years (Q5 `ff_visible`)",
-        f"- **Median years from the first patent to the planned entry into service**: {o5['eis_lead']} -> {n5['eis_lead']} (Q5 `eis_lead`), on {o5['eis_n']} -> {n5['eis_n']} firms that state one (`eis_n`)",
-        f"- **Firms behind each statistic (now)**: first flights {n5['ff_record_n']}; the lead median {n5['ff_before_n']}; planned entry into service {n5['eis_n']}; clock rows {n5['ari_timeline_n']}; funding tests {n5['n_air']} firms with a disclosed amount, {n5['n_fp']} for the first-patent year, {n5['n_lead']} for the lead (before {o5['n_air']}, {o5['n_fp']}, {o5['n_lead']})",
-        f"- **Size of the flown group**: {o4['trl_n']} (designs above TRL 2, earlier inputs) -> {n4['flown_n']} (designs at TRL 5 or more, script inputs); the rest {o4['trl_rest']} -> {n4['flown_rest']} (Q4 `trl_n` -> `flown_n`); 10 designs entered and 5 left (section 4)",
-        f"- **Turning point, patent families**: {o1['turn_pat_year']} -> {n1['turn_pat_year']} (unchanged), chosen by {o1['turn_pat_boot']} -> {n1['turn_pat_boot']} of the resampled fits, 95 % range of the resampled year {ap['lo']} to {ap['hi']} (not quoted before)",
-        f"- **Turning point, designs**: {o1['turn_ac_year']} -> {n1['turn_ac_year']} (unchanged), chosen by {100 * ds_['share']:.0f} % of the resampled fits (not quoted before), 95 % range {o1['turn_ac_lo']} to {o1['turn_ac_hi']} -> {n1['turn_ac_lo']} to {n1['turn_ac_hi']} (unchanged)",
-    ]
-    out += lines
-    out.append("\nNone of the turning-point numbers depends on the company map, the TRL or the years of the directory: they come from the patent counts per priority year.\n")
-    # the full list: every placeholder of the old text
-    changed, same = [], []
-    for q in ("Q1", "Q4", "Q5"):
-        blocks = [r_["text"] for r_ in old_text[q].RESULTS] + [old_text[q].ANSWER] + list(old_text[q].APPENDIX.values())
-        seen = {}
-        for body in blocks:
-            clean = re.sub(r"\[hl\]|\[/hl\]|\[(?:fig|tab):[a-z0-9_]+\]", "", body)
-            for sent in re.split(r"(?<=[.!?])\s+", clean.replace("\n", " ")):
-                for k in _placeholders(sent):
-                    seen.setdefault(k, sent.strip())
-        for k, sent in sorted(seen.items()):
-            ov = OLD[q].get(k)
-            nv = new[q].get(k, "(no longer quoted)")
-            if ov is None:
-                continue
-            (changed if ov != nv else same).append((q, k, ov, nv, sent[:110] + ("…" if len(sent) > 110 else "")))
-    out.append("### Every number the old Results text quoted that changed\n")
-    out += [f"- {q} `{k}`: {ov} -> {nv}   ({sent})" for q, k, ov, nv, sent in changed]
-    out.append("")
-    out.append(f"### Numbers that did NOT change ({len(same)})\n")
-    out.append(_md_table(pd.DataFrame([(q, f"`{k}`", ov, sent) for q, k, ov, nv, sent in same], columns=["question", "key", "value (old = new)", "used in the sentence"])))
-    out.append("")
-    pd.DataFrame(changed, columns=["question", "key", "old", "new", "sentence"]).to_csv(CSV / "numbers_I_changed_old_new.csv", index=False)
-    pd.DataFrame(same, columns=["question", "key", "value", "new", "sentence"]).drop(columns="new").to_csv(CSV / "numbers_I_unchanged.csv", index=False)
-    return out
-
-
+# ======================================================================================== funnel table
 def _funnel_table(cfg, ctx, ds, v, dirf, matched, cmap, firms22, script_map, cnt) -> list:
     """Section 9: the funnel counts of section 4.1 once more, as one short table."""
     rows = [
         ("patent query hits (PatSeer, snapshot %s)" % frames.snapshot_date(ds), f"{cnt['patents_acquired']:,}".replace(",", " ")),
-        ("T1: patents approved at labelling (patent triage)", f"{cnt['patents_wizard_approved']:,}".replace(",", " ") + f" (879 after the domain gate)"),
+        ("T1: patents approved at labelling (patent triage)", f"{cnt['patents_wizard_approved']:,}".replace(",", " ") + f" ({cnt['patents_approved']:,} after the domain gate)".replace(",", " ")),
         ("T2: whole-aircraft figures approved (image triage), and the patents they sit on", f"{cnt['approved_figures']:,}".replace(",", " ") + f" figures on {ds.approved_figures['patent_id'].nunique()} patents"),
         ("designs characterised", f"{len(v)} (on {cnt['patents_analysis']} primary patents)"),
         ("directory pages (VFS eVTOL directory)", f"{len(dirf):,}".replace(",", " ")),

@@ -614,7 +614,7 @@ def fig_directory_categories(ctx):
         metw = [bool(bal.loc[w, "below band"]) and "partial" not in w for w in win]
         _band_series(a2, bal["D2"], bal["D2 permutation low"], bal["D2 permutation high"], col, wlo=bal["D2 low"], whi=bal["D2 high"], met=metw)
         a2.set_ylim(0, float(np.nanmax(bal[["D2 high", "D2 permutation high"]].to_numpy(float))) * 1.15)
-        a2.set_ylabel("²D of all designs with a\ndirectory category: large\ndesigns in play")   # base: analysis_iii.directory, every design with a directory category (625 of 627)
+        a2.set_ylabel("²D of all designs with a\ndirectory category: large\ndesigns in play")   # base: analysis_iii.directory, every design with a directory category
         a2.set_xlabel(ts.COHORT_X)
         ts.panel_label(a2, "(b) condition 2, balance")
         ts.bottom_legend(fig, [ts.incomplete_handle(col)], [ts.INCOMPLETE_LABEL])    # (b) draws 2024-26* (author 2026-10-23)

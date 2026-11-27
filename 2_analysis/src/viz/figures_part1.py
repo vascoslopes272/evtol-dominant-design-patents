@@ -392,8 +392,8 @@ def tab_ari_timeline_v2(ctx):
 # ================================================================================== I2. active protection
 def fig_in_force_status_v2(ctx):
     """I2 main (final size, width 1.0): share of each architecture's designs that no patent in force protects at the snapshot, split into
-    designs filed at the US office and designs filed at the other offices. The nine architectures of ten designs or more (604 of the
-    627 designs; the 23 others are in the CSV and the numbers file). n under each bar, the share of the plotted designs as a dashed line."""
+    designs filed at the US office and designs filed at the other offices. The nine architectures of ten designs or more (the other
+    designs are in the CSV and the numbers file). n under each bar, the share of the plotted designs as a dashed line."""
     import textwrap
     c = q1._calc(ctx)
     wo, force = c["wo"], c["force"]
@@ -604,8 +604,8 @@ VFS_TITLE = {"LC": "Lift + Cruise", "VT": "Vectored\nThrust", "WM": "Wingless\n(
 
 
 class _RawText(mpl.text.Text):
-    """A text viz/relabel.py does not reword (it rewrites every Text.set_text, also at draw time): the brief of 2026-10-20 asks for
-    "aircraft designs (627)" in Fig 4.2, which the relabel layer would print "designs designs"."""
+    """A text viz/relabel.py does not reword (it rewrites every Text.set_text, also at draw time): Fig 4.2 prints
+    "aircraft designs (N)", which the relabel layer would print "designs designs"."""
 
     def set_text(self, s):
         s = "" if s is None else str(s)

@@ -456,7 +456,7 @@ ITEMS = [
     dict(name="q7_archetype_sets", slot="results", kind="table", sub="A", title="The four archetype sets",
          caption="The four archetype sets the test is run in: archetypes, singletons, the effective number ¹D and the largest archetype with its share, whole corpus, all years. F was defined after the first readings of the data.",
          source_item="Table 7", flag=None, flag_note="", builder=tab_archetype_sets,
-         source="human labelling", unit="unique aircraft (627), each written once per archetype set, all years together", read=""),
+         source="human labelling", unit="unique aircraft, each written once per archetype set, all years together", read=""),
     dict(name="q7_condition1_family", slot="results", kind="figure", sub="B", title="Condition 1 on F per priority year",
          caption="Condition 1 on F per priority year, as its share of the aircraft with a patent in force and of all aircraft against the 50 % line. The ringed years meet it.",
          source_item="Figure 11", flag=None, flag_note="", builder=fig_condition1_family,

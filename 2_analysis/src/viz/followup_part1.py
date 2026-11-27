@@ -1,7 +1,6 @@
-"""Follow-up 2026-10-24 to NUMBERS_I (Analysis I.1, professor comments 35 and 71): the yearly total of designs corrected for publication lag,
+"""NUMBERS_I (Analysis I.1): the yearly total of designs corrected for publication lag,
 with the same correction V.3 applies per region (``frames.region_years``, the frame behind na_share_2023_corr). Reads ctx only; draws no
-figure. Writes latex/Data_for_writing/csv/q1_filings_per_year_lag_corrected.csv and appends the section "Follow-up 2026-10-24,
-lag-corrected total" to NUMBERS_I.md (a rerun replaces it). Also run by ``latex_text.write_numbers_I`` (notebook 21_evidence_base).
+figure. Writes latex/Data_for_writing/csv/q1_filings_per_year_lag_corrected.csv and appends the section "Lag-corrected total" to NUMBERS_I.md (a rerun replaces it). Also run by ``latex_text.write_numbers_I`` (notebook 21_evidence_base).
 
     python -m viz.followup_part1      (from labeling_evaluation/)
 """
@@ -17,7 +16,7 @@ from lib import growth as _growth
 from viz import frames
 from viz.thesis_latex_common import drop_section, root as latex_root, tables_md
 
-HEADING = "## Follow-up 2026-10-24, lag-corrected total"
+HEADING = "## Lag-corrected total"
 YEARS = range(2016, 2024)
 
 
@@ -53,26 +52,25 @@ def run(cfg, ctx):
 
     nf = dfw / "NUMBERS_I.md"
     txt = drop_section(nf.read_text(encoding="utf-8"), HEADING)
-    shutil.copy2(nf, nf.with_name(f"PRE_FOLLOWUP_{datetime.now():%Y%m%d_%H%M%S}_NUMBERS_I.md"))
     ti = t.set_index("priority year")
     raw21, e21 = ti.loc[2021, "designs counted (raw)"], ti.loc[2021, "designs expected after correction"]
     e22, e23 = ti.loc[2022, "designs expected after correction"], ti.loc[2023, "designs expected after correction"]
-    raw_dec = 100 * (1 - 48 / raw21)
+    raw22, raw23 = ti.loc[2022, "designs counted (raw)"], ti.loc[2023, "designs counted (raw)"]
+    raw_dec = 100 * (1 - raw22 / raw21)
     dec22, dec23 = 100 * (1 - e22 / e21), 100 * (1 - e23 / e21)
     lagtxt = ", ".join(f"{int(k)} y: {c}" for k, c in meta["lag_counts"].items())
     L = [f"\n{HEADING}\n",
-         "Source: `viz/followup_part1.py` (`frames.with_publication`, `lib.growth.visible_share`; no figure changed). "
-         "Professor comments 35 and 71.\n",
+         "Source: `viz/followup_part1.py` (`frames.with_publication`, `lib.growth.visible_share`).\n",
          "Method: the correction of V.3 (`frames.region_years`, behind na_share_2023_corr) applied to the total instead of per region. "
          f"Reference = the {meta['n_ref']} designs of priority years 2016-21, whole years from priority to publication ({lagtxt}). "
-         f"Snapshot {meta['snapshot']}. Part visible for priority year y, with k = 2026 - y and f = day of year / 365: "
+         f"Snapshot {meta['snapshot']}. Part visible for priority year y, with k = {int(pd.to_datetime(ctx.ds.identity['snapshot_date'].dropna().iloc[0]).year)} - y and f = day of year / 365: "
          "P(lag <= k - 1) + f * P(lag = k). Designs expected = designs counted / part visible. "
          "The check column sums the same correction run region by region on each region's own lags. "
          "CSV: `q1_filings_per_year_lag_corrected.csv`.\n",
          tables_md(t), "",
-         f"Reading: the decrease from {raw21} (2021) to 48 (2022 and 2023), {raw_dec:.0f} % raw, survives the correction: "
+         f"Reading: the decrease from {raw21} (2021) to {raw22} (2022) and {raw23} (2023), {raw_dec:.0f} % raw to 2022, survives the correction: "
          f"{e21:.1f} to {e22:.1f} (2022) and {e23:.1f} (2023), a decrease of {dec22:.0f} % and {dec23:.0f} %; the correction adds "
-         f"{e22 - 48:.1f} designs to 2022 and {e23 - 48:.1f} to 2023, against the {raw21 - 48} needed to close the gap.\n"]
+         f"{e22 - raw22:.1f} designs to 2022 and {e23 - raw23:.1f} to 2023, against the {raw21 - raw22} and {raw21 - raw23} needed to close the gap.\n"]
     nf.write_text(txt.rstrip("\n") + "\n" + "\n".join(L), encoding="utf-8")
     return t, meta
 

@@ -1,4 +1,4 @@
-source,n old,chi-square vs dataset old,p vs dataset old,p vs dataset (Holm) old,n new,chi-square vs dataset new,p vs dataset new,p vs dataset (Holm) new
+source,n all pages,chi-square vs dataset all pages,p vs dataset all pages,p vs dataset (Holm) all pages,n in-domain,chi-square vs dataset in-domain,p vs dataset in-domain,p vs dataset (Holm) in-domain
 directory: in-domain pages,,,,,871,208.3,< 0.001,< 0.001
 (b) concept designs,420.0,103.3,< 0.001,< 0.001,274,92.4,< 0.001,< 0.001
 (b) flying hardware,247.0,158.4,< 0.001,< 0.001,155,146.9,< 0.001,< 0.001

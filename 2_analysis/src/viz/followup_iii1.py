@@ -1,4 +1,4 @@
-"""Follow-up 2026-10-23 (supervisor comment 67): III.1 rerun without Bell / Textron.
+"""III.1 rerun without Bell / Textron.
 
 Bell / Textron holds about a third of Tilt Propulsor in 2016-19, so the decrease of Tilt Propulsor into 2020-23 may partly be one
 assignee's patenting cycle. Every frame and rule is III.1's (viz/analysis_iii.rho_table, frames.class_counts_by_window): cohort shares
@@ -18,7 +18,7 @@ from viz import figures_part2 as p2
 from viz.thesis_latex_common import drop_section, root
 
 ASSIGNEE = "Bell / Textron"
-SECTION = "## Follow-up 2026-10-23, III.1 without Bell / Textron"
+SECTION = "## III.1 without Bell / Textron"
 NONE = "no architecture recorded"
 #: the III.1 text quotes this, 2016-2023: the "all assignees" run must reproduce it
 III1_TP_LATE = (-0.357, 0.39)
@@ -132,7 +132,7 @@ def run(cfg, ctx) -> dict:
                  "after the removal the other trends detected are: " + "; ".join(f"{k}: {', '.join(v) or 'none'}" for k, v in other.items()) + ".")
 
     L = [SECTION + "\n",
-         f"Written by notebook 29_dominant_design_without_one_assignee (`viz/followup_iii1.py`), supervisor comment 67. The III.1 frames and rules unchanged (`viz/analysis_iii.rho_table`, "
+         f"Written by notebook 29_dominant_design_without_one_assignee (`viz/followup_iii1.py`). The III.1 frames and rules unchanged (`viz/analysis_iii.rho_table`, "
          f"`frames.class_counts_by_window`): cohort shares over every design of the cohort; Spearman rho of each architecture's yearly share on the "
          f"priority year over 2008-2023 (16 years) and 2016-2023 (8 years); the same {len(held)} architectures (20 designs or more, all assignees) and "
          f"the same Holm family per span as III.1. Every design whose assignee is {ASSIGNEE} leaves numerator and denominator. Spearman draws "
@@ -143,7 +143,7 @@ def run(cfg, ctx) -> dict:
          "### 2. Tilt Propulsor share per cohort (share of every design of the cohort)\n", "2024-26 is a partial cohort and is not read.\n",
          tables_md(pv.rename(columns={"all assignees": "all assignees", wo: wo})), "",
          "### 3. Tilt Propulsor, Spearman rho of share on priority year\n",
-         f"Check: the all-assignees row reproduces III.1 (2016-2023: rho {III1_TP_LATE[0]}, p {III1_TP_LATE[1]}).\n",
+         f"All-assignees row, as in III.1 (2016-2023: rho {float(r[(r['assignees'] == 'all assignees') & (r['architecture'] == tp)].iloc[0]['rho 2016-2023']):.3f}, p {float(r[(r['assignees'] == 'all assignees') & (r['architecture'] == tp)].iloc[0]['p 2016-2023']):.2f}).\n",
          tables_md(_fmt(r[r["architecture"] == tp].drop(columns="architecture"))), "",
          f"### 4. The other architectures, without {ASSIGNEE}\n",
          f"`designs 2008-2023` counts the designs left; Holm over the {len(held)} architectures of III.1 in each span. "

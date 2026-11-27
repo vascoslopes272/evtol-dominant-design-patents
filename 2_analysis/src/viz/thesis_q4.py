@@ -483,7 +483,7 @@ ITEMS = [
          source="human labelling, folded by analysis.class_fold · evtol.news directory, 1 229 aircraft pages crawled 2026-09-17",
          unit="unique aircraft (dataset) and aircraft pages (directory); share of the source in brackets",
          read="Whisker: 95 % Wilson interval of the count; the sources differ in size, so compare the shares in brackets. "
-              "Two aircraft with no architecture class are left out, so the dataset counts 625 of its 627."),
+              "Designs with no architecture class are left out of this figure."),
     dict(name="q4_dataset_vs_directory_subsets", slot="appendix", kind="figure", sub="B",
          title="Aircraft of each class per part of the directory",
          caption="For each directory class, the aircraft in the labelled dataset and in five parts of the directory that "

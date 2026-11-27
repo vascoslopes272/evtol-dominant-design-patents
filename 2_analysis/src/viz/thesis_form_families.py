@@ -7,7 +7,7 @@ the form variables, regroups the same designs and writes the tables. Driven by n
 
 Steps (the brief's numbering):
 
-* 6.1 :func:`form_variables`: one row per design with an architecture (625), the form variables read off the w15 frame.
+* 6.1 :func:`form_variables`: one row per design with an architecture, the form variables read off the w15 frame.
 * 6.2 :data:`FAMILIES`: the five families P1-P5, fixed before any result was seen; :func:`membership`.
 * 6.3a :func:`membership_tables`: family x architecture, per cohort, empennage inside the family; "renamed architecture" above 85 %.
 * 6.3b :func:`premise_check`: cohesion and separation of each family per cohort against random subsets of the same size (1000
@@ -83,7 +83,7 @@ def _cache(ctx) -> dict:
 
 # ------------------------------------------------------------------------------------------------------ 6.1 form variables
 def form_variables(ctx) -> pd.DataFrame:
-    """One row per design with an architecture (the 625 of the w15 frame): ``topType``, ``wing_n`` (wCount, 0 when no wing; blank under
+    """One row per design with an architecture (the designs of the w15 frame): ``topType``, ``wing_n`` (wCount, 0 when no wing; blank under
     an M2 override), ``wing_tilts`` (yes when any ``wing{k}_tilt`` is Tilt; blank with ``wing_n``), ``boom_n`` (boom1..6_count summed, 0 when
     ``boomsPresent`` is not True: the raw total, not the w15 rank), ``band`` (the w15 propulsor band as a label 1-3, 4, 5-6, 7-8, 9+; blank when
     the count is not determinable or the design has no propulsor card), ``band_rank`` (0..4), ``tilt_share`` (the w15 definition),
@@ -530,7 +530,7 @@ def numbers_md(ctx) -> str:
          "Written by notebook 27_form_families (`viz/thesis_form_families.py`); every value is recomputed when the notebook runs. Dataset: the public eVTOL_dataset, 621 designs (619 with an architecture). CSVs are in `Data_for_writing/csv/` "
          "(`q8_form_variables.csv`, `q8_families_membership.csv`, `q8_families_premise.csv`, `q8_families_q_decomposition.csv`, `q8_families_condition1.csv`, "
          "`q8_families_condition2.csv`, `q8_families_condition3.csv`, `q8_families_verdict.csv`).\n",
-         "Exploratory, after Task 1, on the w15 weighting only. Nothing here changes F or any number of the dissertation (F stays as decided on 2026-10-14). "
+         "Exploratory, after Task 1, on the w15 weighting only. Nothing here changes F or any number of the dissertation. "
          "The question: is there a family defined by form (wing, tilt, booms, propulsor count, enclosure), not by architecture, that is coherent in form AND meets "
          "share dominance (condition 1) and balance reduction (condition 2)? Condition 3 (Rao's Q) is cohort-wide and blind to the family, so it is never recomputed "
          "per family: the Task 1 cohort verdict is quoted per base. \"Met\" only when all three hold in the same period on the same base.\n",

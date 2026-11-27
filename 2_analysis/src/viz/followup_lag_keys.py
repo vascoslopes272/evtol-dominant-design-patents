@@ -1,6 +1,5 @@
-"""Follow-up 2026-10-24 to NUMBERS_I section 4 (the lead from the first patent to the first flight): the 90th-percentile publication lag per
-region, all priority years against 2016-21 only, and the share of the aircraft of 2022 and 2023 already published at the snapshot. This block
-was first patched into NUMBERS_I.md by hand on 2026-10-24 (backup PRE_LAGKEYS_20261024_203710_NUMBERS_I.md); it is now computed here and
+"""NUMBERS_I section 4 (the lead from the first patent to the first flight): the 90th-percentile publication lag per
+region, all priority years against 2016-21 only, and the share of the aircraft of 2022 and 2023 already published at the snapshot. This block is computed here and
 inserted at the end of section 4, just before section 5 (a rerun replaces it). Reads ctx only; draws no figure, writes no CSV. Run by
 ``latex_text.write_numbers_I`` (notebook 21_evidence_base).
 
@@ -50,7 +49,6 @@ def run(cfg, ctx) -> dict:
     txt = nf.read_text(encoding="utf-8")
     if START in txt:                                                          # rerun: drop the block before writing it again
         txt = txt[:txt.index(START)] + txt[txt.index(AFTER):]
-    shutil.copy2(nf, nf.with_name(f"PRE_FOLLOWUP_{datetime.now():%Y%m%d_%H%M%S}_NUMBERS_I.md"))
     p90 = k["p90"]
     same = len({x for pair in p90.values() for x in pair}) == 1
     names = {**{r: r for r in frames.REGIONS}, "all": "overall, all regions"}

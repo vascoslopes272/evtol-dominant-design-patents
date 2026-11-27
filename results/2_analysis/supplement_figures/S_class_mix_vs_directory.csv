@@ -1,0 +1,51 @@
+source,cohort,class,code,designs,cohort total,share,directory category
+"patent dataset (designs, priority year)",<= 2011,Lift + Cruise,LC,13,59,0.22,Lift + Cruise
+"patent dataset (designs, priority year)",<= 2011,Vectored Thrust,VT,31,59,0.525,Vectored Thrust
+"patent dataset (designs, priority year)",<= 2011,Wingless (Multicopter),WM,9,59,0.153,Wingless (Multicopter)
+"patent dataset (designs, priority year)",<= 2011,Electric Rotorcraft,ER,2,59,0.034,Electric Rotorcraft
+"patent dataset (designs, priority year)",<= 2011,Hover Bikes / Personal Flying Devices,HB,4,59,0.068,Hover Bikes / PFD
+"patent dataset (designs, priority year)",2012-15,Lift + Cruise,LC,9,57,0.158,Lift + Cruise
+"patent dataset (designs, priority year)",2012-15,Vectored Thrust,VT,40,57,0.702,Vectored Thrust
+"patent dataset (designs, priority year)",2012-15,Wingless (Multicopter),WM,3,57,0.053,Wingless (Multicopter)
+"patent dataset (designs, priority year)",2012-15,Electric Rotorcraft,ER,1,57,0.018,Electric Rotorcraft
+"patent dataset (designs, priority year)",2012-15,Hover Bikes / Personal Flying Devices,HB,4,57,0.07,Hover Bikes / PFD
+"patent dataset (designs, priority year)",2016-19,Lift + Cruise,LC,51,211,0.242,Lift + Cruise
+"patent dataset (designs, priority year)",2016-19,Vectored Thrust,VT,126,211,0.597,Vectored Thrust
+"patent dataset (designs, priority year)",2016-19,Wingless (Multicopter),WM,16,211,0.076,Wingless (Multicopter)
+"patent dataset (designs, priority year)",2016-19,Electric Rotorcraft,ER,4,211,0.019,Electric Rotorcraft
+"patent dataset (designs, priority year)",2016-19,Hover Bikes / Personal Flying Devices,HB,14,211,0.066,Hover Bikes / PFD
+"patent dataset (designs, priority year)",2020-23,Lift + Cruise,LC,78,237,0.329,Lift + Cruise
+"patent dataset (designs, priority year)",2020-23,Vectored Thrust,VT,138,237,0.582,Vectored Thrust
+"patent dataset (designs, priority year)",2020-23,Wingless (Multicopter),WM,15,237,0.063,Wingless (Multicopter)
+"patent dataset (designs, priority year)",2020-23,Electric Rotorcraft,ER,1,237,0.004,Electric Rotorcraft
+"patent dataset (designs, priority year)",2020-23,Hover Bikes / Personal Flying Devices,HB,5,237,0.021,Hover Bikes / PFD
+"patent dataset (designs, priority year)",2024-26 (partial),Lift + Cruise,LC,17,55,0.309,Lift + Cruise
+"patent dataset (designs, priority year)",2024-26 (partial),Vectored Thrust,VT,31,55,0.564,Vectored Thrust
+"patent dataset (designs, priority year)",2024-26 (partial),Wingless (Multicopter),WM,4,55,0.073,Wingless (Multicopter)
+"patent dataset (designs, priority year)",2024-26 (partial),Electric Rotorcraft,ER,1,55,0.018,Electric Rotorcraft
+"patent dataset (designs, priority year)",2024-26 (partial),Hover Bikes / Personal Flying Devices,HB,2,55,0.036,Hover Bikes / PFD
+"VFS eVTOL directory, pages in the domain (development year)",<= 2011,Lift + Cruise,LC,2,45,0.044,Lift + Cruise
+"VFS eVTOL directory, pages in the domain (development year)",<= 2011,Vectored Thrust,VT,12,45,0.267,Vectored Thrust
+"VFS eVTOL directory, pages in the domain (development year)",<= 2011,Wingless (Multicopter),WM,13,45,0.289,Wingless (Multicopter)
+"VFS eVTOL directory, pages in the domain (development year)",<= 2011,Electric Rotorcraft,ER,9,45,0.2,Electric Rotorcraft
+"VFS eVTOL directory, pages in the domain (development year)",<= 2011,Hover Bikes / Personal Flying Devices,HB,9,45,0.2,Hover Bikes / PFD
+"VFS eVTOL directory, pages in the domain (development year)",2012-15,Lift + Cruise,LC,9,90,0.1,Lift + Cruise
+"VFS eVTOL directory, pages in the domain (development year)",2012-15,Vectored Thrust,VT,32,90,0.356,Vectored Thrust
+"VFS eVTOL directory, pages in the domain (development year)",2012-15,Wingless (Multicopter),WM,21,90,0.233,Wingless (Multicopter)
+"VFS eVTOL directory, pages in the domain (development year)",2012-15,Electric Rotorcraft,ER,6,90,0.067,Electric Rotorcraft
+"VFS eVTOL directory, pages in the domain (development year)",2012-15,Hover Bikes / Personal Flying Devices,HB,22,90,0.244,Hover Bikes / PFD
+"VFS eVTOL directory, pages in the domain (development year)",2016-19,Lift + Cruise,LC,49,307,0.16,Lift + Cruise
+"VFS eVTOL directory, pages in the domain (development year)",2016-19,Vectored Thrust,VT,97,307,0.316,Vectored Thrust
+"VFS eVTOL directory, pages in the domain (development year)",2016-19,Wingless (Multicopter),WM,94,307,0.306,Wingless (Multicopter)
+"VFS eVTOL directory, pages in the domain (development year)",2016-19,Electric Rotorcraft,ER,13,307,0.042,Electric Rotorcraft
+"VFS eVTOL directory, pages in the domain (development year)",2016-19,Hover Bikes / Personal Flying Devices,HB,54,307,0.176,Hover Bikes / PFD
+"VFS eVTOL directory, pages in the domain (development year)",2020-23,Lift + Cruise,LC,53,271,0.196,Lift + Cruise
+"VFS eVTOL directory, pages in the domain (development year)",2020-23,Vectored Thrust,VT,96,271,0.354,Vectored Thrust
+"VFS eVTOL directory, pages in the domain (development year)",2020-23,Wingless (Multicopter),WM,83,271,0.306,Wingless (Multicopter)
+"VFS eVTOL directory, pages in the domain (development year)",2020-23,Electric Rotorcraft,ER,24,271,0.089,Electric Rotorcraft
+"VFS eVTOL directory, pages in the domain (development year)",2020-23,Hover Bikes / Personal Flying Devices,HB,15,271,0.055,Hover Bikes / PFD
+"VFS eVTOL directory, pages in the domain (development year)",2024-26 (partial),Lift + Cruise,LC,23,69,0.333,Lift + Cruise
+"VFS eVTOL directory, pages in the domain (development year)",2024-26 (partial),Vectored Thrust,VT,16,69,0.232,Vectored Thrust
+"VFS eVTOL directory, pages in the domain (development year)",2024-26 (partial),Wingless (Multicopter),WM,23,69,0.333,Wingless (Multicopter)
+"VFS eVTOL directory, pages in the domain (development year)",2024-26 (partial),Electric Rotorcraft,ER,2,69,0.029,Electric Rotorcraft
+"VFS eVTOL directory, pages in the domain (development year)",2024-26 (partial),Hover Bikes / Personal Flying Devices,HB,5,69,0.072,Hover Bikes / PFD

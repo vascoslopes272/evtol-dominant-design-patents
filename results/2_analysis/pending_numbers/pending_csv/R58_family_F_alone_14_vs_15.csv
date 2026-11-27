@@ -1,0 +1,5 @@
+dimensions,cohort,F_designs_in_cohort,F_designs_earliest,dQ,band_low_edge,percentile,below_band
+"15 dimensions, architecture weight 0",2016-19,70,18 + 13,0.0449,-0.0341,81.95,False
+"15 dimensions, architecture weight 0",2020-23,117,18 + 13,0.0098,-0.0269,32.22,False
+"14 dimensions, architecture weight 0, without tractor/pusher",2016-19,70,18 + 13,0.0446,-0.0343,81.12,False
+"14 dimensions, architecture weight 0, without tractor/pusher",2020-23,117,18 + 13,0.0119,-0.0269,34.88,False

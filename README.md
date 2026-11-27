@@ -38,3 +38,7 @@ How each part of the dataset was made, and what was reviewed by the author, is w
 ## Licence
 
 Code: MIT. Data: CC BY 4.0 (see the dataset record).
+
+## Licence
+
+The code in this repository is released under the MIT licence (file `LICENSE`). The data have their own licence, stated in the Zenodo record.

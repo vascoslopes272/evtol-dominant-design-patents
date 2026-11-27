@@ -1,0 +1,11 @@
+aircraft_id,architecture in the drawing,assignee,aircraft,arch_match,architecture of the public aircraft,architecture in the patent text,cause
+US2018290736A1_ad1,SLC,Joby Aviation,S4 v1,no,"Vectored thrust (S4, tilt rotor)",SLC,drawing and text agree with each other and differ from the aircraft as built (the patent describes another architecture)
+US9975631B1_ad1,TW,Kitty Hawk,Cora v1,no,Lift + cruise (Cora),TW,drawing and text agree with each other and differ from the aircraft as built (the patent describes another architecture)
+US2018086448A1_ad1,TW,Kitty Hawk,Wisk Aero,no,Conventional take-off (Z-P1),TW,drawing and text agree with each other and differ from the aircraft as built (the patent describes another architecture)
+DE102023108565B3_ad1,SLC,P3X,Porsche-Boeing concept,no,Vectored thrust (concept),SLC,drawing and text agree with each other and differ from the aircraft as built (the patent describes another architecture)
+US2021371117A1_ad1,SLC,Porsche,Porsche-Boeing concept v1,no,Vectored thrust (concept),SLC,drawing and text agree with each other and differ from the aircraft as built (the patent describes another architecture)
+DE102023133781B3_ad1,SLC,Porsche,Porsche-Boeing concept v2,no,Vectored thrust (concept),SLC,drawing and text agree with each other and differ from the aircraft as built (the patent describes another architecture)
+US2024253779A1_ad1,SLC,Supernal,S-A1,no,Vectored thrust (S-A1 mock-up),SLC,drawing and text agree with each other and differ from the aircraft as built (the patent describes another architecture)
+WO2024151705A1_ad1,SLC,Supernal,S-A1 v1,no,Vectored thrust (S-A1 mock-up),SLC,drawing and text agree with each other and differ from the aircraft as built (the patent describes another architecture)
+CN119262274A_ad1,SLC,Wofei / Geely Aviation,AE200,no,"Vectored thrust (AE200, tilt rotor)",SLC,drawing and text agree with each other and differ from the aircraft as built (the patent describes another architecture)
+GB201801766D0_ad1,SLC,Individual Inventor,e-Starling,image only,Vectored thrust (e-Starling),CVT,the drawing label differs from the text and the aircraft (drawing misread or cannot show it)

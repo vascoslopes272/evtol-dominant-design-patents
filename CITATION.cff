@@ -1,14 +1,14 @@
 cff-version: 1.2.0
 message: "If you use this dataset or code, please cite it as below."
 title: "eVTOL_dataset"
-type: dataset
+type: software
 authors:
-  - family-names: "TODO-author-surname"
-    given-names: "TODO-author-given-names"
-    orcid: "https://orcid.org/TODO"
+  - family-names: "Lopes"
+    given-names: "Vasco"
 abstract: "Patents, aircraft designs and labels behind the eVTOL architecture analysis."
 keywords: [eVTOL, patents, aircraft architecture, dataset]
-repository-code: "https://github.com/TODO/TODO"
+repository-code: "https://github.com/vascoslopes272/evtol-design-space-analysis-tools"
 doi: "TODO-zenodo-doi"
 date-released: "TODO"
 version: "TODO"
+license: MIT

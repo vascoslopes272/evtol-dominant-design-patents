@@ -1,6 +1,4 @@
 permutations behind the bands: 10000
-figures: ['fig4', 'fig5', 'fig7']
+figures: ['fig5']
 fig5d: every protected point (all five cohorts) is read against the ALL-DESIGNS baseline (mean Q of the two earliest cohorts of all designs, 0.5442) and the all-designs permutation band, as in Table 4. 2020-23 is the Table 4 value (-0.0287); the other four are Q of the protected designs of the cohort minus that baseline (no protected-own baseline is used). The two earliest cohorts (<= 2011, 2012-15) form the baseline of ΔQ and are not tested; 2024-26* is incomplete and untested.
-fig7a: red ring = protected designs in a pair of consecutive priority years above 50 % (years 2020, 2021). The all-designs series does not meet the condition (no two consecutive years above 50 %), so it has no ring.
-fig7c: EXPLORATORY check of ΔQ inside F (architecture weight 0), 120 x 170 mm; top panel = ΔQ of F per cohort against the lower edge of its permutation band (test2_summary.csv), bottom panel = per dimension (test2_explore_per_dimension.csv); circle 2016-19, square 2020-23, grey tick = lower band edge. It shows no convergence inside F: both cohorts (and every dimension) sit above the lower band edge.
 values/bands that differ from the notebooks' tables: 37 of 60

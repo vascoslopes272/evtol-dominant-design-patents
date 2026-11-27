@@ -326,7 +326,7 @@ def balance_three(bal, name="fig5abc_balance_three_levels.pdf", width_mm=183.0):
     names = {"A0": "A", "A1t": "A·W·T", "A0c": "A·U"}
     for k, level in enumerate(("A0", "A1t", "A0c")):
         ax = fig.add_axes([k * cell + 0.052, 0.215, cell - 0.075, 0.665])
-        balance_axes(ax, bal, level, f"²D at {names[level]}", zoom="tight" if level in ("A0", "A1t") else True, legend=False)
+        balance_axes(ax, bal, level, "Effective number of configurations, ²D", zoom="tight" if level in ("A0", "A1t") else True, legend=False)
         ax.set_xticklabels(["≤11", "12–15", "16–19", "20–23", "24–26*"])      # shorter labels: the panels are narrower than a single column
     fig.legend(handles=legend_handles(), loc="upper center", bbox_to_anchor=(0.5, 0.995), ncol=6, frameon=False, handlelength=2.0,
                columnspacing=1.2, handletextpad=0.5, fontsize=FS)

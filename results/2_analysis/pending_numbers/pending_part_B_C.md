@@ -1,6 +1,6 @@
 # Pending numbers, part B and C (items 5 to 10)
 
-Scripts in `REPO/2_analysis/scripts` (REPO = evtol-design-space-analysis-tools), run with `EVTOL_DATASET=/mnt/storage_11tb/Drive_files_to_syncronize/eVTOL_dataset PYTHONPATH=REPO/2_analysis/src python3 <script>` from REPO. Seed 42; thesis functions unchanged. CSV files in `numbers/pending_csv/`. Values only, no interpretation.
+Scripts in `REPO/2_analysis/scripts` (REPO = evtol-design-space-analysis-tools), run with `EVTOL_DATASET=eVTOL_dataset PYTHONPATH=REPO/2_analysis/src python3 <script>` from REPO. Seed 42; thesis functions unchanged. CSV files in `numbers/pending_csv/`. Values only, no interpretation.
 
 ## 5. Rarefaction at 30, 40, 50
 

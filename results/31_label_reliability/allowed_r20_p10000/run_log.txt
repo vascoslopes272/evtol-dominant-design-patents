@@ -13,7 +13,7 @@
  "share rule of result 1": 0.8,
  "permutations per band": "10000 (seed 42)",
  "error rate": 0.2,
- "yaml": "/home/vasco/Vasco Workspace/Tese_Vasco_Lnx/evtol-design-space-analysis-tools/2_analysis/20_config.yaml",
+ "yaml": "evtol-design-space-analysis-tools/2_analysis/20_config.yaml",
  "workers": 15,
  "versions": {
   "python": "3.13.9",

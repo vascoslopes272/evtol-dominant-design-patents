@@ -1,6 +1,6 @@
 # Pending numbers, part D (items 11, 12, 13, 14, 20), paper P1
 
-Recomputed on the public dataset folder `eVTOL_dataset` (621 designs, 619 with an architecture, 540 primary patents), seed 42, thesis functions unchanged, run 2026-11-26, one process at a time (`nice 19`). Paths are relative to `evtol-design-space-analysis-tools/` unless they start with `/mnt/`. CSVs are in `numbers/pending_csv/`. Values only, nothing interpreted. New scripts in `2_analysis/scripts/`: `45_pending_D_items_11_12.py`, `46_pending_D_item_13_table_S1.py`, `47_pending_D_item_14_table_S2.py`, `48_pending_D_item_20_spearman_holm.py`; each needs `EVTOL_DATASET=/mnt/storage_11tb/Drive_files_to_syncronize/eVTOL_dataset PYTHONPATH=2_analysis/src`, python3 without -I.
+Recomputed on the public dataset folder `eVTOL_dataset` (621 designs, 619 with an architecture, 540 primary patents), seed 42, thesis functions unchanged, run 2026-11-26, one process at a time (`nice 19`). Paths are relative to `evtol-design-space-analysis-tools/` unless they start with `/mnt/`. CSVs are in `numbers/pending_csv/`. Values only, nothing interpreted. New scripts in `2_analysis/scripts/`: `45_pending_D_items_11_12.py`, `46_pending_D_item_13_table_S1.py`, `47_pending_D_item_14_table_S2.py`, `48_pending_D_item_20_spearman_holm.py`; each needs `EVTOL_DATASET=eVTOL_dataset PYTHONPATH=2_analysis/src`, python3 without -I.
 
 ---
 

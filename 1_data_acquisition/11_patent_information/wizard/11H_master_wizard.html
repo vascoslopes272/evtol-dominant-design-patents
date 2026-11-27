@@ -5067,7 +5067,7 @@ var FIG_IMAGE_PATH = {};
 var FIG_ATTACHED_URL = {};
 
 // FIG_IMAGE_PATH values are absolute local filesystem paths written by
-// src/excel_schema.py (e.g. "/mnt/storage_11tb/.../matched/Batch_02/<pid>/<crop>.png"),
+// src/excel_schema.py (e.g. ".../matched/Batch_02/<pid>/<crop>.png"),
 // not URLs — convert to a file:// URL so <img src> can load them directly from
 // disk when this HTML is opened via file:// in Chrome (no upload step needed).
 function pathToFileURL(p) {

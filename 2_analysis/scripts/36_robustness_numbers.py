@@ -15,6 +15,13 @@ Outputs (numbers/supplementary_csv)
 """
 from __future__ import annotations
 
+import os as _os
+from pathlib import Path as _Path
+_REPO = _Path(__file__).resolve().parents[2]
+_SUPP = _os.environ.get("SUPP_OUT", str(_REPO / "results" / "2_analysis" / "numbers"))
+_DS = _os.environ.get("EVTOL_DATASET", str(_REPO.parent / "eVTOL_dataset"))
+for _d in ("pending_csv", "supplementary_csv"):
+    _os.makedirs(_os.path.join(_SUPP, _d), exist_ok=True)
 import json
 import os
 import sys
@@ -25,8 +32,8 @@ import pandas as pd
 
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "3_robustness" / "31_label_reliability" / "src"))
-DS_ROOT = Path(os.environ.get("EVTOL_DATASET", "/mnt/storage_11tb/Drive_files_to_syncronize/eVTOL_dataset"))
-OUT = Path(os.environ.get("SUPP_OUT", "/mnt/storage_11tb/Drive_files_to_syncronize/paper_figures_for_other_pc/numbers")) / "supplementary_csv"
+DS_ROOT = Path(os.environ.get("EVTOL_DATASET", _DS))
+OUT = Path(os.environ.get("SUPP_OUT", _SUPP)) / "supplementary_csv"
 JSONL = REPO / "results" / "31_label_reliability" / os.environ.get("RUN_TAG", "allowed_r15_p10000") / "replicas.jsonl"
 REF = DS_ROOT / "07_results" / "71_label_reliability" / "reliability_replicas.csv"
 SEED = 20261118

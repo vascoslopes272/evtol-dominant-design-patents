@@ -8,12 +8,19 @@ results/2_analysis/pending_numbers/. Run it after the scripts, and again when th
 """
 from __future__ import annotations
 
+import os as _os
+from pathlib import Path as _Path
+_REPO = _Path(__file__).resolve().parents[2]
+_SUPP = _os.environ.get("SUPP_OUT", str(_REPO / "results" / "2_analysis" / "numbers"))
+_DS = _os.environ.get("EVTOL_DATASET", str(_REPO.parent / "eVTOL_dataset"))
+for _d in ("pending_csv", "supplementary_csv"):
+    _os.makedirs(_os.path.join(_SUPP, _d), exist_ok=True)
 import os
 import shutil
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-NUM = Path(os.environ.get("SUPP_OUT", "/mnt/storage_11tb/Drive_files_to_syncronize/paper_figures_for_other_pc/numbers"))
+NUM = Path(os.environ.get("SUPP_OUT", _SUPP))
 OUT = REPO / "results" / "2_analysis" / "pending_numbers"
 PARTS = [("A. Coding-noise run and weight draws (items 1-4)", "pending_part_A.md"),
          ("B and C. Parameter sweeps and numbers quoted in the article (items 5-10)", "pending_part_B_C.md"),

@@ -7,6 +7,13 @@ Thesis functions unchanged (viz.frames.selected_fields, form_frame15). 80 % rule
 """
 from __future__ import annotations
 
+import os as _os
+from pathlib import Path as _Path
+_REPO = _Path(__file__).resolve().parents[2]
+_SUPP = _os.environ.get("SUPP_OUT", str(_REPO / "results" / "2_analysis" / "numbers"))
+_DS = _os.environ.get("EVTOL_DATASET", str(_REPO.parent / "eVTOL_dataset"))
+for _d in ("pending_csv", "supplementary_csv"):
+    _os.makedirs(_os.path.join(_SUPP, _d), exist_ok=True)
 import sys
 from pathlib import Path
 
@@ -17,7 +24,7 @@ REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "3_robustness" / "31_label_reliability" / "src"))
 import core  # noqa: E402
 
-OUT = Path("/mnt/storage_11tb/Drive_files_to_syncronize/paper_figures_for_other_pc/numbers/pending_csv")
+OUT = Path((_SUPP + "/pending_csv"))
 RULE = 0.80
 NS = "not stated in the code"
 

@@ -4,8 +4,15 @@
 Reads S5_variety_top_shares.csv (38_parameter_sweep.py --part variety) and S5_share_window.csv (--part window; all four levels L1, L2=A.W.T, L3=A.U, F, both bases).
 Writes pending_csv/6_variety_settled_vs_varying.csv and pending_csv/7_share_window_all_levels.csv.
 """
+import os as _os
+from pathlib import Path as _Path
+_REPO = _Path(__file__).resolve().parents[2]
+_SUPP = _os.environ.get("SUPP_OUT", str(_REPO / "results" / "2_analysis" / "numbers"))
+_DS = _os.environ.get("EVTOL_DATASET", str(_REPO.parent / "eVTOL_dataset"))
+for _d in ("pending_csv", "supplementary_csv"):
+    _os.makedirs(_os.path.join(_SUPP, _d), exist_ok=True)
 import pandas as pd
-N = "/mnt/storage_11tb/Drive_files_to_syncronize/paper_figures_for_other_pc/numbers/"
+N = (_SUPP + "/")
 t = pd.read_csv(N + "supplementary_csv/S5_variety_top_shares.csv"); rows = []
 for th in (0.7, 0.8, 0.9):
     for _, r in t.iterrows():

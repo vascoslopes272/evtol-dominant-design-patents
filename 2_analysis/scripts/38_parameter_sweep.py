@@ -11,13 +11,20 @@ variety: dimensions of the design-space table whose leading option holds under t
 window:  years in which condition 1 is met, per level and base, when k consecutive read years (>= 20 designs) are above 50 %.
 Writes numbers/supplementary_csv/S5_*.csv
 """
+import os as _os
+from pathlib import Path as _Path
+_REPO = _Path(__file__).resolve().parents[2]
+_SUPP = _os.environ.get("SUPP_OUT", str(_REPO / "results" / "2_analysis" / "numbers"))
+_DS = _os.environ.get("EVTOL_DATASET", str(_REPO.parent / "eVTOL_dataset"))
+for _d in ("pending_csv", "supplementary_csv"):
+    _os.makedirs(_os.path.join(_SUPP, _d), exist_ok=True)
 import argparse, importlib.util, os, sys
 from pathlib import Path
 import numpy as np, pandas as pd
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "3_robustness" / "31_label_reliability" / "src"))
 import core
-OUT = Path(os.environ.get("SUPP_OUT", "/mnt/storage_11tb/Drive_files_to_syncronize/paper_figures_for_other_pc/numbers")) / "supplementary_csv"
+OUT = Path(os.environ.get("SUPP_OUT", _SUPP)) / "supplementary_csv"
 OUT.mkdir(parents=True, exist_ok=True)
 ap = argparse.ArgumentParser(); ap.add_argument("--part", required=True); ap.add_argument("--n", type=int, default=30); ap.add_argument("--perms", type=int, default=10000)
 a = ap.parse_args()

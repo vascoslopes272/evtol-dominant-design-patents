@@ -10,6 +10,7 @@ records that have one, and falls on or before the snapshot for nearly all). Age 
 """
 from __future__ import annotations
 
+import os
 import shutil
 from datetime import datetime
 
@@ -20,7 +21,7 @@ from viz import frames, thesis_q1
 from viz.thesis_latex_common import drop_section, root as latex_root, tables_md
 
 HEADING = "Age at lapse and share not actively protected per priority year"
-RAW = "/mnt/storage_11tb/Drive_files_to_syncronize/2 - Patente & Validation/3 -Raw_Patent_Exports_PatSeer_&Gold_Standard/1639__dataset_08_06_26.xlsx"
+RAW = os.path.join(os.environ.get("EVTOL_DATASET", "eVTOL_dataset"), "01_query", "patseer_1639_2026-06-08.xlsx")
 
 
 def _stats(a: pd.Series) -> dict:

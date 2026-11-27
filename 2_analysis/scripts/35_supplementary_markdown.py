@@ -5,12 +5,19 @@
 """
 from __future__ import annotations
 
+import os as _os
+from pathlib import Path as _Path
+_REPO = _Path(__file__).resolve().parents[2]
+_SUPP = _os.environ.get("SUPP_OUT", str(_REPO / "results" / "2_analysis" / "numbers"))
+_DS = _os.environ.get("EVTOL_DATASET", str(_REPO.parent / "eVTOL_dataset"))
+for _d in ("pending_csv", "supplementary_csv"):
+    _os.makedirs(_os.path.join(_SUPP, _d), exist_ok=True)
 import os
 from pathlib import Path
 
 import pandas as pd
 
-NUM = Path(os.environ.get("SUPP_OUT", "/mnt/storage_11tb/Drive_files_to_syncronize/paper_figures_for_other_pc/numbers"))
+NUM = Path(os.environ.get("SUPP_OUT", _SUPP))
 C = NUM / "supplementary_csv"
 REPO = Path(__file__).resolve().parents[2]
 S34, S36, S37 = "2_analysis/scripts/34_supplementary_numbers.py", "2_analysis/scripts/36_robustness_numbers.py", "2_analysis/scripts/37_entrants_in_replicas_check.py"
@@ -53,7 +60,7 @@ def main():
       "Existing scripts they rely on, unchanged: `31_family_F_numbers.py --perms 10000` (the percentile and band tables of section D, run 2026-11-25 20:30), `3_robustness/31_label_reliability/src/{core,perturb,31B_run_replicas}.py`, `viz/thesis_q2.py`, `viz/thesis_q4.py`, `viz/frames.py`, `lib/dominant_design.py`, `lib/diversity.py`.\n")
     w("**Status of the runs this file depends on.** The coding-noise run at 15 % and 10 000 permutations (`results/31_label_reliability/r15_p10000/replicas.jsonl`, started 19:05 by another process, asked for 120 replicas, about 38 minutes per replica) "
       f"held **{n10} finished replicas** when section E was computed. 1 000 replicas at 10 000 permutations do not exist and cannot be produced in this session (about 1 000 x 38 min / 15 workers, roughly 42 hours on this machine). "
-      "The only 1 000-replica run is the earlier one at 1 000 permutations (`/mnt/storage_11tb/Drive_files_to_syncronize/eVTOL_dataset/07_results/71_label_reliability/`); it is given next to the 10 000-permutation numbers and labelled. "
+      "The only 1 000-replica run is the earlier one at 1 000 permutations (`eVTOL_dataset/07_results/71_label_reliability/`); it is given next to the 10 000-permutation numbers and labelled. "
       "`python 2_analysis/scripts/36_robustness_numbers.py` followed by `35_supplementary_markdown.py` re-reads the file and updates every E11-E13 value when the run finishes.\n")
 
     # ------------------------------------------------------------------ A
@@ -113,7 +120,7 @@ def main():
     w("### C8. Funnel and counts\n")
     w(md(fun))
     w("")
-    w(f"`{S34}`; file `C8a_funnel.csv`. Sources: the PatSeer export `01_query/patseer_1639_2026-06-08.xlsx`, `03_patents/33_patents.csv`, `04_aircraft/42_aircraft.csv`, `45_designs.csv` (all in `/mnt/storage_11tb/Drive_files_to_syncronize/eVTOL_dataset/`) and the counts of `viz/data.py` (`ds.counts`).\n")
+    w(f"`{S34}`; file `C8a_funnel.csv`. Sources: the PatSeer export `01_query/patseer_1639_2026-06-08.xlsx`, `03_patents/33_patents.csv`, `04_aircraft/42_aircraft.csv`, `45_designs.csv` (all in `eVTOL_dataset/`) and the counts of `viz/data.py` (`ds.counts`).\n")
     w("Chain to the 621: 1 639 families -> 531 disapproved at T1 -> 1 108 approved -> 1 219 aircraft rows on them -> 422 non-primary rows removed as duplicates (D1 41 + D2 381) -> 797 primary rows -> 176 set aside by the gate -> **621 designs** on 540 primary patents. "
       "(The other chain in `viz/data.py`: 1 108 - 232 gated = 876 representative patents; 1 219 - 262 gated rows = 957 aircraft observations, of which 621 are primary.) Reasons for disapproval: " + ", ".join(f"{r['reason']} {r['patents']}" for _, r in reas.iterrows()) + ".\n")
     w(md(dup.rename(columns={"step": "aircraft-row step"})))
@@ -152,7 +159,7 @@ def main():
       "`V4_regions_and_family_F/main/q7_region_family_share.pdf`, `.../appendix/q7_region_lean_without_largest_filer.pdf` (and `q7_region_firm_proximity.pdf` in `freeze/Figures/...`); "
       "entrants: `V2_new_and_returning_assignees/appendix/q2_first_vs_returning_filers.pdf`, `q2_entrant_class_mix.pdf`, `q2_tilt_wing_entrants.pdf`; "
       "dominant design: `Part_III_dominant_design/III2_III3_dominant_design/main/q7_condition1_family.pdf`, `q7_condition2_balance.pdf`, `q7_condition3_cohesion.pdf`, `q7_family_conditions.pdf`; "
-      "sensitivity to the weights: `/mnt/storage_11tb/Drive_files_to_syncronize/eVTOL_dataset/07_results/72_weight_sensitivity/test1_figure.pdf` (and `.png`). No figure of the coding-noise run exists. "
+      "sensitivity to the weights: `eVTOL_dataset/07_results/72_weight_sensitivity/test1_figure.pdf` (and `.png`). No figure of the coding-noise run exists. "
       "Note: the notebook figures of Part III use 1 000 permutations (`viz/thesis_q7.py:26`), not the 10 000 of the paper figures.\n")
 
     # ------------------------------------------------------------------ E
@@ -289,7 +296,7 @@ def DIFFS(vt10, vt1, bd10, bd1, lc, n10):
             rows.append((name, f"{old} (1 000 replicas, 1 000 perms, draft of 25 Nov)", f"{100 * val:.1f} % ({n10} replicas, 10 000 perms; not final)"))
     rows.append(("Balance at A.U, protected base, original verdict", "not met (run with 1 000 shuffles)", "met (10 000 shuffles): 2D sits next to the band edge"))
     # band edges
-    refsum = pd.read_csv("/mnt/storage_11tb/Drive_files_to_syncronize/eVTOL_dataset/07_results/71_label_reliability/reliability_summary.csv")
+    refsum = pd.read_csv((_DS + "/07_results/71_label_reliability/reliability_summary.csv"))
     import json
     jl = (REPO / "results" / "31_label_reliability" / "r15_p10000" / "replicas.jsonl").read_text().splitlines()
     base = next(json.loads(x)["results"] for x in jl if json.loads(x)["log"]["replica"] == -1)

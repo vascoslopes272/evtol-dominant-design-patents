@@ -4,8 +4,15 @@
 Reads S5_rarefaction_30.csv, S5_rarefaction_50.csv (38_parameter_sweep.py --part rare, 10000 perms, seed 42) and
 results/2_analysis/family_F/percentiles_balance.csv (40). Writes pending_csv/5_rarefaction_verdict_30_40_50.csv and 5_rarefaction_verdict_changes.csv.
 """
+import os as _os
+from pathlib import Path as _Path
+_REPO = _Path(__file__).resolve().parents[2]
+_SUPP = _os.environ.get("SUPP_OUT", str(_REPO / "results" / "2_analysis" / "numbers"))
+_DS = _os.environ.get("EVTOL_DATASET", str(_REPO.parent / "eVTOL_dataset"))
+for _d in ("pending_csv", "supplementary_csv"):
+    _os.makedirs(_os.path.join(_SUPP, _d), exist_ok=True)
 import pandas as pd
-N = "/mnt/storage_11tb/Drive_files_to_syncronize/paper_figures_for_other_pc/numbers/"
+N = (_SUPP + "/")
 LV = {"A0": "A", "A1t": "A.W.T", "A0c": "A.U", "family_b": "F"}
 fs = {30: N + "supplementary_csv/S5_rarefaction_30.csv", 40: N + "family_F/percentiles_balance.csv", 50: N + "supplementary_csv/S5_rarefaction_50.csv"}
 P = "percentile of the observed D2 (share of shuffles at or below)"

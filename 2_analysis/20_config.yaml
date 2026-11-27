@@ -53,7 +53,7 @@ outputs:              # folders inside roots.output
   thesis_document: thesis_document    # notebook 47: the LaTeX document and its PDF
 
 tools:
-  tectonic: /home/vasco/anaconda3/envs/tectonic/bin/tectonic   # LaTeX engine (conda env 'tectonic')
+  tectonic: tectonic   # LaTeX engine, found on PATH (conda env 'tectonic')
 
 # -----------------------------------------------------------------------------
 # analysis constants — every threshold the document states, in one place

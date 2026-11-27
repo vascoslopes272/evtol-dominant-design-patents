@@ -3,13 +3,20 @@ on the original table and on replicas 0..4, and compares them design by design.
     EVTOL_DATASET=<path> PYTHONPATH=2_analysis/src python 2_analysis/scripts/37_entrants_in_replicas_check.py
 Writes numbers/supplementary_csv/E14_entrant_flags_original_vs_replicas.csv
 """
+import os as _os
+from pathlib import Path as _Path
+_REPO = _Path(__file__).resolve().parents[2]
+_SUPP = _os.environ.get("SUPP_OUT", str(_REPO / "results" / "2_analysis" / "numbers"))
+_DS = _os.environ.get("EVTOL_DATASET", str(_REPO.parent / "eVTOL_dataset"))
+for _d in ("pending_csv", "supplementary_csv"):
+    _os.makedirs(_os.path.join(_SUPP, _d), exist_ok=True)
 import os, sys
 from pathlib import Path
 import pandas as pd
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "3_robustness" / "31_label_reliability" / "src"))
 import core, perturb
-OUT = Path(os.environ.get("SUPP_OUT", "/mnt/storage_11tb/Drive_files_to_syncronize/paper_figures_for_other_pc/numbers")) / "supplementary_csv"
+OUT = Path(os.environ.get("SUPP_OUT", _SUPP)) / "supplementary_csv"
 base = core.load()
 ctx0 = core.context(base, base.master)
 e0 = base.m.frames.named_entries(ctx0.v, ctx0.WIN_NAMES).set_index("aircraft_id")

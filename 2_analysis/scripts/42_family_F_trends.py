@@ -1,6 +1,6 @@
 """Item 10 (pending B/C): trends inside family F alone.
 
-    EVTOL_DATASET=/mnt/storage_11tb/Drive_files_to_syncronize/eVTOL_dataset PYTHONPATH=2_analysis/src python3 2_analysis/scripts/42_family_F_trends.py
+    EVTOL_DATASET=<path to eVTOL_dataset> PYTHONPATH=2_analysis/src python3 2_analysis/scripts/42_family_F_trends.py
 (a) Spearman trace trends inside F: thesis drivers.trace_drift / trace_trends / q6._with_holm called unchanged on the trace frame of the F designs only
     (F = frames.family_flags + family_mask, topType relabelled "F" so the F designs form one class; Spearman p is scipy's two-sided p, as in the thesis; no permutation).
 (b) CVT* share inside F: per cohort, and drivers.trend_test (Spearman on priority year, indicator CVT*, complete years).
@@ -8,6 +8,13 @@
     copied to pending_csv; they are not recomputed here.
 Writes pending_csv/10a_F_trace_trends.csv, 10b_F_cvt_share_by_cohort.csv, 10c_dQ_inside_F_*.csv
 """
+import os as _os
+from pathlib import Path as _Path
+_REPO = _Path(__file__).resolve().parents[2]
+_SUPP = _os.environ.get("SUPP_OUT", str(_REPO / "results" / "2_analysis" / "numbers"))
+_DS = _os.environ.get("EVTOL_DATASET", str(_REPO.parent / "eVTOL_dataset"))
+for _d in ("pending_csv", "supplementary_csv"):
+    _os.makedirs(_os.path.join(_SUPP, _d), exist_ok=True)
 import shutil, sys
 from pathlib import Path
 import numpy as np, pandas as pd
@@ -15,8 +22,8 @@ REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "3_robustness" / "31_label_reliability" / "src"))
 import core
 from lib import drivers
-O = "/mnt/storage_11tb/Drive_files_to_syncronize/paper_figures_for_other_pc/numbers/pending_csv/"
-W = Path("/mnt/storage_11tb/Drive_files_to_syncronize/eVTOL_dataset/07_results/72_weight_sensitivity")
+O = (_SUPP + "/pending_csv/")
+W = Path((_DS + "/07_results/72_weight_sensitivity"))
 base = core.load(); ctx = core.context(base, base.master); fr = base.m.frames; ds, v = ctx.ds, ctx.v
 fl = fr.family_flags(ds, v); fm = fr.family_mask(fl); print("F designs:", int(fm.sum()), "of", len(fl))
 Fid = set(fl.loc[fm, "aircraft_id"])

@@ -33,7 +33,7 @@ ERROR MODEL (rules marked PROVISIONAL wait for the author's ruling; each is one 
   MAX_REDRAWS times when a lock breaks, then keep the original design.
 - The four propulsion columns notebook 04 derives from the codes (propulsor count, boom thrust state, wing thrust carrier,
   wing-borne count, with their notes) are recomputed from the perturbed codes with notebook 04's own rules
-  (_build/nb04_v16/11I_master_labels.ipynb, cell 25, copied in :func:`derive`). The thesis code reads these columns.
+  (copied in :func:`derive`). The thesis code reads these columns.
 
 RANDOM NUMBERS: replica i uses numpy default_rng([seed, i]); a replica does not depend on the others nor on the workers.
 """

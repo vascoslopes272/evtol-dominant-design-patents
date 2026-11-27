@@ -456,7 +456,7 @@ Sheet “multicopters”, 17 rows · 17 columns
 
 #### `29_gold_standard.csv` (16.0 KB)
 
-The gold standard: every census aircraft, its programme and the result (captured, outside the query with a patent, without a patent).
+The gold standard: every census aircraft, its programme and the result (`captured`; `outside, patent found`: a patent of the aircraft exists but its design is not in the dataset, because the query did not return its family or the domain gate excluded it; `no patent found`; `search pending`: two aircraft, V600 and SHy4, were not searched and do not enter the shares).
 
 **One row per:** census aircraft
 

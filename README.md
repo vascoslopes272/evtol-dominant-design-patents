@@ -1,6 +1,6 @@
-# eVTOL design space: analysis and tools
+# evtol-dominant-design-patents
 
-Code that builds and analyses a patent dataset of electric vertical take-off and landing (eVTOL) aircraft designs. It covers the whole chain, from the patent query to the figures of the paper. The data are in a separate Zenodo record (**eVTOL_dataset**, DOI to be added). This repository holds only code, notebooks and the results they produce.
+Code behind a study of dominant designs in electric vertical take-off and landing (eVTOL) aircraft, built from patents. It covers the whole chain, from the patent query and the labelling of the designs to the robustness tests and the figures of the paper. The data are in a separate Zenodo record (**eVTOL Aircraft Designs from Patents: a labelled dataset**, DOI 10.5281/zenodo.24590068). This repository holds only code, notebooks and the results they produce.
 
 ## How the repository is organised
 

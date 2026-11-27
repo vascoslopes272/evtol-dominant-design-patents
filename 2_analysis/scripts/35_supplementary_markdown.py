@@ -54,7 +54,7 @@ def main():
     w("# Supplementary numbers, paper P1 (dominant design in eVTOL, TFSC)\n")
     w("Recomputed on the public dataset folder `eVTOL_dataset` (621 designs, 619 with an architecture, 540 primary patents, 1 639 patent families), thesis seed 42, 10 000 permutations per band wherever a permutation band appears. "
       "Written 2026-11-25. Nothing is interpreted; no value is rounded beyond what the column says (the CSVs hold the unrounded values). "
-      "Every value below has a value, the script and file it came from, and a one-line definition. Paths are relative to `evtol-design-space-analysis-tools/` unless they start with `/mnt/`. "
+      "Every value below has a value, the script and file it came from, and a one-line definition. Paths are relative to `evtol-dominant-design-patents/` unless they start with `/mnt/`. "
       "One CSV per table is in `numbers/supplementary_csv/`; the register of every single value is `numbers/supplementary_csv/_values.csv` and `_robustness_values.csv`.\n")
     w("**Scripts written for this file** (new, in `2_analysis/scripts/`): `34_supplementary_numbers.py` (sections B, C, D, E15-E17), `36_robustness_numbers.py` (E11-E13), `37_entrants_in_replicas_check.py` (E14), `35_supplementary_markdown.py` (this file). "
       "Existing scripts they rely on, unchanged: `31_family_F_numbers.py --perms 10000` (the percentile and band tables of section D, run 2026-11-25 20:30), `3_robustness/31_label_reliability/src/{core,perturb,31B_run_replicas}.py`, `viz/thesis_q2.py`, `viz/thesis_q4.py`, `viz/frames.py`, `lib/dominant_design.py`, `lib/diversity.py`.\n")

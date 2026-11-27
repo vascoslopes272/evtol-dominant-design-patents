@@ -1,8 +1,11 @@
 # Zenodo record (to fill before publishing)
-- Title: eVTOL_dataset
-- Resource type: Dataset. Files: README.md, eVTOL_dataset.zip, eVTOL_dataset_images.zip, SHA256SUMS (the limit is 100 files)
-- Creators: name, affiliation, ORCID (same as CITATION.cff)
+- Title: eVTOL Aircraft Designs from Patents: a coded dataset
+- Resource type: Dataset. Files: README.md, eVTOL_dataset.zip, eVTOL_dataset_images.zip, SHA256SUMS (the limit is 100 files, 50 GB)
+- Creators: Lopes, Vasco; affiliation; ORCID (same as CITATION.cff)
+- Licence: CC BY 4.0 (check the terms of the third-party sources first)
 - Description: copy the first paragraph of README.md
-- Keywords: eVTOL, patents, aircraft architecture, dataset
-- Related identifiers: "is supplement to" the GitHub repository (release tag) and the paper DOI
-- Version and publication date. Records are immutable once published: run the final check first.
+- Keywords: eVTOL, patents, dominant design, aircraft design, aircraft architecture, technology forecasting, coded dataset
+- Language: English. Version: 1.0.0
+- Related works: "is supplement to" the GitHub repository https://github.com/vascoslopes272/evtol-dominant-design-patents (type Software); add P1 and P2 when they have DOIs
+- Repository URL: same GitHub link
+- DOI reserved: 10.5281/zenodo.24590068 (written in the dataset README and CITATION.cff). Records are immutable once published: run the final check first.

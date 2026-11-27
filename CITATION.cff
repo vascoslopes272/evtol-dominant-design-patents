@@ -1,14 +1,14 @@
 cff-version: 1.2.0
 message: "If you use this dataset or code, please cite it as below."
-title: "eVTOL_dataset"
+title: "evtol-dominant-design-patents"
 type: software
 authors:
   - family-names: "Lopes"
     given-names: "Vasco"
-abstract: "Patents, aircraft designs and labels behind the eVTOL architecture analysis."
-keywords: [eVTOL, patents, aircraft architecture, dataset]
-repository-code: "https://github.com/vascoslopes272/evtol-design-space-analysis-tools"
-doi: "TODO-zenodo-doi"
-date-released: "TODO"
-version: "TODO"
+abstract: "Code behind a study of dominant designs in eVTOL aircraft, built from patents: query, labelling, analysis and robustness tests."
+keywords: [eVTOL, patents, dominant design, aircraft design, aircraft architecture, technology forecasting]
+repository-code: "https://github.com/vascoslopes272/evtol-dominant-design-patents"
+doi: "10.5281/zenodo.24590068"
+date-released: "2026-11-27"
+version: "1.0.0"
 license: MIT
